@@ -138,7 +138,10 @@
         select="('http://www.omg.org/spec/UML/20131001',
             'https://www.omg.org/spec/UML/20131001',
             'http://www.omg.org/spec/UML/20161101',
-            'https://www.omg.org/spec/UML/20161101'
+            'https://www.omg.org/spec/UML/20161101',
+            'http://www.eclipse.org/uml2/3.0.0/UML',
+            'http://www.eclipse.org/uml2/4.0.0/UML',
+            'http://www.eclipse.org/uml2/5.0.0/UML'
         )"/>
 
     <!-- If enabled then any occurence of rdf:PlainLiteral datatype will be
