@@ -35,8 +35,8 @@
     <!-- Ontology base URI, configure as necessary. Do not use a trailing local delimiter
         like in the namespace definition-->
     <!--<xsl:variable name="base-uri" select="'http://publications.europa.eu/ontology/ePO'"/>-->
-    <xsl:variable name="base-ontology-uri" select="'http://data.europa.eu/a4g/ontology'"/>
-    <xsl:variable name="base-shape-uri" select="'http://data.europa.eu/a4g/data-shape'"/>
+    <xsl:variable name="base-ontology-uri" select="'http://tu-dominio.com/ontologia/prueba'"/>
+    <xsl:variable name="base-shape-uri" select="'http://tu-dominio.com/ontologia/prueba-shape'"/>
     <xsl:variable name="base-restriction-uri" select="$base-ontology-uri"/>
     <!--    Shapes Module URI-->
     <xsl:variable name="shapeArtefactURI"
@@ -55,10 +55,9 @@
     <xsl:variable name="nodeShapeURIsuffix" select="'Shape'"/>
 
     <!-- types of elements and names for attribute types that are acceptable to produce object properties -->
-    <xsl:variable name="acceptableTypesForObjectProperties"
-        select="('epo:Identifier', 'rdfs:Literal')"/>
+	<xsl:variable name="acceptableTypesForObjectProperties" select="('rdfs:Literal')"/>
     <!--    the type of attributes which takes values from a controlled list-->
-    <xsl:variable name="controlledListType" select="'epo:Code'"/>
+	<xsl:variable name="controlledListType" select="''"/>
     <!-- Acceptable stereotypes -->
     <xsl:variable name="stereotypeValidOnAttributes" select="()"/>
     <xsl:variable name="stereotypeValidOnObjects" select="()"/>
@@ -78,14 +77,14 @@
     <!--    This variable controls whether the enumerations are transformed into skos schemes or ignored-->
     <xsl:variable name="enableGenerationOfConceptSchemes" select="fn:false()"/>
 
-<!--    Property used for constraint level for enumerations-->
-    <xsl:variable name="cvConstraintLevelProperty" select="'epo:constraintLevel'"/>
+	<!--    Property used for constraint level for enumerations-->
+    <xsl:variable name="cvConstraintLevelProperty" select="''"/>
 
 
     <!--Allowed characters for a normalized string-->
     <xsl:variable name="allowedStrings" select="'^[\w\d-_:]+$'"/>
     <!--    Generate reused classes, attributes and connectors. Concepts with these prefixes will be included in the generated artefacts. -->
-    <xsl:variable name="includedPrefixesList" select="('epo', 'epo-not', 'epo-ord', 'epo-cat', 'epo-con', 'epo-ful','epo-eva','epo-awa','epo-qua','epo-req', 'epo-sub', 'epo-acc', 'epo-inv', 'epo-pay')"/>
+    <xsl:variable name="includedPrefixesList" select="('prueba')"/>
     <!-- This set of variables controls the generation of reused concepts within artifacts. -->
     <xsl:variable name="generateReusedConceptsSHACL" select="fn:true()"/>
     <xsl:variable name="generateReusedConceptsOWLcore" select="fn:true()"/>
@@ -125,7 +124,7 @@
      - A list of valid statuses
      - A list of statuses to be excluded from the output
      - The default status value interpretation for elements without a status set -->
-    <xsl:variable name="statusProperty" select="'epo:status'"/>
+    <xsl:variable name="statusProperty" select="''"/>
     <xsl:variable name="validStatusesList" select="('proposed', 'approved', 'implemented')"/>
     <xsl:variable name="excludedElementStatusesList" select="('proposed', 'approved')"/>
     <xsl:variable name="unspecifiedStatusInterpretation" select="'implemented'"/>
