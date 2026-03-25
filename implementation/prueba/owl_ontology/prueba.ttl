@@ -14,21 +14,25 @@ prueba:InstanciaCarta a owl:Class ;
 
 prueba:Juego a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
+    rdfs:subClassOf prueba:Thing ;
     skos:definition "Importado de Modelio"@en ;
     skos:prefLabel "Juego"@en .
 
 prueba:JuegoDeCartas a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
+    rdfs:subClassOf prueba:Thing ;
     skos:definition "Importado de Modelio"@en ;
     skos:prefLabel "Juego De Cartas"@en .
 
 prueba:Jugador a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
+    rdfs:subClassOf prueba:Thing ;
     skos:definition "Importado de Modelio"@en ;
     skos:prefLabel "Jugador"@en .
 
 prueba:Partida a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
+    rdfs:subClassOf prueba:Thing ;
     skos:definition "Importado de Modelio"@en ;
     skos:prefLabel "Partida"@en .
 
@@ -37,8 +41,12 @@ prueba:Stats a owl:Class ;
     skos:definition "Importado de Modelio"@en ;
     skos:prefLabel "Stats"@en .
 
+prueba:TipoCarta a owl:Class ;
+    rdfs:subClassOf prueba:Thing .
+
 prueba:Yugioh a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
+    rdfs:subClassOf prueba:Thing ;
     skos:definition "Importado de Modelio"@en ;
     skos:prefLabel "Yugioh"@en .
 
@@ -82,10 +90,6 @@ prueba:hasImagen a owl:DatatypeProperty ;
     rdfs:isDefinedBy prueba:core ;
     skos:prefLabel "has Imagen"@en .
 
-prueba:hasJuego a owl:ObjectProperty ;
-    rdfs:isDefinedBy prueba:core ;
-    skos:prefLabel "has Juego"@en .
-
 prueba:hasJugadores a owl:ObjectProperty ;
     rdfs:isDefinedBy prueba:core ;
     skos:prefLabel "has Jugadores"@en .
@@ -112,8 +116,14 @@ prueba:hasVersion a owl:DatatypeProperty ;
 
 prueba:Carta a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
+    rdfs:subClassOf prueba:Thing ;
     skos:definition "Importado de Modelio"@en ;
     skos:prefLabel "Carta"@en .
+
+prueba:Thing a owl:Class ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:definition "Clase raíz para colapsar el metamodelo de prueba."@en ;
+    skos:prefLabel "Thing"@en .
 
 prueba:core a owl:Ontology ;
     rdfs:label "Esta es mi primera ontología de prueba generada desde Modelio."@en ;

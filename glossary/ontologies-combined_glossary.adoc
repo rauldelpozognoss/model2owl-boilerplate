@@ -39,6 +39,10 @@
       
     
       
+| prueba:Thing | Clase raíz para colapsar el metamodelo de prueba.
+      
+    
+      
 | prueba:Yugioh | Importado de Modelio
       
     
@@ -57,7 +61,7 @@
   
 | prueba:Carta
 | prueba:hasFechaSalida| 
-  |xsd:date [1..1]
+  |xsd:string [1..1]
   
   
   
@@ -117,7 +121,7 @@ prueba:JuegoDeCartas
   
 | prueba:Jugador
 | prueba:hasFechaNacimiento| 
-  |xsd:date [1..1]
+  |xsd:string [1..1]
   
   
   
@@ -127,13 +131,13 @@ prueba:JuegoDeCartas
   
 | prueba:Stats
 | prueba:hasAtaque| 
-  |xsd:integer [1..1]
+  |xsd:string [1..1]
   
   
   
 | prueba:Stats
 | prueba:hasDefensa| 
-  |xsd:integer [1..1]
+  |xsd:string [1..1]
   
 |===
 
@@ -155,7 +159,7 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasTipoCarta| 
-  |prueba:Carta → prueba:TipoCarta [1..1]
+  |prueba:Carta → prueba:TipoCarta []
 
   
 
@@ -182,7 +186,7 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasCartas| 
-  |prueba:JuegoDeCartas → prueba:Carta [0..&#42;]
+  |prueba:JuegoDeCartas → prueba:Carta []
 
   
 
@@ -193,7 +197,7 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasEsPropietario| 
-  |prueba:Jugador → prueba:InstanciaCarta [0..&#42;]
+  |prueba:Jugador → prueba:InstanciaCarta []
 
   
 
@@ -204,14 +208,14 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasJugadores| 
-  |prueba:Partida → prueba:Jugador [1..&#42;]
+  |prueba:Partida → prueba:Jugador []
 
   
 
   
   
 | prueba:hasPartidaDeJuego| 
-  |prueba:Partida → prueba:JuegoDeCartas [1..1]
+  |prueba:Partida → prueba:JuegoDeCartas []
 
   
 

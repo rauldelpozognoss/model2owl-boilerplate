@@ -490,6 +490,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Thing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clase raíz para colapsar el metamodelo de prueba.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Yugioh</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
 </tr>
@@ -520,7 +524,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasFechaSalida</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:date [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta<br>
@@ -574,19 +578,19 @@ prueba:JuegoDeCartas</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Jugador</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasFechaNacimiento</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:date [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Stats</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasAtaque</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:integer [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Stats</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasDefensa</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:integer [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
 </tr>
 </tbody>
 </table>
@@ -612,27 +616,27 @@ prueba:JuegoDeCartas</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasTipoCarta</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta → prueba:TipoCarta [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta → prueba:TipoCarta []</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasCartas</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:JuegoDeCartas → prueba:Carta [0..&#42;]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:JuegoDeCartas → prueba:Carta []</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasEsPropietario</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Jugador → prueba:InstanciaCarta [0..&#42;]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Jugador → prueba:InstanciaCarta []</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasJugadores</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Partida → prueba:Jugador [1..&#42;]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Partida → prueba:Jugador []</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasPartidaDeJuego</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Partida → prueba:JuegoDeCartas [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Partida → prueba:JuegoDeCartas []</p></td>
 </tr>
 </tbody>
 </table>
@@ -644,7 +648,7 @@ prueba:JuegoDeCartas</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-25 10:47:57 UTC
+Last updated 2026-03-25 10:55:28 UTC
 </div>
 </div>
 </body>
