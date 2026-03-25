@@ -38,12 +38,12 @@
           "propertyType": "datatype property",
           "range": [
             {
-              "range_curie": "xsd:string",
+              "range_curie": "xsd:date",
               "range_label": {
-                "en": "String"
+                "en": "Date"
               },
-              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
-              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+              "range_puri": "http://www.w3.org/2001/XMLSchema#date",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#date"
             }
           ],
           "tags": {},
@@ -82,7 +82,7 @@
           "usage": {}
         },
         {
-          "cardinality": "",
+          "cardinality": "1..1",
           "description": {
             "en": ""
           },
@@ -355,7 +355,7 @@
       ],
       "properties": [
         {
-          "cardinality": "",
+          "cardinality": "0..*",
           "description": {
             "en": ""
           },
@@ -508,7 +508,7 @@
           "usage": {}
         },
         {
-          "cardinality": "",
+          "cardinality": "0..*",
           "description": {
             "en": ""
           },
@@ -557,12 +557,12 @@
           "propertyType": "datatype property",
           "range": [
             {
-              "range_curie": "xsd:string",
+              "range_curie": "xsd:date",
               "range_label": {
-                "en": "String"
+                "en": "Date"
               },
-              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
-              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+              "range_puri": "http://www.w3.org/2001/XMLSchema#date",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#date"
             }
           ],
           "tags": {},
@@ -630,7 +630,7 @@
       ],
       "properties": [
         {
-          "cardinality": "",
+          "cardinality": "1..*",
           "description": {
             "en": ""
           },
@@ -661,7 +661,7 @@
           "usage": {}
         },
         {
-          "cardinality": "",
+          "cardinality": "1..1",
           "description": {
             "en": ""
           },
@@ -704,90 +704,7 @@
     {
       "classType": "definition",
       "description": {
-        "en": "Importado de Modelio"
-      },
-      "label": {
-        "en": "Stats"
-      },
-      "name": "prueba:Stats",
-      "parents": [],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "prueba:Stats",
-              "uri": "http://tu-dominio.com/ontologia/prueba#Stats"
-            }
-          ],
-          "label": {
-            "en": "Has ataque"
-          },
-          "name": "prueba:hasAtaque",
-          "propertyOrigin": "internal",
-          "propertyType": "datatype property",
-          "range": [
-            {
-              "range_curie": "xsd:string",
-              "range_label": {
-                "en": "String"
-              },
-              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
-              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
-            }
-          ],
-          "tags": {},
-          "uri": "http://tu-dominio.com/ontologia/prueba#hasAtaque",
-          "usage": {}
-        },
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "prueba:Stats",
-              "uri": "http://tu-dominio.com/ontologia/prueba#Stats"
-            }
-          ],
-          "label": {
-            "en": "Has defensa"
-          },
-          "name": "prueba:hasDefensa",
-          "propertyOrigin": "internal",
-          "propertyType": "datatype property",
-          "range": [
-            {
-              "range_curie": "xsd:string",
-              "range_label": {
-                "en": "String"
-              },
-              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
-              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
-            }
-          ],
-          "tags": {},
-          "uri": "http://tu-dominio.com/ontologia/prueba#hasDefensa",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://tu-dominio.com/ontologia/prueba#Stats",
-      "usage": {
-        "en": "Importado de Modelio"
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": "Clase ra\u00edz para colapsar el metamodelo de prueba."
+        "en": "Clase ra\u00edz del metamodelo. Todas las clases dise\u00f1adas cuelgan de aqu\u00ed."
       },
       "label": {
         "en": "Thing"
@@ -801,7 +718,7 @@
       "tags": {},
       "uri": "http://tu-dominio.com/ontologia/prueba#Thing",
       "usage": {
-        "en": "Clase ra\u00edz para colapsar el metamodelo de prueba."
+        "en": "Clase ra\u00edz del metamodelo. Todas las clases dise\u00f1adas cuelgan de aqu\u00ed."
       }
     },
     {
@@ -836,6 +753,16 @@
   "datatypes": [
     {
       "description": {
+        "en": "Importado de Modelio"
+      },
+      "label": {
+        "en": "Stats"
+      },
+      "scopeduri": "prueba:Stats",
+      "uri": "http://tu-dominio.com/ontologia/prueba#Stats"
+    },
+    {
+      "description": {
         "en": ""
       },
       "label": {
@@ -843,6 +770,16 @@
       },
       "scopeduri": "xsd:string",
       "uri": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    {
+      "description": {
+        "en": ""
+      },
+      "label": {
+        "en": "Date"
+      },
+      "scopeduri": "xsd:date",
+      "uri": "http://www.w3.org/2001/XMLSchema#date"
     }
   ],
   "prefixes": [

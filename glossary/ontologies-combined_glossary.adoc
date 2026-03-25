@@ -35,11 +35,7 @@
       
     
       
-| prueba:Stats | Importado de Modelio
-      
-    
-      
-| prueba:Thing | Clase raíz para colapsar el metamodelo de prueba.
+| prueba:Thing | Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.
       
     
       
@@ -61,7 +57,7 @@
   
 | prueba:Carta
 | prueba:hasFechaSalida| 
-  |xsd:string [1..1]
+  |xsd:date [1..1]
   
   
   
@@ -121,23 +117,11 @@ prueba:JuegoDeCartas
   
 | prueba:Jugador
 | prueba:hasFechaNacimiento| 
-  |xsd:string [1..1]
+  |xsd:date [1..1]
   
   
   
   
-  
-  
-  
-| prueba:Stats
-| prueba:hasAtaque| 
-  |xsd:string [1..1]
-  
-  
-  
-| prueba:Stats
-| prueba:hasDefensa| 
-  |xsd:string [1..1]
   
 |===
 
@@ -159,7 +143,7 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasTipoCarta| 
-  |prueba:Carta → prueba:TipoCarta []
+  |prueba:Carta → prueba:TipoCarta [1..1]
 
   
 
@@ -186,7 +170,7 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasCartas| 
-  |prueba:JuegoDeCartas → prueba:Carta []
+  |prueba:JuegoDeCartas → prueba:Carta [0..&#42;]
 
   
 
@@ -197,7 +181,7 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasEsPropietario| 
-  |prueba:Jugador → prueba:InstanciaCarta []
+  |prueba:Jugador → prueba:InstanciaCarta [0..&#42;]
 
   
 
@@ -208,23 +192,15 @@ prueba:JuegoDeCartas
   
   
 | prueba:hasJugadores| 
-  |prueba:Partida → prueba:Jugador []
+  |prueba:Partida → prueba:Jugador [1..&#42;]
 
   
 
   
   
 | prueba:hasPartidaDeJuego| 
-  |prueba:Partida → prueba:JuegoDeCartas []
+  |prueba:Partida → prueba:JuegoDeCartas [1..1]
 
-  
-
-  
-  
-  
-
-  
-  
   
 
 

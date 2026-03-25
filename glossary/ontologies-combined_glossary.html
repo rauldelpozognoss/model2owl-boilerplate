@@ -60,12 +60,8 @@
                         <td>Importado de Modelio</td>
                      </tr>
                      <tr>
-                        <td>prueba:Stats</td>
-                        <td>Importado de Modelio</td>
-                     </tr>
-                     <tr>
                         <td>prueba:Thing</td>
-                        <td>Clase raíz para colapsar el metamodelo de prueba.</td>
+                        <td>Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</td>
                      </tr>
                      <tr>
                         <td>prueba:Yugioh</td>
@@ -85,20 +81,8 @@
                   </thead>
                   <tbody>
                      <tr>
-                        <td>prueba:Stats</td>
-                        <td>prueba:hasAtaque</td>
-                        <td></td>
-                        <td>xsd:string [1..1]</td>
-                     </tr>
-                     <tr>
                         <td>prueba:Juego</td>
                         <td>prueba:hasComponentes</td>
-                        <td></td>
-                        <td>xsd:string [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>prueba:Stats</td>
-                        <td>prueba:hasDefensa</td>
                         <td></td>
                         <td>xsd:string [1..1]</td>
                      </tr>
@@ -112,13 +96,13 @@
                         <td>prueba:Jugador</td>
                         <td>prueba:hasFechaNacimiento</td>
                         <td></td>
-                        <td>xsd:string [1..1]</td>
+                        <td>xsd:date [1..1]</td>
                      </tr>
                      <tr>
                         <td>prueba:Carta</td>
                         <td>prueba:hasFechaSalida</td>
                         <td></td>
-                        <td>xsd:string [1..1]</td>
+                        <td>xsd:date [1..1]</td>
                      </tr>
                      <tr>
                         <td>prueba:InstanciaCarta<br>prueba:JuegoDeCartas<br></td>
@@ -165,27 +149,37 @@
                      <tr>
                         <td>prueba:hasCartas</td>
                         <td></td>
-                        <td>prueba:JuegoDeCartas -&gt; prueba:Carta []</td>
+                        <td>prueba:JuegoDeCartas -&gt; prueba:Carta [0..*]</td>
                      </tr>
                      <tr>
                         <td>prueba:hasEsPropietario</td>
                         <td></td>
-                        <td>prueba:Jugador -&gt; prueba:InstanciaCarta []</td>
+                        <td>prueba:Jugador -&gt; prueba:InstanciaCarta [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>prueba:hasJuego</td>
+                        <td></td>
+                        <td>prueba:JuegoDeCartas -&gt; prueba:Juego []</td>
+                     </tr>
+                     <tr>
+                        <td>prueba:hasJuegoDeCartas</td>
+                        <td></td>
+                        <td>prueba:Yugioh -&gt; prueba:JuegoDeCartas []</td>
                      </tr>
                      <tr>
                         <td>prueba:hasJugadores</td>
                         <td></td>
-                        <td>prueba:Partida -&gt; prueba:Jugador []</td>
+                        <td>prueba:Partida -&gt; prueba:Jugador [1..*]</td>
                      </tr>
                      <tr>
                         <td>prueba:hasPartidaDeJuego</td>
                         <td></td>
-                        <td>prueba:Partida -&gt; prueba:JuegoDeCartas []</td>
+                        <td>prueba:Partida -&gt; prueba:JuegoDeCartas [1..1]</td>
                      </tr>
                      <tr>
                         <td>prueba:hasTipoCarta</td>
                         <td></td>
-                        <td>prueba:Carta -&gt; prueba:TipoCarta []</td>
+                        <td>prueba:Carta -&gt; prueba:TipoCarta [1..1]</td>
                      </tr>
                   </tbody>
                </table>
