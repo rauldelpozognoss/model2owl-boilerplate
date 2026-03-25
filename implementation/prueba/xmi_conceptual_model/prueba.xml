@@ -1,19 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xmi:XMI xmi:version="2.1" 
+    xmlns:xmi="http://www.omg.org/spec/XMI/20131001" 
+    xmlns:uml="http://www.omg.org/spec/UML/20131001" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     
     <xmi:Extension extender="Enterprise Architect">
+        
         <elements>
-            <element xmi:type="uml:Class" xmi:idref="class_1" name="prueba:MiClaseDePrueba">
-                <properties documentation="Esta es una clase de prueba adaptada para model2owl"/>
-                
+            <element xmi:type="uml:Class" xmi:idref="class_contrato" name="prueba:Contrato">
+                <properties documentation="Un contrato formalizado en el proceso de adjudicación."/>
                 <attributes>
-                    <attribute xmi:idref="attr_1" name="prueba:nombreAtributo">
+                    <attribute xmi:idref="attr_titulo" name="prueba:hasTitulo">
                         <properties type="xsd:string"/>
-                        <documentation value="Este es el atributo de la clase"/>
+                        <documentation value="El título o nombre descriptivo del contrato."/>
+                        <bounds lower="1" upper="1"/>
+                    </attribute>
+                </attributes>
+            </element>
+
+            <element xmi:type="uml:Class" xmi:idref="class_adjudicatario" name="prueba:Adjudicatario">
+                <properties documentation="La entidad a la que se le ha adjudicado el contrato."/>
+                <attributes>
+                    <attribute xmi:idref="attr_nombre" name="prueba:hasNombre">
+                        <properties type="xsd:string"/>
+                        <documentation value="Nombre oficial de la entidad adjudicataria."/>
+                        <bounds lower="1" upper="1"/>
                     </attribute>
                 </attributes>
             </element>
         </elements>
-    </xmi:Extension>
 
+        <connectors>
+            <connector xmi:idref="conn_contrato_adj">
+                <properties ea_type="Association" direction="Source -&gt; Destination" documentation="Relación que asocia un contrato con la entidad adjudicataria."/>
+                
+                <source xmi:idref="class_contrato">
+                    <model name="prueba:Contrato" type="Class"/>
+                    <type multiplicity="0..*"/>
+                    <role name="" visibility="Public"/>
+                </source>
+                
+                <target xmi:idref="class_adjudicatario">
+                    <model name="prueba:Adjudicatario" type="Class"/>
+                    <type multiplicity="1..1"/>
+                    <role name="prueba:hasAdjudicatario" visibility="Public"/>
+                </target>
+            </connector>
+        </connectors>
+
+    </xmi:Extension>
 </xmi:XMI>
