@@ -6,6 +6,30 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+prueba:Adjudicatario a owl:Class ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:definition "La entidad a la que se le ha adjudicado el contrato."@en ;
+    skos:prefLabel "Adjudicatario"@en .
+
+prueba:Contrato a owl:Class ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:definition "Un contrato formalizado en el proceso de adjudicación."@en ;
+    skos:prefLabel "Contrato"@en .
+
+prueba:hasAdjudicatario a owl:ObjectProperty ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:prefLabel "has Adjudicatario"@en .
+
+prueba:hasNombre a owl:DatatypeProperty ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:definition "Nombre oficial de la entidad adjudicataria. (prueba:Adjudicatario)"@en ;
+    skos:prefLabel "has Nombre"@en .
+
+prueba:hasTitulo a owl:DatatypeProperty ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:definition "El título o nombre descriptivo del contrato. (prueba:Contrato)"@en ;
+    skos:prefLabel "has Titulo"@en .
+
 prueba:core a owl:Ontology ;
     rdfs:label "Esta es mi primera ontología de prueba generada desde Modelio."@en ;
     dcterms:created "2026-03-24"^^xsd:date ;
@@ -24,6 +48,4 @@ prueba:core a owl:Ontology ;
     owl:priorVersion "http://tu-dominio.com/ontologia/prueba#core-" ;
     owl:versionIRI prueba:core-1.0.0 ;
     owl:versionInfo "1.0.0" .
-
-[] a <file:///home/runner/work/model2owl-boilerplate/model2owl-boilerplate/implementation/prueba/owl_ontology/p> .
 

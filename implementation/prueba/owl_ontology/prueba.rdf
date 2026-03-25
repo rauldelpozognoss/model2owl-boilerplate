@@ -4,8 +4,15 @@
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Contrato">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Contrato</skos:prefLabel>
+    <skos:definition xml:lang="en">Un contrato formalizado en el proceso de adjudicación.</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#core">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
@@ -26,7 +33,27 @@
     <vann:preferredNamespacePrefix>prueba</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N8d60cbd28f924a9cb21e4db5b67ff59b">
-    <rdf:type rdf:resource="file:///home/runner/work/model2owl-boilerplate/model2owl-boilerplate/implementation/prueba/owl_ontology/p"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasNombre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Nombre</skos:prefLabel>
+    <skos:definition xml:lang="en">Nombre oficial de la entidad adjudicataria. (prueba:Adjudicatario)</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasAdjudicatario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Adjudicatario</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasTitulo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Titulo</skos:prefLabel>
+    <skos:definition xml:lang="en">El título o nombre descriptivo del contrato. (prueba:Contrato)</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Adjudicatario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Adjudicatario</skos:prefLabel>
+    <skos:definition xml:lang="en">La entidad a la que se le ha adjudicado el contrato.</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
 </rdf:RDF>

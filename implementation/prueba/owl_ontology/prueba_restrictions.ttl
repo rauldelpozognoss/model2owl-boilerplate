@@ -27,5 +27,29 @@ prueba:core-restriction a owl:Ontology ;
     owl:versionIRI prueba:core-restriction-1.0.0 ;
     owl:versionInfo "1.0.0" .
 
-[] a <file:///home/runner/work/model2owl-boilerplate/model2owl-boilerplate/implementation/prueba/owl_ontology/p> .
+prueba:hasAdjudicatario a owl:FunctionalProperty ;
+    rdfs:domain prueba:Contrato ;
+    rdfs:range prueba:Adjudicatario .
+
+prueba:hasNombre a owl:FunctionalProperty ;
+    rdfs:domain prueba:Adjudicatario ;
+    rdfs:range xsd:string .
+
+prueba:hasTitulo a owl:FunctionalProperty ;
+    rdfs:domain prueba:Contrato ;
+    rdfs:range xsd:string .
+
+prueba:Contrato rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasTitulo ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass prueba:Adjudicatario ;
+            owl:onProperty prueba:hasAdjudicatario ;
+            owl:qualifiedCardinality 1 ] .
+
+prueba:Adjudicatario rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasNombre ;
+            owl:qualifiedCardinality 1 ] .
 

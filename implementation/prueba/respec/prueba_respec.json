@@ -1,6 +1,153 @@
 {
-  "classes": [],
-  "datatypes": [],
+  "classes": [
+    {
+      "classType": "definition",
+      "description": {
+        "en": "La entidad a la que se le ha adjudicado el contrato."
+      },
+      "label": {
+        "en": "Adjudicatario"
+      },
+      "name": "prueba:Adjudicatario",
+      "parents": [],
+      "properties": [
+        {
+          "cardinality": "1..1",
+          "description": {
+            "en": "Nombre oficial de la entidad adjudicataria."
+          },
+          "domain": [
+            {
+              "name": "prueba:Adjudicatario",
+              "uri": "http://tu-dominio.com/ontologia/prueba#Adjudicatario"
+            }
+          ],
+          "label": {
+            "en": "Has nombre"
+          },
+          "name": "prueba:hasNombre",
+          "propertyOrigin": "internal",
+          "propertyType": "datatype property",
+          "range": [
+            {
+              "range_curie": "xsd:string",
+              "range_label": {
+                "en": "String"
+              },
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "tags": {},
+          "uri": "http://tu-dominio.com/ontologia/prueba#hasNombre",
+          "usage": {}
+        }
+      ],
+      "rawTags": {
+        "class-usage-scope": "main"
+      },
+      "tags": {},
+      "uri": "http://tu-dominio.com/ontologia/prueba#Adjudicatario",
+      "usage": {
+        "en": "La entidad a la que se le ha adjudicado el contrato."
+      }
+    },
+    {
+      "classType": "definition",
+      "description": {
+        "en": "Un contrato formalizado en el proceso de adjudicaci\u00f3n."
+      },
+      "label": {
+        "en": "Contrato"
+      },
+      "name": "prueba:Contrato",
+      "parents": [],
+      "properties": [
+        {
+          "cardinality": "1..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "prueba:Contrato",
+              "uri": "http://tu-dominio.com/ontologia/prueba#Contrato"
+            }
+          ],
+          "label": {
+            "en": "Has adjudicatario"
+          },
+          "name": "prueba:hasAdjudicatario",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "prueba:Adjudicatario",
+              "range_label": {
+                "en": "Adjudicatario"
+              },
+              "range_puri": "http://tu-dominio.com/ontologia/prueba#Adjudicatario",
+              "range_uri": "http://tu-dominio.com/ontologia/prueba#Adjudicatario"
+            }
+          ],
+          "tags": {},
+          "uri": "http://tu-dominio.com/ontologia/prueba#hasAdjudicatario",
+          "usage": {}
+        },
+        {
+          "cardinality": "1..1",
+          "description": {
+            "en": "El t\u00edtulo o nombre descriptivo del contrato."
+          },
+          "domain": [
+            {
+              "name": "prueba:Contrato",
+              "uri": "http://tu-dominio.com/ontologia/prueba#Contrato"
+            }
+          ],
+          "label": {
+            "en": "Has titulo"
+          },
+          "name": "prueba:hasTitulo",
+          "propertyOrigin": "internal",
+          "propertyType": "datatype property",
+          "range": [
+            {
+              "range_curie": "xsd:string",
+              "range_label": {
+                "en": "String"
+              },
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "tags": {},
+          "uri": "http://tu-dominio.com/ontologia/prueba#hasTitulo",
+          "usage": {}
+        }
+      ],
+      "rawTags": {
+        "class-usage-scope": "main"
+      },
+      "tags": {},
+      "uri": "http://tu-dominio.com/ontologia/prueba#Contrato",
+      "usage": {
+        "en": "Un contrato formalizado en el proceso de adjudicaci\u00f3n."
+      }
+    }
+  ],
+  "datatypes": [
+    {
+      "description": {
+        "en": ""
+      },
+      "label": {
+        "en": "String"
+      },
+      "scopeduri": "xsd:string",
+      "uri": "http://www.w3.org/2001/XMLSchema#string"
+    }
+  ],
   "prefixes": [
     {
       "name": "prueba",

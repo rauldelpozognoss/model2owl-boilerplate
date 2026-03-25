@@ -3,9 +3,52 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prueba: <http://tu-dominio.com/ontologia/prueba#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+core-shape:prueba-AdjudicatarioShape a sh:NodeShape ;
+    rdfs:label "Adjudicatario" ;
+    rdfs:comment "La entidad a la que se le ha adjudicado el contrato." ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-Adjudicatario-prueba-hasNombre ;
+    sh:targetClass prueba:Adjudicatario .
+
+core-shape:prueba-ContratoShape a sh:NodeShape ;
+    rdfs:label "Contrato" ;
+    rdfs:comment "Un contrato formalizado en el proceso de adjudicación." ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-Contrato-prueba-hasAdjudicatario,
+        core-shape:prueba-Contrato-prueba-hasTitulo ;
+    sh:targetClass prueba:Contrato .
+
+core-shape:prueba-Adjudicatario-prueba-hasNombre a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:description "Nombre oficial de la entidad adjudicataria." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has nombre" ;
+    sh:path prueba:hasNombre .
+
+core-shape:prueba-Contrato-prueba-hasAdjudicatario a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class prueba:Adjudicatario ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has adjudicatario" ;
+    sh:path prueba:hasAdjudicatario ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasAdjudicatario> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasAdjudicatario> ?this .}" ] .
+
+core-shape:prueba-Contrato-prueba-hasTitulo a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:description "El título o nombre descriptivo del contrato." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has titulo" ;
+    sh:path prueba:hasTitulo .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología de prueba."@en ;
@@ -27,6 +70,4 @@ core-shape:core-shape a owl:Ontology ;
     owl:priorVersion "http://tu-dominio.com/ontologia/prueba-shape#core-shape-" ;
     owl:versionIRI core-shape:core-shape-1.0.0 ;
     owl:versionInfo "1.0.0" .
-
-[] a <file:///home/runner/work/model2owl-boilerplate/model2owl-boilerplate/implementation/prueba/shacl_shapes/p> .
 

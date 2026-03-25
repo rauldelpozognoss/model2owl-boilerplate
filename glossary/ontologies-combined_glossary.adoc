@@ -10,6 +10,14 @@
 |===
 | Class name | Definition
 
+      
+| prueba:Adjudicatario | La entidad a la que se le ha adjudicado el contrato.
+      
+    
+      
+| prueba:Contrato | Un contrato formalizado en el proceso de adjudicación.
+      
+    
 |===
 
 == Attributes (datatype properties) names and definitions
@@ -21,6 +29,20 @@
 
 
 
+  
+  
+| prueba:Adjudicatario
+| prueba:hasNombre| 
+  Nombre oficial de la entidad adjudicataria.|xsd:string [1..1]
+  
+  
+  
+  
+  
+| prueba:Contrato
+| prueba:hasTitulo| 
+  El título o nombre descriptivo del contrato.|xsd:string [1..1]
+  
 |===
 
 == Predicates (object properties) and definitions
@@ -29,6 +51,21 @@
 |===
 | Predicate name | Definition | Domain, Range and Cardinality
 
+
+  
+  
+  
+
+  
+  
+| prueba:hasAdjudicatario| 
+  |prueba:Contrato → prueba:Adjudicatario [1..1]
+
+  
+
+  
+  
+  
 
 
 |===

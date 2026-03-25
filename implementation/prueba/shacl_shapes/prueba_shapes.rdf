@@ -4,8 +4,36 @@
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:sh="http://www.w3.org/ns/shacl#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Contrato-prueba-hasAdjudicatario">
+    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#Adjudicatario"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N1db866ebba324b56bab7de100dc11dfd"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasAdjudicatario"/>
+    <sh:name>Has adjudicatario</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-ContratoShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Contrato"/>
+    <rdfs:label>Contrato</rdfs:label>
+    <rdfs:comment>Un contrato formalizado en el proceso de adjudicación.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Contrato-prueba-hasTitulo"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Contrato-prueba-hasAdjudicatario"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-AdjudicatarioShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Adjudicatario"/>
+    <rdfs:label>Adjudicatario</rdfs:label>
+    <rdfs:comment>La entidad a la que se le ha adjudicado el contrato.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Adjudicatario-prueba-hasNombre"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#core-shape">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
@@ -28,7 +56,27 @@
     <vann:preferredNamespacePrefix>prueba</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N02246d82d24e43599694a593c5f1e6f9">
-    <rdf:type rdf:resource="file:///home/runner/work/model2owl-boilerplate/model2owl-boilerplate/implementation/prueba/shacl_shapes/p"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Adjudicatario-prueba-hasNombre">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
+    <sh:name>Has nombre</sh:name>
+    <sh:description>Nombre oficial de la entidad adjudicataria.</sh:description>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1db866ebba324b56bab7de100dc11dfd">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasAdjudicatario&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasAdjudicatario&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Contrato-prueba-hasTitulo">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasTitulo"/>
+    <sh:name>Has titulo</sh:name>
+    <sh:description>El título o nombre descriptivo del contrato.</sh:description>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
 </rdf:RDF>
