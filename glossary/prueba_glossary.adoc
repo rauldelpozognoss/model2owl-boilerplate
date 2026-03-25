@@ -11,11 +11,35 @@
 | Class name | Definition
 
       
-| prueba:Adjudicatario | La entidad a la que se le ha adjudicado el contrato.
+| prueba:Carta | Importado de Modelio
       
     
       
-| prueba:Contrato | Un contrato formalizado en el proceso de adjudicación.
+| prueba:InstanciaCarta | Importado de Modelio
+      
+    
+      
+| prueba:Juego | Importado de Modelio
+      
+    
+      
+| prueba:JuegoDeCartas | Importado de Modelio
+      
+    
+      
+| prueba:Jugador | Importado de Modelio
+      
+    
+      
+| prueba:Partida | Importado de Modelio
+      
+    
+      
+| prueba:Stats | Importado de Modelio
+      
+    
+      
+| prueba:Yugioh | Importado de Modelio
       
     
 |===
@@ -31,17 +55,85 @@
 
   
   
-| prueba:Adjudicatario
+| prueba:Carta
+| prueba:hasFechaSalida| 
+  |xsd:date [1..1]
+  
+  
+  
+| prueba:Carta + 
+prueba:JuegoDeCartas + 
+prueba:Jugador
 | prueba:hasNombre| 
-  Nombre oficial de la entidad adjudicataria.|xsd:string [1..1]
+  |xsd:string [1..1] +
+  xsd:string [1..1] +
+  xsd:string [1..1]
   
   
   
   
   
-| prueba:Contrato
-| prueba:hasTitulo| 
-  El título o nombre descriptivo del contrato.|xsd:string [1..1]
+| prueba:InstanciaCarta + 
+prueba:JuegoDeCartas
+| prueba:hasId| 
+  |xsd:string [1..1] +
+  xsd:string [1..1]
+  
+  
+  
+| prueba:InstanciaCarta
+| prueba:hasImagen| 
+  |xsd:string [1..1]
+  
+  
+  
+| prueba:InstanciaCarta
+| prueba:hasStats| 
+  |xsd:string [1..1]
+  
+  
+  
+| prueba:InstanciaCarta
+| prueba:hasVersion| 
+  |xsd:string [1..1]
+  
+  
+  
+| prueba:Juego
+| prueba:hasComponentes| 
+  |xsd:string [1..1]
+  
+  
+  
+  
+  
+| prueba:Jugador
+| prueba:hasDni| 
+  |xsd:string [1..1]
+  
+  
+  
+  
+  
+| prueba:Jugador
+| prueba:hasFechaNacimiento| 
+  |xsd:date [1..1]
+  
+  
+  
+  
+  
+  
+  
+| prueba:Stats
+| prueba:hasAtaque| 
+  |xsd:integer [1..1]
+  
+  
+  
+| prueba:Stats
+| prueba:hasDefensa| 
+  |xsd:integer [1..1]
   
 |===
 
@@ -58,9 +150,73 @@
 
   
   
-| prueba:hasAdjudicatario| 
-  |prueba:Contrato → prueba:Adjudicatario [1..1]
+  
 
+  
+  
+| prueba:hasTipoCarta| 
+  |prueba:Carta → prueba:TipoCarta [1..1]
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| prueba:hasCartas| 
+  |prueba:JuegoDeCartas → prueba:Carta [0..&#42;]
+
+  
+
+  
+  
+  
+
+  
+  
+| prueba:hasEsPropietario| 
+  |prueba:Jugador → prueba:InstanciaCarta [0..&#42;]
+
+  
+
+  
+  
+  
+
+  
+  
+| prueba:hasJugadores| 
+  |prueba:Partida → prueba:Jugador [1..&#42;]
+
+  
+
+  
+  
+| prueba:hasPartidaDeJuego| 
+  |prueba:Partida → prueba:JuegoDeCartas [1..1]
+
+  
+
+  
+  
   
 
   

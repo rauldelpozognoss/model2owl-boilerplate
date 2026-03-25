@@ -8,47 +8,233 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:prueba-AdjudicatarioShape a sh:NodeShape ;
-    rdfs:label "Adjudicatario" ;
-    rdfs:comment "La entidad a la que se le ha adjudicado el contrato." ;
+core-shape:prueba-CartaShape a sh:NodeShape ;
+    rdfs:label "Carta" ;
+    rdfs:comment "Importado de Modelio" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:prueba-Adjudicatario-prueba-hasNombre ;
-    sh:targetClass prueba:Adjudicatario .
+    sh:property core-shape:prueba-Carta-prueba-hasFechaSalida,
+        core-shape:prueba-Carta-prueba-hasNombre,
+        core-shape:prueba-Carta-prueba-hasTipoCarta ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://tu-dominio.com/ontologia/prueba#Carta> .
+                }""" ] ;
+    sh:targetClass prueba:Carta .
 
-core-shape:prueba-ContratoShape a sh:NodeShape ;
-    rdfs:label "Contrato" ;
-    rdfs:comment "Un contrato formalizado en el proceso de adjudicación." ;
+core-shape:prueba-InstanciaCartaShape a sh:NodeShape ;
+    rdfs:label "Instancia Carta" ;
+    rdfs:comment "Importado de Modelio" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:prueba-Contrato-prueba-hasAdjudicatario,
-        core-shape:prueba-Contrato-prueba-hasTitulo ;
-    sh:targetClass prueba:Contrato .
+    sh:property core-shape:prueba-InstanciaCarta-prueba-hasId,
+        core-shape:prueba-InstanciaCarta-prueba-hasImagen,
+        core-shape:prueba-InstanciaCarta-prueba-hasStats,
+        core-shape:prueba-InstanciaCarta-prueba-hasVersion ;
+    sh:targetClass prueba:InstanciaCarta .
 
-core-shape:prueba-Adjudicatario-prueba-hasNombre a sh:PropertyShape ;
+core-shape:prueba-JuegoDeCartasShape a sh:NodeShape ;
+    rdfs:label "Juego De Cartas" ;
+    rdfs:comment "Importado de Modelio" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-JuegoDeCartas-prueba-hasCartas,
+        core-shape:prueba-JuegoDeCartas-prueba-hasId,
+        core-shape:prueba-JuegoDeCartas-prueba-hasJuego,
+        core-shape:prueba-JuegoDeCartas-prueba-hasNombre ;
+    sh:targetClass prueba:JuegoDeCartas .
+
+core-shape:prueba-JuegoShape a sh:NodeShape ;
+    rdfs:label "Juego" ;
+    rdfs:comment "Importado de Modelio" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-Juego-prueba-hasComponentes ;
+    sh:targetClass prueba:Juego .
+
+core-shape:prueba-JugadorShape a sh:NodeShape ;
+    rdfs:label "Jugador" ;
+    rdfs:comment "Importado de Modelio" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-Jugador-prueba-hasDni,
+        core-shape:prueba-Jugador-prueba-hasEsPropietario,
+        core-shape:prueba-Jugador-prueba-hasFechaNacimiento,
+        core-shape:prueba-Jugador-prueba-hasNombre ;
+    sh:targetClass prueba:Jugador .
+
+core-shape:prueba-PartidaShape a sh:NodeShape ;
+    rdfs:label "Partida" ;
+    rdfs:comment "Importado de Modelio" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-Partida-prueba-hasJugadores,
+        core-shape:prueba-Partida-prueba-hasPartidaDeJuego ;
+    sh:targetClass prueba:Partida .
+
+core-shape:prueba-StatsShape a sh:NodeShape ;
+    rdfs:label "Stats" ;
+    rdfs:comment "Importado de Modelio" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-Stats-prueba-hasAtaque,
+        core-shape:prueba-Stats-prueba-hasDefensa ;
+    sh:targetClass prueba:Stats .
+
+core-shape:prueba-YugiohShape a sh:NodeShape ;
+    rdfs:label "Yugioh" ;
+    rdfs:comment "Importado de Modelio" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass prueba:Yugioh .
+
+core-shape:prueba-Carta-prueba-hasFechaSalida a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has fecha salida" ;
+    sh:path prueba:hasFechaSalida .
+
+core-shape:prueba-Carta-prueba-hasNombre a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
-    sh:description "Nombre oficial de la entidad adjudicataria." ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has nombre" ;
     sh:path prueba:hasNombre .
 
-core-shape:prueba-Contrato-prueba-hasAdjudicatario a sh:PropertyShape ;
+core-shape:prueba-Carta-prueba-hasTipoCarta a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class prueba:Adjudicatario ;
+    sh:class prueba:TipoCarta ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:name "Has adjudicatario" ;
-    sh:path prueba:hasAdjudicatario ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasAdjudicatario> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasAdjudicatario> ?this .}" ] .
+    sh:name "Has tipo carta" ;
+    sh:path prueba:hasTipoCarta ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasTipoCarta> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasTipoCarta> ?this .}" ] .
 
-core-shape:prueba-Contrato-prueba-hasTitulo a sh:PropertyShape ;
+core-shape:prueba-InstanciaCarta-prueba-hasId a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
-    sh:description "El título o nombre descriptivo del contrato." ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:name "Has titulo" ;
-    sh:path prueba:hasTitulo .
+    sh:name "Has id" ;
+    sh:path prueba:hasId .
+
+core-shape:prueba-InstanciaCarta-prueba-hasImagen a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has imagen" ;
+    sh:path prueba:hasImagen .
+
+core-shape:prueba-InstanciaCarta-prueba-hasStats a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has stats" ;
+    sh:path prueba:hasStats .
+
+core-shape:prueba-InstanciaCarta-prueba-hasVersion a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has version" ;
+    sh:path prueba:hasVersion .
+
+core-shape:prueba-Juego-prueba-hasComponentes a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has componentes" ;
+    sh:path prueba:hasComponentes .
+
+core-shape:prueba-JuegoDeCartas-prueba-hasCartas a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class prueba:Carta ;
+    sh:name "Has cartas" ;
+    sh:path prueba:hasCartas ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasCartas> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasCartas> ?this .}" ] .
+
+core-shape:prueba-JuegoDeCartas-prueba-hasId a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has id" ;
+    sh:path prueba:hasId .
+
+core-shape:prueba-JuegoDeCartas-prueba-hasJuego a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class prueba:Juego ;
+    sh:name "Has juego" ;
+    sh:path prueba:hasJuego .
+
+core-shape:prueba-JuegoDeCartas-prueba-hasNombre a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has nombre" ;
+    sh:path prueba:hasNombre .
+
+core-shape:prueba-Jugador-prueba-hasDni a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has dni" ;
+    sh:path prueba:hasDni .
+
+core-shape:prueba-Jugador-prueba-hasEsPropietario a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class prueba:InstanciaCarta ;
+    sh:name "Has es propietario" ;
+    sh:path prueba:hasEsPropietario ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasEsPropietario> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasEsPropietario> ?this .}" ] .
+
+core-shape:prueba-Jugador-prueba-hasFechaNacimiento a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has fecha nacimiento" ;
+    sh:path prueba:hasFechaNacimiento .
+
+core-shape:prueba-Jugador-prueba-hasNombre a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has nombre" ;
+    sh:path prueba:hasNombre .
+
+core-shape:prueba-Partida-prueba-hasJugadores a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class prueba:Jugador ;
+    sh:minCount 1 ;
+    sh:name "Has jugadores" ;
+    sh:path prueba:hasJugadores ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasJugadores> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasJugadores> ?this .}" ] .
+
+core-shape:prueba-Partida-prueba-hasPartidaDeJuego a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class prueba:JuegoDeCartas ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has partida de juego" ;
+    sh:path prueba:hasPartidaDeJuego ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego> ?this .}" ] .
+
+core-shape:prueba-Stats-prueba-hasAtaque a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has ataque" ;
+    sh:path prueba:hasAtaque .
+
+core-shape:prueba-Stats-prueba-hasDefensa a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has defensa" ;
+    sh:path prueba:hasDefensa .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología de prueba."@en ;

@@ -462,12 +462,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Adjudicatario</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La entidad a la que se le ha adjudicado el contrato.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Contrato</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un contrato formalizado en el proceso de adjudicación.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:InstanciaCarta</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Juego</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:JuegoDeCartas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Jugador</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Partida</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Stats</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Yugioh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Importado de Modelio</p></td>
 </tr>
 </tbody>
 </table>
@@ -493,16 +517,76 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Adjudicatario</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasFechaSalida</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:date [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta<br>
+prueba:JuegoDeCartas<br>
+prueba:Jugador</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasNombre</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nombre oficial de la entidad adjudicataria.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]<br>
+  xsd:string [1..1]<br>
+  xsd:string [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:InstanciaCarta<br>
+prueba:JuegoDeCartas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasId</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]<br>
+  xsd:string [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:InstanciaCarta</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasImagen</p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Contrato</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasTitulo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El título o nombre descriptivo del contrato.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:InstanciaCarta</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasStats</p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:InstanciaCarta</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasVersion</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Juego</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasComponentes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Jugador</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasDni</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Jugador</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasFechaNacimiento</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:date [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Stats</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasAtaque</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:integer [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Stats</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasDefensa</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:integer [1..1]</p></td>
 </tr>
 </tbody>
 </table>
@@ -526,9 +610,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasAdjudicatario</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasTipoCarta</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Contrato → prueba:Adjudicatario [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Carta → prueba:TipoCarta [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasCartas</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:JuegoDeCartas → prueba:Carta [0..&#42;]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasEsPropietario</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Jugador → prueba:InstanciaCarta [0..&#42;]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasJugadores</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Partida → prueba:Jugador [1..&#42;]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:hasPartidaDeJuego</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prueba:Partida → prueba:JuegoDeCartas [1..1]</p></td>
 </tr>
 </tbody>
 </table>
@@ -540,7 +644,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-25 08:15:41 UTC
+Last updated 2026-03-25 09:02:51 UTC
 </div>
 </div>
 </body>

@@ -1,26 +1,127 @@
 {
   "@context": {
-    "Adjudicatario": {
+    "Carta": {
       "@context": {
+        "hasFechaSalida": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasFechaSalida",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "hasNombre": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasNombre",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasTipoCarta": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasTipoCarta",
+          "@type": "@id"
+        }
+      },
+      "@id": "http://tu-dominio.com/ontologia/prueba#Carta"
+    },
+    "InstanciaCarta": {
+      "@context": {
+        "hasId": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasId",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasImagen": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasImagen",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasStats": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasStats",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasVersion": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasVersion",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "http://tu-dominio.com/ontologia/prueba#InstanciaCarta"
+    },
+    "Juego": {
+      "@context": {
+        "hasComponentes": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasComponentes",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "http://tu-dominio.com/ontologia/prueba#Juego"
+    },
+    "JuegoDeCartas": {
+      "@context": {
+        "hasCartas": {
+          "@container": "@set",
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasCartas",
+          "@type": "@id"
+        },
+        "hasId": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasId",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasJuego": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasJuego",
+          "@type": "@id"
+        },
         "hasNombre": {
           "@id": "http://tu-dominio.com/ontologia/prueba#hasNombre",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         }
       },
-      "@id": "http://tu-dominio.com/ontologia/prueba#Adjudicatario"
+      "@id": "http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"
     },
-    "Contrato": {
+    "Jugador": {
       "@context": {
-        "hasAdjudicatario": {
-          "@id": "http://tu-dominio.com/ontologia/prueba#hasAdjudicatario",
+        "hasDni": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasDni",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasEsPropietario": {
+          "@container": "@set",
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasEsPropietario",
           "@type": "@id"
         },
-        "hasTitulo": {
-          "@id": "http://tu-dominio.com/ontologia/prueba#hasTitulo",
+        "hasFechaNacimiento": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasFechaNacimiento",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "hasNombre": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasNombre",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         }
       },
-      "@id": "http://tu-dominio.com/ontologia/prueba#Contrato"
+      "@id": "http://tu-dominio.com/ontologia/prueba#Jugador"
+    },
+    "Partida": {
+      "@context": {
+        "hasJugadores": {
+          "@container": "@set",
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasJugadores",
+          "@type": "@id"
+        },
+        "hasPartidaDeJuego": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego",
+          "@type": "@id"
+        }
+      },
+      "@id": "http://tu-dominio.com/ontologia/prueba#Partida"
+    },
+    "Stats": {
+      "@context": {
+        "hasAtaque": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasAtaque",
+          "@type": "http://www.w3.org/2001/XMLSchema#integer"
+        },
+        "hasDefensa": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasDefensa",
+          "@type": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+      },
+      "@id": "http://tu-dominio.com/ontologia/prueba#Stats"
+    },
+    "TipoCarta": "http://tu-dominio.com/ontologia/prueba#TipoCarta",
+    "Yugioh": {
+      "@context": {},
+      "@id": "http://tu-dominio.com/ontologia/prueba#Yugioh"
     },
     "core-res": "http://tu-dominio.com/ontologia/prueba#",
     "core-shape": "http://tu-dominio.com/ontologia/prueba-shape#",
