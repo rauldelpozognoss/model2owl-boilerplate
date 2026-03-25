@@ -109,7 +109,8 @@ jobs:
             make generate-asciidoc-glossary \
               XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
               OUTPUT_GLOSSARY_PATH=../$OUTPUT_GLOSSARY_PATH \
-              OUTPUT_FOLDER_PATH=$(mktemp -d)
+              OUTPUT_FOLDER_PATH=$(mktemp -d) \
+              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
 
             sed -i "s|../implementation/${implementation}/model2owl-config|test/ePO-default-config|g" config-proxy.xsl
             cd ..
@@ -144,7 +145,8 @@ jobs:
           make generate-asciidoc-glossary \
             XMI_INPUT_FILE_PATH=output/combined-xmi/ontologies-combined.xmi \
             OUTPUT_GLOSSARY_PATH=../$OUTPUT_GLOSSARY_PATH \
-            OUTPUT_FOLDER_PATH=$(mktemp -d)
+            OUTPUT_FOLDER_PATH=$(mktemp -d) \
+            NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
 
           mv config-proxy.xsl.default config-proxy.xsl
 
