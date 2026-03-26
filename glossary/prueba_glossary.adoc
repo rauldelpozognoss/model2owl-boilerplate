@@ -35,6 +35,10 @@
       
     
       
+| prueba:Persona | Importado de Modelio
+      
+    
+      
 | prueba:Thing | Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.
       
     
@@ -63,7 +67,7 @@
   
 | prueba:Carta + 
 prueba:JuegoDeCartas + 
-prueba:Jugador
+prueba:Persona
 | prueba:hasNombre| 
   |xsd:string [1..1] +
   xsd:string [1..1] +
@@ -107,21 +111,21 @@ prueba:JuegoDeCartas
   
   
   
-| prueba:Jugador
+  
+  
+  
+  
+  
+  
+| prueba:Persona
 | prueba:hasDni| 
   |xsd:string [1..1]
   
   
   
-  
-  
-| prueba:Jugador
+| prueba:Persona
 | prueba:hasFechaNacimiento| 
   |xsd:date [1..1]
-  
-  
-  
-  
   
 |===
 
@@ -176,17 +180,9 @@ prueba:JuegoDeCartas
 
   
   
-  
-
-  
-  
 | prueba:hasEsPropietario| 
   |prueba:Jugador → prueba:InstanciaCarta [0..&#42;]
 
-  
-
-  
-  
   
 
   
@@ -201,6 +197,14 @@ prueba:JuegoDeCartas
 | prueba:hasPartidaDeJuego| 
   |prueba:Partida → prueba:JuegoDeCartas [1..1]
 
+  
+
+  
+  
+  
+
+  
+  
   
 
 

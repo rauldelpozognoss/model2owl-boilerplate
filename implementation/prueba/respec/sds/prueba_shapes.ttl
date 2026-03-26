@@ -50,10 +50,7 @@ core-shape:prueba-JugadorShape a sh:NodeShape ;
     rdfs:label "Jugador" ;
     rdfs:comment "Importado de Modelio" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:prueba-Jugador-prueba-hasDni,
-        core-shape:prueba-Jugador-prueba-hasEsPropietario,
-        core-shape:prueba-Jugador-prueba-hasFechaNacimiento,
-        core-shape:prueba-Jugador-prueba-hasNombre ;
+    sh:property core-shape:prueba-Jugador-prueba-hasEsPropietario ;
     sh:targetClass prueba:Jugador .
 
 core-shape:prueba-PartidaShape a sh:NodeShape ;
@@ -63,6 +60,15 @@ core-shape:prueba-PartidaShape a sh:NodeShape ;
     sh:property core-shape:prueba-Partida-prueba-hasJugadores,
         core-shape:prueba-Partida-prueba-hasPartidaDeJuego ;
     sh:targetClass prueba:Partida .
+
+core-shape:prueba-PersonaShape a sh:NodeShape ;
+    rdfs:label "Persona" ;
+    rdfs:comment "Importado de Modelio" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:prueba-Persona-prueba-hasDni,
+        core-shape:prueba-Persona-prueba-hasFechaNacimiento,
+        core-shape:prueba-Persona-prueba-hasNombre ;
+    sh:targetClass prueba:Persona .
 
 core-shape:prueba-ThingShape a sh:NodeShape ;
     rdfs:label "Thing" ;
@@ -170,36 +176,12 @@ core-shape:prueba-JuegoDeCartas-prueba-hasNombre a sh:PropertyShape ;
     sh:name "Has nombre" ;
     sh:path prueba:hasNombre .
 
-core-shape:prueba-Jugador-prueba-hasDni a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has dni" ;
-    sh:path prueba:hasDni .
-
 core-shape:prueba-Jugador-prueba-hasEsPropietario a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class prueba:InstanciaCarta ;
     sh:name "Has es propietario" ;
     sh:path prueba:hasEsPropietario ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasEsPropietario> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasEsPropietario> ?this .}" ] .
-
-core-shape:prueba-Jugador-prueba-hasFechaNacimiento a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:date ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has fecha nacimiento" ;
-    sh:path prueba:hasFechaNacimiento .
-
-core-shape:prueba-Jugador-prueba-hasNombre a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has nombre" ;
-    sh:path prueba:hasNombre .
 
 core-shape:prueba-Partida-prueba-hasJugadores a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -217,6 +199,30 @@ core-shape:prueba-Partida-prueba-hasPartidaDeJuego a sh:PropertyShape ;
     sh:name "Has partida de juego" ;
     sh:path prueba:hasPartidaDeJuego ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego> ?that . ?that <http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego> ?this .}" ] .
+
+core-shape:prueba-Persona-prueba-hasDni a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has dni" ;
+    sh:path prueba:hasDni .
+
+core-shape:prueba-Persona-prueba-hasFechaNacimiento a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has fecha nacimiento" ;
+    sh:path prueba:hasFechaNacimiento .
+
+core-shape:prueba-Persona-prueba-hasNombre a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has nombre" ;
+    sh:path prueba:hasNombre .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología de prueba."@en ;

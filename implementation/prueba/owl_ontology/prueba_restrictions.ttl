@@ -45,11 +45,11 @@ prueba:hasComponentes a owl:FunctionalProperty ;
     rdfs:range xsd:string .
 
 prueba:hasDni a owl:FunctionalProperty ;
-    rdfs:domain prueba:Jugador ;
+    rdfs:domain prueba:Persona ;
     rdfs:range xsd:string .
 
 prueba:hasFechaNacimiento a owl:FunctionalProperty ;
-    rdfs:domain prueba:Jugador ;
+    rdfs:domain prueba:Persona ;
     rdfs:range xsd:date .
 
 prueba:hasFechaSalida a owl:FunctionalProperty ;
@@ -93,9 +93,22 @@ prueba:hasId a owl:FunctionalProperty ;
             owl:unionOf ( prueba:InstanciaCarta prueba:JuegoDeCartas ) ] ;
     rdfs:range xsd:string .
 
+prueba:Persona rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasNombre ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty prueba:hasFechaNacimiento ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasDni ;
+            owl:qualifiedCardinality 1 ] .
+
 prueba:hasNombre a owl:FunctionalProperty ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( prueba:Jugador prueba:Carta prueba:JuegoDeCartas ) ] ;
+            owl:unionOf ( prueba:Carta prueba:JuegoDeCartas prueba:Persona ) ] ;
     rdfs:range xsd:string .
 
 prueba:Carta rdfs:subClassOf [ a owl:Restriction ;
@@ -127,19 +140,6 @@ prueba:InstanciaCarta rdfs:subClassOf [ a owl:Restriction ;
 prueba:JuegoDeCartas rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasId ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasNombre ;
-            owl:qualifiedCardinality 1 ] .
-
-prueba:Jugador rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:date ;
-            owl:onProperty prueba:hasFechaNacimiento ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasDni ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
