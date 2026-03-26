@@ -6,47 +6,70 @@
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:nodeID="N6c217a30d8e54cd3a80b36eb79655f66">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasImagen"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N21202f8ef1044370a2518969a3b61d25">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasId"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8d2bd7d8f2e445a4889dd82101cad398">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N90c4089cbe6742f8970594fb2d509902">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaSalida"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N2bd12fff3eef40569eca91d5af7409f8">
+  <rdf:Description rdf:nodeID="Nfe788f46006d449badac0f9dfcae003f">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasStats"/>
     <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbfca90416103480a8a8f725f5cecc70a">
-    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
-    <rdf:rest rdf:nodeID="N6489eb21550c4611a13bf6e91152c47f"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasImagen">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N6489eb21550c4611a13bf6e91152c47f">
-    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasDni">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Carta">
-    <rdfs:subClassOf rdf:nodeID="N41a98bdff4c84183a02b2972359fb9c6"/>
-    <rdfs:subClassOf rdf:nodeID="N90c4089cbe6742f8970594fb2d509902"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasCartas">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
+    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc125936abaad4b8aa382d4994d475132">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasId"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas">
+    <rdfs:subClassOf rdf:nodeID="Neeaaebfffa1c45cb9ff0d0cd5065f517"/>
+    <rdfs:subClassOf rdf:nodeID="Nb93e48307ba143a69625fea1b8498d6b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N85445df7fcf148819fc9884ebc8743e0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaSalida"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb93e48307ba143a69625fea1b8498d6b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasId"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc807aa6627b241cdb51947e555ac622b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N13265419d3b645e0b7e55cdbfa41aa3c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasVersion"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3bf5d3a592714cc3abddca76161be0fa">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasImagen"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasNombre">
+    <rdfs:domain rdf:nodeID="Ndff8db4063c74e18a0e792a5d40765b1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#core-restriction">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -58,9 +81,9 @@
     <dcterms:publisher>http://tu-dominio.com</dcterms:publisher>
     <dcterms:description xml:lang="en">Restricciones de la ontología de prueba.</dcterms:description>
     <rdfs:comment>This version is automatically generated from prueba.xml on 
-                2026-03-25</rdfs:comment>
+                2026-03-26</rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://github.com/tu-usuario/tu-repo"/>
-    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-25</dcterms:issued>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:issued>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-24</dcterms:created>
     <owl:versionInfo>1.0.0</owl:versionInfo>
     <owl:incompatibleWith></owl:incompatibleWith>
@@ -70,65 +93,72 @@
     <vann:preferredNamespacePrefix>prueba</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N365c376c609d43a9bac0d9f19fda7927">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="Nc6fd5cc0a66048908c10262b9c4dd983"/>
+  <rdf:Description rdf:nodeID="N0556daafb5444586a6f924ed4df4abfc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasJuego">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
-    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
+  <rdf:Description rdf:nodeID="Nf5f6d4e8c8d74c02bce3579debcf8575">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nbd88e8c3a98048068ba0a2ca0de00883"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N769685566b76464a904a19ca2b0a4f7c">
+    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65313c1de229499c93ed2f0078bb7e40">
+    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
+    <rdf:rest rdf:nodeID="N19fa70469faf4190845adef6c6788a0c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasFechaSalida">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasComponentes">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#InstanciaCarta">
+    <rdfs:subClassOf rdf:nodeID="Nc125936abaad4b8aa382d4994d475132"/>
+    <rdfs:subClassOf rdf:nodeID="N13265419d3b645e0b7e55cdbfa41aa3c"/>
+    <rdfs:subClassOf rdf:nodeID="N3bf5d3a592714cc3abddca76161be0fa"/>
+    <rdfs:subClassOf rdf:nodeID="Nfe788f46006d449badac0f9dfcae003f"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasJugadores">
     <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Partida"/>
     <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N84bc5ac041c34d47ab78cb6b78b20734">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Jugador">
+    <rdfs:subClassOf rdf:nodeID="N17249499bbd441229895184585ee3354"/>
+    <rdfs:subClassOf rdf:nodeID="N0556daafb5444586a6f924ed4df4abfc"/>
+    <rdfs:subClassOf rdf:nodeID="N19e01d3bac9f4285890a3e963b7c1e6b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N17249499bbd441229895184585ee3354">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasDni"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaNacimiento"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc36a85e6b2b64e2fb794e4dee457d7d2">
+  <rdf:Description rdf:nodeID="N75760c01a3b84086abb48fec383952b3">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasId"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas">
-    <rdfs:subClassOf rdf:nodeID="N8d2bd7d8f2e445a4889dd82101cad398"/>
-    <rdfs:subClassOf rdf:nodeID="Nc36a85e6b2b64e2fb794e4dee457d7d2"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasEsPropietario">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
+    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasVersion">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Carta">
+    <rdfs:subClassOf rdf:nodeID="Nc807aa6627b241cdb51947e555ac622b"/>
+    <rdfs:subClassOf rdf:nodeID="N85445df7fcf148819fc9884ebc8743e0"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N41a98bdff4c84183a02b2972359fb9c6">
+  <rdf:Description rdf:nodeID="Neeaaebfffa1c45cb9ff0d0cd5065f517">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasImagen">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#InstanciaCarta">
-    <rdfs:subClassOf rdf:nodeID="N21202f8ef1044370a2518969a3b61d25"/>
-    <rdfs:subClassOf rdf:nodeID="N3ba3091570d6465aa25309ee808c35be"/>
-    <rdfs:subClassOf rdf:nodeID="N6c217a30d8e54cd3a80b36eb79655f66"/>
-    <rdfs:subClassOf rdf:nodeID="N2bd12fff3eef40569eca91d5af7409f8"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N104990dbe3be499b8d291db894b730f0">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N29591bdbfdbe497598ff9dc46d599e5c">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasComponentes"/>
     <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
   </rdf:Description>
@@ -137,102 +167,72 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasId">
-    <rdfs:domain rdf:nodeID="N365c376c609d43a9bac0d9f19fda7927"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasEsPropietario">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
-    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasNombre">
-    <rdfs:domain rdf:nodeID="N24f108d7461347d3a8c9eb13024f5fab"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N39f36c44b52b470584750106d78efee3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaNacimiento"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N24f108d7461347d3a8c9eb13024f5fab">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="Nf2c371482ab7488d876b18ebccfb8dbd"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasCartas">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
-    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasTipoCarta">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
-    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#TipoCarta"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasComponentes">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasStats">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N08f877b17dc64d048c2337de9da24ab8">
+  <rdf:Description rdf:nodeID="N8a6e888ff440453bb2f7bb742c3a0528">
     <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Juego">
-    <rdfs:subClassOf rdf:nodeID="N29591bdbfdbe497598ff9dc46d599e5c"/>
+  <rdf:Description rdf:nodeID="Ndff8db4063c74e18a0e792a5d40765b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N65313c1de229499c93ed2f0078bb7e40"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasFechaSalida">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3ba3091570d6465aa25309ee808c35be">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasVersion"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N79d3b8693c764c3b868ef299e04a108f">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasJugadores"/>
-    <owl:someValuesFrom rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na3a41cbd95784981a73338f1acc8914f">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf2c371482ab7488d876b18ebccfb8dbd">
-    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
-    <rdf:rest rdf:nodeID="Nbfca90416103480a8a8f725f5cecc70a"/>
+  <rdf:Description rdf:nodeID="Nbd88e8c3a98048068ba0a2ca0de00883">
+    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
+    <rdf:rest rdf:nodeID="N8a6e888ff440453bb2f7bb742c3a0528"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Partida"/>
     <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasDni">
-    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasVersion">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Jugador">
-    <rdfs:subClassOf rdf:nodeID="N39f36c44b52b470584750106d78efee3"/>
-    <rdfs:subClassOf rdf:nodeID="N104990dbe3be499b8d291db894b730f0"/>
-    <rdfs:subClassOf rdf:nodeID="N84bc5ac041c34d47ab78cb6b78b20734"/>
+  <rdf:Description rdf:nodeID="N19e01d3bac9f4285890a3e963b7c1e6b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasDni"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc6fd5cc0a66048908c10262b9c4dd983">
-    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
-    <rdf:rest rdf:nodeID="N08f877b17dc64d048c2337de9da24ab8"/>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasTipoCarta">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
+    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#TipoCarta"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf52001d23f83400d9c6d14b705806604">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasComponentes"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasStats">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Partida">
-    <rdfs:subClassOf rdf:nodeID="Na3a41cbd95784981a73338f1acc8914f"/>
-    <rdfs:subClassOf rdf:nodeID="N79d3b8693c764c3b868ef299e04a108f"/>
+    <rdfs:subClassOf rdf:nodeID="N75760c01a3b84086abb48fec383952b3"/>
+    <rdfs:subClassOf rdf:nodeID="N09df7532e15a46beb1f515143e9fd523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasId">
+    <rdfs:domain rdf:nodeID="Nf5f6d4e8c8d74c02bce3579debcf8575"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Juego">
+    <rdfs:subClassOf rdf:nodeID="Nf52001d23f83400d9c6d14b705806604"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasJuego">
+    <rdfs:domain rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
+    <rdfs:range rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N09df7532e15a46beb1f515143e9fd523">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://tu-dominio.com/ontologia/prueba#hasJugadores"/>
+    <owl:someValuesFrom rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N19fa70469faf4190845adef6c6788a0c">
+    <rdf:first rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
+    <rdf:rest rdf:nodeID="N769685566b76464a904a19ca2b0a4f7c"/>
   </rdf:Description>
 </rdf:RDF>
