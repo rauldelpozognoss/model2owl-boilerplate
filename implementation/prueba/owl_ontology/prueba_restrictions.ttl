@@ -11,14 +11,14 @@ prueba:core-restriction a owl:Ontology ;
     rdfs:label "Restricciones de la ontología de prueba."@en ;
     dcterms:created "2026-03-24"^^xsd:date ;
     dcterms:description "Restricciones de la ontología de prueba."@en ;
-    dcterms:issued "2026-03-25"^^xsd:date ;
+    dcterms:issued "2026-03-26"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://tu-dominio.com" ;
     dcterms:title "Ontología de Prueba Restricciones"@en ;
     vann:preferredNamespacePrefix "prueba" ;
     vann:preferredNamespaceUri "http://tu-dominio.com/ontologia/prueba#" ;
     rdfs:comment """This version is automatically generated from prueba.xml on 
-                2026-03-25""" ;
+                2026-03-26""" ;
     rdfs:seeAlso <https://github.com/tu-usuario/tu-repo> ;
     owl:imports dcterms:,
         prueba:core,
@@ -99,12 +99,12 @@ prueba:hasNombre a owl:FunctionalProperty ;
     rdfs:range xsd:string .
 
 prueba:Carta rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:date ;
-            owl:onProperty prueba:hasFechaSalida ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasNombre ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty prueba:hasFechaSalida ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:InstanciaCarta rdfs:subClassOf [ a owl:Restriction ;
@@ -113,36 +113,36 @@ prueba:InstanciaCarta rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasId ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasVersion ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasImagen ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasId ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:JuegoDeCartas rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasNombre ;
+            owl:onProperty prueba:hasId ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasId ;
+            owl:onProperty prueba:hasNombre ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:Jugador rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty prueba:hasFechaNacimiento ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasDni ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasNombre ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:date ;
-            owl:onProperty prueba:hasFechaNacimiento ;
             owl:qualifiedCardinality 1 ] .
 

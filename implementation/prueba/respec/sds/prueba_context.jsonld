@@ -4,7 +4,7 @@
       "@context": {
         "hasFechaSalida": {
           "@id": "http://tu-dominio.com/ontologia/prueba#hasFechaSalida",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
         },
         "hasNombre": {
           "@id": "http://tu-dominio.com/ontologia/prueba#hasNombre",
@@ -50,12 +50,17 @@
     "JuegoDeCartas": {
       "@context": {
         "hasCartas": {
+          "@container": "@set",
           "@id": "http://tu-dominio.com/ontologia/prueba#hasCartas",
           "@type": "@id"
         },
         "hasId": {
           "@id": "http://tu-dominio.com/ontologia/prueba#hasId",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasJuego": {
+          "@id": "http://tu-dominio.com/ontologia/prueba#hasJuego",
+          "@type": "@id"
         },
         "hasNombre": {
           "@id": "http://tu-dominio.com/ontologia/prueba#hasNombre",
@@ -71,12 +76,13 @@
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "hasEsPropietario": {
+          "@container": "@set",
           "@id": "http://tu-dominio.com/ontologia/prueba#hasEsPropietario",
           "@type": "@id"
         },
         "hasFechaNacimiento": {
           "@id": "http://tu-dominio.com/ontologia/prueba#hasFechaNacimiento",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
         },
         "hasNombre": {
           "@id": "http://tu-dominio.com/ontologia/prueba#hasNombre",
@@ -88,6 +94,7 @@
     "Partida": {
       "@context": {
         "hasJugadores": {
+          "@container": "@set",
           "@id": "http://tu-dominio.com/ontologia/prueba#hasJugadores",
           "@type": "@id"
         },
@@ -98,19 +105,7 @@
       },
       "@id": "http://tu-dominio.com/ontologia/prueba#Partida"
     },
-    "Stats": {
-      "@context": {
-        "hasAtaque": {
-          "@id": "http://tu-dominio.com/ontologia/prueba#hasAtaque",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "hasDefensa": {
-          "@id": "http://tu-dominio.com/ontologia/prueba#hasDefensa",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        }
-      },
-      "@id": "http://tu-dominio.com/ontologia/prueba#Stats"
-    },
+    "Stats": "http://tu-dominio.com/ontologia/prueba#Stats",
     "Thing": "http://tu-dominio.com/ontologia/prueba#Thing",
     "TipoCarta": "http://tu-dominio.com/ontologia/prueba#TipoCarta",
     "Yugioh": {
