@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import sys
 
 # --- CONFIGURACIÓN ---
-PREFIJO = "prueba:"
+PREFIJO = "hari:" # ¡Recuerda cambiar esto al prefijo de tu proyecto actual!
 NAMESPACE_XMI_OUTPUT = "http://www.omg.org/spec/XMI/20131001"
 
 def map_datatype(href_string):
@@ -21,6 +21,25 @@ def get_multiplicity(element, ns):
     u_val = upper.get("value", "1") if upper is not None else "1"
     if u_val == "-1": u_val = "*"
     return f"{l_val}..{u_val}"
+
+def extraer_documentacion(elemento, ns):
+    """Busca etiquetas <ownedComment> dentro de un elemento de Modelio y extrae su texto."""
+    if elemento is None: return ""
+    comentarios = elemento.findall("./ownedComment", ns)
+    textos = []
+    for com in comentarios:
+        # A veces el texto está en el atributo 'body', a veces en una subetiqueta <body>
+        if "body" in com.attrib:
+            textos.append(com.attrib["body"])
+        else:
+            body_node = com.find("./body", ns)
+            if body_node is not None and body_node.text:
+                textos.append(body_node.text)
+    
+    if textos:
+        # Unimos los textos y quitamos saltos de línea para que model2owl no se atragante
+        return " ".join(textos).replace("\r", " ").replace("\n", " ").strip()
+    return ""
 
 def adaptar_modelio_a_ea(input_file, output_file):
     ET.register_namespace("xmi", NAMESPACE_XMI_OUTPUT)
@@ -42,7 +61,6 @@ def adaptar_modelio_a_ea(input_file, output_file):
         ename = el.get('name', 'Unnamed')
         
         if etype in ['uml:Class', 'uml:Enumeration', 'uml:PrimitiveType']:
-            # Verificar si tiene alguna generalización (flecha de herencia)
             has_parent = el.find("./generalization", ns) is not None
             catalog[eid] = {
                 'name': ename, 
@@ -50,7 +68,7 @@ def adaptar_modelio_a_ea(input_file, output_file):
                 'has_parent': has_parent
             }
 
-    # 2. INYECTAR LA CLASE RAÍZ PRUEBA:THING
+    # 2. INYECTAR LA CLASE RAÍZ THING (Esta sí es generada automáticamente)
     root_class_id = "ID_AUTO_GENERATED_THING_ROOT"
     ea_root = ET.SubElement(elements, "element", {
         f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
@@ -61,9 +79,8 @@ def adaptar_modelio_a_ea(input_file, output_file):
 
     # 3. PROCESAR ELEMENTOS DISEÑADOS
     for eid, info in catalog.items():
-        if info['name'] == "Thing": continue # Evitar duplicar si ya la creaste en Modelio
+        if info['name'] == "Thing": continue
 
-        # Mapeo de tipos
         m2o_type = 'uml:Class'
         if info['type'] == 'Enumeration': m2o_type = 'uml:Enumeration'
         if info['type'] == 'PrimitiveType': m2o_type = 'uml:DataType'
@@ -74,12 +91,15 @@ def adaptar_modelio_a_ea(input_file, output_file):
             "name": f"{PREFIJO}{info['name']}"
         })
         
-        # Buscar el elemento original en el XML de Modelio para sacar atributos
         original_el = root_modelio.find(f".//*[@xmi:id='{eid}']", ns)
         
-        # PROPIEDADES (Abstract, etc.)
-        props = ET.SubElement(ea_element, "properties", {"documentation": "Importado de Modelio"})
-        if original_el.get("isAbstract") == "true": props.set("stereotype", "Abstract")
+        # PROPIEDADES Y DOCUMENTACIÓN DE LA CLASE
+        doc_text = extraer_documentacion(original_el, ns)
+        props = ET.SubElement(ea_element, "properties")
+        if doc_text: # Solo lo añade si encontraste texto en Modelio
+            props.set("documentation", doc_text)
+        if original_el.get("isAbstract") == "true": 
+            props.set("stereotype", "Abstract")
 
         # ATRIBUTOS
         attr_container = ET.SubElement(ea_element, "attributes")
@@ -88,7 +108,6 @@ def adaptar_modelio_a_ea(input_file, output_file):
             aid = attr.get(f"{{{ns['xmi']}}}id")
             aname = attr.get("name")
             
-            # Nombre de atributo (hasNombre para clases, simple para enums)
             final_attr_name = f"{PREFIJO}has{aname[:1].upper() + aname[1:]}" if info['type'] == 'Class' else f"{PREFIJO}{aname}"
             
             ea_attr = ET.SubElement(attr_container, "attribute", {
@@ -96,12 +115,28 @@ def adaptar_modelio_a_ea(input_file, output_file):
                 "name": final_attr_name
             })
             
+            # Documentación del atributo
+            attr_doc = extraer_documentacion(attr, ns)
+            if attr_doc:
+                ET.SubElement(ea_attr, "documentation", {"value": attr_doc})
+            
             t_node = attr.find("./type", ns)
             t_xsd = map_datatype(t_node.get("href")) if t_node is not None else "xsd:string"
             ET.SubElement(ea_attr, "properties", {"type": t_xsd})
-            ET.SubElement(ea_attr, "bounds", {"lower": "1", "upper": "1"})
+            
+            # --- NUEVO CÓDIGO PARA EXTRAER LA CARDINALIDAD REAL ---
+            lower_node = attr.find("./lowerValue", ns)
+            upper_node = attr.find("./upperValue", ns)
+            
+            # En UML, si no hay etiqueta lowerValue/upperValue se asume 1 por defecto
+            l_val = lower_node.get("value", "0") if lower_node is not None else "1"
+            u_val = upper_node.get("value", "1") if upper_node is not None else "1"
+            if u_val == "-1": 
+                u_val = "*"
+                
+            ET.SubElement(ea_attr, "bounds", {"lower": str(l_val), "upper": str(u_val)})
 
-        # --- LÓGICA DE HERENCIA AUTOMÁTICA HACIA THING ---
+        # LÓGICA DE HERENCIA AUTOMÁTICA HACIA THING
         if not info['has_parent'] and info['type'] in ['Class', 'Enumeration']:
             gen_id = f"auto_gen_thing_{eid}"
             ea_gen = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": gen_id})
@@ -114,7 +149,6 @@ def adaptar_modelio_a_ea(input_file, output_file):
             ET.SubElement(tgt, "model", {"name": f"{PREFIJO}Thing", "type": "Class"})
 
     # 4. PROCESAR ASOCIACIONES Y HERENCIAS EXISTENTES
-    # Asociaciones
     for eid, info in catalog.items():
         if info['type'] != 'Class': continue
         original_el = root_modelio.find(f".//*[@xmi:id='{eid}']", ns)
@@ -124,6 +158,11 @@ def adaptar_modelio_a_ea(input_file, output_file):
                 aid = attr.get("association")
                 ea_conn = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": aid})
                 ET.SubElement(ea_conn, "properties", {"ea_type": "Association", "direction": "Source -> Destination"})
+                
+                # Documentación de la relación
+                conn_doc = extraer_documentacion(attr, ns)
+                if conn_doc:
+                    ET.SubElement(ea_conn, "documentation", {"value": conn_doc})
                 
                 ET.SubElement(ET.SubElement(ea_conn, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": eid}), "model", {"name": f"{PREFIJO}{info['name']}", "type": "Class"})
                 
@@ -136,7 +175,6 @@ def adaptar_modelio_a_ea(input_file, output_file):
     for gen in root_modelio.findall(".//generalization", ns):
         rid = gen.get(f"{{{ns['xmi']}}}id")
         tid = gen.get("general")
-        # Encontrar al hijo (padre de la etiqueta generalization)
         child_el = root_modelio.find(f".//*[@xmi:id='{rid}']/..", ns)
         sid = child_el.get(f"{{{ns['xmi']}}}id")
         
@@ -146,21 +184,36 @@ def adaptar_modelio_a_ea(input_file, output_file):
             ET.SubElement(ET.SubElement(ea_gen, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": sid}), "model", {"name": f"{PREFIJO}{catalog[sid]['name']}", "type": "Class"})
             ET.SubElement(ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": tid}), "model", {"name": f"{PREFIJO}{catalog[tid]['name']}", "type": "Class"})
 
-    # 5. DEPENDENCIAS Y REALIZACIONES (Con nombres de rol auto-generados para no fallar)
+    # 5. DEPENDENCIAS Y REALIZACIONES (Con soporte para Disjoint y Equivalent)
     for rel_type, ea_label in [("Dependency", "Dependency"), ("Realization", "Realization")]:
         for rel in root_modelio.findall(f".//packagedElement[@xmi:type='uml:{rel_type}']", ns):
             sid = rel.get("client"); tid = rel.get("supplier"); rid = rel.get(f"{{{ns['xmi']}}}id")
+            
+            # Buscamos si has llamado a la dependencia "Disjoint" o "Equivalent"
+            rel_name = rel.get("name", "")
+            stereotype = ""
+            if "disjoint" in rel_name.lower(): stereotype = "Disjoint"
+            if "equivalent" in rel_name.lower(): stereotype = "Equivalent"
+
             if sid in catalog and tid in catalog:
                 ea_conn = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": rid})
-                ET.SubElement(ea_conn, "properties", {"ea_type": ea_label, "direction": "Source -> Destination"})
+                
+                # Inyectamos el estereotipo si existe
+                props = {"ea_type": ea_label, "direction": "Source -> Destination"}
+                if stereotype: props["stereotype"] = stereotype
+                ET.SubElement(ea_conn, "properties", props)
+                
+                # Documentación
+                rel_doc = extraer_documentacion(rel, ns)
+                if rel_doc: ET.SubElement(ea_conn, "documentation", {"value": rel_doc})
+
                 ET.SubElement(ET.SubElement(ea_conn, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": sid}), "model", {"name": f"{PREFIJO}{catalog[sid]['name']}", "type": catalog[sid]['type']})
                 tgt = ET.SubElement(ea_conn, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": tid})
                 ET.SubElement(tgt, "model", {"name": f"{PREFIJO}{catalog[tid]['name']}", "type": catalog[tid]['type']})
                 ET.SubElement(tgt, "role", {"name": f"{PREFIJO}has{catalog[tid]['name']}", "visibility": "Public"})
-
     tree_ea = ET.ElementTree(root_ea)
     tree_ea.write(output_file, encoding="UTF-8", xml_declaration=True)
-    print(f"¡Éxito! XML generado con raíz '{PREFIJO}Thing' y herencia automática.")
+    print(f"¡Éxito! XML generado con raíz '{PREFIJO}Thing', herencia automática y notas integradas.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
