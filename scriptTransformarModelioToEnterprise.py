@@ -25,25 +25,47 @@ def get_multiplicity(element, ns):
     if u_val == "-1": u_val = "*"
     return f"{l_val}..{u_val}"
 
-def extraer_documentacion(elemento, ns):
-    """Busca etiquetas <ownedComment> dentro de un elemento de Modelio y extrae su texto."""
-    if elemento is None: return ""
+def extraer_documentacion_y_tags(elemento, ns):
+    """
+    Busca <ownedComment>, extrae el texto, y separa la documentación normal 
+    de las etiquetas personalizadas que empiecen por '@tag:'.
+    Retorna: (string_documentacion, lista_de_tuplas_tags)
+    """
+    if elemento is None: return "", []
+    
     comentarios = elemento.findall("./ownedComment", ns)
-    textos = []
+    doc_lines = []
+    tags_list = []
+    
     for com in comentarios:
+        texto = ""
         if "body" in com.attrib:
-            textos.append(com.attrib["body"])
+            texto = com.attrib["body"]
         else:
             body_node = com.find("./body", ns)
             if body_node is not None and body_node.text:
-                textos.append(body_node.text)
+                texto = body_node.text
+        
+        if texto:
+            # Procesar línea a línea para detectar los tags
+            for linea in texto.split('\n'):
+                linea = linea.strip()
+                if linea.startswith("@tag:"):
+                    try:
+                        # Limpiar y separar por el primer '='
+                        contenido = linea.replace("@tag:", "").strip()
+                        key, val = contenido.split("=", 1)
+                        tags_list.append((key.strip(), val.strip()))
+                    except ValueError:
+                        # Si alguien pone @tag: sin '=', lo ignoramos
+                        pass
+                else:
+                    if linea: doc_lines.append(linea)
     
-    if textos:
-        return " ".join(textos).replace("\r", " ").replace("\n", " ").strip()
-    return ""
+    doc_text = " ".join(doc_lines).replace("\r", "").strip()
+    return doc_text, tags_list
 
 def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
-    # Asegurarnos de que el prefijo termina siempre en ':'
     prefijo = prefijo_input if prefijo_input.endswith(':') else f"{prefijo_input}:"
 
     ET.register_namespace("xmi", NAMESPACE_XMI_OUTPUT)
@@ -93,12 +115,20 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
         
         original_el = root_modelio.find(f".//*[@xmi:id='{eid}']", ns)
         
-        doc_text = extraer_documentacion(original_el, ns)
+        # --- NUEVO: Extraer doc y tags para CLASES ---
+        doc_text, tags_list = extraer_documentacion_y_tags(original_el, ns)
+        
         props = ET.SubElement(ea_element, "properties")
         if doc_text: 
             props.set("documentation", doc_text)
         if original_el.get("isAbstract") == "true": 
             props.set("stereotype", "Abstract")
+            
+        # Inyectar tags en el XML de EA si existen
+        if tags_list:
+            tags_container = ET.SubElement(ea_element, "tags")
+            for t_name, t_val in tags_list:
+                ET.SubElement(tags_container, "tag", {"name": t_name, "value": t_val})
 
         attr_container = ET.SubElement(ea_element, "attributes")
         for attr in original_el.findall("./ownedAttribute", ns):
@@ -106,7 +136,6 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             aid = attr.get(f"{{{ns['xmi']}}}id")
             aname = attr.get("name")
             
-            # --- CORRECCIÓN 1: Evitar duplicar "has" o "is" ---
             if info['type'] == 'Class':
                 if aname.startswith("has") or aname.startswith("is"):
                     final_attr_name = f"{prefijo}{aname}"
@@ -120,12 +149,17 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 "name": final_attr_name
             })
             
-            attr_doc = extraer_documentacion(attr, ns)
+            # --- NUEVO: Extraer doc y tags para ATRIBUTOS ---
+            attr_doc, attr_tags = extraer_documentacion_y_tags(attr, ns)
             if attr_doc:
                 ET.SubElement(ea_attr, "documentation", {"value": attr_doc})
+                
+            if attr_tags:
+                attr_tags_container = ET.SubElement(ea_attr, "tags")
+                for t_name, t_val in attr_tags:
+                    ET.SubElement(attr_tags_container, "tag", {"name": t_name, "value": t_val})
             
             t_node = attr.find("./type", ns)
-            # --- CORRECCIÓN 2: Map_datatype ampliado y mejorado ---
             t_xsd = map_datatype(t_node.get("href")) if t_node is not None else "xsd:string"
             ET.SubElement(ea_attr, "properties", {"type": t_xsd})
             
@@ -160,9 +194,14 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 ea_conn = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": aid})
                 ET.SubElement(ea_conn, "properties", {"ea_type": "Association", "direction": "Source -> Destination"})
                 
-                conn_doc = extraer_documentacion(attr, ns)
+                # --- NUEVO: Extraer doc y tags para ASOCIACIONES ---
+                conn_doc, conn_tags = extraer_documentacion_y_tags(attr, ns)
                 if conn_doc:
                     ET.SubElement(ea_conn, "documentation", {"value": conn_doc})
+                if conn_tags:
+                    conn_tags_container = ET.SubElement(ea_conn, "tags")
+                    for t_name, t_val in conn_tags:
+                        ET.SubElement(conn_tags_container, "tag", {"name": t_name, "value": t_val})
                 
                 ET.SubElement(ET.SubElement(ea_conn, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": eid}), "model", {"name": f"{prefijo}{info['name']}", "type": "Class"})
                 
@@ -170,7 +209,6 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 ET.SubElement(target, "model", {"name": f"{prefijo}{catalog[tid]['name']}", "type": catalog[tid]['type']})
                 ET.SubElement(target, "type", {"multiplicity": get_multiplicity(attr, ns)})
                 
-                # --- CORRECCIÓN 1: Aplicado también a las asociaciones ---
                 aname = attr.get('name', '')
                 if aname.startswith("has") or aname.startswith("is"):
                     role_name = f"{prefijo}{aname}"
@@ -207,14 +245,19 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 if stereotype: props["stereotype"] = stereotype
                 ET.SubElement(ea_conn, "properties", props)
                 
-                rel_doc = extraer_documentacion(rel, ns)
-                if rel_doc: ET.SubElement(ea_conn, "documentation", {"value": rel_doc})
+                # --- NUEVO: Extraer doc y tags para DEPENDENCIAS ---
+                rel_doc, rel_tags = extraer_documentacion_y_tags(rel, ns)
+                if rel_doc: 
+                    ET.SubElement(ea_conn, "documentation", {"value": rel_doc})
+                if rel_tags:
+                    rel_tags_container = ET.SubElement(ea_conn, "tags")
+                    for t_name, t_val in rel_tags:
+                        ET.SubElement(rel_tags_container, "tag", {"name": t_name, "value": t_val})
 
                 ET.SubElement(ET.SubElement(ea_conn, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": sid}), "model", {"name": f"{prefijo}{catalog[sid]['name']}", "type": catalog[sid]['type']})
                 tgt = ET.SubElement(ea_conn, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": tid})
                 ET.SubElement(tgt, "model", {"name": f"{prefijo}{catalog[tid]['name']}", "type": catalog[tid]['type']})
                 
-                # --- CORRECCIÓN 3: Respetar el nombre del rol en las dependencias ---
                 if rel_name and stereotype == "":
                     role_name = f"{prefijo}{rel_name}"
                 else:
@@ -224,7 +267,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 
     tree_ea = ET.ElementTree(root_ea)
     tree_ea.write(output_file, encoding="UTF-8", xml_declaration=True)
-    print(f"¡Éxito! XML generado con prefijo automático '{prefijo}', cardinalidad dinámica, mapeo extendido y compatibilidad total con EA.")
+    print(f"¡Éxito! XML generado con prefijo automático '{prefijo}', soporte para metadatos (tags) y cardinalidad.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
@@ -234,7 +277,6 @@ if __name__ == "__main__":
         input_file = sys.argv[1]
         output_file = sys.argv[2]
         
-        # --- EXTRACCIÓN AUTOMÁTICA DEL PREFIJO ---
         base_name = os.path.basename(input_file)
         prefijo_detectado, _ = os.path.splitext(base_name)
         
