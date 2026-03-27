@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 import sys
-import os # Añadido para extraer el nombre del archivo automáticamente
+import os
 
 # --- CONFIGURACIÓN ---
 NAMESPACE_XMI_OUTPUT = "http://www.omg.org/spec/XMI/20131001"
@@ -10,8 +10,11 @@ def map_datatype(href_string):
     href = href_string.lower()
     if "string" in href: return "xsd:string"
     if "edate" in href or "date" in href: return "xsd:date"
+    if "time" in href: return "xsd:time"
     if "integer" in href or "int" in href: return "xsd:integer"
-    if "boolean" in href: return "xsd:boolean"
+    if "decimal" in href or "double" in href or "float" in href: return "xsd:decimal"
+    if "boolean" in href or "bool" in href: return "xsd:boolean"
+    if "uri" in href or "url" in href: return "xsd:anyURI"
     return "xsd:string"
 
 def get_multiplicity(element, ns):
@@ -103,7 +106,14 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             aid = attr.get(f"{{{ns['xmi']}}}id")
             aname = attr.get("name")
             
-            final_attr_name = f"{prefijo}has{aname[:1].upper() + aname[1:]}" if info['type'] == 'Class' else f"{prefijo}{aname}"
+            # --- CORRECCIÓN 1: Evitar duplicar "has" o "is" ---
+            if info['type'] == 'Class':
+                if aname.startswith("has") or aname.startswith("is"):
+                    final_attr_name = f"{prefijo}{aname}"
+                else:
+                    final_attr_name = f"{prefijo}has{aname[:1].upper() + aname[1:]}"
+            else:
+                final_attr_name = f"{prefijo}{aname}"
             
             ea_attr = ET.SubElement(attr_container, "attribute", {
                 f"{{{NAMESPACE_XMI_OUTPUT}}}idref": aid,
@@ -115,6 +125,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 ET.SubElement(ea_attr, "documentation", {"value": attr_doc})
             
             t_node = attr.find("./type", ns)
+            # --- CORRECCIÓN 2: Map_datatype ampliado y mejorado ---
             t_xsd = map_datatype(t_node.get("href")) if t_node is not None else "xsd:string"
             ET.SubElement(ea_attr, "properties", {"type": t_xsd})
             
@@ -158,7 +169,15 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 target = ET.SubElement(ea_conn, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": tid})
                 ET.SubElement(target, "model", {"name": f"{prefijo}{catalog[tid]['name']}", "type": catalog[tid]['type']})
                 ET.SubElement(target, "type", {"multiplicity": get_multiplicity(attr, ns)})
-                ET.SubElement(target, "role", {"name": f"{prefijo}has{attr.get('name')[:1].upper() + attr.get('name')[1:]}", "visibility": "Public"})
+                
+                # --- CORRECCIÓN 1: Aplicado también a las asociaciones ---
+                aname = attr.get('name', '')
+                if aname.startswith("has") or aname.startswith("is"):
+                    role_name = f"{prefijo}{aname}"
+                else:
+                    role_name = f"{prefijo}has{aname[:1].upper() + aname[1:]}"
+                    
+                ET.SubElement(target, "role", {"name": role_name, "visibility": "Public"})
 
     for gen in root_modelio.findall(".//generalization", ns):
         rid = gen.get(f"{{{ns['xmi']}}}id")
@@ -194,11 +213,18 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 ET.SubElement(ET.SubElement(ea_conn, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": sid}), "model", {"name": f"{prefijo}{catalog[sid]['name']}", "type": catalog[sid]['type']})
                 tgt = ET.SubElement(ea_conn, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": tid})
                 ET.SubElement(tgt, "model", {"name": f"{prefijo}{catalog[tid]['name']}", "type": catalog[tid]['type']})
-                ET.SubElement(tgt, "role", {"name": f"{prefijo}has{catalog[tid]['name']}", "visibility": "Public"})
+                
+                # --- CORRECCIÓN 3: Respetar el nombre del rol en las dependencias ---
+                if rel_name and stereotype == "":
+                    role_name = f"{prefijo}{rel_name}"
+                else:
+                    role_name = f"{prefijo}has{catalog[tid]['name']}"
+                    
+                ET.SubElement(tgt, "role", {"name": role_name, "visibility": "Public"})
                 
     tree_ea = ET.ElementTree(root_ea)
     tree_ea.write(output_file, encoding="UTF-8", xml_declaration=True)
-    print(f"¡Éxito! XML generado con prefijo automático '{prefijo}', cardinalidad dinámica y compatibilidad total con EA.")
+    print(f"¡Éxito! XML generado con prefijo automático '{prefijo}', cardinalidad dinámica, mapeo extendido y compatibilidad total con EA.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
@@ -209,11 +235,7 @@ if __name__ == "__main__":
         output_file = sys.argv[2]
         
         # --- EXTRACCIÓN AUTOMÁTICA DEL PREFIJO ---
-        # 1. Cogemos solo el nombre del archivo (ej: C:/mis_modelos/prueba.xmi -> prueba.xmi)
         base_name = os.path.basename(input_file)
-        
-        # 2. Le quitamos la extensión (ej: prueba.xmi -> prueba)
         prefijo_detectado, _ = os.path.splitext(base_name)
         
-        # 3. Llamamos a la función con el prefijo extraído automáticamente
         adaptar_modelio_a_ea(input_file, output_file, prefijo_detectado)
