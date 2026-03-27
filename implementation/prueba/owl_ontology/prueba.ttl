@@ -36,13 +36,15 @@ prueba:Stats a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
     skos:prefLabel "Stats"@en .
 
-prueba:TipoCarta a owl:Class ;
-    rdfs:subClassOf prueba:Thing .
-
 prueba:Yugioh a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
     rdfs:subClassOf prueba:Thing ;
     skos:prefLabel "Yugioh"@en .
+
+prueba:habilidad a skos:Concept ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:inScheme prueba:TipoCarta ;
+    skos:prefLabel "habilidad"@en .
 
 prueba:hasCartas a owl:ObjectProperty ;
     rdfs:isDefinedBy prueba:core ;
@@ -104,6 +106,16 @@ prueba:hasVersion a owl:DatatypeProperty ;
     rdfs:isDefinedBy prueba:core ;
     skos:prefLabel "has Version"@en .
 
+prueba:hechizo a skos:Concept ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:inScheme prueba:TipoCarta ;
+    skos:prefLabel "hechizo"@en .
+
+prueba:poder a skos:Concept ;
+    rdfs:isDefinedBy prueba:core ;
+    skos:inScheme prueba:TipoCarta ;
+    skos:prefLabel "poder"@en .
+
 prueba:Carta a owl:Class ;
     rdfs:isDefinedBy prueba:core ;
     rdfs:subClassOf prueba:Thing ;
@@ -116,6 +128,12 @@ prueba:Persona a owl:Class ;
     owl:versionInfo "2.1"@en ;
     skos:definition "Descripción: Una persona con DNI. Nota: Dudas sobre Persona Nota: después de los tags"@en ;
     skos:prefLabel "Persona"@en .
+
+prueba:TipoCarta a owl:Class,
+        skos:ConceptScheme ;
+    rdfs:isDefinedBy prueba:core ;
+    rdfs:subClassOf prueba:Thing ;
+    skos:prefLabel "Tipo Carta"@en .
 
 prueba:Thing a owl:Class ;
     rdfs:isDefinedBy prueba:core ;

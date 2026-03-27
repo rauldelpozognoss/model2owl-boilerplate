@@ -8,22 +8,27 @@
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Carta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Carta</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasComponentes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Componentes</skos:prefLabel>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasJuego">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Juego</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Jugador">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Jugador</skos:prefLabel>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#poder">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://tu-dominio.com/ontologia/prueba#TipoCarta"/>
+    <skos:prefLabel xml:lang="en">poder</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Persona"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hechizo">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://tu-dominio.com/ontologia/prueba#TipoCarta"/>
+    <skos:prefLabel xml:lang="en">hechizo</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasEsPropietario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Es Propietario</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Thing">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -31,56 +36,24 @@
     <skos:definition xml:lang="en">Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</skos:definition>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasImagen">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Imagen</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasFechaSalida">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Fecha Salida</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasDni">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Dni</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#InstanciaCarta">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#TipoCarta">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Instancia Carta</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasId">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Id</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Persona">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Persona</skos:prefLabel>
-    <skos:definition xml:lang="en">Descripción: Una persona con DNI. Nota: Dudas sobre Persona Nota: después de los tags</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-    <motivoExtension xml:lang="en">refinamiento_semantico</motivoExtension>
-    <owl:versionInfo xml:lang="en">2.1</owl:versionInfo>
-    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Stats">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Stats</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Partida">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Partida</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Tipo Carta</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
     <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasCartas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <skos:prefLabel xml:lang="en">has Cartas</skos:prefLabel>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Yugioh">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Yugioh</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Jugador">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Jugador</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Persona"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#core">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -102,36 +75,50 @@
     <vann:preferredNamespacePrefix>prueba</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#InstanciaCarta">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Instancia Carta</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasStats">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Stats</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasDni">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Dni</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasNombre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Nombre</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasFechaNacimiento">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <skos:prefLabel xml:lang="en">has Fecha Nacimiento</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasTipoCarta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <skos:prefLabel xml:lang="en">has Tipo Carta</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Yugioh">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Stats">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Yugioh</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Stats</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Juego De Cartas</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
-    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#TipoCarta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:prefLabel xml:lang="en">has Partida De Juego</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Persona">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Persona</skos:prefLabel>
+    <skos:definition xml:lang="en">Descripción: Una persona con DNI. Nota: Dudas sobre Persona Nota: después de los tags</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+    <motivoExtension xml:lang="en">refinamiento_semantico</motivoExtension>
+    <owl:versionInfo xml:lang="en">2.1</owl:versionInfo>
+    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Juego">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -140,19 +127,47 @@
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
     <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasCartas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Cartas</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasFechaSalida">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Fecha Salida</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasJugadores">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:prefLabel xml:lang="en">has Jugadores</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasEsPropietario">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <skos:prefLabel xml:lang="en">has Es Propietario</skos:prefLabel>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasImagen">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Imagen</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasStats">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Stats</skos:prefLabel>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Carta">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Carta</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasTipoCarta">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Tipo Carta</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Juego De Cartas</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#habilidad">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://tu-dominio.com/ontologia/prueba#TipoCarta"/>
+    <skos:prefLabel xml:lang="en">habilidad</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasVersion">
@@ -160,14 +175,20 @@
     <skos:prefLabel xml:lang="en">has Version</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasJuego">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <skos:prefLabel xml:lang="en">has Juego</skos:prefLabel>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasComponentes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Componentes</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasNombre">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#Partida">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Partida</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
+    <rdfs:subClassOf rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba#hasId">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Nombre</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has Id</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba#core"/>
   </rdf:Description>
 </rdf:RDF>

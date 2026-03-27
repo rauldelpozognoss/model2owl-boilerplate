@@ -7,41 +7,6 @@
    xmlns:sh="http://www.w3.org/ns/shacl#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasFechaSalida">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaSalida"/>
-    <sh:name>Has fecha salida</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasImagen">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasImagen"/>
-    <sh:name>Has imagen</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasJugadores">
-    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Nf8b86c141c5c478d86f196b0048186b3"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasJugadores"/>
-    <sh:name>Has jugadores</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasTipoCarta">
-    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#TipoCarta"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Nc7ba54928ab6443ba9f15f6eab9b071b"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasTipoCarta"/>
-    <sh:name>Has tipo carta</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#core-shape">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
@@ -64,47 +29,77 @@
     <vann:preferredNamespacePrefix>prueba</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc7063cfe16d845ec937e917796430666">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasCartas&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasCartas&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasFechaNacimiento">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasTipoCarta">
+    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#TipoCarta"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N3807be23d1d5479d91a40a73f4205fbc"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaNacimiento"/>
-    <sh:name>Has fecha nacimiento</sh:name>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasTipoCarta"/>
+    <sh:name>Has tipo carta</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasNombre">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
+    <sh:name>Has nombre</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-PersonaShape">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-PartidaShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Persona"/>
-    <rdfs:label>Persona</rdfs:label>
-    <rdfs:comment>Descripción: Una persona con DNI. Nota: Dudas sobre Persona Nota: después de los tags</rdfs:comment>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Partida"/>
+    <rdfs:label>Partida</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasNombre"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasDni"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasFechaNacimiento"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasPartidaDeJuego"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasJugadores"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-CartaShape">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCartaShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
-    <sh:sparql rdf:nodeID="N4ace3b30826742398a618ff9457b4f0c"/>
-    <rdfs:label>Carta</rdfs:label>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
+    <rdfs:label>Instancia Carta</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasNombre"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasFechaSalida"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasTipoCarta"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasId"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasVersion"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasImagen"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasStats"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartasShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
-    <rdfs:label>Juego De Cartas</rdfs:label>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasNombre">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
+    <sh:name>Has nombre</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasNombre"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasId"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasCartas"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasJuego"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
+    <rdfs:label>Juego</rdfs:label>
+    <rdfs:comment>Descripción de Juego: Es una actividad lúdica.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Juego-prueba-hasComponentes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasJugadores">
+    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Nc79110ff92b249d7bea565569092b6d9"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasJugadores"/>
+    <sh:name>Has jugadores</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Juego-prueba-hasComponentes">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasComponentes"/>
+    <sh:name>Has componentes</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasId">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
@@ -114,37 +109,6 @@
     <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-ThingShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
-    <rdfs:label>Thing</rdfs:label>
-    <rdfs:comment>Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JugadorShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
-    <rdfs:label>Jugador</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Jugador-prueba-hasEsPropietario"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasId">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasId"/>
-    <sh:name>Has id</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasCartas">
-    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
-    <sh:sparql rdf:nodeID="Nc7063cfe16d845ec937e917796430666"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasCartas"/>
-    <sh:name>Has cartas</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasVersion">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
@@ -163,82 +127,6 @@
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasStats">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasStats"/>
-    <sh:name>Has stats</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Juego-prueba-hasComponentes">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasComponentes"/>
-    <sh:name>Has componentes</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCartaShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
-    <rdfs:label>Instancia Carta</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasId"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasVersion"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasImagen"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasStats"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasPartidaDeJuego">
-    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Ne231eac6db694c8591cbf63bd13a5f8a"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego"/>
-    <sh:name>Has partida de juego</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasJuego">
-    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasJuego"/>
-    <sh:name>Has juego</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasNombre">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
-    <sh:name>Has nombre</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasNombre">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasNombre"/>
-    <sh:name>Has nombre</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-YugiohShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Yugioh"/>
-    <rdfs:label>Yugioh</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-PartidaShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Partida"/>
-    <rdfs:label>Partida</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasPartidaDeJuego"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasJugadores"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasDni">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasDni"/>
@@ -248,36 +136,148 @@
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasJuego">
+    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasJuego"/>
+    <sh:name>Has juego</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartasShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
+    <rdfs:label>Juego De Cartas</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasNombre"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasId"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasCartas"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasJuego"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Partida-prueba-hasPartidaDeJuego">
+    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#JuegoDeCartas"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Nae52d565ba2f42d4b4bc5329259e768c"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego"/>
+    <sh:name>Has partida de juego</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5160092be01546729af31f66e641a162">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://tu-dominio.com/ontologia/prueba#Carta&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JugadorShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Jugador"/>
+    <rdfs:label>Jugador</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Jugador-prueba-hasEsPropietario"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasFechaSalida">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaSalida"/>
+    <sh:name>Has fecha salida</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasId">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasId"/>
+    <sh:name>Has id</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasFechaNacimiento">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasFechaNacimiento"/>
+    <sh:name>Has fecha nacimiento</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-ThingShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Thing"/>
+    <rdfs:label>Thing</rdfs:label>
+    <rdfs:comment>Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-Jugador-prueba-hasEsPropietario">
     <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#InstanciaCarta"/>
-    <sh:sparql rdf:nodeID="Nc3a51e64968b4e678143aef02f114fed"/>
+    <sh:sparql rdf:nodeID="N50917068c3354bd1b68a353a41817640"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasEsPropietario"/>
     <sh:name>Has es propietario</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoShape">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-PersonaShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Juego"/>
-    <rdfs:label>Juego</rdfs:label>
-    <rdfs:comment>Descripción de Juego: Es una actividad lúdica.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Persona"/>
+    <rdfs:label>Persona</rdfs:label>
+    <rdfs:comment>Descripción: Una persona con DNI. Nota: Dudas sobre Persona Nota: después de los tags</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
-    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Juego-prueba-hasComponentes"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasNombre"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasDni"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Persona-prueba-hasFechaNacimiento"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc3a51e64968b4e678143aef02f114fed">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasEsPropietario&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasEsPropietario&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-JuegoDeCartas-prueba-hasCartas">
+    <sh:class rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
+    <sh:sparql rdf:nodeID="Nc833d76fb0784fc5b4330155e2c1b041"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasCartas"/>
+    <sh:name>Has cartas</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf8b86c141c5c478d86f196b0048186b3">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasJugadores&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasJugadores&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-CartaShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Carta"/>
+    <sh:sparql rdf:nodeID="N5160092be01546729af31f66e641a162"/>
+    <rdfs:label>Carta</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasNombre"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasFechaSalida"/>
+    <sh:property rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#prueba-Carta-prueba-hasTipoCarta"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne231eac6db694c8591cbf63bd13a5f8a">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasStats">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasStats"/>
+    <sh:name>Has stats</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc7ba54928ab6443ba9f15f6eab9b071b">
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-InstanciaCarta-prueba-hasImagen">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://tu-dominio.com/ontologia/prueba#hasImagen"/>
+    <sh:name>Has imagen</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3807be23d1d5479d91a40a73f4205fbc">
     <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasTipoCarta&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasTipoCarta&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N4ace3b30826742398a618ff9457b4f0c">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://tu-dominio.com/ontologia/prueba#Carta&gt; .
-                }</sh:select>
+  <rdf:Description rdf:about="http://tu-dominio.com/ontologia/prueba-shape#prueba-YugiohShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://tu-dominio.com/ontologia/prueba#Yugioh"/>
+    <rdfs:label>Yugioh</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://tu-dominio.com/ontologia/prueba-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N50917068c3354bd1b68a353a41817640">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasEsPropietario&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasEsPropietario&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc79110ff92b249d7bea565569092b6d9">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasJugadores&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasJugadores&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc833d76fb0784fc5b4330155e2c1b041">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasCartas&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasCartas&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nae52d565ba2f42d4b4bc5329259e768c">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego&gt; ?that . ?that &lt;http://tu-dominio.com/ontologia/prueba#hasPartidaDeJuego&gt; ?this .}</sh:select>
   </rdf:Description>
 </rdf:RDF>
