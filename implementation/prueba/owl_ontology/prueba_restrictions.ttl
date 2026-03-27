@@ -78,12 +78,12 @@ prueba:Juego rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:Partida rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prueba:hasJugadores ;
+            owl:someValuesFrom prueba:Jugador ],
+        [ a owl:Restriction ;
             owl:onClass prueba:JuegoDeCartas ;
             owl:onProperty prueba:hasPartidaDeJuego ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onProperty prueba:hasJugadores ;
-            owl:someValuesFrom prueba:Jugador ] .
+            owl:qualifiedCardinality 1 ] .
 
 prueba:hasId a owl:FunctionalProperty ;
     rdfs:domain [ a owl:Class ;
@@ -91,16 +91,16 @@ prueba:hasId a owl:FunctionalProperty ;
     rdfs:range xsd:string .
 
 prueba:Persona rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty prueba:hasFechaNacimiento ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasDni ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasNombre ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:date ;
-            owl:onProperty prueba:hasFechaNacimiento ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:hasNombre a owl:FunctionalProperty ;
@@ -109,33 +109,33 @@ prueba:hasNombre a owl:FunctionalProperty ;
     rdfs:range xsd:string .
 
 prueba:Carta rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasNombre ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:date ;
             owl:onProperty prueba:hasFechaSalida ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasNombre ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:InstanciaCarta rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasId ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasStats ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasVersion ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasId ;
-            owl:qualifiedCardinality 1 ] .
+            owl:onProperty prueba:hasVersion ] .
 
 prueba:JuegoDeCartas rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasId ;
+            owl:onProperty prueba:hasNombre ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasNombre ;
+            owl:onProperty prueba:hasId ;
             owl:qualifiedCardinality 1 ] .
 
