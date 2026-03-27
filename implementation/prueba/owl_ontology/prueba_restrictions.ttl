@@ -11,14 +11,14 @@ prueba:core-restriction a owl:Ontology ;
     rdfs:label "Restricciones de la ontología de prueba."@en ;
     dcterms:created "2026-03-24"^^xsd:date ;
     dcterms:description "Restricciones de la ontología de prueba."@en ;
-    dcterms:issued "2026-03-26"^^xsd:date ;
+    dcterms:issued "2026-03-27"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://tu-dominio.com" ;
     dcterms:title "Ontología de Prueba Restricciones"@en ;
     vann:preferredNamespacePrefix "prueba" ;
     vann:preferredNamespaceUri "http://tu-dominio.com/ontologia/prueba#" ;
     rdfs:comment """This version is automatically generated from prueba.xml on 
-                2026-03-26""" ;
+                2026-03-27""" ;
     rdfs:seeAlso <https://github.com/tu-usuario/tu-repo> ;
     owl:imports dcterms:,
         prueba:core,
@@ -33,6 +33,9 @@ prueba:hasCartas rdfs:domain prueba:JuegoDeCartas ;
 
 prueba:hasEsPropietario rdfs:domain prueba:Jugador ;
     rdfs:range prueba:InstanciaCarta .
+
+prueba:hasImagen rdfs:domain prueba:InstanciaCarta ;
+    rdfs:range xsd:string .
 
 prueba:hasJuego rdfs:domain prueba:JuegoDeCartas ;
     rdfs:range prueba:Juego .
@@ -56,10 +59,6 @@ prueba:hasFechaSalida a owl:FunctionalProperty ;
     rdfs:domain prueba:Carta ;
     rdfs:range xsd:date .
 
-prueba:hasImagen a owl:FunctionalProperty ;
-    rdfs:domain prueba:InstanciaCarta ;
-    rdfs:range xsd:string .
-
 prueba:hasJugadores rdfs:domain prueba:Partida ;
     rdfs:range prueba:Jugador .
 
@@ -67,12 +66,10 @@ prueba:hasPartidaDeJuego a owl:FunctionalProperty ;
     rdfs:domain prueba:Partida ;
     rdfs:range prueba:JuegoDeCartas .
 
-prueba:hasStats a owl:FunctionalProperty ;
-    rdfs:domain prueba:InstanciaCarta ;
+prueba:hasStats rdfs:domain prueba:InstanciaCarta ;
     rdfs:range xsd:string .
 
-prueba:hasVersion a owl:FunctionalProperty ;
-    rdfs:domain prueba:InstanciaCarta ;
+prueba:hasVersion rdfs:domain prueba:InstanciaCarta ;
     rdfs:range xsd:string .
 
 prueba:Juego rdfs:subClassOf [ a owl:Restriction ;
@@ -95,15 +92,15 @@ prueba:hasId a owl:FunctionalProperty ;
 
 prueba:Persona rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasDni ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasNombre ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:date ;
             owl:onProperty prueba:hasFechaNacimiento ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasDni ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:hasNombre a owl:FunctionalProperty ;
@@ -112,29 +109,25 @@ prueba:hasNombre a owl:FunctionalProperty ;
     rdfs:range xsd:string .
 
 prueba:Carta rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:date ;
-            owl:onProperty prueba:hasFechaSalida ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasNombre ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty prueba:hasFechaSalida ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:InstanciaCarta rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasStats ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty prueba:hasVersion ],
+        [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty prueba:hasId ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasVersion ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasStats ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty prueba:hasImagen ;
             owl:qualifiedCardinality 1 ] .
 
 prueba:JuegoDeCartas rdfs:subClassOf [ a owl:Restriction ;
