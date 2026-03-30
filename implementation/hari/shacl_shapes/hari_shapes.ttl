@@ -1,0 +1,332 @@
+@prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hari: <http://hari-meta.org/ontology/hari#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+core-shape:hari-AttributeAdditionShape a sh:NodeShape ;
+    rdfs:label "Attribute Addition" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-AttributeAddition-hari-hasNewPropertyIRI ;
+    sh:targetClass hari:AttributeAddition .
+
+core-shape:hari-CardinalityModificationShape a sh:NodeShape ;
+    rdfs:label "Cardinality Modification" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-CardinalityModification-hari-hasNewMax,
+        core-shape:hari-CardinalityModification-hari-hasNewMin,
+        core-shape:hari-CardinalityModification-hari-hasOldMax,
+        core-shape:hari-CardinalityModification-hari-hasOldMin,
+        core-shape:hari-CardinalityModification-hari-hasPropertyIRI ;
+    sh:targetClass hari:CardinalityModification .
+
+core-shape:hari-DirectReuseDecisionShape a sh:NodeShape ;
+    rdfs:label "Direct Reuse Decision" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-DirectReuseDecision-hari-hasReason,
+        core-shape:hari-DirectReuseDecision-hari-hasReusedClassIRI ;
+    sh:targetClass hari:DirectReuseDecision .
+
+core-shape:hari-ExtensionDecisionShape a sh:NodeShape ;
+    rdfs:label "Extension Decision" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-ExtensionDecision-hari-hasAddedPropertyIRI,
+        core-shape:hari-ExtensionDecision-hari-hasBaseClassIRI,
+        core-shape:hari-ExtensionDecision-hari-hasCardinalityChangedIRI,
+        core-shape:hari-ExtensionDecision-hari-hasExtendedClassIRI,
+        core-shape:hari-ExtensionDecision-hari-hasExtensionReason ;
+    sh:targetClass hari:ExtensionDecision .
+
+core-shape:hari-OntologyVersionShape a sh:NodeShape ;
+    rdfs:label "Ontology Version" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-OntologyVersion-hari-hasChange,
+        core-shape:hari-OntologyVersion-hari-hasContains,
+        core-shape:hari-OntologyVersion-hari-hasIRI,
+        core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
+        core-shape:hari-OntologyVersion-hari-hasLevel,
+        core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
+        core-shape:hari-OntologyVersion-hari-hasStatus,
+        core-shape:hari-OntologyVersion-hari-hasVersionInfo ;
+    sh:targetClass hari:OntologyVersion .
+
+core-shape:hari-ThingShape a sh:NodeShape ;
+    rdfs:label "Thing" ;
+    rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:Thing .
+
+core-shape:hari-TrainingPairShape a sh:NodeShape ;
+    rdfs:label "Training Pair" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-TrainingPair-hari-hasComplexityLevel,
+        core-shape:hari-TrainingPair-hari-hasDomainContext,
+        core-shape:hari-TrainingPair-hari-hasExpectedSerialization,
+        core-shape:hari-TrainingPair-hari-hasQualityScore,
+        core-shape:hari-TrainingPair-hari-hasRequiresExtension,
+        core-shape:hari-TrainingPair-hari-hasRequiresReuse,
+        core-shape:hari-TrainingPair-hari-hasSystemInstruction,
+        core-shape:hari-TrainingPair-hari-hasUserPrompt ;
+    sh:targetClass hari:TrainingPair .
+
+core-shape:hari-VersionChangeShape a sh:NodeShape ;
+    rdfs:label "Version Change" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-VersionChange-hari-hasDate ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#VersionChange> .
+                }""" ] ;
+    sh:targetClass hari:VersionChange .
+
+core-shape:hari-AttributeAddition-hari-hasNewPropertyIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has new property IRI" ;
+    sh:path hari:hasNewPropertyIRI .
+
+core-shape:hari-CardinalityModification-hari-hasNewMax a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has new max" ;
+    sh:path hari:hasNewMax .
+
+core-shape:hari-CardinalityModification-hari-hasNewMin a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has new min" ;
+    sh:path hari:hasNewMin .
+
+core-shape:hari-CardinalityModification-hari-hasOldMax a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has old max" ;
+    sh:path hari:hasOldMax .
+
+core-shape:hari-CardinalityModification-hari-hasOldMin a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has old min" ;
+    sh:path hari:hasOldMin .
+
+core-shape:hari-CardinalityModification-hari-hasPropertyIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has property IRI" ;
+    sh:path hari:hasPropertyIRI .
+
+core-shape:hari-DirectReuseDecision-hari-hasReason a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has reason" ;
+    sh:path hari:hasReason .
+
+core-shape:hari-DirectReuseDecision-hari-hasReusedClassIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has reused class IRI" ;
+    sh:path hari:hasReusedClassIRI .
+
+core-shape:hari-ExtensionDecision-hari-hasAddedPropertyIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:name "Has added property IRI" ;
+    sh:path hari:hasAddedPropertyIRI .
+
+core-shape:hari-ExtensionDecision-hari-hasBaseClassIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has base class IRI" ;
+    sh:path hari:hasBaseClassIRI .
+
+core-shape:hari-ExtensionDecision-hari-hasCardinalityChangedIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:name "Has cardinality changed IRI" ;
+    sh:path hari:hasCardinalityChangedIRI .
+
+core-shape:hari-ExtensionDecision-hari-hasExtendedClassIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has extended class IRI" ;
+    sh:path hari:hasExtendedClassIRI .
+
+core-shape:hari-ExtensionDecision-hari-hasExtensionReason a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has extension reason" ;
+    sh:path hari:hasExtensionReason .
+
+core-shape:hari-OntologyVersion-hari-hasChange a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:VersionChange ;
+    sh:name "Has change" ;
+    sh:path hari:hasChange ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasChange> ?that . ?that <http://hari-meta.org/ontology/hari#hasChange> ?this .}" ] .
+
+core-shape:hari-OntologyVersion-hari-hasContains a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:ExtensionDecision ;
+    sh:name "Has contains" ;
+    sh:path hari:hasContains ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasContains> ?that . ?that <http://hari-meta.org/ontology/hari#hasContains> ?this .}" ] .
+
+core-shape:hari-OntologyVersion-hari-hasIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has IRI" ;
+    sh:path hari:hasIRI .
+
+core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:name "Has knowledge domain" ;
+    sh:path hari:hasKnowledgeDomain .
+
+core-shape:hari-OntologyVersion-hari-hasLevel a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has level" ;
+    sh:path hari:hasLevel .
+
+core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:name "Has prior version IRI" ;
+    sh:path hari:hasPriorVersionIRI .
+
+core-shape:hari-OntologyVersion-hari-hasStatus a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has status" ;
+    sh:path hari:hasStatus .
+
+core-shape:hari-OntologyVersion-hari-hasVersionInfo a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has version info" ;
+    sh:path hari:hasVersionInfo .
+
+core-shape:hari-TrainingPair-hari-hasComplexityLevel a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has complexity level" ;
+    sh:path hari:hasComplexityLevel .
+
+core-shape:hari-TrainingPair-hari-hasDomainContext a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has domain context" ;
+    sh:path hari:hasDomainContext .
+
+core-shape:hari-TrainingPair-hari-hasExpectedSerialization a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has expected serialization" ;
+    sh:path hari:hasExpectedSerialization .
+
+core-shape:hari-TrainingPair-hari-hasQualityScore a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has quality score" ;
+    sh:path hari:hasQualityScore .
+
+core-shape:hari-TrainingPair-hari-hasRequiresExtension a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:ExtensionDecision ;
+    sh:name "Has requires extension" ;
+    sh:path hari:hasRequiresExtension ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasRequiresExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasRequiresExtension> ?this .}" ] .
+
+core-shape:hari-TrainingPair-hari-hasRequiresReuse a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:DirectReuseDecision ;
+    sh:name "Has requires reuse" ;
+    sh:path hari:hasRequiresReuse ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasRequiresReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasRequiresReuse> ?this .}" ] .
+
+core-shape:hari-TrainingPair-hari-hasSystemInstruction a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has system instruction" ;
+    sh:path hari:hasSystemInstruction .
+
+core-shape:hari-TrainingPair-hari-hasUserPrompt a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has user prompt" ;
+    sh:path hari:hasUserPrompt .
+
+core-shape:hari-VersionChange-hari-hasDate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has date" ;
+    sh:path hari:hasDate .
+
+core-shape:core-shape a owl:Ontology ;
+    rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:issued "2026-03-30"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Shapes"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-03-30" ;
+    owl:imports hari:core,
+        hari:core-restriction,
+        dcterms:,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;
+    owl:versionIRI core-shape:core-shape-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

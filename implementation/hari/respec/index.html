@@ -1,0 +1,3869 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>	
+    <meta charset="utf-8" />
+    <title>Ontología Hari Core</title>
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+    <script class="remove">
+    // All config options at https://respec.org/docs/
+
+	var myeditors = [
+	
+	
+	
+		]
+
+	var myauthors = [
+	
+	
+	
+		]
+	
+	function quickreference() {
+		$('#table-quickoverview').DataTable();
+	};
+
+   
+    var respecConfig = {
+      postProcess: [quickreference],
+      edDraftURI: "",
+      latestVersion: "",
+      specStatus: "base",
+      publishDate: "2026-03-30",
+      editors: myeditors,
+      authors: myauthors,
+      github: "rauldelpozognoss",
+      shortName: "Ontología Hari Core",
+      xref: "web-platform",
+      doJsonLd: true,
+      
+        logos: [{
+            src: "",
+            url: "",
+            alt: "logo",
+            width: 154,
+            height: 140,
+            id: "vocab-logo",
+        },],
+      
+      generatedSubtitle: "",
+      additionalCopyrightHolders: "",
+      
+      
+        otherLinks: [
+          
+          {
+            key: "Owners:",
+            data: [
+              
+                {
+                  value: "Raúl del Pozo Blanco",
+                  
+                }
+              
+            ]
+          },
+          
+          
+          
+          
+          
+        ],
+      
+      
+      
+
+    };
+
+    
+
+    </script>
+    <style>
+      .figure img, .sidefigure img, figure img, .figure object, .sidefigure object, figure object, img, .img {
+      max-width: 100%;
+      margin: auto;
+      height: auto;
+      }
+    </style>
+     
+    <p class="copyright">
+        Copyright © <span id="year"></span>
+    </p>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="msapplication-TileColor" content="#7ED956" />
+</head>
+<body>
+
+<!-- #################### Beginning of page content ####################### -->
+
+    
+        
+<section id="abstract">
+    <h2>Abstract</h2>
+    <!-- Replace the below paragraph with your text -->
+    <p class="instruction">
+        The abstract should provide a concise overview of the semantic model, summarizing its scope, purpose, and key elements. The final content should explain what the model represents, its intended use, and the core concepts it covers. For instance, it should describe the main classes, relationships, and types of entities addressed, highlighting reusability, extensibility, and integration within a broader data ecosystem.
+    </p>
+</section>
+
+    
+
+    
+        
+<section id="specintro">
+    <h2>Introduction</h2>
+    <p class="instruction">
+        The Introduction should provide context for the vocabulary, including the motivation for its creation, its intended audience, and the problems it aims to address. The section should give readers a high-level understanding of the model, including its scope, design principles, and how it fits within related specifications or standards.
+    </p>
+</section>
+
+    
+
+    
+        
+<section id="specstatus">
+    <h2>Status</h2>
+    <p class="instruction">
+        The Status section should explain the current standing of the specification, including its level of formal recognition, publication date, and any relevant approval or recommendation information. It should also summarize the development process, key decisions, and provide references to changelogs or historical versions.
+        It is recommended to indicate the <a href="https://www.w3.org/2021/Process-20211102/#maturity-levels">maturity levels</a> of the specification.
+    </p>
+    <p>
+        
+            This application profile has the status <i>Draft</i> and has been published on 2026-03-30.
+        
+    </p>
+    <p>
+        History of changes to the project is available in <a href="">Changelog</a>.
+    </p>
+</section>
+
+    
+
+    
+        
+<section id="speclicence">
+    <h2>License</h2>
+    <p class="instruction">
+        The License section should outline the legal terms under which the vocabulary and associated materials may be used, shared, and modified. It should clearly indicate copyright ownership, applicable licenses, exceptions, and any obligations or restrictions for users and contributors.
+    </p>
+    <p>
+        
+            This specification of Ontología Hari Core is published under CC BY 4.0.
+        
+    </p>
+</section>
+
+    
+
+    
+        
+<section id="conformance">    
+    <p class="instruction">
+        The Conformance section should define which parts of the specification are normative versus non-normative, and how compliance should be interpreted. It should explain the meaning of key terms such as MUST, MAY, and SHOULD, and it should provide guidance on how these rules should be applied when using or extending the vocabulary.
+    </p>
+</section>
+
+    
+
+    
+        <section id="specterminology">
+            <h2>Terminology</h2>
+            <p>
+                The Terminology section defining the key concepts and terms used in the vocabulary.
+            </p>
+
+
+            
+                
+    <h3>Used Prefixes</h3>
+    <table id="table-namespaces" class="simple">
+        <thead><tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
+        <tbody>
+        
+        <tr>
+            <td>
+            <code>hari</code>
+            </td>
+            <td>
+            <code>http://hari-meta.org/ontology/hari#</code>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+            
+        </section>
+    
+
+    
+        
+<section id="specoverview">
+    <h2>Overview</h2>
+    <div id="overview">
+        
+            
+                    <p>
+                        This document describes the usage of the following main entities for a correct usage of the vocabulary:
+                        <br />
+                        |
+                <a href="#Attributeaddition">Attribute addition</a> |
+                <a href="#Cardinalitymodification">Cardinality modification</a> |
+                <a href="#Directreusedecision">Direct reuse decision</a> |
+                <a href="#Extensiondecision">Extension decision</a> |
+                <a href="#Ontologyversion">Ontology version</a> |
+                <a href="#Thing">Thing</a> |
+                <a href="#Trainingpair">Training pair</a> |
+                <a href="#Versionchange">Version change</a> |
+                    </p>
+                    <p>
+                        The main entities are supported by:
+                        <br />
+                        |
+                    </p>
+            
+        
+        
+            
+                    <p>
+                        And supported by these datatypes:
+                        <br />
+                        | <a href="#String">String</a> | <a href="#Date">Date</a> | <a href="#Integer">Integer</a> | <a href="#Decimal">Decimal</a> |
+                    </p>
+            
+        
+    </div>
+    <div>
+        <a href="./assets/overview.png"
+           target="_blank">
+            <img src="./assets/overview.png"
+                onerror="this.style.display='none'"/>
+        </a>
+    </div>
+</section>
+
+    
+
+    
+        
+<section>
+    <h2>Main Entities</h2>
+    The main entities are those that form the core of the vocabulary. 
+    Properties of entities are listed in a tabular form.
+
+    
+        
+            
+                
+    <section>
+        <h3 id="Attributeaddition">
+            <a href="http://hari-meta.org/ontology/hari#AttributeAddition"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#AttributeAddition"
+                data-placement="right">Attribute addition</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Attribute addition'&body=Explain%20your%20issue%20for%20%23Attributeaddition" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                
+            </dd>
+            
+            
+                <dt>
+                    Subclass of
+                </dt>
+                <dd> <a href="http://hari-meta.org/ontology/hari#VersionChange">Version change</a>
+                    
+                </dd>
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    For this entity the following properties are defined:
+                        
+                        
+                        <a href="#Attributeaddition.hasnewpropertyiri">has new property IRI</a>.
+                </dd>
+            
+        </dl>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:12%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:12%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+                            
+                            <th class="data-table__header-title--sortable" style="width:20%">
+                                Reuse
+                            </th>
+                            
+                            
+                                <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                                    Feedback
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Attributeaddition.hasnewpropertyiri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasNewPropertyIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasNewPropertyIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasNewPropertyIRI"
+                                        data-placement="right">
+                                        has new property IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has new property IRI'%20in%20'Attribute addition'&body=Explain%20your%20issue%20for%20%23Attributeaddition.hasnewpropertyiri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
+
+            
+        
+            
+                
+    <section>
+        <h3 id="Cardinalitymodification">
+            <a href="http://hari-meta.org/ontology/hari#CardinalityModification"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#CardinalityModification"
+                data-placement="right">Cardinality modification</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Cardinality modification'&body=Explain%20your%20issue%20for%20%23Cardinalitymodification" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                
+            </dd>
+            
+            
+                <dt>
+                    Subclass of
+                </dt>
+                <dd> <a href="http://hari-meta.org/ontology/hari#VersionChange">Version change</a>
+                    
+                </dd>
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    For this entity the following properties are defined:
+                        
+                        
+                        <a href="#Cardinalitymodification.hasnewmax">has new max</a>,
+                        
+                        
+                        <a href="#Cardinalitymodification.hasnewmin">has new min</a>,
+                        
+                        
+                        <a href="#Cardinalitymodification.hasoldmax">has old max</a>,
+                        
+                        
+                        <a href="#Cardinalitymodification.hasoldmin">has old min</a>,
+                        
+                        
+                        <a href="#Cardinalitymodification.haspropertyiri">has property IRI</a>.
+                </dd>
+            
+        </dl>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:12%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:12%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+                            
+                            <th class="data-table__header-title--sortable" style="width:20%">
+                                Reuse
+                            </th>
+                            
+                            
+                                <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                                    Feedback
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Cardinalitymodification.hasnewmax"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasNewMax"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasNewMax"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasNewMax"
+                                        data-placement="right">
+                                        has new max</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Integer"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#integer"
+                                                data-placement="right">Integer</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has new max'%20in%20'Cardinality modification'&body=Explain%20your%20issue%20for%20%23Cardinalitymodification.hasnewmax" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Cardinalitymodification.hasnewmin"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasNewMin"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasNewMin"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasNewMin"
+                                        data-placement="right">
+                                        has new min</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Integer"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#integer"
+                                                data-placement="right">Integer</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has new min'%20in%20'Cardinality modification'&body=Explain%20your%20issue%20for%20%23Cardinalitymodification.hasnewmin" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Cardinalitymodification.hasoldmax"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasOldMax"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasOldMax"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasOldMax"
+                                        data-placement="right">
+                                        has old max</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Integer"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#integer"
+                                                data-placement="right">Integer</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has old max'%20in%20'Cardinality modification'&body=Explain%20your%20issue%20for%20%23Cardinalitymodification.hasoldmax" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Cardinalitymodification.hasoldmin"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasOldMin"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasOldMin"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasOldMin"
+                                        data-placement="right">
+                                        has old min</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Integer"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#integer"
+                                                data-placement="right">Integer</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has old min'%20in%20'Cardinality modification'&body=Explain%20your%20issue%20for%20%23Cardinalitymodification.hasoldmin" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Cardinalitymodification.haspropertyiri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasPropertyIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasPropertyIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasPropertyIRI"
+                                        data-placement="right">
+                                        has property IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has property IRI'%20in%20'Cardinality modification'&body=Explain%20your%20issue%20for%20%23Cardinalitymodification.haspropertyiri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
+
+            
+        
+            
+                
+    <section>
+        <h3 id="Directreusedecision">
+            <a href="http://hari-meta.org/ontology/hari#DirectReuseDecision"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#DirectReuseDecision"
+                data-placement="right">Direct reuse decision</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Direct reuse decision'&body=Explain%20your%20issue%20for%20%23Directreusedecision" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                
+            </dd>
+            
+            
+                <dt>
+                    Subclass of
+                </dt>
+                <dd> <a href="http://hari-meta.org/ontology/hari#Thing">Thing</a>
+                    
+                </dd>
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    For this entity the following properties are defined:
+                        
+                        
+                        <a href="#Directreusedecision.hasreason">has reason</a>,
+                        
+                        
+                        <a href="#Directreusedecision.hasreusedclassiri">has reused class IRI</a>.
+                </dd>
+            
+        </dl>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:12%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:12%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+                            
+                            <th class="data-table__header-title--sortable" style="width:20%">
+                                Reuse
+                            </th>
+                            
+                            
+                                <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                                    Feedback
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Directreusedecision.hasreason"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasReason"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasReason"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasReason"
+                                        data-placement="right">
+                                        has reason</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has reason'%20in%20'Direct reuse decision'&body=Explain%20your%20issue%20for%20%23Directreusedecision.hasreason" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Directreusedecision.hasreusedclassiri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasReusedClassIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasReusedClassIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasReusedClassIRI"
+                                        data-placement="right">
+                                        has reused class IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has reused class IRI'%20in%20'Direct reuse decision'&body=Explain%20your%20issue%20for%20%23Directreusedecision.hasreusedclassiri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
+
+            
+        
+            
+                
+    <section>
+        <h3 id="Extensiondecision">
+            <a href="http://hari-meta.org/ontology/hari#ExtensionDecision"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#ExtensionDecision"
+                data-placement="right">Extension decision</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Extension decision'&body=Explain%20your%20issue%20for%20%23Extensiondecision" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                
+            </dd>
+            
+            
+                <dt>
+                    Subclass of
+                </dt>
+                <dd> <a href="http://hari-meta.org/ontology/hari#Thing">Thing</a>
+                    
+                </dd>
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    For this entity the following properties are defined:
+                        
+                        
+                        <a href="#Extensiondecision.hasaddedpropertyiri">has added property IRI</a>,
+                        
+                        
+                        <a href="#Extensiondecision.hasbaseclassiri">has base class IRI</a>,
+                        
+                        
+                        <a href="#Extensiondecision.hascardinalitychangediri">has cardinality changed IRI</a>,
+                        
+                        
+                        <a href="#Extensiondecision.hasextendedclassiri">has extended class IRI</a>,
+                        
+                        
+                        <a href="#Extensiondecision.hasextensionreason">has extension reason</a>.
+                </dd>
+            
+        </dl>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:12%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:12%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+                            
+                            <th class="data-table__header-title--sortable" style="width:20%">
+                                Reuse
+                            </th>
+                            
+                            
+                                <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                                    Feedback
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Extensiondecision.hasaddedpropertyiri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasAddedPropertyIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasAddedPropertyIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasAddedPropertyIRI"
+                                        data-placement="right">
+                                        has added property IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has added property IRI'%20in%20'Extension decision'&body=Explain%20your%20issue%20for%20%23Extensiondecision.hasaddedpropertyiri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Extensiondecision.hasbaseclassiri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasBaseClassIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasBaseClassIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasBaseClassIRI"
+                                        data-placement="right">
+                                        has base class IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has base class IRI'%20in%20'Extension decision'&body=Explain%20your%20issue%20for%20%23Extensiondecision.hasbaseclassiri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Extensiondecision.hascardinalitychangediri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasCardinalityChangedIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasCardinalityChangedIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasCardinalityChangedIRI"
+                                        data-placement="right">
+                                        has cardinality changed IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has cardinality changed IRI'%20in%20'Extension decision'&body=Explain%20your%20issue%20for%20%23Extensiondecision.hascardinalitychangediri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Extensiondecision.hasextendedclassiri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasExtendedClassIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasExtendedClassIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasExtendedClassIRI"
+                                        data-placement="right">
+                                        has extended class IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has extended class IRI'%20in%20'Extension decision'&body=Explain%20your%20issue%20for%20%23Extensiondecision.hasextendedclassiri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Extensiondecision.hasextensionreason"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasExtensionReason"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasExtensionReason"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasExtensionReason"
+                                        data-placement="right">
+                                        has extension reason</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has extension reason'%20in%20'Extension decision'&body=Explain%20your%20issue%20for%20%23Extensiondecision.hasextensionreason" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
+
+            
+        
+            
+                
+    <section>
+        <h3 id="Ontologyversion">
+            <a href="http://hari-meta.org/ontology/hari#OntologyVersion"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#OntologyVersion"
+                data-placement="right">Ontology version</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                
+            </dd>
+            
+            
+                <dt>
+                    Subclass of
+                </dt>
+                <dd> <a href="http://hari-meta.org/ontology/hari#Thing">Thing</a>
+                    
+                </dd>
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    For this entity the following properties are defined:
+                        
+                        
+                        <a href="#Ontologyversion.hasiri">has IRI</a>,
+                        
+                        
+                        <a href="#Ontologyversion.haschange">has change</a>,
+                        
+                        
+                        <a href="#Ontologyversion.hascontains">has contains</a>,
+                        
+                        
+                        <a href="#Ontologyversion.hasknowledgedomain">has knowledge domain</a>,
+                        
+                        
+                        <a href="#Ontologyversion.haslevel">has level</a>,
+                        
+                        
+                        <a href="#Ontologyversion.haspriorversioniri">has prior version IRI</a>,
+                        
+                        
+                        <a href="#Ontologyversion.hasstatus">has status</a>,
+                        
+                        
+                        <a href="#Ontologyversion.hasversioninfo">has version info</a>.
+                </dd>
+            
+        </dl>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:12%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:12%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+                            
+                            <th class="data-table__header-title--sortable" style="width:20%">
+                                Reuse
+                            </th>
+                            
+                            
+                                <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                                    Feedback
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Ontologyversion.hasiri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasIRI"
+                                        data-placement="right">
+                                        has IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has IRI'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.hasiri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Ontologyversion.haschange"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasChange"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasChange"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasChange"
+                                        data-placement="right">
+                                        has change</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Versionchange"
+                                                data-toggle="tooltip"
+                                                data-content="http://hari-meta.org/ontology/hari#VersionChange"
+                                                data-placement="right">Version change</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has change'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.haschange" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Ontologyversion.hascontains"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasContains"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasContains"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasContains"
+                                        data-placement="right">
+                                        has contains</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Extensiondecision"
+                                                data-toggle="tooltip"
+                                                data-content="http://hari-meta.org/ontology/hari#ExtensionDecision"
+                                                data-placement="right">Extension decision</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has contains'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.hascontains" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Ontologyversion.hasknowledgedomain"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasKnowledgeDomain"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasKnowledgeDomain"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasKnowledgeDomain"
+                                        data-placement="right">
+                                        has knowledge domain</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has knowledge domain'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.hasknowledgedomain" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Ontologyversion.haslevel"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasLevel"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasLevel"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasLevel"
+                                        data-placement="right">
+                                        has level</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has level'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.haslevel" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Ontologyversion.haspriorversioniri"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasPriorVersionIRI"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasPriorVersionIRI"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasPriorVersionIRI"
+                                        data-placement="right">
+                                        has prior version IRI</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has prior version IRI'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.haspriorversioniri" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Ontologyversion.hasstatus"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasStatus"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasStatus"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasStatus"
+                                        data-placement="right">
+                                        has status</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has status'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.hasstatus" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Ontologyversion.hasversioninfo"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasVersionInfo"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasVersionInfo"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasVersionInfo"
+                                        data-placement="right">
+                                        has version info</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has version info'%20in%20'Ontology version'&body=Explain%20your%20issue%20for%20%23Ontologyversion.hasversioninfo" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
+
+            
+        
+            
+                
+    <section>
+        <h3 id="Thing">
+            <a href="http://hari-meta.org/ontology/hari#Thing"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#Thing"
+                data-placement="right">Thing</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Thing'&body=Explain%20your%20issue%20for%20%23Thing" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.
+            </dd>
+            
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    This specification does not impose any additional requirements to properties for this entity.
+                </dd>
+            
+        </dl>
+        
+    </section>
+
+            
+        
+            
+                
+    <section>
+        <h3 id="Trainingpair">
+            <a href="http://hari-meta.org/ontology/hari#TrainingPair"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#TrainingPair"
+                data-placement="right">Training pair</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                
+            </dd>
+            
+            
+                <dt>
+                    Subclass of
+                </dt>
+                <dd> <a href="http://hari-meta.org/ontology/hari#Thing">Thing</a>
+                    
+                </dd>
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    For this entity the following properties are defined:
+                        
+                        
+                        <a href="#Trainingpair.hascomplexitylevel">has complexity level</a>,
+                        
+                        
+                        <a href="#Trainingpair.hasdomaincontext">has domain context</a>,
+                        
+                        
+                        <a href="#Trainingpair.hasexpectedserialization">has expected serialization</a>,
+                        
+                        
+                        <a href="#Trainingpair.hasqualityscore">has quality score</a>,
+                        
+                        
+                        <a href="#Trainingpair.hasrequiresextension">has requires extension</a>,
+                        
+                        
+                        <a href="#Trainingpair.hasrequiresreuse">has requires reuse</a>,
+                        
+                        
+                        <a href="#Trainingpair.hassysteminstruction">has system instruction</a>,
+                        
+                        
+                        <a href="#Trainingpair.hasuserprompt">has user prompt</a>.
+                </dd>
+            
+        </dl>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:12%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:12%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+                            
+                            <th class="data-table__header-title--sortable" style="width:20%">
+                                Reuse
+                            </th>
+                            
+                            
+                                <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                                    Feedback
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Trainingpair.hascomplexitylevel"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasComplexityLevel"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasComplexityLevel"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasComplexityLevel"
+                                        data-placement="right">
+                                        has complexity level</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Integer"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#integer"
+                                                data-placement="right">Integer</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has complexity level'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hascomplexitylevel" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Trainingpair.hasdomaincontext"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasDomainContext"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasDomainContext"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasDomainContext"
+                                        data-placement="right">
+                                        has domain context</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has domain context'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hasdomaincontext" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Trainingpair.hasexpectedserialization"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasExpectedSerialization"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasExpectedSerialization"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasExpectedSerialization"
+                                        data-placement="right">
+                                        has expected serialization</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has expected serialization'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hasexpectedserialization" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Trainingpair.hasqualityscore"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasQualityScore"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasQualityScore"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasQualityScore"
+                                        data-placement="right">
+                                        has quality score</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Decimal"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#decimal"
+                                                data-placement="right">Decimal</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has quality score'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hasqualityscore" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Trainingpair.hasrequiresextension"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasRequiresExtension"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasRequiresExtension"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasRequiresExtension"
+                                        data-placement="right">
+                                        has requires extension</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Extensiondecision"
+                                                data-toggle="tooltip"
+                                                data-content="http://hari-meta.org/ontology/hari#ExtensionDecision"
+                                                data-placement="right">Extension decision</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has requires extension'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hasrequiresextension" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Trainingpair.hasrequiresreuse"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasRequiresReuse"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasRequiresReuse"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasRequiresReuse"
+                                        data-placement="right">
+                                        has requires reuse</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Directreusedecision"
+                                                data-toggle="tooltip"
+                                                data-content="http://hari-meta.org/ontology/hari#DirectReuseDecision"
+                                                data-placement="right">Direct reuse decision</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has requires reuse'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hasrequiresreuse" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Trainingpair.hassysteminstruction"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasSystemInstruction"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasSystemInstruction"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasSystemInstruction"
+                                        data-placement="right">
+                                        has system instruction</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has system instruction'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hassysteminstruction" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                            <tr id="Trainingpair.hasuserprompt"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasUserPrompt"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasUserPrompt"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasUserPrompt"
+                                        data-placement="right">
+                                        has user prompt</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#String"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#string"
+                                                data-placement="right">String</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has user prompt'%20in%20'Training pair'&body=Explain%20your%20issue%20for%20%23Trainingpair.hasuserprompt" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
+
+            
+        
+            
+                
+    <section>
+        <h3 id="Versionchange">
+            <a href="http://hari-meta.org/ontology/hari#VersionChange"
+                data-toggle="tooltip"
+                data-content="http://hari-meta.org/ontology/hari#VersionChange"
+                data-placement="right">Version change</a>
+
+        </h3>
+        <span style="float:right;margin-right:10px;">
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Version change'&body=Explain%20your%20issue%20for%20%23Versionchange" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+</span>
+        
+        <dl>
+            <dt>
+                Definition
+            </dt>
+            <dd>
+                
+            </dd>
+            
+            
+                <dt>
+                    Subclass of
+                </dt>
+                <dd> <a href="http://hari-meta.org/ontology/hari#Thing">Thing</a>
+                    
+                </dd>
+            
+            
+            <dt>
+                Properties
+            </dt>
+            
+                <dd>
+                    For this entity the following properties are defined:
+                        
+                        
+                        <a href="#Versionchange.hasdate">has date</a>.
+                </dd>
+            
+        </dl>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:12%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:12%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+                            
+                            <th class="data-table__header-title--sortable" style="width:20%">
+                                Reuse
+                            </th>
+                            
+                            
+                                <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                                    Feedback
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Versionchange.hasdate"
+                                typeof="rdf:Property"
+                                resource="http://hari-meta.org/ontology/hari#hasDate"
+                                class="class mandatory">
+                                <td>
+                                        
+                                        
+                                        <a href="http://hari-meta.org/ontology/hari#hasDate"
+                                        data-toggle="tooltip"
+                                        data-content="http://hari-meta.org/ontology/hari#hasDate"
+                                        data-placement="right">
+                                        has date</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#Date"
+                                                data-toggle="tooltip"
+                                                data-content="http://www.w3.org/2001/XMLSchema#date"
+                                                data-placement="right">Date</a>
+                                            
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..1
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+                                </td>
+                                
+                                <td>
+                                    
+        
+        
+        
+        
+        
+            
+            
+       
+            
+
+        <a href="/new?title=Issue%20for%20'Has date'%20in%20'Version change'&body=Explain%20your%20issue%20for%20%23Versionchange.hasdate" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
+
+            
+        
+    
+</section>
+
+    
+
+    
+        
+<section>
+    <h2>Supportive Entities</h2>
+    The supportive entities are supporting the main entities in the vocabulary. They are included in the vocabulary because they form the range of properties.
+
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</section>
+
+    
+
+    
+        
+<section>
+    <h2>Datatypes</h2>
+
+	The following datatypes are used within this specification.
+
+    
+        <table class="data-table simple" id="table-mandatory-classes">
+            <thead>
+                <tr class="data-table__header">
+                    <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:25%">
+                        Class
+                    </th>
+                    <th class="data-table__header-title--sortable" style="width:70%">
+                        Definition
+                    </th>
+                    
+                        <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:5%">
+                            Feedback
+                        </th>
+                    
+                </tr>
+            </thead>
+            <tbody class="supertype">
+                
+                <tr>
+                    <td>
+                        
+                            <div id="String">
+                                <a href="http://www.w3.org/2001/XMLSchema#string"
+                                    data-toggle="tooltip"
+                                    data-content="http://www.w3.org/2001/XMLSchema#string"
+                                    data-placement="right">String</a>
+                            </div>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'String'&body=Explain%20your%20issue%20for%20%23String" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                            <div id="Date">
+                                <a href="http://www.w3.org/2001/XMLSchema#date"
+                                    data-toggle="tooltip"
+                                    data-content="http://www.w3.org/2001/XMLSchema#date"
+                                    data-placement="right">Date</a>
+                            </div>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Date'&body=Explain%20your%20issue%20for%20%23Date" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                            <div id="Integer">
+                                <a href="http://www.w3.org/2001/XMLSchema#integer"
+                                    data-toggle="tooltip"
+                                    data-content="http://www.w3.org/2001/XMLSchema#integer"
+                                    data-placement="right">Integer</a>
+                            </div>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Integer'&body=Explain%20your%20issue%20for%20%23Integer" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                            <div id="Decimal">
+                                <a href="http://www.w3.org/2001/XMLSchema#decimal"
+                                    data-toggle="tooltip"
+                                    data-content="http://www.w3.org/2001/XMLSchema#decimal"
+                                    data-placement="right">Decimal</a>
+                            </div>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+        
+        
+        
+        
+        
+            
+            
+        
+
+        <a href="/new?title=Issue%20for%20'Decimal'&body=Explain%20your%20issue%20for%20%23Decimal" target="_blank" rel="noopener noreferrer" >
+            <img src="./assets/img/callout.png" loading="lazy" alt="[o]" title="Report an issue or share feedback" class="feedbackButton"/>
+        </a>
+    
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+</section>
+
+    
+
+    
+        <section class="informative">
+            <h2>Usage Guidelines - change </h2>
+            
+            <h3>Basic Usage</h3>
+            <p>To use this vocabulary, follow these guidelines:</p>
+            
+            
+                        <div class="h3 examples" id="example1">Example 1</div>
+            
+        </section>
+     
+
+    
+        <section class="informative">
+            <h2>Governance</h2>
+        </section>
+    
+
+    
+        <section class="informative">
+            <h2>Custom section - TEMPLATE_CUSTOM_2024</h2>
+            <p>A custom section introduced in main template</p>
+        </section>
+        
+        <!-- Include custom template content -->
+        <section class="informative">
+    <h2>Custom section from custom.j2 </h2>
+    <p>A custom section introduced in main template via include</p>
+</section>
+    
+
+    
+        
+<section id="quick-reference" class="appendix">
+    <h2>Quick Reference of Classes and Properties</h2>
+
+    This section provides a condensed tabular overview of the mentioned classes and properties in this specification.
+
+    
+        <table id="table-quickoverview" class="simple" style="width:100%; table-layout: fixed; word-wrap:break-word;">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Class IRI</th>
+                    <th>Property type</th>
+                    <th>Property</th>
+                    <th>Property IRI</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Attributeaddition">Attribute addition</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#AttributeAddition</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Attributeaddition.hasnewpropertyiri">has new property IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasNewPropertyIRI</div></td>
+                            </tr>
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Cardinalitymodification">Cardinality modification</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#CardinalityModification</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Cardinalitymodification.hasnewmax">has new max </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasNewMax</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Cardinalitymodification">Cardinality modification</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#CardinalityModification</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Cardinalitymodification.hasnewmin">has new min </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasNewMin</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Cardinalitymodification">Cardinality modification</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#CardinalityModification</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Cardinalitymodification.hasoldmax">has old max </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasOldMax</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Cardinalitymodification">Cardinality modification</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#CardinalityModification</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Cardinalitymodification.hasoldmin">has old min </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasOldMin</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Cardinalitymodification">Cardinality modification</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#CardinalityModification</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Cardinalitymodification.haspropertyiri">has property IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasPropertyIRI</div></td>
+                            </tr>
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Directreusedecision">Direct reuse decision</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#DirectReuseDecision</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Directreusedecision.hasreason">has reason </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasReason</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Directreusedecision">Direct reuse decision</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#DirectReuseDecision</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Directreusedecision.hasreusedclassiri">has reused class IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasReusedClassIRI</div></td>
+                            </tr>
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Extensiondecision">Extension decision</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#ExtensionDecision</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Extensiondecision.hasaddedpropertyiri">has added property IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasAddedPropertyIRI</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Extensiondecision">Extension decision</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#ExtensionDecision</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Extensiondecision.hasbaseclassiri">has base class IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasBaseClassIRI</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Extensiondecision">Extension decision</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#ExtensionDecision</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Extensiondecision.hascardinalitychangediri">has cardinality changed IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasCardinalityChangedIRI</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Extensiondecision">Extension decision</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#ExtensionDecision</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Extensiondecision.hasextendedclassiri">has extended class IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasExtendedClassIRI</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Extensiondecision">Extension decision</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#ExtensionDecision</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Extensiondecision.hasextensionreason">has extension reason </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasExtensionReason</div></td>
+                            </tr>
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.hasiri">has IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasIRI</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.haschange">has change </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasChange</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.hascontains">has contains </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasContains</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.hasknowledgedomain">has knowledge domain </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasKnowledgeDomain</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.haslevel">has level </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasLevel</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.haspriorversioniri">has prior version IRI </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasPriorVersionIRI</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.hasstatus">has status </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasStatus</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Ontologyversion">Ontology version</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#OntologyVersion</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Ontologyversion.hasversioninfo">has version info </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasVersionInfo</div></td>
+                            </tr>
+                        
+                    
+                
+                    
+                
+                    
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hascomplexitylevel">has complexity level </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasComplexityLevel</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hasdomaincontext">has domain context </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasDomainContext</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hasexpectedserialization">has expected serialization </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasExpectedSerialization</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hasqualityscore">has quality score </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasQualityScore</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hasrequiresextension">has requires extension </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasRequiresExtension</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Optional
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hasrequiresreuse">has requires reuse </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasRequiresReuse</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hassysteminstruction">has system instruction </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasSystemInstruction</div></td>
+                            </tr>
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Trainingpair">Training pair</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#TrainingPair</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Trainingpair.hasuserprompt">has user prompt </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasUserPrompt</div></td>
+                            </tr>
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            <tr>
+                                <td><a href="#Versionchange">Version change</a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#VersionChange</div></td>
+                                <td>
+    
+    
+        
+        
+            Mandatory
+        
+    
+</td>
+                                <td><a href="#Versionchange.hasdate">has date </a></td>
+                                <td><div class="compact-uri">http://hari-meta.org/ontology/hari#hasDate</div></td>
+                            </tr>
+                        
+                    
+                
+            <tbody>
+        </table>
+    
+</section>
+
+    
+
+    
+        
+<section id="resources" class="appendix">
+    <h2>Project resources</h2>
+    <p>
+        The following list provides links to semantic data specifications and other resources related to this vocabulary.
+    </p>
+    
+        <ul>
+            
+                <li><a href="./sds/hari_shapes.rdf">SHACL shapes file (RDF)</a></li>
+            
+                <li><a href="./sds/hari_shapes.ttl">SHACL shapes file (TTL)</a></li>
+            
+                <li><a href="./sds/hari.xml">UML XMI model file</a></li>
+            
+        </ul>
+    
+</section>
+
+    
+
+
+
+<!-- ######################## End of page content ######################### -->
+</body>
+
+<!-- This must be at the end of the template, to ensure that the iterator properly works -->
+    <script defer>
+
+      const allPrefixes = [{'name': 'hari', 'uri': 'http://hari-meta.org/ontology/hari#'}];
+      var usablePrefixes = [];
+      for (var i = 0; i < allPrefixes.length; i++) {
+        if (allPrefixes[i].uri) {
+          usablePrefixes.push(allPrefixes[i]);
+        } else {
+          console.warn("Prefix missing 'uri' property (or has empty value):", allPrefixes[i]);
+        }
+      }
+
+      function compactUri(uri) {
+          var curie = uri;
+          for (e in usablePrefixes) {
+              var elem = usablePrefixes[e];
+              if (curie.startsWith(elem.uri)) {
+                curie = elem.name + ":" + curie.slice(elem.uri.length);
+                break;
+              }
+          };
+          return curie;
+      };
+
+      var compactUriElems = document.getElementsByClassName("compact-uri");
+      for (k=0;k < compactUriElems.length ; k++){
+          var selem = compactUriElems[k];	
+          selem.innerHTML = compactUri(selem.innerHTML.trim());
+      }
+      
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/mode/javascript/javascript.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/mode/turtle/turtle.min.js" ></script>
+    <script src="https://codemirror.net/5/mode/javascript/javascript.js" ></script>
+    <script src="https://unpkg.com/n3@1.14.0/browser/n3.min.js"></script>
+	<script src="https://rdf.js.org/comunica-browser/versions/v4/engines/query-sparql/comunica-browser.js"></script>
+    <script src="./js/example.js" ></script>
+	<script type="text/javascript">
+		function elementInView(elem){
+				goesIn = ($(window).height() + $(window).scrollTop()) > $(elem).offset().top;
+				goesOut = ($(window).scrollTop()) > ($(elem).offset().top + $(elem).height());
+				if (goesIn && !goesOut)
+					return 1;
+				else
+					return 0;
+			};
+
+		$(window).scroll(function(){
+			$('.CodeMirror').each(function(){
+				if (elementInView($(this))){
+					$(this).each(function(i, el){
+						el.CodeMirror.refresh();
+					});
+				}
+			});
+			
+		});
+	</script>
+	<style>
+		.CodeMirror {
+			border: 1px solid #eee;
+			height: auto;
+		}
+		.buttonsample {
+			cursor: pointer;
+			margin-top: 10px;
+			margin-left: 10px;
+			font-weight: 700;
+			border:0 outset buttonface;
+			background: #F5F6F8;
+			background-image: linear-gradient(to bottom,#F5F6F8,#DBDCDE);
+			border-radius:4px;
+			box-shadow:0 1px 3px #666;
+			font-family: Arial;
+			color: grey;
+			font-size: 13px !important;
+			padding: 10px 5px;
+			text-decoration: none;
+			float: right
+		}
+	    .chooseVersion {
+			cursor: pointer;
+			margin-top: 10px;
+			margin-left: 10px;
+			font-weight: 700;
+			border:0 outset buttonface;
+			background: #F5F6F8;
+			background-image: linear-gradient(to bottom,#F5F6F8,#DBDCDE);
+			border-radius:4px;
+			box-shadow:0 1px 3px #666;
+			font-family: Arial;
+			color: grey;
+			font-size: 13px !important;
+			padding: 9px 5px;
+			text-decoration: none;
+			float: right
+		}
+		.infosample {
+			cursor: pointer;
+			margin-top: 10px;
+			font-weight: 700;
+			border:0 outset buttonface;
+			border-radius:4px;
+			font-family: Arial;
+			color: grey;
+			font-size: 14px;
+			padding: 10px 0px;
+			text-decoration: none;
+			float: right
+		}
+		.buttonsample:hover {color:#2a70d3}
+		.tabsstyle {
+			padding: 10px;
+			overflow: hidden;
+		}
+		li.ui-tabs-tab > a:hover {
+			background-color:dodgerblue;
+			color:white;
+		}
+		table.simple {
+			font-size: small;
+			border-spacing:0;
+			border-collapse:collapse;
+			border-bottom:3px solid #005a9c
+		}
+		.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+		.simple th a{color:#fff;padding:3px 5px;text-align:left}
+		.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+		.simple td{padding:3px 10px;border-top:1px solid #ddd}
+		.simple tr:nth-child(even){background:#f0f6ff}
+		body.darkmode .simple th{background:#005a9c94;color:#ddd}
+		body.darkmode .simple th a{color:#ddd}
+		body.darkmode .simple tr:nth-child(even){background:#f0f6ff26}
+		body.darkmode :is(h4,h5,h6)+a.self-link::before {
+			color: var(--heading-text);
+		}
+		body.darkmode img {
+			background: none;
+		}
+		body.darkmode section#references :target {
+			background: #04162d;
+		}
+        .instruction { color: gray; font-style: italic; }
+
+        .feedbackButton {
+            width: 20px;
+            height: auto;
+        }
+
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.min.css">
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js"></script>
+</html>
