@@ -46,6 +46,7 @@ core-shape:hari-OntologyProjectShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologyProject-hari-hasAcronym,
         core-shape:hari-OntologyProject-hari-hasDescription,
+        core-shape:hari-OntologyProject-hari-hasLevel,
         core-shape:hari-OntologyProject-hari-hasOntologyIRI,
         core-shape:hari-OntologyProject-hari-hasOrganization,
         core-shape:hari-OntologyProject-hari-hasTitle ;
@@ -58,7 +59,6 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
         core-shape:hari-OntologyVersion-hari-hasDependsOn,
         core-shape:hari-OntologyVersion-hari-hasExtension,
         core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
-        core-shape:hari-OntologyVersion-hari-hasLevel,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasReuse,
         core-shape:hari-OntologyVersion-hari-hasStatus,
@@ -212,6 +212,15 @@ core-shape:hari-OntologyProject-hari-hasDescription a sh:PropertyShape ;
     sh:name "Has description" ;
     sh:path hari:hasDescription .
 
+core-shape:hari-OntologyProject-hari-hasLevel a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:Level ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has level" ;
+    sh:path hari:hasLevel ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasLevel> ?that . ?that <http://hari-meta.org/ontology/hari#hasLevel> ?this .}" ] .
+
 core-shape:hari-OntologyProject-hari-hasOntologyIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -262,15 +271,6 @@ core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain a sh:PropertyShape ;
     sh:datatype xsd:string ;
     sh:name "Has knowledge domain" ;
     sh:path hari:hasKnowledgeDomain .
-
-core-shape:hari-OntologyVersion-hari-hasLevel a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Level ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has level" ;
-    sh:path hari:hasLevel ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasLevel> ?that . ?that <http://hari-meta.org/ontology/hari#hasLevel> ?this .}" ] .
 
 core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
