@@ -46,10 +46,12 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologyVersion-hari-hasChange,
         core-shape:hari-OntologyVersion-hari-hasContains,
+        core-shape:hari-OntologyVersion-hari-hasDependsOn,
         core-shape:hari-OntologyVersion-hari-hasIRI,
         core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
         core-shape:hari-OntologyVersion-hari-hasLevel,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
+        core-shape:hari-OntologyVersion-hari-hasReuse,
         core-shape:hari-OntologyVersion-hari-hasStatus,
         core-shape:hari-OntologyVersion-hari-hasVersionInfo ;
     sh:targetClass hari:OntologyVersion .
@@ -63,7 +65,8 @@ core-shape:hari-ThingShape a sh:NodeShape ;
 core-shape:hari-TrainingPairShape a sh:NodeShape ;
     rdfs:label "Training Pair" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-TrainingPair-hari-hasComplexityLevel,
+    sh:property core-shape:hari-TrainingPair-hari-hasChainOfThought,
+        core-shape:hari-TrainingPair-hari-hasComplexityLevel,
         core-shape:hari-TrainingPair-hari-hasDomainContext,
         core-shape:hari-TrainingPair-hari-hasExpectedSerialization,
         core-shape:hari-TrainingPair-hari-hasQualityScore,
@@ -195,6 +198,13 @@ core-shape:hari-OntologyVersion-hari-hasContains a sh:PropertyShape ;
     sh:path hari:hasContains ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasContains> ?that . ?that <http://hari-meta.org/ontology/hari#hasContains> ?this .}" ] .
 
+core-shape:hari-OntologyVersion-hari-hasDependsOn a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:OntologyVersion ;
+    sh:name "Has depends on" ;
+    sh:path hari:hasDependsOn ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDependsOn> ?that . ?that <http://hari-meta.org/ontology/hari#hasDependsOn> ?this .}" ] .
+
 core-shape:hari-OntologyVersion-hari-hasIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -224,6 +234,13 @@ core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI a sh:PropertyShape ;
     sh:name "Has prior version IRI" ;
     sh:path hari:hasPriorVersionIRI .
 
+core-shape:hari-OntologyVersion-hari-hasReuse a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:DirectReuseDecision ;
+    sh:name "Has reuse" ;
+    sh:path hari:hasReuse ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasReuse> ?this .}" ] .
+
 core-shape:hari-OntologyVersion-hari-hasStatus a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -239,6 +256,14 @@ core-shape:hari-OntologyVersion-hari-hasVersionInfo a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has version info" ;
     sh:path hari:hasVersionInfo .
+
+core-shape:hari-TrainingPair-hari-hasChainOfThought a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has chain of thought" ;
+    sh:path hari:hasChainOfThought .
 
 core-shape:hari-TrainingPair-hari-hasComplexityLevel a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -314,13 +339,13 @@ core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-03-30"^^xsd:date ;
+    dcterms:issued "2026-03-31"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari.xml on 2026-03-30" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-03-31" ;
     owl:imports hari:core,
         hari:core-restriction,
         dcterms:,

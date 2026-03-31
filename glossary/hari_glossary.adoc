@@ -143,6 +143,8 @@
   
   
   
+  
+  
 | hari:OntologyVersion
 | hari:hasKnowledgeDomain| 
   |xsd:string [0..&#42;]
@@ -161,6 +163,8 @@
   
   
   
+  
+  
 | hari:OntologyVersion
 | hari:hasStatus| 
   |xsd:string [1..1]
@@ -169,6 +173,12 @@
   
 | hari:OntologyVersion
 | hari:hasVersionInfo| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:TrainingPair
+| hari:hasChainOfThought| 
   |xsd:string [1..1]
   
   
@@ -298,10 +308,28 @@
 
   
   
+| hari:hasDependsOn| 
+  |hari:OntologyVersion → hari:OntologyVersion [0..&#42;]
+
   
 
   
   
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| hari:hasReuse| 
+  |hari:OntologyVersion → hari:DirectReuseDecision [0..&#42;]
+
   
 
   

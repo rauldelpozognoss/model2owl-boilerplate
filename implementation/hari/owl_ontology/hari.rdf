@@ -7,51 +7,65 @@
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasDomainContext">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasLevel">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Domain Context</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has Level</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#ExtensionDecision">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#SemanticRefinement">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#ExtensionReason"/>
+    <skos:prefLabel xml:lang="en">Semantic Refinement</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Core">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
+    <skos:prefLabel xml:lang="en">Core</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasNewMax">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has New Max</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasExpectedSerialization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Expected Serialization</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#CardinalityModification">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Extension Decision</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Cardinality Modification</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#VersionChange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#DirectReuseDecision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Direct Reuse Decision</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#core">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
-    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
-    <dcterms:title xml:lang="en">Ontología Hari Core</dcterms:title>
-    <rdfs:label xml:lang="en">Ontología principal del proyecto Hari.</rdfs:label>
-    <dcterms:description xml:lang="en">Ontología principal del proyecto Hari.</dcterms:description>
-    <dcterms:publisher>http://hari-meta.org</dcterms:publisher>
-    <rdfs:comment>This version is automatically generated from hari.xml on 2026-03-30</rdfs:comment>
-    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-30</dcterms:issued>
-    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:created>
-    <owl:versionInfo>1.0.0</owl:versionInfo>
-    <owl:incompatibleWith></owl:incompatibleWith>
-    <owl:versionIRI rdf:resource="http://hari-meta.org/ontology/hari#core-1.0.0"/>
-    <owl:priorVersion>http://hari-meta.org/ontology/hari#core-</owl:priorVersion>
-    <vann:preferredNamespaceUri>http://hari-meta.org/ontology/hari#</vann:preferredNamespaceUri>
-    <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
-    <dcterms:license>CC BY 4.0</dcterms:license>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Status">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Status</skos:prefLabel>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#MissingAttribute">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#ExtensionReason"/>
+    <skos:prefLabel xml:lang="en">Missing Attribute</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasPriorVersionIRI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Prior Version IRI</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasRequiresExtension">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:prefLabel xml:lang="en">has Requires Extension</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasNewMax">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has New Max</skos:prefLabel>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Domain">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
+    <skos:prefLabel xml:lang="en">Domain</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#ExtensionReason">
@@ -61,62 +75,14 @@
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#CardinalityIncomplete">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#ExtensionReason"/>
-    <skos:prefLabel xml:lang="en">Cardinality Incomplete</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Application">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-    <skos:prefLabel xml:lang="en">Application</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasExpectedSerialization">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Expected Serialization</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#SemanticRefinement">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#ExtensionReason"/>
-    <skos:prefLabel xml:lang="en">Semantic Refinement</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasNewMin">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has New Min</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasAddedPropertyIRI">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Added Property IRI</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasSystemInstruction">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has System Instruction</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasComplexityLevel">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Complexity Level</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasPriorVersionIRI">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Prior Version IRI</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has Date</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasQualityScore">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <skos:prefLabel xml:lang="en">has Quality Score</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasReason">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Reason</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Stable">
@@ -125,25 +91,61 @@
     <skos:prefLabel xml:lang="en">Stable</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasExtensionReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Extension Reason</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Status">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Status</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasDependsOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Depends On</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasCardinalityChangedIRI">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <skos:prefLabel xml:lang="en">has Cardinality Changed IRI</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Thing">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#ExtensionDecision">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Thing</skos:prefLabel>
-    <skos:definition xml:lang="en">Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</skos:definition>
+    <skos:prefLabel xml:lang="en">Extension Decision</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasOldMin">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasReusedClassIRI">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Old Min</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has Reused Class IRI</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasRequiresReuse">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <skos:prefLabel xml:lang="en">has Requires Reuse</skos:prefLabel>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#core">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+    <dcterms:title xml:lang="en">Ontología Hari Core</dcterms:title>
+    <rdfs:label xml:lang="en">Ontología principal del proyecto Hari.</rdfs:label>
+    <dcterms:description xml:lang="en">Ontología principal del proyecto Hari.</dcterms:description>
+    <dcterms:publisher>http://hari-meta.org</dcterms:publisher>
+    <rdfs:comment>This version is automatically generated from hari.xml on 2026-03-31</rdfs:comment>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-31</dcterms:issued>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:created>
+    <owl:versionInfo>1.0.0</owl:versionInfo>
+    <owl:incompatibleWith></owl:incompatibleWith>
+    <owl:versionIRI rdf:resource="http://hari-meta.org/ontology/hari#core-1.0.0"/>
+    <owl:priorVersion>http://hari-meta.org/ontology/hari#core-</owl:priorVersion>
+    <vann:preferredNamespaceUri>http://hari-meta.org/ontology/hari#</vann:preferredNamespaceUri>
+    <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
+    <dcterms:license>CC BY 4.0</dcterms:license>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasPropertyIRI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Property IRI</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasBaseClassIRI">
@@ -151,11 +153,10 @@
     <skos:prefLabel xml:lang="en">has Base Class IRI</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#DirectReuseDecision">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Direct Reuse Decision</skos:prefLabel>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasUserPrompt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has User Prompt</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Draft">
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
@@ -163,9 +164,36 @@
     <skos:prefLabel xml:lang="en">Draft</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasReusedClassIRI">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Change</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#TrainingPair">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Training Pair</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Application">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
+    <skos:prefLabel xml:lang="en">Application</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasNewMin">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Reused Class IRI</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has New Min</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Status</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasAddedPropertyIRI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Added Property IRI</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Level">
@@ -180,20 +208,9 @@
     <skos:prefLabel xml:lang="en">has Version Info</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasExtendedClassIRI">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasKnowledgeDomain">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Extended Class IRI</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasStatus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Status</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Domain">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-    <skos:prefLabel xml:lang="en">Domain</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has Knowledge Domain</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Obsolete">
@@ -202,9 +219,10 @@
     <skos:prefLabel xml:lang="en">Obsolete</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasOldMax">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Old Max</skos:prefLabel>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Foundational">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
+    <skos:prefLabel xml:lang="en">Foundational</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#AttributeAddition">
@@ -213,74 +231,9 @@
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#VersionChange"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasUserPrompt">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasOldMin">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has User Prompt</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasKnowledgeDomain">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Knowledge Domain</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasExtensionReason">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Extension Reason</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasContains">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <skos:prefLabel xml:lang="en">has Contains</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#TrainingPair">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Training Pair</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#CardinalityModification">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Cardinality Modification</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#VersionChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasPropertyIRI">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Property IRI</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasChange">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <skos:prefLabel xml:lang="en">has Change</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasDate">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Date</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasNewPropertyIRI">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has New Property IRI</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Foundational">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-    <skos:prefLabel xml:lang="en">Foundational</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#VersionChange">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Version Change</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Core">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-    <skos:prefLabel xml:lang="en">Core</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has Old Min</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#OntologyVersion">
@@ -289,20 +242,82 @@
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#CardinalityIncomplete">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#ExtensionReason"/>
+    <skos:prefLabel xml:lang="en">Cardinality Incomplete</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasChainOfThought">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Chain Of Thought</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasRequiresReuse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Requires Reuse</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#VersionChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Version Change</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasContains">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Contains</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasExtendedClassIRI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Extended Class IRI</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasDomainContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Domain Context</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasIRI">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <skos:prefLabel xml:lang="en">has IRI</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#MissingAttribute">
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <skos:inScheme rdf:resource="http://hari-meta.org/ontology/hari#ExtensionReason"/>
-    <skos:prefLabel xml:lang="en">Missing Attribute</skos:prefLabel>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasSystemInstruction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has System Instruction</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasLevel">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasComplexityLevel">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Level</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">has Complexity Level</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasOldMax">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Old Max</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Reason</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasReuse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Reuse</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#hasNewPropertyIRI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has New Property IRI</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Thing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Thing</skos:prefLabel>
+    <skos:definition xml:lang="en">Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</skos:definition>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
   </rdf:Description>
 </rdf:RDF>
