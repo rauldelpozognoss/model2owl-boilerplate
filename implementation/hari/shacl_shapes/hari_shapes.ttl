@@ -55,8 +55,8 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
     rdfs:label "Ontology Version" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologyVersion-hari-hasChange,
-        core-shape:hari-OntologyVersion-hari-hasContains,
         core-shape:hari-OntologyVersion-hari-hasDependsOn,
+        core-shape:hari-OntologyVersion-hari-hasExtension,
         core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
         core-shape:hari-OntologyVersion-hari-hasLevel,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
@@ -64,7 +64,7 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
         core-shape:hari-OntologyVersion-hari-hasStatus,
         core-shape:hari-OntologyVersion-hari-hasVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasVersionInfo,
-        core-shape:hari-OntologyVersion-hari-hasVersionOf ;
+        core-shape:hari-OntologyVersion-hari-isVersionOf ;
     sh:targetClass hari:OntologyVersion .
 
 core-shape:hari-ThingShape a sh:NodeShape ;
@@ -81,9 +81,9 @@ core-shape:hari-TrainingPairShape a sh:NodeShape ;
         core-shape:hari-TrainingPair-hari-hasDomainContext,
         core-shape:hari-TrainingPair-hari-hasExpectedSerialization,
         core-shape:hari-TrainingPair-hari-hasQualityScore,
-        core-shape:hari-TrainingPair-hari-hasRequiresExtension,
-        core-shape:hari-TrainingPair-hari-hasRequiresReuse,
         core-shape:hari-TrainingPair-hari-hasSystemInstruction,
+        core-shape:hari-TrainingPair-hari-hasTrainingPairExtension,
+        core-shape:hari-TrainingPair-hari-hasTrainingPairReuse,
         core-shape:hari-TrainingPair-hari-hasUserPrompt ;
     sh:targetClass hari:TrainingPair .
 
@@ -243,19 +243,19 @@ core-shape:hari-OntologyVersion-hari-hasChange a sh:PropertyShape ;
     sh:path hari:hasChange ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasChange> ?that . ?that <http://hari-meta.org/ontology/hari#hasChange> ?this .}" ] .
 
-core-shape:hari-OntologyVersion-hari-hasContains a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:ExtensionDecision ;
-    sh:name "Has contains" ;
-    sh:path hari:hasContains ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasContains> ?that . ?that <http://hari-meta.org/ontology/hari#hasContains> ?this .}" ] .
-
 core-shape:hari-OntologyVersion-hari-hasDependsOn a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:OntologyVersion ;
     sh:name "Has depends on" ;
     sh:path hari:hasDependsOn ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDependsOn> ?that . ?that <http://hari-meta.org/ontology/hari#hasDependsOn> ?this .}" ] .
+
+core-shape:hari-OntologyVersion-hari-hasExtension a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:ExtensionDecision ;
+    sh:name "Has extension" ;
+    sh:path hari:hasExtension ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasExtension> ?this .}" ] .
 
 core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -311,14 +311,14 @@ core-shape:hari-OntologyVersion-hari-hasVersionInfo a sh:PropertyShape ;
     sh:name "Has version info" ;
     sh:path hari:hasVersionInfo .
 
-core-shape:hari-OntologyVersion-hari-hasVersionOf a sh:PropertyShape ;
+core-shape:hari-OntologyVersion-hari-isVersionOf a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:OntologyProject ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:name "Has version of" ;
-    sh:path hari:hasVersionOf ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasVersionOf> ?that . ?that <http://hari-meta.org/ontology/hari#hasVersionOf> ?this .}" ] .
+    sh:name "Is version of" ;
+    sh:path hari:isVersionOf ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#isVersionOf> ?that . ?that <http://hari-meta.org/ontology/hari#isVersionOf> ?this .}" ] .
 
 core-shape:hari-TrainingPair-hari-hasChainOfThought a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -360,20 +360,6 @@ core-shape:hari-TrainingPair-hari-hasQualityScore a sh:PropertyShape ;
     sh:name "Has quality score" ;
     sh:path hari:hasQualityScore .
 
-core-shape:hari-TrainingPair-hari-hasRequiresExtension a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:ExtensionDecision ;
-    sh:name "Has requires extension" ;
-    sh:path hari:hasRequiresExtension ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasRequiresExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasRequiresExtension> ?this .}" ] .
-
-core-shape:hari-TrainingPair-hari-hasRequiresReuse a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:DirectReuseDecision ;
-    sh:name "Has requires reuse" ;
-    sh:path hari:hasRequiresReuse ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasRequiresReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasRequiresReuse> ?this .}" ] .
-
 core-shape:hari-TrainingPair-hari-hasSystemInstruction a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -381,6 +367,20 @@ core-shape:hari-TrainingPair-hari-hasSystemInstruction a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has system instruction" ;
     sh:path hari:hasSystemInstruction .
+
+core-shape:hari-TrainingPair-hari-hasTrainingPairExtension a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:ExtensionDecision ;
+    sh:name "Has training pair extension" ;
+    sh:path hari:hasTrainingPairExtension ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasTrainingPairExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasTrainingPairExtension> ?this .}" ] .
+
+core-shape:hari-TrainingPair-hari-hasTrainingPairReuse a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:DirectReuseDecision ;
+    sh:name "Has training pair reuse" ;
+    sh:path hari:hasTrainingPairReuse ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasTrainingPairReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasTrainingPairReuse> ?this .}" ] .
 
 core-shape:hari-TrainingPair-hari-hasUserPrompt a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;

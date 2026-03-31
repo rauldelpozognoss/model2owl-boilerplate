@@ -276,14 +276,14 @@
                         <td>hari:OntologyVersion -&gt; hari:VersionChange [0..*]</td>
                      </tr>
                      <tr>
-                        <td>hari:hasContains</td>
-                        <td></td>
-                        <td>hari:OntologyVersion -&gt; hari:ExtensionDecision [0..*]</td>
-                     </tr>
-                     <tr>
                         <td>hari:hasDependsOn</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:OntologyVersion [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasExtension</td>
+                        <td></td>
+                        <td>hari:OntologyVersion -&gt; hari:ExtensionDecision [0..*]</td>
                      </tr>
                      <tr>
                         <td>hari:hasExtensionReason</td>
@@ -296,16 +296,6 @@
                         <td>hari:OntologyVersion -&gt; hari:Level [1..1]</td>
                      </tr>
                      <tr>
-                        <td>hari:hasRequiresExtension</td>
-                        <td></td>
-                        <td>hari:TrainingPair -&gt; hari:ExtensionDecision [0..*]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:hasRequiresReuse</td>
-                        <td></td>
-                        <td>hari:TrainingPair -&gt; hari:DirectReuseDecision [0..*]</td>
-                     </tr>
-                     <tr>
                         <td>hari:hasReuse</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:DirectReuseDecision [0..*]</td>
@@ -316,7 +306,17 @@
                         <td>hari:OntologyVersion -&gt; hari:Status [1..1]</td>
                      </tr>
                      <tr>
-                        <td>hari:hasVersionOf</td>
+                        <td>hari:hasTrainingPairExtension</td>
+                        <td></td>
+                        <td>hari:TrainingPair -&gt; hari:ExtensionDecision [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasTrainingPairReuse</td>
+                        <td></td>
+                        <td>hari:TrainingPair -&gt; hari:DirectReuseDecision [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:isVersionOf</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:OntologyProject [1..1]</td>
                      </tr>
