@@ -66,9 +66,14 @@ hari:Obsolete a skos:Concept ;
     skos:inScheme hari:Status ;
     skos:prefLabel "Obsolete"@en .
 
+hari:OntologyProject a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Thing ;
+    skos:prefLabel "Ontology Project"@en .
+
 hari:OntologyVersion a owl:Class ;
     rdfs:isDefinedBy hari:core ;
-    rdfs:subClassOf hari:OntologyProject ;
+    rdfs:subClassOf hari:Thing ;
     skos:prefLabel "Ontology Version"@en .
 
 hari:SemanticRefinement a skos:Concept ;
@@ -238,10 +243,9 @@ hari:hasVersionInfo a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Version Info"@en .
 
-hari:OntologyProject a owl:Class ;
+hari:hasVersionOf a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
-    rdfs:subClassOf hari:Thing ;
-    skos:prefLabel "Ontology Project"@en .
+    skos:prefLabel "has Version Of"@en .
 
 hari:VersionChange a owl:Class ;
     rdfs:isDefinedBy hari:core ;

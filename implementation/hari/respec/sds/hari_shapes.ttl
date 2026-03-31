@@ -63,7 +63,8 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasReuse,
         core-shape:hari-OntologyVersion-hari-hasStatus,
-        core-shape:hari-OntologyVersion-hari-hasVersionInfo ;
+        core-shape:hari-OntologyVersion-hari-hasVersionInfo,
+        core-shape:hari-OntologyVersion-hari-hasVersionOf ;
     sh:targetClass hari:OntologyVersion .
 
 core-shape:hari-ThingShape a sh:NodeShape ;
@@ -306,6 +307,15 @@ core-shape:hari-OntologyVersion-hari-hasVersionInfo a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has version info" ;
     sh:path hari:hasVersionInfo .
+
+core-shape:hari-OntologyVersion-hari-hasVersionOf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:OntologyProject ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has version of" ;
+    sh:path hari:hasVersionOf ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasVersionOf> ?that . ?that <http://hari-meta.org/ontology/hari#hasVersionOf> ?this .}" ] .
 
 core-shape:hari-TrainingPair-hari-hasChainOfThought a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
