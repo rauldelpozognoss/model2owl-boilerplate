@@ -77,6 +77,10 @@ hari:Status a owl:Class ;
             owl:hasValue hari:Status ;
             owl:onProperty skos:inScheme ] .
 
+hari:hasAcronym a owl:FunctionalProperty ;
+    rdfs:domain hari:OntologyProject ;
+    rdfs:range xsd:string .
+
 hari:hasBaseClassIRI a owl:FunctionalProperty ;
     rdfs:domain hari:ExtensionDecision ;
     rdfs:range xsd:string .
@@ -92,6 +96,10 @@ hari:hasComplexityLevel a owl:FunctionalProperty ;
 hari:hasDate a owl:FunctionalProperty ;
     rdfs:domain hari:VersionChange ;
     rdfs:range xsd:date .
+
+hari:hasDescription a owl:FunctionalProperty ;
+    rdfs:domain hari:OntologyProject ;
+    rdfs:range xsd:string .
 
 hari:hasDomainContext a owl:FunctionalProperty ;
     rdfs:domain hari:TrainingPair ;
@@ -137,6 +145,10 @@ hari:hasOldMin a owl:FunctionalProperty ;
     rdfs:domain hari:CardinalityModification ;
     rdfs:range xsd:integer .
 
+hari:hasOrganization a owl:FunctionalProperty ;
+    rdfs:domain hari:OntologyProject ;
+    rdfs:range xsd:string .
+
 hari:hasPriorVersionIRI rdfs:domain hari:OntologyVersion ;
     rdfs:range xsd:string .
 
@@ -164,6 +176,14 @@ hari:hasSystemInstruction a owl:FunctionalProperty ;
     rdfs:domain hari:TrainingPair ;
     rdfs:range xsd:string .
 
+hari:hasTitle a owl:FunctionalProperty ;
+    rdfs:domain hari:OntologyProject ;
+    rdfs:range xsd:string .
+
+hari:hasURI a owl:FunctionalProperty ;
+    rdfs:domain hari:OntologyProject ;
+    rdfs:range xsd:string .
+
 hari:hasUserPrompt a owl:FunctionalProperty ;
     rdfs:domain hari:TrainingPair ;
     rdfs:range xsd:string .
@@ -187,12 +207,8 @@ hari:DirectReuseDecision rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 hari:CardinalityModification rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:integer ;
-            owl:onProperty hari:hasNewMin ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:integer ;
-            owl:onProperty hari:hasNewMax ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasPropertyIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:integer ;
@@ -200,11 +216,36 @@ hari:CardinalityModification rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:integer ;
+            owl:onProperty hari:hasNewMin ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
             owl:onProperty hari:hasOldMax ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty hari:hasNewMax ;
+            owl:qualifiedCardinality 1 ] .
+
+hari:OntologyProject rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasPropertyIRI ;
+            owl:onProperty hari:hasDescription ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasOrganization ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasTitle ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasAcronym ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasURI ;
             owl:qualifiedCardinality 1 ] .
 
 hari:ExtensionDecision rdfs:subClassOf [ a owl:Restriction ;
@@ -221,8 +262,16 @@ hari:ExtensionDecision rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 hari:TrainingPair rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasExpectedSerialization ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onDataRange xsd:decimal ;
             owl:onProperty hari:hasQualityScore ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasChainOfThought ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
@@ -234,19 +283,11 @@ hari:TrainingPair rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasExpectedSerialization ;
+            owl:onProperty hari:hasSystemInstruction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:integer ;
             owl:onProperty hari:hasComplexityLevel ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasChainOfThought ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasSystemInstruction ;
             owl:qualifiedCardinality 1 ] .
 
 hari:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
@@ -255,7 +296,7 @@ hari:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasVersionInfo ;
+            owl:onProperty hari:hasIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
@@ -263,10 +304,10 @@ hari:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty hari:hasPriorVersionIRI ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasLevel ;
+            owl:onProperty hari:hasVersionInfo ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasIRI ;
+            owl:onProperty hari:hasLevel ;
             owl:qualifiedCardinality 1 ] .
 

@@ -41,6 +41,16 @@ core-shape:hari-ExtensionDecisionShape a sh:NodeShape ;
         core-shape:hari-ExtensionDecision-hari-hasExtensionReason ;
     sh:targetClass hari:ExtensionDecision .
 
+core-shape:hari-OntologyProjectShape a sh:NodeShape ;
+    rdfs:label "Ontology Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-OntologyProject-hari-hasAcronym,
+        core-shape:hari-OntologyProject-hari-hasDescription,
+        core-shape:hari-OntologyProject-hari-hasOrganization,
+        core-shape:hari-OntologyProject-hari-hasTitle,
+        core-shape:hari-OntologyProject-hari-hasURI ;
+    sh:targetClass hari:OntologyProject .
+
 core-shape:hari-OntologyVersionShape a sh:NodeShape ;
     rdfs:label "Ontology Version" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -183,6 +193,46 @@ core-shape:hari-ExtensionDecision-hari-hasExtensionReason a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has extension reason" ;
     sh:path hari:hasExtensionReason .
+
+core-shape:hari-OntologyProject-hari-hasAcronym a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has acronym" ;
+    sh:path hari:hasAcronym .
+
+core-shape:hari-OntologyProject-hari-hasDescription a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has description" ;
+    sh:path hari:hasDescription .
+
+core-shape:hari-OntologyProject-hari-hasOrganization a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has organization" ;
+    sh:path hari:hasOrganization .
+
+core-shape:hari-OntologyProject-hari-hasTitle a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has title" ;
+    sh:path hari:hasTitle .
+
+core-shape:hari-OntologyProject-hari-hasURI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has URI" ;
+    sh:path hari:hasURI .
 
 core-shape:hari-OntologyVersion-hari-hasChange a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
