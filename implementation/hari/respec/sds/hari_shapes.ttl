@@ -189,11 +189,12 @@ core-shape:hari-ExtensionDecision-hari-hasExtendedClassIRI a sh:PropertyShape ;
 
 core-shape:hari-ExtensionDecision-hari-hasExtensionReason a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
+    sh:class hari:ExtensionReason ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has extension reason" ;
-    sh:path hari:hasExtensionReason .
+    sh:path hari:hasExtensionReason ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExtensionReason> ?that . ?that <http://hari-meta.org/ontology/hari#hasExtensionReason> ?this .}" ] .
 
 core-shape:hari-OntologyProject-hari-hasAcronym a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -264,11 +265,12 @@ core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain a sh:PropertyShape ;
 
 core-shape:hari-OntologyVersion-hari-hasLevel a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
+    sh:class hari:Level ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has level" ;
-    sh:path hari:hasLevel .
+    sh:path hari:hasLevel ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasLevel> ?that . ?that <http://hari-meta.org/ontology/hari#hasLevel> ?this .}" ] .
 
 core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -286,11 +288,12 @@ core-shape:hari-OntologyVersion-hari-hasReuse a sh:PropertyShape ;
 
 core-shape:hari-OntologyVersion-hari-hasStatus a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
+    sh:class hari:Status ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has status" ;
-    sh:path hari:hasStatus .
+    sh:path hari:hasStatus ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasStatus> ?that . ?that <http://hari-meta.org/ontology/hari#hasStatus> ?this .}" ] .
 
 core-shape:hari-OntologyVersion-hari-hasVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;

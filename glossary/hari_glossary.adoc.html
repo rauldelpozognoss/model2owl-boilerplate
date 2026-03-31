@@ -593,12 +593,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hari:ExtensionDecision</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasExtensionReason</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyProject</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasAcronym</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -636,21 +630,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasLevel</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasPriorVersionIRI</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [0..1]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasStatus</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:string [1..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion</p></td>
@@ -734,6 +716,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasExtensionReason</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hari:ExtensionDecision → hari:ExtensionReason [1..1]</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasChange</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion → hari:VersionChange [0..&#42;]</p></td>
@@ -749,9 +736,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion → hari:OntologyVersion [0..&#42;]</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasLevel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion → hari:Level [1..1]</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasReuse</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion → hari:DirectReuseDecision [0..&#42;]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasStatus</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hari:OntologyVersion → hari:Status [1..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hari:hasVersionOf</p></td>
@@ -778,7 +775,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-31 10:59:52 UTC
+Last updated 2026-03-31 11:36:26 UTC
 </div>
 </div>
 </body>

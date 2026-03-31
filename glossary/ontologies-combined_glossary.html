@@ -151,22 +151,10 @@
                         <td>xsd:string [1..1]</td>
                      </tr>
                      <tr>
-                        <td>hari:ExtensionDecision</td>
-                        <td>hari:hasExtensionReason</td>
-                        <td></td>
-                        <td>xsd:string [1..1]</td>
-                     </tr>
-                     <tr>
                         <td>hari:OntologyVersion</td>
                         <td>hari:hasKnowledgeDomain</td>
                         <td></td>
                         <td>xsd:string [0..*]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:OntologyVersion</td>
-                        <td>hari:hasLevel</td>
-                        <td></td>
-                        <td>xsd:string [1..1]</td>
                      </tr>
                      <tr>
                         <td>hari:CardinalityModification</td>
@@ -241,12 +229,6 @@
                         <td>xsd:string [1..1]</td>
                      </tr>
                      <tr>
-                        <td>hari:OntologyVersion</td>
-                        <td>hari:hasStatus</td>
-                        <td></td>
-                        <td>xsd:string [1..1]</td>
-                     </tr>
-                     <tr>
                         <td>hari:TrainingPair</td>
                         <td>hari:hasSystemInstruction</td>
                         <td></td>
@@ -304,6 +286,16 @@
                         <td>hari:OntologyVersion -&gt; hari:OntologyVersion [0..*]</td>
                      </tr>
                      <tr>
+                        <td>hari:hasExtensionReason</td>
+                        <td></td>
+                        <td>hari:ExtensionDecision -&gt; hari:ExtensionReason [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasLevel</td>
+                        <td></td>
+                        <td>hari:OntologyVersion -&gt; hari:Level [1..1]</td>
+                     </tr>
+                     <tr>
                         <td>hari:hasRequiresExtension</td>
                         <td></td>
                         <td>hari:TrainingPair -&gt; hari:ExtensionDecision [0..*]</td>
@@ -317,6 +309,11 @@
                         <td>hari:hasReuse</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:DirectReuseDecision [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasStatus</td>
+                        <td></td>
+                        <td>hari:OntologyVersion -&gt; hari:Status [1..1]</td>
                      </tr>
                      <tr>
                         <td>hari:hasVersionOf</td>
