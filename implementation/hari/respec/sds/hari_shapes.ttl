@@ -46,9 +46,9 @@ core-shape:hari-OntologyProjectShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologyProject-hari-hasAcronym,
         core-shape:hari-OntologyProject-hari-hasDescription,
+        core-shape:hari-OntologyProject-hari-hasIRI,
         core-shape:hari-OntologyProject-hari-hasOrganization,
-        core-shape:hari-OntologyProject-hari-hasTitle,
-        core-shape:hari-OntologyProject-hari-hasURI ;
+        core-shape:hari-OntologyProject-hari-hasTitle ;
     sh:targetClass hari:OntologyProject .
 
 core-shape:hari-OntologyVersionShape a sh:NodeShape ;
@@ -57,12 +57,12 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
     sh:property core-shape:hari-OntologyVersion-hari-hasChange,
         core-shape:hari-OntologyVersion-hari-hasContains,
         core-shape:hari-OntologyVersion-hari-hasDependsOn,
-        core-shape:hari-OntologyVersion-hari-hasIRI,
         core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
         core-shape:hari-OntologyVersion-hari-hasLevel,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasReuse,
         core-shape:hari-OntologyVersion-hari-hasStatus,
+        core-shape:hari-OntologyVersion-hari-hasVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasVersionInfo,
         core-shape:hari-OntologyVersion-hari-hasVersionOf ;
     sh:targetClass hari:OntologyVersion .
@@ -211,6 +211,14 @@ core-shape:hari-OntologyProject-hari-hasDescription a sh:PropertyShape ;
     sh:name "Has description" ;
     sh:path hari:hasDescription .
 
+core-shape:hari-OntologyProject-hari-hasIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has IRI" ;
+    sh:path hari:hasIRI .
+
 core-shape:hari-OntologyProject-hari-hasOrganization a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -226,14 +234,6 @@ core-shape:hari-OntologyProject-hari-hasTitle a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has title" ;
     sh:path hari:hasTitle .
-
-core-shape:hari-OntologyProject-hari-hasURI a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has URI" ;
-    sh:path hari:hasURI .
 
 core-shape:hari-OntologyVersion-hari-hasChange a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -255,14 +255,6 @@ core-shape:hari-OntologyVersion-hari-hasDependsOn a sh:PropertyShape ;
     sh:name "Has depends on" ;
     sh:path hari:hasDependsOn ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDependsOn> ?that . ?that <http://hari-meta.org/ontology/hari#hasDependsOn> ?this .}" ] .
-
-core-shape:hari-OntologyVersion-hari-hasIRI a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has IRI" ;
-    sh:path hari:hasIRI .
 
 core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -299,6 +291,14 @@ core-shape:hari-OntologyVersion-hari-hasStatus a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has status" ;
     sh:path hari:hasStatus .
+
+core-shape:hari-OntologyVersion-hari-hasVersionIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has version IRI" ;
+    sh:path hari:hasVersionIRI .
 
 core-shape:hari-OntologyVersion-hari-hasVersionInfo a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
