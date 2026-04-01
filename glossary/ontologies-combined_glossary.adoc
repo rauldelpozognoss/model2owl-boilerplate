@@ -15,7 +15,19 @@
       
     
       
+| hari:AttributeExtension | 
+      
+    
+      
+| hari:CardinalityExtension | 
+      
+    
+      
 | hari:CardinalityModification | 
+      
+    
+      
+| hari:ClassReuse | 
       
     
       
@@ -32,6 +44,14 @@
     
       
 | hari:OntologyVersion | 
+      
+    
+      
+| hari:PropertyReuse | 
+      
+    
+      
+| hari:SemanticExtension | 
       
     
       
@@ -61,6 +81,18 @@
   
 | hari:AttributeAddition
 | hari:hasNewPropertyIRI| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:AttributeExtension
+| hari:hasAddedPropertyIRI| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:CardinalityExtension
+| hari:hasCardinalityChangedIRI| 
   |xsd:string [1..1]
   
   
@@ -95,21 +127,15 @@
   
   
   
-| hari:DirectReuseDecision
-| hari:hasReason| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:DirectReuseDecision
+| hari:ClassReuse
 | hari:hasReusedClassIRI| 
   |xsd:string [1..1]
   
   
   
-| hari:ExtensionDecision
-| hari:hasAddedPropertyIRI| 
-  |xsd:string [0..&#42;]
+| hari:DirectReuseDecision
+| hari:hasReason| 
+  |xsd:string [1..1]
   
   
   
@@ -120,16 +146,14 @@
   
   
 | hari:ExtensionDecision
-| hari:hasCardinalityChangedIRI| 
-  |xsd:string [0..&#42;]
-  
-  
-  
-| hari:ExtensionDecision
 | hari:hasExtendedClassIRI| 
   |xsd:string [1..1]
   
   
+  
+| hari:ExtensionDecision
+| hari:hasJustificacion| 
+  |xsd:string [0..1]
   
   
   
@@ -198,6 +222,12 @@
   |xsd:string [1..1]
   
   
+  
+  
+  
+| hari:PropertyReuse
+| hari:hasReusedPropertyIRI| 
+  |xsd:string [1..1]
   
   
   
@@ -310,9 +340,6 @@
 
   
   
-| hari:hasExtensionReason| 
-  |hari:ExtensionDecision → hari:ExtensionReason [1..1]
-
   
 
   
@@ -398,6 +425,10 @@
 | hari:isVersionOf| 
   |hari:OntologyVersion → hari:OntologyProject [1..1]
 
+  
+
+  
+  
   
 
   
