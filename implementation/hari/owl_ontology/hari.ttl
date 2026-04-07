@@ -51,6 +51,11 @@ hari:Draft a skos:Concept ;
     skos:inScheme hari:Status ;
     skos:prefLabel "Draft"@en .
 
+hari:ExternalTerm a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Thing ;
+    skos:prefLabel "External Term"@en .
+
 hari:Foundational a skos:Concept ;
     rdfs:isDefinedBy hari:core ;
     skos:inScheme hari:Level ;
@@ -86,38 +91,25 @@ hari:Stable a skos:Concept ;
     skos:inScheme hari:Status ;
     skos:prefLabel "Stable"@en .
 
-hari:TrainingPair a owl:Class ;
-    rdfs:isDefinedBy hari:core ;
-    rdfs:subClassOf hari:Thing ;
-    skos:prefLabel "Training Pair"@en .
-
 hari:hasAcronym a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Acronym"@en .
 
-hari:hasAddedPropertyIRI a owl:DatatypeProperty ;
+hari:hasAddedProperty a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Added Property IRI"@en .
+    skos:prefLabel "has Added Property"@en .
 
-hari:hasBaseClassIRI a owl:DatatypeProperty ;
+hari:hasBaseClass a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Base Class IRI"@en .
+    skos:prefLabel "has Base Class"@en .
 
-hari:hasCardinalityChangedIRI a owl:DatatypeProperty ;
+hari:hasCardinalityChanged a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Cardinality Changed IRI"@en .
-
-hari:hasChainOfThought a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Chain Of Thought"@en .
+    skos:prefLabel "has Cardinality Changed"@en .
 
 hari:hasChange a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Change"@en .
-
-hari:hasComplexityLevel a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Complexity Level"@en .
 
 hari:hasDate a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
@@ -131,17 +123,9 @@ hari:hasDescription a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Description"@en .
 
-hari:hasDomainContext a owl:DatatypeProperty ;
+hari:hasExtendedClass a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Domain Context"@en .
-
-hari:hasExpectedSerialization a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Expected Serialization"@en .
-
-hari:hasExtendedClassIRI a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Extended Class IRI"@en .
+    skos:prefLabel "has Extended Class"@en .
 
 hari:hasExtension a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
@@ -195,10 +179,6 @@ hari:hasPropertyIRI a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Property IRI"@en .
 
-hari:hasQualityScore a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Quality Score"@en .
-
 hari:hasReason a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Reason"@en .
@@ -207,37 +187,21 @@ hari:hasReuse a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Reuse"@en .
 
-hari:hasReusedClassIRI a owl:DatatypeProperty ;
+hari:hasReusedClass a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Reused Class IRI"@en .
+    skos:prefLabel "has Reused Class"@en .
 
-hari:hasReusedPropertyIRI a owl:DatatypeProperty ;
+hari:hasReusedProperty a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Reused Property IRI"@en .
+    skos:prefLabel "has Reused Property"@en .
 
 hari:hasStatus a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Status"@en .
 
-hari:hasSystemInstruction a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has System Instruction"@en .
-
 hari:hasTitle a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Title"@en .
-
-hari:hasTrainingPairExtension a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Training Pair Extension"@en .
-
-hari:hasTrainingPairReuse a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has Training Pair Reuse"@en .
-
-hari:hasUserPrompt a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
-    skos:prefLabel "has User Prompt"@en .
 
 hari:hasVersionIRI a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
@@ -287,13 +251,13 @@ hari:core a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Ontología principal del proyecto Hari."@en ;
-    dcterms:issued "2026-04-01"^^xsd:date ;
+    dcterms:issued "2026-04-07"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Core"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari.xml on 2026-04-01" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-04-07" ;
     owl:imports dcterms:,
         skos: ;
     owl:incompatibleWith "" ;

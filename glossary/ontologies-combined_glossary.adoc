@@ -39,6 +39,10 @@
       
     
       
+| hari:ExternalTerm | 
+      
+    
+      
 | hari:OntologyProject | 
       
     
@@ -56,10 +60,6 @@
     
       
 | hari:Thing | Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.
-      
-    
-      
-| hari:TrainingPair | 
       
     
       
@@ -85,15 +85,7 @@
   
   
   
-| hari:AttributeExtension
-| hari:hasAddedPropertyIRI| 
-  |xsd:string [1..1]
   
-  
-  
-| hari:CardinalityExtension
-| hari:hasCardinalityChangedIRI| 
-  |xsd:string [1..1]
   
   
   
@@ -127,10 +119,6 @@
   
   
   
-| hari:ClassReuse
-| hari:hasReusedClassIRI| 
-  |xsd:string [1..1]
-  
   
   
 | hari:DirectReuseDecision
@@ -139,15 +127,7 @@
   
   
   
-| hari:ExtensionDecision
-| hari:hasBaseClassIRI| 
-  |xsd:string [1..1]
   
-  
-  
-| hari:ExtensionDecision
-| hari:hasExtendedClassIRI| 
-  |xsd:string [1..1]
   
   
   
@@ -225,56 +205,6 @@
   
   
   
-| hari:PropertyReuse
-| hari:hasReusedPropertyIRI| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasChainOfThought| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasComplexityLevel| 
-  |xsd:integer [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasDomainContext| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasExpectedSerialization| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasQualityScore| 
-  |xsd:decimal [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasSystemInstruction| 
-  |xsd:string [1..1]
-  
-  
-  
-  
-  
-  
-  
-| hari:TrainingPair
-| hari:hasUserPrompt| 
-  |xsd:string [1..1]
-  
   
   
 | hari:VersionChange
@@ -296,6 +226,16 @@
 
   
   
+| hari:hasAddedProperty| 
+  |hari:AttributeExtension → hari:ExternalTerm [1..1]
+
+  
+
+  
+  
+| hari:hasCardinalityChanged| 
+  |hari:CardinalityExtension → hari:ExternalTerm [1..1]
+
   
 
   
@@ -320,6 +260,9 @@
 
   
   
+| hari:hasReusedClass| 
+  |hari:ClassReuse → hari:ExternalTerm [1..1]
+
   
 
   
@@ -328,14 +271,16 @@
 
   
   
+| hari:hasBaseClass| 
+  |hari:ExtensionDecision → hari:ExternalTerm [1..1]
+
   
 
   
   
-  
+| hari:hasExtendedClass| 
+  |hari:ExtensionDecision → hari:ExternalTerm [1..1]
 
-  
-  
   
 
   
@@ -429,48 +374,9 @@
 
   
   
-  
+| hari:hasReusedProperty| 
+  |hari:PropertyReuse → hari:ExternalTerm [1..1]
 
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-| hari:hasTrainingPairExtension| 
-  |hari:TrainingPair → hari:ExtensionDecision [0..&#42;]
-
-  
-
-  
-  
-| hari:hasTrainingPairReuse| 
-  |hari:TrainingPair → hari:DirectReuseDecision [0..&#42;]
-
-  
-
-  
-  
   
 
   
