@@ -36,19 +36,11 @@
                   </thead>
                   <tbody>
                      <tr>
-                        <td>hari:AttributeAddition</td>
-                        <td></td>
-                     </tr>
-                     <tr>
                         <td>hari:AttributeExtension</td>
                         <td></td>
                      </tr>
                      <tr>
                         <td>hari:CardinalityExtension</td>
-                        <td></td>
-                     </tr>
-                     <tr>
-                        <td>hari:CardinalityModification</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -61,10 +53,6 @@
                      </tr>
                      <tr>
                         <td>hari:ExtensionDecision</td>
-                        <td></td>
-                     </tr>
-                     <tr>
-                        <td>hari:ExternalTerm</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -88,7 +76,7 @@
                         <td>Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</td>
                      </tr>
                      <tr>
-                        <td>hari:VersionChange</td>
+                        <td>hari:TrainingPair</td>
                         <td></td>
                      </tr>
                   </tbody>
@@ -111,14 +99,56 @@
                         <td>xsd:string [1..1]</td>
                      </tr>
                      <tr>
-                        <td>hari:VersionChange</td>
-                        <td>hari:hasDate</td>
+                        <td>hari:AttributeExtension</td>
+                        <td>hari:hasAddedPropertyIRI</td>
                         <td></td>
-                        <td>xsd:date [1..1]</td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:ExtensionDecision</td>
+                        <td>hari:hasBaseClassIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:CardinalityExtension</td>
+                        <td>hari:hasCardinalityChangedIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:TrainingPair</td>
+                        <td>hari:hasChainOfThought</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:TrainingPair</td>
+                        <td>hari:hasComplexityLevel</td>
+                        <td></td>
+                        <td>xsd:integer [1..1]</td>
                      </tr>
                      <tr>
                         <td>hari:OntologyProject</td>
                         <td>hari:hasDescription</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:TrainingPair</td>
+                        <td>hari:hasDomainContext</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:TrainingPair</td>
+                        <td>hari:hasExpectedSerialization</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:ExtensionDecision</td>
+                        <td>hari:hasExtendedClassIRI</td>
                         <td></td>
                         <td>xsd:string [1..1]</td>
                      </tr>
@@ -133,36 +163,6 @@
                         <td>hari:hasKnowledgeDomain</td>
                         <td></td>
                         <td>xsd:string [0..*]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:CardinalityModification</td>
-                        <td>hari:hasNewMax</td>
-                        <td></td>
-                        <td>xsd:integer [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:CardinalityModification</td>
-                        <td>hari:hasNewMin</td>
-                        <td></td>
-                        <td>xsd:integer [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:AttributeAddition</td>
-                        <td>hari:hasNewPropertyIRI</td>
-                        <td></td>
-                        <td>xsd:string [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:CardinalityModification</td>
-                        <td>hari:hasOldMax</td>
-                        <td></td>
-                        <td>xsd:integer [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:CardinalityModification</td>
-                        <td>hari:hasOldMin</td>
-                        <td></td>
-                        <td>xsd:integer [1..1]</td>
                      </tr>
                      <tr>
                         <td>hari:OntologyProject</td>
@@ -183,10 +183,10 @@
                         <td>xsd:string [0..1]</td>
                      </tr>
                      <tr>
-                        <td>hari:CardinalityModification</td>
-                        <td>hari:hasPropertyIRI</td>
+                        <td>hari:TrainingPair</td>
+                        <td>hari:hasQualityScore</td>
                         <td></td>
-                        <td>xsd:string [1..1]</td>
+                        <td>xsd:decimal [1..1]</td>
                      </tr>
                      <tr>
                         <td>hari:DirectReuseDecision</td>
@@ -195,8 +195,32 @@
                         <td>xsd:string [1..1]</td>
                      </tr>
                      <tr>
+                        <td>hari:ClassReuse</td>
+                        <td>hari:hasReusedClassIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:PropertyReuse</td>
+                        <td>hari:hasReusedPropertyIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:TrainingPair</td>
+                        <td>hari:hasSystemInstruction</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
                         <td>hari:OntologyProject</td>
                         <td>hari:hasTitle</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:TrainingPair</td>
+                        <td>hari:hasUserPrompt</td>
                         <td></td>
                         <td>xsd:string [1..1]</td>
                      </tr>
@@ -225,34 +249,9 @@
                   </thead>
                   <tbody>
                      <tr>
-                        <td>hari:hasAddedProperty</td>
-                        <td></td>
-                        <td>hari:AttributeExtension -&gt; hari:ExternalTerm [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:hasBaseClass</td>
-                        <td></td>
-                        <td>hari:ExtensionDecision -&gt; hari:ExternalTerm [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:hasCardinalityChanged</td>
-                        <td></td>
-                        <td>hari:CardinalityExtension -&gt; hari:ExternalTerm [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:hasChange</td>
-                        <td></td>
-                        <td>hari:OntologyVersion -&gt; hari:VersionChange [0..*]</td>
-                     </tr>
-                     <tr>
                         <td>hari:hasDependsOn</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:OntologyVersion [0..*]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:hasExtendedClass</td>
-                        <td></td>
-                        <td>hari:ExtensionDecision -&gt; hari:ExternalTerm [1..1]</td>
                      </tr>
                      <tr>
                         <td>hari:hasExtension</td>
@@ -270,19 +269,19 @@
                         <td>hari:OntologyVersion -&gt; hari:DirectReuseDecision [0..*]</td>
                      </tr>
                      <tr>
-                        <td>hari:hasReusedClass</td>
-                        <td></td>
-                        <td>hari:ClassReuse -&gt; hari:ExternalTerm [1..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:hasReusedProperty</td>
-                        <td></td>
-                        <td>hari:PropertyReuse -&gt; hari:ExternalTerm [1..1]</td>
-                     </tr>
-                     <tr>
                         <td>hari:hasStatus</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:Status [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasTrainingPairExtension</td>
+                        <td></td>
+                        <td>hari:TrainingPair -&gt; hari:ExtensionDecision [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasTrainingPairReuse</td>
+                        <td></td>
+                        <td>hari:TrainingPair -&gt; hari:DirectReuseDecision [0..*]</td>
                      </tr>
                      <tr>
                         <td>hari:isVersionOf</td>

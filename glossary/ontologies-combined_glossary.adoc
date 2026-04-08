@@ -11,19 +11,11 @@
 | Class name | Definition
 
       
-| hari:AttributeAddition | 
-      
-    
-      
 | hari:AttributeExtension | 
       
     
       
 | hari:CardinalityExtension | 
-      
-    
-      
-| hari:CardinalityModification | 
       
     
       
@@ -36,10 +28,6 @@
     
       
 | hari:ExtensionDecision | 
-      
-    
-      
-| hari:ExternalTerm | 
       
     
       
@@ -63,7 +51,7 @@
       
     
       
-| hari:VersionChange | 
+| hari:TrainingPair | 
       
     
 |===
@@ -79,45 +67,21 @@
 
   
   
-| hari:AttributeAddition
-| hari:hasNewPropertyIRI| 
+| hari:AttributeExtension
+| hari:hasAddedPropertyIRI| 
   |xsd:string [1..1]
   
   
   
-  
-  
-  
-  
-| hari:CardinalityModification
-| hari:hasNewMax| 
-  |xsd:integer [1..1]
-  
-  
-  
-| hari:CardinalityModification
-| hari:hasNewMin| 
-  |xsd:integer [1..1]
-  
-  
-  
-| hari:CardinalityModification
-| hari:hasOldMax| 
-  |xsd:integer [1..1]
-  
-  
-  
-| hari:CardinalityModification
-| hari:hasOldMin| 
-  |xsd:integer [1..1]
-  
-  
-  
-| hari:CardinalityModification
-| hari:hasPropertyIRI| 
+| hari:CardinalityExtension
+| hari:hasCardinalityChangedIRI| 
   |xsd:string [1..1]
   
   
+  
+| hari:ClassReuse
+| hari:hasReusedClassIRI| 
+  |xsd:string [1..1]
   
   
   
@@ -127,7 +91,15 @@
   
   
   
+| hari:ExtensionDecision
+| hari:hasBaseClassIRI| 
+  |xsd:string [1..1]
   
+  
+  
+| hari:ExtensionDecision
+| hari:hasExtendedClassIRI| 
+  |xsd:string [1..1]
   
   
   
@@ -173,8 +145,6 @@
   
   
   
-  
-  
 | hari:OntologyVersion
 | hari:hasKnowledgeDomain| 
   |xsd:string [0..&#42;]
@@ -205,11 +175,55 @@
   
   
   
+| hari:PropertyReuse
+| hari:hasReusedPropertyIRI| 
+  |xsd:string [1..1]
   
   
-| hari:VersionChange
-| hari:hasDate| 
-  |xsd:date [1..1]
+  
+| hari:TrainingPair
+| hari:hasChainOfThought| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:TrainingPair
+| hari:hasComplexityLevel| 
+  |xsd:integer [1..1]
+  
+  
+  
+| hari:TrainingPair
+| hari:hasDomainContext| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:TrainingPair
+| hari:hasExpectedSerialization| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:TrainingPair
+| hari:hasQualityScore| 
+  |xsd:decimal [1..1]
+  
+  
+  
+| hari:TrainingPair
+| hari:hasSystemInstruction| 
+  |xsd:string [1..1]
+  
+  
+  
+  
+  
+  
+  
+| hari:TrainingPair
+| hari:hasUserPrompt| 
+  |xsd:string [1..1]
   
 |===
 
@@ -226,16 +240,6 @@
 
   
   
-| hari:hasAddedProperty| 
-  |hari:AttributeExtension → hari:ExternalTerm [1..1]
-
-  
-
-  
-  
-| hari:hasCardinalityChanged| 
-  |hari:CardinalityExtension → hari:ExternalTerm [1..1]
-
   
 
   
@@ -252,35 +256,6 @@
 
   
   
-  
-
-  
-  
-  
-
-  
-  
-| hari:hasReusedClass| 
-  |hari:ClassReuse → hari:ExternalTerm [1..1]
-
-  
-
-  
-  
-  
-
-  
-  
-| hari:hasBaseClass| 
-  |hari:ExtensionDecision → hari:ExternalTerm [1..1]
-
-  
-
-  
-  
-| hari:hasExtendedClass| 
-  |hari:ExtensionDecision → hari:ExternalTerm [1..1]
-
   
 
   
@@ -312,13 +287,6 @@
 
   
   
-  
-
-  
-  
-| hari:hasChange| 
-  |hari:OntologyVersion → hari:VersionChange [0..&#42;]
-
   
 
   
@@ -374,8 +342,43 @@
 
   
   
-| hari:hasReusedProperty| 
-  |hari:PropertyReuse → hari:ExternalTerm [1..1]
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| hari:hasTrainingPairExtension| 
+  |hari:TrainingPair → hari:ExtensionDecision [0..&#42;]
+
+  
+
+  
+  
+| hari:hasTrainingPairReuse| 
+  |hari:TrainingPair → hari:DirectReuseDecision [0..&#42;]
 
   
 
