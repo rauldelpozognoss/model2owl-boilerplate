@@ -12,7 +12,7 @@ directorio_proyecto = "."
 archivo_salida = "salida_codigo.txt" 
 
 # 3. Extensiones que quieres incluir (Añade o quita según necesites)
-extensiones = {".js", ".py", ".html", ".css", ".json", ".cs", ".cpp", ".xml", ".ttl", ".xsl", ".properties"}
+extensiones = {".py", ".xml"}
 
 # ==============================================================================
 # EJECUCIÓN DEL SCRIPT
