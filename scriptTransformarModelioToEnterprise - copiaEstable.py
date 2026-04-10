@@ -26,6 +26,11 @@ def get_multiplicity(element, ns):
     return f"{l_val}..{u_val}"
 
 def extraer_documentacion_y_tags(elemento, ns):
+    """
+    Busca <ownedComment>, extrae el texto, y separa la documentación normal 
+    de las etiquetas personalizadas que empiecen por '@tag:'.
+    Retorna: (string_documentacion, lista_de_tuplas_tags)
+    """
     if elemento is None: return "", []
     
     comentarios = elemento.findall("./ownedComment", ns)
@@ -42,14 +47,17 @@ def extraer_documentacion_y_tags(elemento, ns):
                 texto = body_node.text
         
         if texto:
+            # Procesar línea a línea para detectar los tags
             for linea in texto.split('\n'):
                 linea = linea.strip()
                 if linea.startswith("@tag:"):
                     try:
+                        # Limpiar y separar por el primer '='
                         contenido = linea.replace("@tag:", "").strip()
                         key, val = contenido.split("=", 1)
                         tags_list.append((key.strip(), val.strip()))
                     except ValueError:
+                        # Si alguien pone @tag: sin '=', lo ignoramos
                         pass
                 else:
                     if linea: doc_lines.append(linea)
@@ -84,9 +92,6 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 'has_parent': has_parent
             }
 
-    # ==============================================================================
-    # 1. CREACIÓN DE LA RAÍZ ÚNICA PARA GNOSS (hari:Thing)
-    # ==============================================================================
     root_class_id = "ID_AUTO_GENERATED_THING_ROOT"
     ea_root = ET.SubElement(elements, "element", {
         f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
@@ -94,36 +99,6 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
         "name": f"{prefijo}Thing"
     })
     ET.SubElement(ea_root, "properties", {"documentation": "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."})
-
-    # ==============================================================================
-    # 2. EL TRUCO DEL ANCLA: FORZAR A SKOS Y DC A COLGAR DE LA RAÍZ
-    # Inyectamos estas clases falsas para que model2owl no las deje flotando 
-    # y GNOSS no detecte "múltiples raíces absolutas".
-    # ==============================================================================
-    clases_externas = [
-        {"id": "ID_SKOS_CONCEPT", "name": "skos:Concept"},
-        {"id": "ID_SKOS_CONCEPTSCHEME", "name": "skos:ConceptScheme"},
-        {"id": "ID_DCTERMS_AGENT", "name": "dcterms:Agent"}
-    ]
-    
-    for ext in clases_externas:
-        # Añadir la clase al XML
-        ET.SubElement(elements, "element", {
-            f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
-            f"{{{NAMESPACE_XMI_OUTPUT}}}idref": ext["id"],
-            "name": ext["name"]
-        })
-        
-        # Crear la flecha de generalización (herencia) hacia hari:Thing
-        ea_gen = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": f"gen_{ext['id']}"})
-        ET.SubElement(ea_gen, "properties", {"ea_type": "Generalization", "direction": "Source -> Destination"})
-        
-        src = ET.SubElement(ea_gen, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": ext["id"]})
-        ET.SubElement(src, "model", {"name": ext["name"], "type": "Class"})
-        
-        tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": root_class_id})
-        ET.SubElement(tgt, "model", {"name": f"{prefijo}Thing", "type": "Class"})
-    # ==============================================================================
 
     for eid, info in catalog.items():
         if info['name'] == "Thing": continue
@@ -140,6 +115,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
         
         original_el = root_modelio.find(f".//*[@xmi:id='{eid}']", ns)
         
+        # --- NUEVO: Extraer doc y tags para CLASES ---
         doc_text, tags_list = extraer_documentacion_y_tags(original_el, ns)
         
         props = ET.SubElement(ea_element, "properties")
@@ -148,6 +124,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
         if original_el.get("isAbstract") == "true": 
             props.set("stereotype", "Abstract")
             
+        # Inyectar tags en el XML de EA si existen
         if tags_list:
             tags_container = ET.SubElement(ea_element, "tags")
             for t_name, t_val in tags_list:
@@ -172,6 +149,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 "name": final_attr_name
             })
             
+            # --- NUEVO: Extraer doc y tags para ATRIBUTOS ---
             attr_doc, attr_tags = extraer_documentacion_y_tags(attr, ns)
             if attr_doc:
                 ET.SubElement(ea_attr, "documentation", {"value": attr_doc})
@@ -216,6 +194,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 ea_conn = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": aid})
                 ET.SubElement(ea_conn, "properties", {"ea_type": "Association", "direction": "Source -> Destination"})
                 
+                # --- NUEVO: Extraer doc y tags para ASOCIACIONES ---
                 conn_doc, conn_tags = extraer_documentacion_y_tags(attr, ns)
                 if conn_doc:
                     ET.SubElement(ea_conn, "documentation", {"value": conn_doc})
@@ -266,6 +245,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 if stereotype: props["stereotype"] = stereotype
                 ET.SubElement(ea_conn, "properties", props)
                 
+                # --- NUEVO: Extraer doc y tags para DEPENDENCIAS ---
                 rel_doc, rel_tags = extraer_documentacion_y_tags(rel, ns)
                 if rel_doc: 
                     ET.SubElement(ea_conn, "documentation", {"value": rel_doc})
@@ -287,7 +267,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 
     tree_ea = ET.ElementTree(root_ea)
     tree_ea.write(output_file, encoding="UTF-8", xml_declaration=True)
-    print(f"¡Éxito! XML generado con prefijo '{prefijo}' y anclaje GNOSS (skos/dc -> hari:Thing).")
+    print(f"¡Éxito! XML generado con prefijo automático '{prefijo}', soporte para metadatos (tags) y cardinalidad.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
