@@ -8,6 +8,11 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+core-shape:dcterms-AgentShape a sh:NodeShape ;
+    rdfs:label "Agent" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass dcterms:Agent .
+
 core-shape:hari-AnotationPropertyShape a sh:NodeShape ;
     rdfs:label "Anotation Property" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -116,6 +121,16 @@ core-shape:hari-ThingShape a sh:NodeShape ;
     rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari:Thing .
+
+core-shape:skos-ConceptSchemeShape a sh:NodeShape ;
+    rdfs:label "Concept Scheme" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass skos:ConceptScheme .
+
+core-shape:skos-ConceptShape a sh:NodeShape ;
+    rdfs:label "Concept" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass skos:Concept .
 
 core-shape:hari-AttributeExtension-hari-hasAddedPropertyIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
