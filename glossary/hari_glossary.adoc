@@ -11,6 +11,10 @@
 | Class name | Definition
 
       
+| hari:AnotationProperty | 
+      
+    
+      
 | hari:AttributeExtension | 
       
     
@@ -19,7 +23,19 @@
       
     
       
+| hari:Class | 
+      
+    
+      
 | hari:ClassReuse | 
+      
+    
+      
+| hari:Datatype | 
+      
+    
+      
+| hari:DatatypeProperty | 
       
     
       
@@ -31,11 +47,19 @@
       
     
       
+| hari:ObjectProperty | 
+      
+    
+      
 | hari:OntologyProject | 
       
     
       
 | hari:OntologyVersion | 
+      
+    
+      
+| hari:Property | 
       
     
       
@@ -48,10 +72,6 @@
     
       
 | hari:Thing | Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.
-      
-    
-      
-| hari:TrainingPair | 
       
     
 |===
@@ -143,8 +163,6 @@
   
   
   
-  
-  
 | hari:OntologyVersion
 | hari:hasKnowledgeDomain| 
   |xsd:string [0..&#42;]
@@ -177,52 +195,6 @@
   
 | hari:PropertyReuse
 | hari:hasReusedPropertyIRI| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasChainOfThought| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasComplexityLevel| 
-  |xsd:integer [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasDomainContext| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasExpectedSerialization| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasQualityScore| 
-  |xsd:decimal [1..1]
-  
-  
-  
-| hari:TrainingPair
-| hari:hasSystemInstruction| 
-  |xsd:string [1..1]
-  
-  
-  
-  
-  
-  
-  
-| hari:TrainingPair
-| hari:hasUserPrompt| 
   |xsd:string [1..1]
   
 |===
@@ -291,13 +263,6 @@
 
   
   
-| hari:hasDependsOn| 
-  |hari:OntologyVersion → hari:OntologyVersion [0..&#42;]
-
-  
-
-  
-  
 | hari:hasExtension| 
   |hari:OntologyVersion → hari:ExtensionDecision [0..&#42;]
 
@@ -337,48 +302,6 @@
   
 | hari:isVersionOf| 
   |hari:OntologyVersion → hari:OntologyProject [1..1]
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-| hari:hasTrainingPairExtension| 
-  |hari:TrainingPair → hari:ExtensionDecision [0..&#42;]
-
-  
-
-  
-  
-| hari:hasTrainingPairReuse| 
-  |hari:TrainingPair → hari:DirectReuseDecision [0..&#42;]
 
   
 

@@ -8,6 +8,11 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+core-shape:hari-AnotationPropertyShape a sh:NodeShape ;
+    rdfs:label "Anotation Property" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:AnotationProperty .
+
 core-shape:hari-AttributeExtensionShape a sh:NodeShape ;
     rdfs:label "Attribute Extension" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -25,6 +30,21 @@ core-shape:hari-ClassReuseShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-ClassReuse-hari-hasReusedClassIRI ;
     sh:targetClass hari:ClassReuse .
+
+core-shape:hari-ClassShape a sh:NodeShape ;
+    rdfs:label "Class" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:Class .
+
+core-shape:hari-DatatypePropertyShape a sh:NodeShape ;
+    rdfs:label "Datatype Property" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:DatatypeProperty .
+
+core-shape:hari-DatatypeShape a sh:NodeShape ;
+    rdfs:label "Datatype" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:Datatype .
 
 core-shape:hari-DirectReuseDecisionShape a sh:NodeShape ;
     rdfs:label "Direct Reuse Decision" ;
@@ -44,6 +64,11 @@ core-shape:hari-ExtensionDecisionShape a sh:NodeShape ;
                 }""" ] ;
     sh:targetClass hari:ExtensionDecision .
 
+core-shape:hari-ObjectPropertyShape a sh:NodeShape ;
+    rdfs:label "Object Property" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:ObjectProperty .
+
 core-shape:hari-OntologyProjectShape a sh:NodeShape ;
     rdfs:label "Ontology Project" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -58,8 +83,7 @@ core-shape:hari-OntologyProjectShape a sh:NodeShape ;
 core-shape:hari-OntologyVersionShape a sh:NodeShape ;
     rdfs:label "Ontology Version" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-OntologyVersion-hari-hasDependsOn,
-        core-shape:hari-OntologyVersion-hari-hasExtension,
+    sh:property core-shape:hari-OntologyVersion-hari-hasExtension,
         core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasReuse,
@@ -75,6 +99,13 @@ core-shape:hari-PropertyReuseShape a sh:NodeShape ;
     sh:property core-shape:hari-PropertyReuse-hari-hasReusedPropertyIRI ;
     sh:targetClass hari:PropertyReuse .
 
+core-shape:hari-PropertyShape a sh:NodeShape ;
+    rdfs:label "Property" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#Property> .
+                }""" ] ;
+    sh:targetClass hari:Property .
+
 core-shape:hari-SemanticExtensionShape a sh:NodeShape ;
     rdfs:label "Semantic Extension" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -85,20 +116,6 @@ core-shape:hari-ThingShape a sh:NodeShape ;
     rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari:Thing .
-
-core-shape:hari-TrainingPairShape a sh:NodeShape ;
-    rdfs:label "Training Pair" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-TrainingPair-hari-hasChainOfThought,
-        core-shape:hari-TrainingPair-hari-hasComplexityLevel,
-        core-shape:hari-TrainingPair-hari-hasDomainContext,
-        core-shape:hari-TrainingPair-hari-hasExpectedSerialization,
-        core-shape:hari-TrainingPair-hari-hasQualityScore,
-        core-shape:hari-TrainingPair-hari-hasSystemInstruction,
-        core-shape:hari-TrainingPair-hari-hasTrainingPairExtension,
-        core-shape:hari-TrainingPair-hari-hasTrainingPairReuse,
-        core-shape:hari-TrainingPair-hari-hasUserPrompt ;
-    sh:targetClass hari:TrainingPair .
 
 core-shape:hari-AttributeExtension-hari-hasAddedPropertyIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -204,13 +221,6 @@ core-shape:hari-OntologyProject-hari-hasTitle a sh:PropertyShape ;
     sh:name "Has title" ;
     sh:path hari:hasTitle .
 
-core-shape:hari-OntologyVersion-hari-hasDependsOn a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:OntologyVersion ;
-    sh:name "Has depends on" ;
-    sh:path hari:hasDependsOn ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDependsOn> ?that . ?that <http://hari-meta.org/ontology/hari#hasDependsOn> ?this .}" ] .
-
 core-shape:hari-OntologyVersion-hari-hasExtension a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:ExtensionDecision ;
@@ -280,87 +290,17 @@ core-shape:hari-PropertyReuse-hari-hasReusedPropertyIRI a sh:PropertyShape ;
     sh:name "Has reused property IRI" ;
     sh:path hari:hasReusedPropertyIRI .
 
-core-shape:hari-TrainingPair-hari-hasChainOfThought a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has chain of thought" ;
-    sh:path hari:hasChainOfThought .
-
-core-shape:hari-TrainingPair-hari-hasComplexityLevel a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:integer ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has complexity level" ;
-    sh:path hari:hasComplexityLevel .
-
-core-shape:hari-TrainingPair-hari-hasDomainContext a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has domain context" ;
-    sh:path hari:hasDomainContext .
-
-core-shape:hari-TrainingPair-hari-hasExpectedSerialization a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has expected serialization" ;
-    sh:path hari:hasExpectedSerialization .
-
-core-shape:hari-TrainingPair-hari-hasQualityScore a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:decimal ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has quality score" ;
-    sh:path hari:hasQualityScore .
-
-core-shape:hari-TrainingPair-hari-hasSystemInstruction a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has system instruction" ;
-    sh:path hari:hasSystemInstruction .
-
-core-shape:hari-TrainingPair-hari-hasTrainingPairExtension a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:ExtensionDecision ;
-    sh:name "Has training pair extension" ;
-    sh:path hari:hasTrainingPairExtension ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasTrainingPairExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasTrainingPairExtension> ?this .}" ] .
-
-core-shape:hari-TrainingPair-hari-hasTrainingPairReuse a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:DirectReuseDecision ;
-    sh:name "Has training pair reuse" ;
-    sh:path hari:hasTrainingPairReuse ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasTrainingPairReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasTrainingPairReuse> ?this .}" ] .
-
-core-shape:hari-TrainingPair-hari-hasUserPrompt a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has user prompt" ;
-    sh:path hari:hasUserPrompt .
-
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-04-08"^^xsd:date ;
+    dcterms:issued "2026-04-10"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari.xml on 2026-04-08" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-04-10" ;
     owl:imports hari:core,
         hari:core-restriction,
         dcterms:,
