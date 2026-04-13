@@ -95,8 +95,6 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     })
     ET.SubElement(ea_root, "properties", {"documentation": "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."})
 
-    # ==============================================================================
-
     for eid, info in catalog.items():
         if info['name'] == "Thing": continue
 
