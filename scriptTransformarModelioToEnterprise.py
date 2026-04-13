@@ -96,35 +96,6 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     ET.SubElement(ea_root, "properties", {"documentation": "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."})
 
     # ==============================================================================
-    # 2. EL TRUCO DEL ANCLA: FORZAR A SKOS Y DC A COLGAR DE LA RAÍZ
-    # Inyectamos estas clases falsas para que model2owl no las deje flotando 
-    # y GNOSS no detecte "múltiples raíces absolutas".
-    # ==============================================================================
-    clases_externas = [
-        {"id": "ID_SKOS_CONCEPT", "name": "skos:Concept"},
-        {"id": "ID_SKOS_CONCEPTSCHEME", "name": "skos:ConceptScheme"},
-        {"id": "ID_DCTERMS_AGENT", "name": "dcterms:Agent"},
-        {"id": "ID_RDF_LIST", "name": "rdf:List"}
-    ]
-    
-    for ext in clases_externas:
-        # Añadir la clase al XML
-        ET.SubElement(elements, "element", {
-            f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
-            f"{{{NAMESPACE_XMI_OUTPUT}}}idref": ext["id"],
-            "name": ext["name"]
-        })
-        
-        # Crear la flecha de generalización (herencia) hacia hari:Thing
-        ea_gen = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": f"gen_{ext['id']}"})
-        ET.SubElement(ea_gen, "properties", {"ea_type": "Generalization", "direction": "Source -> Destination"})
-        
-        src = ET.SubElement(ea_gen, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": ext["id"]})
-        ET.SubElement(src, "model", {"name": ext["name"], "type": "Class"})
-        
-        tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": root_class_id})
-        ET.SubElement(tgt, "model", {"name": f"{prefijo}Thing", "type": "Class"})
-    # ==============================================================================
 
     for eid, info in catalog.items():
         if info['name'] == "Thing": continue
