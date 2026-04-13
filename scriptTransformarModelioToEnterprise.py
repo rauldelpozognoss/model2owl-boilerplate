@@ -103,7 +103,8 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     clases_externas = [
         {"id": "ID_SKOS_CONCEPT", "name": "skos:Concept"},
         {"id": "ID_SKOS_CONCEPTSCHEME", "name": "skos:ConceptScheme"},
-        {"id": "ID_DCTERMS_AGENT", "name": "dcterms:Agent"}
+        {"id": "ID_DCTERMS_AGENT", "name": "dcterms:Agent"},
+        {"id": "ID_RDF_LIST", "name": "rdf:List"}
     ]
     
     for ext in clases_externas:
