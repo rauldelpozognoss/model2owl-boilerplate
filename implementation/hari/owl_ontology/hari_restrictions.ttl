@@ -10,16 +10,15 @@ hari:core-restriction a owl:Ontology ;
     rdfs:label "Restricciones de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Restricciones de la ontología Hari."@en ;
-    dcterms:issued "2026-04-10"^^xsd:date ;
+    dcterms:issued "2026-04-13"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Restricciones"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment """This version is automatically generated from hari.xml on 
-                2026-04-10""" ;
+                2026-04-13""" ;
     owl:imports hari:core,
-        dcterms:,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari#core-restriction-" ;
@@ -146,28 +145,24 @@ hari:Status a owl:Class ;
 
 hari:ExtensionDecision rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasBaseClassIRI ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
             owl:onProperty hari:hasExtendedClassIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasJustificacion ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasBaseClassIRI ;
-            owl:qualifiedCardinality 1 ] .
+            owl:onProperty hari:hasJustificacion ] .
 
 hari:OntologyProject rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasAcronym ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
             owl:onProperty hari:hasTitle ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasOntologyIRI ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasDescription ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
@@ -175,7 +170,11 @@ hari:OntologyProject rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasAcronym ;
+            owl:onProperty hari:hasDescription ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasOntologyIRI ;
             owl:qualifiedCardinality 1 ] .
 
 hari:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
