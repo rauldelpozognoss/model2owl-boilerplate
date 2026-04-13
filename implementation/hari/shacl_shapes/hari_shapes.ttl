@@ -2,17 +2,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix hari: <http://hari-meta.org/ontology/hari#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-core-shape:dcterms-AgentShape a sh:NodeShape ;
-    rdfs:label "Agent" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass dcterms:Agent .
 
 core-shape:hari-AnotationPropertyShape a sh:NodeShape ;
     rdfs:label "Anotation Property" ;
@@ -80,7 +73,6 @@ core-shape:hari-OntologyProjectShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologyProject-hari-hasAcronym,
         core-shape:hari-OntologyProject-hari-hasDescription,
-        core-shape:hari-OntologyProject-hari-hasLevel,
         core-shape:hari-OntologyProject-hari-hasOntologyIRI,
         core-shape:hari-OntologyProject-hari-hasOrganization,
         core-shape:hari-OntologyProject-hari-hasTitle ;
@@ -93,7 +85,6 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
         core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasReuse,
-        core-shape:hari-OntologyVersion-hari-hasStatus,
         core-shape:hari-OntologyVersion-hari-hasVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasVersionInfo,
         core-shape:hari-OntologyVersion-hari-isVersionOf ;
@@ -122,21 +113,6 @@ core-shape:hari-ThingShape a sh:NodeShape ;
     rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari:Thing .
-
-core-shape:rdf-ListShape a sh:NodeShape ;
-    rdfs:label "List" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass rdf:List .
-
-core-shape:skos-ConceptSchemeShape a sh:NodeShape ;
-    rdfs:label "Concept Scheme" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass skos:ConceptScheme .
-
-core-shape:skos-ConceptShape a sh:NodeShape ;
-    rdfs:label "Concept" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass skos:Concept .
 
 core-shape:hari-AttributeExtension-hari-hasAddedPropertyIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -209,15 +185,6 @@ core-shape:hari-OntologyProject-hari-hasDescription a sh:PropertyShape ;
     sh:name "Has description" ;
     sh:path hari:hasDescription .
 
-core-shape:hari-OntologyProject-hari-hasLevel a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Level ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has level" ;
-    sh:path hari:hasLevel ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasLevel> ?that . ?that <http://hari-meta.org/ontology/hari#hasLevel> ?this .}" ] .
-
 core-shape:hari-OntologyProject-hari-hasOntologyIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -268,15 +235,6 @@ core-shape:hari-OntologyVersion-hari-hasReuse a sh:PropertyShape ;
     sh:name "Has reuse" ;
     sh:path hari:hasReuse ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasReuse> ?this .}" ] .
-
-core-shape:hari-OntologyVersion-hari-hasStatus a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Status ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has status" ;
-    sh:path hari:hasStatus ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasStatus> ?that . ?that <http://hari-meta.org/ontology/hari#hasStatus> ?this .}" ] .
 
 core-shape:hari-OntologyVersion-hari-hasVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
