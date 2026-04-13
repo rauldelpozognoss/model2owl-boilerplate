@@ -11,6 +11,11 @@ hari:AnotationProperty a owl:Class ;
     rdfs:subClassOf hari:Property ;
     skos:prefLabel "Anotation Property"@en .
 
+hari:Application a skos:Concept ;
+    rdfs:isDefinedBy hari:core ;
+    skos:inScheme hari:Level ;
+    skos:prefLabel "Application"@en .
+
 hari:AttributeExtension a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:ExtensionDecision ;
@@ -31,6 +36,11 @@ hari:ClassReuse a owl:Class ;
     rdfs:subClassOf hari:DirectReuseDecision ;
     skos:prefLabel "Class Reuse"@en .
 
+hari:Core a skos:Concept ;
+    rdfs:isDefinedBy hari:core ;
+    skos:inScheme hari:Level ;
+    skos:prefLabel "Core"@en .
+
 hari:Datatype a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:OntologyVersion ;
@@ -41,10 +51,30 @@ hari:DatatypeProperty a owl:Class ;
     rdfs:subClassOf hari:Property ;
     skos:prefLabel "Datatype Property"@en .
 
+hari:Domain a skos:Concept ;
+    rdfs:isDefinedBy hari:core ;
+    skos:inScheme hari:Level ;
+    skos:prefLabel "Domain"@en .
+
+hari:Draft a skos:Concept ;
+    rdfs:isDefinedBy hari:core ;
+    skos:inScheme hari:Status ;
+    skos:prefLabel "Draft"@en .
+
+hari:Foundational a skos:Concept ;
+    rdfs:isDefinedBy hari:core ;
+    skos:inScheme hari:Level ;
+    skos:prefLabel "Foundational"@en .
+
 hari:ObjectProperty a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:Property ;
     skos:prefLabel "Object Property"@en .
+
+hari:Obsolete a skos:Concept ;
+    rdfs:isDefinedBy hari:core ;
+    skos:inScheme hari:Status ;
+    skos:prefLabel "Obsolete"@en .
 
 hari:OntologyProject a owl:Class ;
     rdfs:isDefinedBy hari:core ;
@@ -60,6 +90,11 @@ hari:SemanticExtension a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:ExtensionDecision ;
     skos:prefLabel "Semantic Extension"@en .
+
+hari:Stable a skos:Concept ;
+    rdfs:isDefinedBy hari:core ;
+    skos:inScheme hari:Status ;
+    skos:prefLabel "Stable"@en .
 
 hari:hasAcronym a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
@@ -97,6 +132,10 @@ hari:hasKnowledgeDomain a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Knowledge Domain"@en .
 
+hari:hasLevel a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Level"@en .
+
 hari:hasOntologyIRI a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Ontology IRI"@en .
@@ -124,6 +163,10 @@ hari:hasReusedClassIRI a owl:DatatypeProperty ;
 hari:hasReusedPropertyIRI a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Reused Property IRI"@en .
+
+hari:hasStatus a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Status"@en .
 
 hari:hasTitle a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
@@ -160,6 +203,18 @@ hari:Property a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:OntologyVersion ;
     skos:prefLabel "Property"@en .
+
+hari:Status a owl:Class,
+        skos:ConceptScheme ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Thing ;
+    skos:prefLabel "Status"@en .
+
+hari:Level a owl:Class,
+        skos:ConceptScheme ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Thing ;
+    skos:prefLabel "Level"@en .
 
 hari:Thing a owl:Class ;
     rdfs:isDefinedBy hari:core ;
