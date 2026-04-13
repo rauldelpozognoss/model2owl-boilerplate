@@ -76,6 +76,10 @@
                         <td></td>
                      </tr>
                      <tr>
+                        <td>hari:OntologicalTerm</td>
+                        <td></td>
+                     </tr>
+                     <tr>
                         <td>hari:OntologyProject</td>
                         <td></td>
                      </tr>
@@ -89,6 +93,10 @@
                      </tr>
                      <tr>
                         <td>hari:PropertyReuse</td>
+                        <td></td>
+                     </tr>
+                     <tr>
+                        <td>hari:Restriction</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -137,8 +145,20 @@
                         <td>xsd:string [1..1]</td>
                      </tr>
                      <tr>
+                        <td>hari:Restriction</td>
+                        <td>hari:hasConstraintType</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
                         <td>hari:OntologyProject</td>
                         <td>hari:hasDescription</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:Property</td>
+                        <td>hari:hasDomainIRI</td>
                         <td></td>
                         <td>xsd:string [1..1]</td>
                      </tr>
@@ -161,6 +181,12 @@
                         <td>xsd:string [0..*]</td>
                      </tr>
                      <tr>
+                        <td>hari:Restriction</td>
+                        <td>hari:hasOnPropertyIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
                         <td>hari:OntologyProject</td>
                         <td>hari:hasOntologyIRI</td>
                         <td></td>
@@ -179,6 +205,12 @@
                         <td>xsd:string [0..1]</td>
                      </tr>
                      <tr>
+                        <td>hari:Property</td>
+                        <td>hari:hasRangeIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
                         <td>hari:DirectReuseDecision</td>
                         <td>hari:hasReason</td>
                         <td></td>
@@ -193,6 +225,30 @@
                      <tr>
                         <td>hari:PropertyReuse</td>
                         <td>hari:hasReusedPropertyIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:Restriction</td>
+                        <td>hari:hasTargetValue</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:OntologicalTerm</td>
+                        <td>hari:hasTermDefinition</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:OntologicalTerm</td>
+                        <td>hari:hasTermIRI</td>
+                        <td></td>
+                        <td>xsd:string [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:OntologicalTerm</td>
+                        <td>hari:hasTermLabel</td>
                         <td></td>
                         <td>xsd:string [1..1]</td>
                      </tr>
@@ -214,6 +270,24 @@
                         <td></td>
                         <td>xsd:string [1..1]</td>
                      </tr>
+                     <tr>
+                        <td>hari:Property</td>
+                        <td>hari:isFunctional</td>
+                        <td></td>
+                        <td>xsd:boolean [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:Property</td>
+                        <td>hari:isSymmetric</td>
+                        <td></td>
+                        <td>xsd:boolean [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:Property</td>
+                        <td>hari:isTransitive</td>
+                        <td></td>
+                        <td>xsd:boolean [1..1]</td>
+                     </tr>
                   </tbody>
                </table>
                <h2 xmlns:f="http://https://github.com/costezki/model2owl#">Predicates (object properties) and definitions</h2>
@@ -227,6 +301,16 @@
                   </thead>
                   <tbody>
                      <tr>
+                        <td>hari:hasDisjointWith</td>
+                        <td></td>
+                        <td>hari:Class -&gt; hari:Class [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasEquivalenteTo</td>
+                        <td></td>
+                        <td>hari:Class -&gt; hari:Class [0..*]</td>
+                     </tr>
+                     <tr>
                         <td>hari:hasExtension</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:ExtensionDecision [0..*]</td>
@@ -237,6 +321,11 @@
                         <td>hari:OntologyProject -&gt; hari:Level [1..1]</td>
                      </tr>
                      <tr>
+                        <td>hari:hasRestriction</td>
+                        <td></td>
+                        <td>hari:Class -&gt; hari:Restriction [0..*]</td>
+                     </tr>
+                     <tr>
                         <td>hari:hasReuse</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:DirectReuseDecision [0..*]</td>
@@ -245,6 +334,21 @@
                         <td>hari:hasStatus</td>
                         <td></td>
                         <td>hari:OntologyVersion -&gt; hari:Status [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasSubClassOf</td>
+                        <td></td>
+                        <td>hari:Class -&gt; hari:Class [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:hasSubPropertyOf</td>
+                        <td></td>
+                        <td>hari:Property -&gt; hari:Property [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>hari:isDefinedIn</td>
+                        <td></td>
+                        <td>hari:OntologicalTerm -&gt; hari:OntologyVersion [1..1]</td>
                      </tr>
                      <tr>
                         <td>hari:isVersionOf</td>

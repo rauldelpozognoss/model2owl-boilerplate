@@ -51,6 +51,10 @@
       
     
       
+| hari:OntologicalTerm | 
+      
+    
+      
 | hari:OntologyProject | 
       
     
@@ -64,6 +68,10 @@
     
       
 | hari:PropertyReuse | 
+      
+    
+      
+| hari:Restriction | 
       
     
       
@@ -99,6 +107,14 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
 | hari:ClassReuse
 | hari:hasReusedClassIRI| 
   |xsd:string [1..1]
@@ -126,6 +142,26 @@
 | hari:ExtensionDecision
 | hari:hasJustificacion| 
   |xsd:string [0..1]
+  
+  
+  
+| hari:OntologicalTerm
+| hari:hasTermIRI| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:OntologicalTerm
+| hari:hasTermDefinition| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:OntologicalTerm
+| hari:hasTermLabel| 
+  |xsd:string [1..1]
+  
+  
   
   
   
@@ -193,8 +229,58 @@
   
   
   
+| hari:Property
+| hari:hasDomainIRI| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:Property
+| hari:hasRangeIRI| 
+  |xsd:string [1..1]
+  
+  
+  
+  
+  
+| hari:Property
+| hari:isFunctional| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isSymmetric| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isTransitive| 
+  |xsd:boolean [1..1]
+  
+  
+  
 | hari:PropertyReuse
 | hari:hasReusedPropertyIRI| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:Restriction
+| hari:hasConstraintType| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:Restriction
+| hari:hasOnPropertyIRI| 
+  |xsd:string [1..1]
+  
+  
+  
+| hari:Restriction
+| hari:hasTargetValue| 
   |xsd:string [1..1]
   
 |===
@@ -216,6 +302,30 @@
 
   
   
+| hari:hasDisjointWith| 
+  |hari:Class → hari:Class [0..&#42;]
+
+  
+
+  
+  
+| hari:hasEquivalenteTo| 
+  |hari:Class → hari:Class [0..&#42;]
+
+  
+
+  
+  
+| hari:hasRestriction| 
+  |hari:Class → hari:Restriction [0..&#42;]
+
+  
+
+  
+  
+| hari:hasSubClassOf| 
+  |hari:Class → hari:Class [0..&#42;]
+
   
 
   
@@ -232,6 +342,29 @@
 
   
   
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| hari:isDefinedIn| 
+  |hari:OntologicalTerm → hari:OntologyVersion [1..1]
+
   
 
   
@@ -303,6 +436,45 @@
 | hari:isVersionOf| 
   |hari:OntologyVersion → hari:OntologyProject [1..1]
 
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| hari:hasSubPropertyOf| 
+  |hari:Property → hari:Property [0..&#42;]
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
   
 
   
