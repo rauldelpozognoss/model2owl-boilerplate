@@ -1,6 +1,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix hari: <http://hari-meta.org/ontology/hari#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
@@ -188,6 +189,10 @@ dcterms:Agent a owl:Class ;
     rdfs:subClassOf hari:Thing ;
     skos:prefLabel "Agent"@en .
 
+rdf:List a owl:Class ;
+    rdfs:subClassOf hari:Thing ;
+    skos:prefLabel "List"@en .
+
 hari:DirectReuseDecision a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:Thing ;
@@ -244,7 +249,6 @@ hari:core a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hari.xml on 2026-04-13" ;
-    owl:imports skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari#core-" ;
     owl:versionIRI hari:core-1.0.0 ;
