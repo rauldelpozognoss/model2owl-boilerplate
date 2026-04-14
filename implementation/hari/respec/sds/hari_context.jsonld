@@ -23,7 +23,28 @@
       "@id": "http://hari-meta.org/ontology/hari#CardinalityExtension"
     },
     "Class": {
-      "@context": {},
+      "@context": {
+        "hasDisjointWith": {
+          "@container": "@set",
+          "@id": "http://hari-meta.org/ontology/hari#hasDisjointWith",
+          "@type": "@id"
+        },
+        "hasEquivalenteTo": {
+          "@container": "@set",
+          "@id": "http://hari-meta.org/ontology/hari#hasEquivalenteTo",
+          "@type": "@id"
+        },
+        "hasRestriction": {
+          "@container": "@set",
+          "@id": "http://hari-meta.org/ontology/hari#hasRestriction",
+          "@type": "@id"
+        },
+        "hasSubClassOf": {
+          "@container": "@set",
+          "@id": "http://hari-meta.org/ontology/hari#hasSubClassOf",
+          "@type": "@id"
+        }
+      },
       "@id": "http://hari-meta.org/ontology/hari#Class"
     },
     "ClassReuse": {
@@ -73,6 +94,27 @@
     "ObjectProperty": {
       "@context": {},
       "@id": "http://hari-meta.org/ontology/hari#ObjectProperty"
+    },
+    "OntologicalTerm": {
+      "@context": {
+        "hasTermDefinition": {
+          "@id": "http://hari-meta.org/ontology/hari#hasTermDefinition",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasTermIRI": {
+          "@id": "http://hari-meta.org/ontology/hari#hasTermIRI",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasTermLabel": {
+          "@id": "http://hari-meta.org/ontology/hari#hasTermLabel",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "isDefinedIn": {
+          "@id": "http://hari-meta.org/ontology/hari#isDefinedIn",
+          "@type": "@id"
+        }
+      },
+      "@id": "http://hari-meta.org/ontology/hari#OntologicalTerm"
     },
     "OntologyProject": {
       "@context": {
@@ -144,7 +186,33 @@
       "@id": "http://hari-meta.org/ontology/hari#OntologyVersion"
     },
     "Property": {
-      "@context": {},
+      "@context": {
+        "hasDomainIRI": {
+          "@id": "http://hari-meta.org/ontology/hari#hasDomainIRI",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasRangeIRI": {
+          "@id": "http://hari-meta.org/ontology/hari#hasRangeIRI",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasSubPropertyOf": {
+          "@container": "@set",
+          "@id": "http://hari-meta.org/ontology/hari#hasSubPropertyOf",
+          "@type": "@id"
+        },
+        "isFunctional": {
+          "@id": "http://hari-meta.org/ontology/hari#isFunctional",
+          "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+        },
+        "isSymmetric": {
+          "@id": "http://hari-meta.org/ontology/hari#isSymmetric",
+          "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+        },
+        "isTransitive": {
+          "@id": "http://hari-meta.org/ontology/hari#isTransitive",
+          "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+        }
+      },
       "@id": "http://hari-meta.org/ontology/hari#Property"
     },
     "PropertyReuse": {
@@ -155,6 +223,23 @@
         }
       },
       "@id": "http://hari-meta.org/ontology/hari#PropertyReuse"
+    },
+    "Restriction": {
+      "@context": {
+        "hasConstraintType": {
+          "@id": "http://hari-meta.org/ontology/hari#hasConstraintType",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasOnPropertyIRI": {
+          "@id": "http://hari-meta.org/ontology/hari#hasOnPropertyIRI",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "hasTargetValue": {
+          "@id": "http://hari-meta.org/ontology/hari#hasTargetValue",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "http://hari-meta.org/ontology/hari#Restriction"
     },
     "SemanticExtension": {
       "@context": {},
