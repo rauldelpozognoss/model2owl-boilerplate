@@ -35,6 +35,7 @@ core-shape:hari-ClassShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-Class-hari-hasDisjointWith,
         core-shape:hari-Class-hari-hasEquivalentTo,
+        core-shape:hari-Class-hari-hasInverseOf,
         core-shape:hari-Class-hari-hasRestriction,
         core-shape:hari-Class-hari-hasSubClassOf ;
     sh:targetClass hari:Class .
@@ -76,6 +77,7 @@ core-shape:hari-OntologicalTermShape a sh:NodeShape ;
     rdfs:label "Ontological Term" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologicalTerm-hari-hasTermDefinition,
+        core-shape:hari-OntologicalTerm-hari-hasTermExample,
         core-shape:hari-OntologicalTerm-hari-hasTermIRI,
         core-shape:hari-OntologicalTerm-hari-hasTermLabel,
         core-shape:hari-OntologicalTerm-hari-isDefinedIn ;
@@ -175,6 +177,14 @@ core-shape:hari-Class-hari-hasEquivalentTo a sh:PropertyShape ;
     sh:path hari:hasEquivalentTo ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasEquivalentTo> ?that . ?that <http://hari-meta.org/ontology/hari#hasEquivalentTo> ?this .}" ] .
 
+core-shape:hari-Class-hari-hasInverseOf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:Class ;
+    sh:maxCount 1 ;
+    sh:name "Has inverse of" ;
+    sh:path hari:hasInverseOf ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasInverseOf> ?that . ?that <http://hari-meta.org/ontology/hari#hasInverseOf> ?this .}" ] .
+
 core-shape:hari-Class-hari-hasRestriction a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:Restriction ;
@@ -235,6 +245,12 @@ core-shape:hari-OntologicalTerm-hari-hasTermDefinition a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has term definition" ;
     sh:path hari:hasTermDefinition .
+
+core-shape:hari-OntologicalTerm-hari-hasTermExample a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:name "Has term example" ;
+    sh:path hari:hasTermExample .
 
 core-shape:hari-OntologicalTerm-hari-hasTermIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
