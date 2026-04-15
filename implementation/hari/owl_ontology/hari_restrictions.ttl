@@ -292,12 +292,12 @@ core-res:CardinalityRestriction rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 core-res:DatatypeProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass core-res:Class ;
-            owl:onProperty core-res:hasDomainDatatype ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass core-res:Datatype ;
             owl:onProperty core-res:hasRangeDatatype ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass core-res:Class ;
+            owl:onProperty core-res:hasDomainDatatype ;
             owl:qualifiedCardinality 1 ] .
 
 core-res:DirectReuseDecision rdfs:subClassOf [ a owl:Restriction ;
@@ -311,11 +311,11 @@ core-res:ExtensionDecision rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty core-res:hasJustificacion ],
         [ a owl:Restriction ;
             owl:onClass core-res:Class ;
-            owl:onProperty core-res:hasExtensionBaseClass ;
+            owl:onProperty core-res:hasExtensionExtendedClass ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass core-res:Class ;
-            owl:onProperty core-res:hasExtensionExtendedClass ;
+            owl:onProperty core-res:hasExtensionBaseClass ;
             owl:qualifiedCardinality 1 ] .
 
 core-res:Restriction rdfs:subClassOf [ a owl:Restriction ;
@@ -324,21 +324,21 @@ core-res:Restriction rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 core-res:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass core-res:ObjectProperty ;
-            owl:onProperty core-res:hasInverseOf ],
+            owl:onClass core-res:Class ;
+            owl:onProperty core-res:hasRangeClass ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass core-res:Class ;
             owl:onProperty core-res:hasDomainClass ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass core-res:Class ;
-            owl:onProperty core-res:hasRangeClass ;
-            owl:qualifiedCardinality 1 ] .
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass core-res:ObjectProperty ;
+            owl:onProperty core-res:hasInverseOf ] .
 
 core-res:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty core-res:hasTermIRI ;
+            owl:onProperty core-res:hasTermDefinition ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass core-res:OntologyVersion ;
@@ -346,11 +346,11 @@ core-res:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty core-res:hasTermDefinition ;
+            owl:onProperty core-res:hasTermLabel ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty core-res:hasTermLabel ;
+            owl:onProperty core-res:hasTermIRI ;
             owl:qualifiedCardinality 1 ] .
 
 core-res:hasInScheme a owl:FunctionalProperty ;
@@ -361,19 +361,11 @@ core-res:hasInScheme a owl:FunctionalProperty ;
 
 core-res:OntologyProject rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty core-res:hasDescription ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
             owl:onProperty core-res:hasOntologyIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass core-res:Level ;
-            owl:onProperty core-res:hasLevel ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty core-res:hasAcronym ;
+            owl:onProperty core-res:hasDescription ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
@@ -381,40 +373,48 @@ core-res:OntologyProject rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
+            owl:onProperty core-res:hasAcronym ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass core-res:Level ;
+            owl:onProperty core-res:hasLevel ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
             owl:onProperty core-res:hasOrganization ;
             owl:qualifiedCardinality 1 ] .
 
 core-res:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty core-res:hasVersionInfo ;
+            owl:onClass core-res:OntologyProject ;
+            owl:onProperty core-res:isVersionOf ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty core-res:hasVersionIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass core-res:OntologyProject ;
-            owl:onProperty core-res:isVersionOf ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty core-res:hasVersionInfo ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass core-res:Status ;
+            owl:onProperty core-res:hasStatus ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty core-res:hasPriorVersionIRI ],
-        [ a owl:Restriction ;
-            owl:onClass core-res:Status ;
-            owl:onProperty core-res:hasStatus ;
-            owl:qualifiedCardinality 1 ] .
+            owl:onProperty core-res:hasPriorVersionIRI ] .
 
 core-res:Property rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty core-res:isFunctional ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
             owl:onProperty core-res:isTransitive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
             owl:onProperty core-res:isSymmetric ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty core-res:isFunctional ;
             owl:qualifiedCardinality 1 ] .
 

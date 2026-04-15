@@ -41,15 +41,15 @@ hari:hasVersionInfo a owl:FunctionalProperty ;
     rdfs:range xsd:string .
 
 hari:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasPriorVersionIRI ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty hari:hasVersionIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty hari:hasVersionInfo ;
-            owl:qualifiedCardinality 1 ] .
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari:hasPriorVersionIRI ] .
 
