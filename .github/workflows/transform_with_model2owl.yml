@@ -199,20 +199,32 @@ jobs:
             
             sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl
             
+            # 1. Leer dinámicamente la configuración base actual del proyecto
+            CONFIG_PARAMS="implementation/$implementation/model2owl-config/config-parameters.xsl"
+            BASE_URI=$(sed -n "s/.*name=\"base-ontology-uri\" select=\"'\([^']*\)'.*/\1/p" "$CONFIG_PARAMS")
+            BASE_PREFIX=$(sed -n "s/.*name=\"includedPrefixesList\" select=\"('\([^']*\)'.*/\1/p" "$CONFIG_PARAMS")
+            BASE_DIR="${BASE_URI%/*}" # Extrae todo hasta la última barra (ej: http://.../ontology)
+
+            echo "Detectado Base URI: $BASE_URI"
+            echo "Detectado Prefijo Base: $BASE_PREFIX"
+
             for xml_filepath in implementation/$implementation/xmi_conceptual_model/*.xml; do
               [ -e "$xml_filepath" ] || continue
 
               xml_filename=$(basename -- "$xml_filepath")
               paquete="${xml_filename%.*}"
 
+              echo "🚀 Procesando Objeto de Conocimiento: $paquete"
+
+              NEW_URI="${BASE_DIR}/${paquete}"
+
               NS_PATH="implementation/$implementation/model2owl-config/namespaces.xml"
               cp "$NS_PATH" "${NS_PATH}.bak"
-              sed -i "s|value=\"http://hari-meta.org/ontology/hari#\"|value=\"http://hari-meta.org/ontology/${paquete}#\"|g" "$NS_PATH"
+              sed -i "s|name=\"\" value=\"[^\"]*\"|name=\"\" value=\"${NEW_URI}#\"|g" "$NS_PATH"
 
-              CONFIG_PARAMS="implementation/$implementation/model2owl-config/config-parameters.xsl"
               cp "$CONFIG_PARAMS" "${CONFIG_PARAMS}.bak"
-              sed -i "s|http://hari-meta.org/ontology/hari#|http://hari-meta.org/ontology/${paquete}#|g" "$CONFIG_PARAMS"
-              sed -i "s|'hari'|'${paquete}'|g" "$CONFIG_PARAMS"
+              sed -i "s|name=\"base-ontology-uri\" select=\"'${BASE_URI}'\"|name=\"base-ontology-uri\" select=\"'${NEW_URI}'\"|g" "$CONFIG_PARAMS"
+              sed -i "s|name=\"includedPrefixesList\" select=\"('${BASE_PREFIX}')\"|name=\"includedPrefixesList\" select=\"('${paquete}')\"|g" "$CONFIG_PARAMS"
 
               CM_FILE_PATH="$xml_filepath"
               NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
@@ -250,7 +262,6 @@ jobs:
 
               cd ..
               
-              # Restaurar backups para la siguiente vuelta del bucle
               mv "${NS_PATH}.bak" "$NS_PATH"
               mv "${CONFIG_PARAMS}.bak" "$CONFIG_PARAMS"
             done
