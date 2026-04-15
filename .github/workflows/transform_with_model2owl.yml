@@ -196,12 +196,15 @@ jobs:
           for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
           do
             echo "-------------------${implementation} transform---------------------------------"
-            sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl
-            for xml_filepath in implementation/$implementation/xmi_conceptual_model/*.xml; do
+            sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl            for xml_filepath in implementation/$implementation/xmi_conceptual_model/*.xml; do
             [ -e "$xml_filepath" ] || continue
 
               xml_filename=$(basename -- "$xml_filepath")
               paquete="${xml_filename%.*}"
+
+              NS_PATH="implementation/$implementation/model2owl-config/namespaces.xml"
+              cp "$NS_PATH" "${NS_PATH}.bak"
+              sed -i "s|value=\"http://hari-meta.org/ontology/hari#\"|value=\"http://hari-meta.org/ontology/${paquete}#\"|g" "$NS_PATH"
 
               CM_FILE_PATH="$xml_filepath"
               NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
@@ -238,6 +241,7 @@ jobs:
                 NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
 
               cd ..
+              mv "${NS_PATH}.bak" "$NS_PATH"
             done
             sed -i "s|../implementation/${implementation}/model2owl-config|test/ePO-default-config|g" model2owl/config-proxy.xsl
           done
