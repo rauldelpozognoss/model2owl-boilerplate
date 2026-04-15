@@ -1,13 +1,12 @@
-@prefix core-res: <http://hari-meta.org/ontology/hari#> .
+@prefix : <http://hari-meta.org/ontology/hari_version#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hari: <http://hari-meta.org/ontology/hari_version#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-res:core-restriction a owl:Ontology ;
+:core-restriction a owl:Ontology ;
     rdfs:label "Restricciones de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Restricciones de la ontología Hari."@en ;
@@ -19,37 +18,37 @@ core-res:core-restriction a owl:Ontology ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment """This version is automatically generated from hari_version.xml on 
                 2026-04-15""" ;
-    owl:imports core-res:core,
+    owl:imports :core,
         skos: ;
     owl:incompatibleWith "" ;
-    owl:priorVersion "http://hari-meta.org/ontology/hari#core-restriction-" ;
-    owl:versionIRI core-res:core-restriction-1.0.0 ;
+    owl:priorVersion "http://hari-meta.org/ontology/hari_version#core-restriction-" ;
+    owl:versionIRI :core-restriction-1.0.0 ;
     owl:versionInfo "1.0.0" .
 
-hari:hasKnowledgeDomain rdfs:domain hari:OntologyVersion ;
+:hasKnowledgeDomain rdfs:domain :OntologyVersion ;
     rdfs:range xsd:string .
 
-hari:hasPriorVersionIRI rdfs:domain hari:OntologyVersion ;
+:hasPriorVersionIRI rdfs:domain :OntologyVersion ;
     rdfs:range xsd:string .
 
-hari:hasVersionIRI a owl:FunctionalProperty ;
-    rdfs:domain hari:OntologyVersion ;
+:hasVersionIRI a owl:FunctionalProperty ;
+    rdfs:domain :OntologyVersion ;
     rdfs:range xsd:string .
 
-hari:hasVersionInfo a owl:FunctionalProperty ;
-    rdfs:domain hari:OntologyVersion ;
+:hasVersionInfo a owl:FunctionalProperty ;
+    rdfs:domain :OntologyVersion ;
     rdfs:range xsd:string .
 
-hari:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
+:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasVersionIRI ;
+            owl:onProperty :hasVersionIRI ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :hasVersionInfo ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasPriorVersionIRI ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hari:hasVersionInfo ;
-            owl:qualifiedCardinality 1 ] .
+            owl:onProperty :hasPriorVersionIRI ] .
 

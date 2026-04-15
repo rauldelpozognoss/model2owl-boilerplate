@@ -1,4 +1,3 @@
-@prefix core-res: <http://hari-meta.org/ontology/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix hari_term: <http://hari-meta.org/ontology/hari_term#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,7 +6,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-res:core-restriction a owl:Ontology ;
+hari_term:core-restriction a owl:Ontology ;
     rdfs:label "Restricciones de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Restricciones de la ontología Hari."@en ;
@@ -19,11 +18,11 @@ core-res:core-restriction a owl:Ontology ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment """This version is automatically generated from hari_term.xml on 
                 2026-04-15""" ;
-    owl:imports core-res:core,
+    owl:imports hari_term:core,
         skos: ;
     owl:incompatibleWith "" ;
-    owl:priorVersion "http://hari-meta.org/ontology/hari#core-restriction-" ;
-    owl:versionIRI core-res:core-restriction-1.0.0 ;
+    owl:priorVersion "http://hari-meta.org/ontology/hari_term#core-restriction-" ;
+    owl:versionIRI hari_term:core-restriction-1.0.0 ;
     owl:versionInfo "1.0.0" .
 
 hari_term:hasDisjointWith a owl:AsymmetricProperty ;
@@ -150,12 +149,12 @@ hari_term:CardinalityRestriction rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 hari_term:DatatypeProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass hari_term:Class ;
-            owl:onProperty hari_term:hasDomainDatatype ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass hari_term:Datatype ;
             owl:onProperty hari_term:hasRangeDatatype ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass hari_term:Class ;
+            owl:onProperty hari_term:hasDomainDatatype ;
             owl:qualifiedCardinality 1 ] .
 
 hari_term:Restriction rdfs:subClassOf [ a owl:Restriction ;
@@ -165,7 +164,7 @@ hari_term:Restriction rdfs:subClassOf [ a owl:Restriction ;
 
 hari_term:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass hari_term:Class ;
-            owl:onProperty hari_term:hasRangeClass ;
+            owl:onProperty hari_term:hasDomainClass ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
@@ -173,7 +172,7 @@ hari_term:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty hari_term:hasInverseOf ],
         [ a owl:Restriction ;
             owl:onClass hari_term:Class ;
-            owl:onProperty hari_term:hasDomainClass ;
+            owl:onProperty hari_term:hasRangeClass ;
             owl:qualifiedCardinality 1 ] .
 
 hari_term:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
@@ -191,11 +190,11 @@ hari_term:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
 
 hari_term:Property rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isTransitive ;
+            owl:onProperty hari_term:isFunctional ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isFunctional ;
+            owl:onProperty hari_term:isTransitive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;

@@ -1,7 +1,6 @@
-@prefix core-res: <http://hari-meta.org/ontology/hari#> .
+@prefix : <http://hari-meta.org/ontology/hari_version#> .
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hari: <http://hari-meta.org/ontology/hari_version#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -16,26 +15,26 @@ core-shape:hari_version-OntologyVersionShape a sh:NodeShape ;
         core-shape:hari_version-OntologyVersion-hari_version-hasPriorVersionIRI,
         core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI,
         core-shape:hari_version-OntologyVersion-hari_version-hasVersionInfo ;
-    sh:targetClass hari:OntologyVersion .
+    sh:targetClass :OntologyVersion .
 
 core-shape:hari_version-ThingShape a sh:NodeShape ;
     rdfs:label "Thing" ;
     rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:Thing .
+    sh:targetClass :Thing .
 
 core-shape:hari_version-OntologyVersion-hari_version-hasKnowledgeDomain a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:name "Has knowledge domain" ;
-    sh:path hari:hasKnowledgeDomain .
+    sh:path :hasKnowledgeDomain .
 
 core-shape:hari_version-OntologyVersion-hari_version-hasPriorVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:name "Has prior version IRI" ;
-    sh:path hari:hasPriorVersionIRI .
+    sh:path :hasPriorVersionIRI .
 
 core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -43,7 +42,7 @@ core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI a sh:Property
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version IRI" ;
-    sh:path hari:hasVersionIRI .
+    sh:path :hasVersionIRI .
 
 core-shape:hari_version-OntologyVersion-hari_version-hasVersionInfo a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -51,7 +50,7 @@ core-shape:hari_version-OntologyVersion-hari_version-hasVersionInfo a sh:Propert
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version info" ;
-    sh:path hari:hasVersionInfo .
+    sh:path :hasVersionInfo .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -64,8 +63,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hari_version.xml on 2026-04-15" ;
-    owl:imports core-res:core,
-        core-res:core-restriction,
+    owl:imports :core,
+        :core-restriction,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;
