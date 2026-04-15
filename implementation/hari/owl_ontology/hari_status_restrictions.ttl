@@ -1,0 +1,49 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hari: <http://hari-meta.org/ontology/hari#> .
+@prefix hari_status: <http://hari-meta.org/ontology/hari_status#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hari:core-restriction a owl:Ontology ;
+    rdfs:label "Restricciones de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Restricciones de la ontología Hari."@en ;
+    dcterms:issued "2026-04-15"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Restricciones"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment """This version is automatically generated from hari_status.xml on 
+                2026-04-15""" ;
+    owl:imports hari:core,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/hari#core-restriction-" ;
+    owl:versionIRI hari:core-restriction-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
+hari_status:Draft rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass hari_status:Status ;
+            owl:onProperty hari_status:hasInScheme ;
+            owl:qualifiedCardinality 1 ] .
+
+hari_status:Obsolete rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass hari_status:Status ;
+            owl:onProperty hari_status:hasInScheme ;
+            owl:qualifiedCardinality 1 ] .
+
+hari_status:Stable rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass hari_status:Status ;
+            owl:onProperty hari_status:hasInScheme ;
+            owl:qualifiedCardinality 1 ] .
+
+hari_status:hasInScheme a owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( hari_status:Draft hari_status:Stable hari_status:Obsolete ) ] ;
+    rdfs:range hari_status:Status .
+
