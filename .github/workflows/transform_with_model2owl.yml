@@ -197,38 +197,48 @@ jobs:
           do
             echo "-------------------${implementation} transform---------------------------------"
             sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl
+            for xml_filepath in implementation/$implementation/xmi_conceptual_model/*.xml; do
+            [ -e "$xml_filepath" ] || continue
 
-            CM_FILE_PATH="implementation/$implementation/xmi_conceptual_model/${implementation}.xml"
-            NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
-            OUTPUT_PATH_OWL="implementation/$implementation/owl_ontology/"
-            OUTPUT_PATH_SHACL="implementation/$implementation/shacl_shapes/"
-            MODULE_DIR=$(realpath "implementation/${implementation}")
-            IMPORTS_XML_FILE_PATH="$MODULE_DIR/model2owl-config/imports.xml"
+              xml_filename=$(basename -- "$xml_filepath")
+              paquete="${xml_filename%.*}"
 
-            cd model2owl
-            make owl-core \
-              XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
-              OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_OWL \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH} \
-              IMPORTS_XML_FILE_PATH=${IMPORTS_XML_FILE_PATH}
-            make owl-restrictions \
-              XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
-              OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_OWL \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH} \
-              IMPORTS_XML_FILE_PATH=${IMPORTS_XML_FILE_PATH}
-            make shacl \
-              XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
-              OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_SHACL \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH} \
-              IMPORTS_XML_FILE_PATH=${IMPORTS_XML_FILE_PATH}
+              CM_FILE_PATH="$xml_filepath"
+              NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
+              OUTPUT_PATH_OWL="implementation/$implementation/owl_ontology/"
+              OUTPUT_PATH_SHACL="implementation/$implementation/shacl_shapes/"
+              MODULE_DIR=$(realpath "implementation/${implementation}")
+              IMPORTS_XML_FILE_PATH="$MODULE_DIR/model2owl-config/imports.xml"
 
-            make convert-rdf-to-turtle \
-              ONTOLOGY_FOLDER_PATH=../$OUTPUT_PATH_OWL \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
-            make convert-rdf-to-turtle \
-              ONTOLOGY_FOLDER_PATH=../$OUTPUT_PATH_SHACL \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+              cd model2owl
+              make owl-core \
+                XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
+                OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_OWL \
+                NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH} \
+                IMPORTS_XML_FILE_PATH=${IMPORTS_XML_FILE_PATH}
+              
+              make owl-restrictions \
+                XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
+                OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_OWL \
+                NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH} \
+                IMPORTS_XML_FILE_PATH=${IMPORTS_XML_FILE_PATH}
+              
+              make shacl \
+                XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
+                OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_SHACL \
+                NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH} \
+                IMPORTS_XML_FILE_PATH=${IMPORTS_XML_FILE_PATH}
 
+              make convert-rdf-to-turtle \
+                ONTOLOGY_FOLDER_PATH=../$OUTPUT_PATH_OWL \
+                NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+              
+              make convert-rdf-to-turtle \
+                ONTOLOGY_FOLDER_PATH=../$OUTPUT_PATH_SHACL \
+                NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+
+              cd ..
+            done
             sed -i "s|../implementation/${implementation}/model2owl-config|test/ePO-default-config|g" config-proxy.xsl
             cd ..
           done

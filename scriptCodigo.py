@@ -12,8 +12,8 @@ directorio_proyecto = "."
 archivo_salida = "salida_codigo.txt" 
 
 # 3. Extensiones que quieres incluir (Añade o quita según necesites)
-#extensiones = {".py", ".xml", ".json", ".xsl", ".yml", ".env"}
-extensiones = {".rdf"}
+#extensiones = {".py", ".xml", ".json", ".xsl", ".yml", ".env", ".rdf"}
+extensiones = {".yml", ".env"}
 
 # ==============================================================================
 # EJECUCIÓN DEL SCRIPT
