@@ -196,7 +196,9 @@ jobs:
           for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
           do
             echo "-------------------${implementation} transform---------------------------------"
-            sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl            for xml_filepath in implementation/$implementation/xmi_conceptual_model/*.xml; do
+            sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl            
+            
+            for xml_filepath in implementation/$implementation/xmi_conceptual_model/*.xml; do
             [ -e "$xml_filepath" ] || continue
 
               xml_filename=$(basename -- "$xml_filepath")
