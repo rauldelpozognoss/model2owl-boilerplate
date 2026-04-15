@@ -11,16 +11,6 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_version#hasKnowledgeDomain">
-    <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari_version#OntologyVersion"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne9a293e93fc44e6c90725fd4cf9e9af0">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_version#hasPriorVersionIRI"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#core-restriction">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -41,30 +31,40 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_version#hasVersionIRI">
-    <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari_version#OntologyVersion"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_version#hasPriorVersionIRI">
     <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari_version#OntologyVersion"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf5ead3bf9137474d8cf1029cad916f94">
+  <rdf:Description rdf:nodeID="N342fe839a3324a07ac396012ecaa0b21">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_version#hasVersionInfo"/>
+    <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_version#hasPriorVersionIRI"/>
     <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd71302605b164d6d9cbd20e05c611aa2">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_version#OntologyVersion">
+    <rdfs:subClassOf rdf:nodeID="N3c9458dfbb7d417e8441ce218062cd56"/>
+    <rdfs:subClassOf rdf:nodeID="N73c965c6fdbb4f5e9b63c475c4dff18f"/>
+    <rdfs:subClassOf rdf:nodeID="N342fe839a3324a07ac396012ecaa0b21"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3c9458dfbb7d417e8441ce218062cd56">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_version#hasVersionIRI"/>
     <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_version#OntologyVersion">
-    <rdfs:subClassOf rdf:nodeID="Nd71302605b164d6d9cbd20e05c611aa2"/>
-    <rdfs:subClassOf rdf:nodeID="Nf5ead3bf9137474d8cf1029cad916f94"/>
-    <rdfs:subClassOf rdf:nodeID="Ne9a293e93fc44e6c90725fd4cf9e9af0"/>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_version#hasVersionIRI">
+    <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari_version#OntologyVersion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N73c965c6fdbb4f5e9b63c475c4dff18f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_version#hasVersionInfo"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_version#hasKnowledgeDomain">
+    <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari_version#OntologyVersion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </rdf:Description>
 </rdf:RDF>

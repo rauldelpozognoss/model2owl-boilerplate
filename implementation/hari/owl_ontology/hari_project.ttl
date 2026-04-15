@@ -1,5 +1,5 @@
+@prefix core-res: <http://hari-meta.org/ontology/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hari: <http://hari-meta.org/ontology/hari#> .
 @prefix hari_project: <http://hari-meta.org/ontology/hari_project#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8,36 +8,36 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 hari_project:OntologyProject a owl:Class ;
-    rdfs:isDefinedBy hari:core ;
+    rdfs:isDefinedBy core-res:core ;
     rdfs:subClassOf hari_project:Thing ;
     skos:prefLabel "Ontology Project"@en .
 
 hari_project:hasAcronym a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
+    rdfs:isDefinedBy core-res:core ;
     skos:prefLabel "has Acronym"@en .
 
 hari_project:hasDescription a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
+    rdfs:isDefinedBy core-res:core ;
     skos:prefLabel "has Description"@en .
 
 hari_project:hasOntologyIRI a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
+    rdfs:isDefinedBy core-res:core ;
     skos:prefLabel "has Ontology IRI"@en .
 
 hari_project:hasOrganization a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
+    rdfs:isDefinedBy core-res:core ;
     skos:prefLabel "has Organization"@en .
 
 hari_project:hasTitle a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari:core ;
+    rdfs:isDefinedBy core-res:core ;
     skos:prefLabel "has Title"@en .
 
 hari_project:Thing a owl:Class ;
-    rdfs:isDefinedBy hari:core ;
+    rdfs:isDefinedBy core-res:core ;
     skos:definition "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."@en ;
     skos:prefLabel "Thing"@en .
 
-hari:core a owl:Ontology ;
+core-res:core a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Ontología principal del proyecto Hari."@en ;
@@ -51,6 +51,6 @@ hari:core a owl:Ontology ;
     owl:imports skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari#core-" ;
-    owl:versionIRI hari:core-1.0.0 ;
+    owl:versionIRI core-res:core-1.0.0 ;
     owl:versionInfo "1.0.0" .
 
