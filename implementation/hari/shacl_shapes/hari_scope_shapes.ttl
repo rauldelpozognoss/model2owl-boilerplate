@@ -1,6 +1,6 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hari_reuse: <http://hari-meta.org/ontology/hari_reuse#> .
+@prefix hari_scope: <http://hari-meta.org/ontology/hari_scope#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -8,37 +8,16 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:hari_reuse-ClassReuseShape a sh:NodeShape ;
-    rdfs:label "Class Reuse" ;
+core-shape:hari_scope-ScopeShape a sh:NodeShape ;
+    rdfs:label "Scope" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari_reuse:ClassReuse .
+    sh:targetClass hari_scope:Scope .
 
-core-shape:hari_reuse-DirectReuseDecisionShape a sh:NodeShape ;
-    rdfs:label "Direct Reuse Decision" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari_reuse-DirectReuseDecision-hari_reuse-hasReason ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_reuse#DirectReuseDecision> .
-                }""" ] ;
-    sh:targetClass hari_reuse:DirectReuseDecision .
-
-core-shape:hari_reuse-PropertyReuseShape a sh:NodeShape ;
-    rdfs:label "Property Reuse" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari_reuse:PropertyReuse .
-
-core-shape:hari_reuse-ThingShape a sh:NodeShape ;
+core-shape:hari_scope-ThingShape a sh:NodeShape ;
     rdfs:label "Thing" ;
     rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari_reuse:Thing .
-
-core-shape:hari_reuse-DirectReuseDecision-hari_reuse-hasReason a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has reason" ;
-    sh:path hari_reuse:hasReason .
+    sh:targetClass hari_scope:Thing .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -50,9 +29,9 @@ core-shape:core-shape a owl:Ontology ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari_reuse.xml on 2026-04-20" ;
-    owl:imports hari_reuse:core,
-        hari_reuse:core-restriction,
+    rdfs:comment "This version is automatically generated from hari_scope.xml on 2026-04-20" ;
+    owl:imports hari_scope:core,
+        hari_scope:core-restriction,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;
