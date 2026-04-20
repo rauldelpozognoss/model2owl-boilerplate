@@ -70,6 +70,12 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     elements = ET.SubElement(extension, "elements")
     connectors = ET.SubElement(extension, "connectors")
 
+    # 1. RASTREADOR DE ESTEREOTIPOS CONCEPT
+    concept_ids = set()
+    for child in root_modelio:
+        if child.tag.endswith('Concept') and child.get('base_NamedElement'):
+            concept_ids.add(child.get('base_NamedElement'))
+
     catalog = {}
     for el in root_modelio.findall(".//packagedElement", ns):
         eid = el.get(f"{{{ns['xmi']}}}id")
@@ -85,7 +91,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             }
 
     # ==============================================================================
-    # 1. CREACIÓN DE LA RAÍZ ÚNICA PARA GNOSS (hari:Thing)
+    # 2. CREACIÓN DE LAS RAÍCES PARA GNOSS (hari:Thing y skos:Concept)
     # ==============================================================================
     root_class_id = "ID_AUTO_GENERATED_THING_ROOT"
     ea_root = ET.SubElement(elements, "element", {
@@ -94,6 +100,14 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
         "name": f"{prefijo}Thing"
     })
     ET.SubElement(ea_root, "properties", {"documentation": "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."})
+
+    skos_concept_id = "ID_AUTO_GENERATED_SKOS_CONCEPT"
+    ea_skos = ET.SubElement(elements, "element", {
+        f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
+        f"{{{NAMESPACE_XMI_OUTPUT}}}idref": skos_concept_id,
+        "name": "skos:Concept"
+    })
+    ET.SubElement(ea_skos, "properties", {"documentation": "SKOS Concept para Tesauros", "stereotype": "Concept"})
 
     for eid, info in catalog.items():
         if info['name'] == "Thing": continue
@@ -109,14 +123,16 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
         })
         
         original_el = root_modelio.find(f".//*[@xmi:id='{eid}']", ns)
-        
         doc_text, tags_list = extraer_documentacion_y_tags(original_el, ns)
         
         props = ET.SubElement(ea_element, "properties")
         if doc_text: 
             props.set("documentation", doc_text)
+        
         if original_el.get("isAbstract") == "true": 
             props.set("stereotype", "Abstract")
+        elif eid in concept_ids:
+            props.set("stereotype", "Concept") # Le decimos a EA/model2owl que es un concepto
             
         if tags_list:
             tags_container = ET.SubElement(ea_element, "tags")
@@ -165,6 +181,9 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 
             ET.SubElement(ea_attr, "bounds", {"lower": str(l_val), "upper": str(u_val)})
 
+        # ======================================================================
+        # 3. RUTEO DE HERENCIA (A Thing o a skos:Concept)
+        # ======================================================================
         if not info['has_parent'] and info['type'] in ['Class', 'Enumeration']:
             gen_id = f"auto_gen_thing_{eid}"
             ea_gen = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": gen_id})
@@ -173,8 +192,13 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             src = ET.SubElement(ea_gen, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": eid})
             ET.SubElement(src, "model", {"name": f"{prefijo}{info['name']}", "type": "Class"})
             
-            tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": root_class_id})
-            ET.SubElement(tgt, "model", {"name": f"{prefijo}Thing", "type": "Class"})
+            # MAGIA: Si está en la lista de Conceptos, hereda de skos:Concept. Si no, de Thing.
+            if eid in concept_ids:
+                tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": skos_concept_id})
+                ET.SubElement(tgt, "model", {"name": "skos:Concept", "type": "Class"})
+            else:
+                tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": root_class_id})
+                ET.SubElement(tgt, "model", {"name": f"{prefijo}Thing", "type": "Class"})
 
     for eid, info in catalog.items():
         if info['type'] != 'Class': continue
@@ -260,17 +284,15 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     print(f"  [OK] Generado: {os.path.basename(output_file)}")
 
 if __name__ == "__main__":
-    # Verificamos si nos han pasado los 2 parámetros que necesitamos (script + origen + destino)
     if len(sys.argv) < 3:
         print("\n❌ Error: Faltan parámetros.")
         print("Uso: python scriptTransformarModelioToEnterprise.py <carpeta_origen> <carpeta_destino>")
-        print("Ejemplo: python scriptTransformarModelioToEnterprise.py ./XMI_Modelio ./XMI_Enterprise\n")
+        print("Ejemplo: python scriptTransformarModelioToEnterprise.py ./XMI_Modelio ./Source\n")
         sys.exit(1)
 
     input_dir = sys.argv[1]
     output_dir = sys.argv[2]
     
-    # Si la carpeta de destino no existe, la creamos
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
         print(f"📁 Carpeta creada: {output_dir}")
@@ -279,20 +301,14 @@ if __name__ == "__main__":
     
     archivos_procesados = 0
 
-    # Recorremos todos los archivos de la carpeta origen
     for filename in os.listdir(input_dir):
-        # 1. Ignoramos el perfil de Modelio
         if filename == "LocalProfile.profile.xmi":
-            print(f"  [IGNORADO] Saltando archivo de configuración: {filename}")
             continue
 
-        # 2. Filtramos solo los archivos XMI o XML
         if not (filename.endswith(".xmi") or filename.endswith(".xml")):
             continue
 
         input_file = os.path.join(input_dir, filename)
-        
-        # Generamos la ruta de salida (usaremos la extensión .xml por defecto para el conversor model2owl)
         prefijo_detectado, _ = os.path.splitext(filename)
         output_file = os.path.join(output_dir, f"{prefijo_detectado}.xml")
         
