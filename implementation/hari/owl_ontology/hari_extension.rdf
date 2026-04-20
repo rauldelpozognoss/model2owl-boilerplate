@@ -7,11 +7,6 @@
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#hasJustificacion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Justificacion</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_extension#core"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#core">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -30,9 +25,15 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#ConstraintExtension">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#SemanticExtension">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Constraint Extension</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Semantic Extension</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_extension#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_extension#ExtensionDecision"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#PropertyExtension">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Property Extension</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_extension#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_extension#ExtensionDecision"/>
   </rdf:Description>
@@ -48,15 +49,14 @@
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_extension#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_extension#Thing"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#PropertyExtension">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Property Extension</skos:prefLabel>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#hasJustificacion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Justificacion</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_extension#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_extension#ExtensionDecision"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#SemanticExtension">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#ConstraintExtension">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Semantic Extension</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Constraint Extension</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_extension#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_extension#ExtensionDecision"/>
   </rdf:Description>
