@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://hari-meta.org/ontology/hari_reuse#core-restriction#"
+     xml:base="http://hari-meta.org/ontology/hari_reuse#core-restriction"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://hari-meta.org/ontology/hari_reuse#core-restriction">
+        <owl:versionIRI rdf:resource="http://hari-meta.org/ontology/hari_reuse#core-restriction-1.0.0"/>
+        <owl:imports rdf:resource="http://hari-meta.org/ontology/hari_reuse#core"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:created>
+        <dcterms:description xml:lang="en">Ontología principal del proyecto Hari.</dcterms:description>
+        <dcterms:description xml:lang="en">Restricciones de la ontología Hari.</dcterms:description>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-15</dcterms:issued>
+        <dcterms:license>CC BY 4.0</dcterms:license>
+        <dcterms:publisher>http://hari-meta.org</dcterms:publisher>
+        <dcterms:title xml:lang="en">Ontología Hari Core</dcterms:title>
+        <dcterms:title xml:lang="en">Ontología Hari Restricciones</dcterms:title>
+        <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://hari-meta.org/ontology/hari#</vann:preferredNamespaceUri>
+        <rdfs:comment>This version is automatically generated from hari_reuse.xml on 
+                2026-04-15</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from hari_reuse.xml on 2026-04-15</rdfs:comment>
+        <rdfs:label xml:lang="en">Ontología principal del proyecto Hari.</rdfs:label>
+        <rdfs:label xml:lang="en">Restricciones de la ontología Hari.</rdfs:label>
+        <owl:incompatibleWith></owl:incompatibleWith>
+        <owl:priorVersion>http://hari-meta.org/ontology/hari_reuse#core-</owl:priorVersion>
+        <owl:priorVersion>http://hari-meta.org/ontology/hari_reuse#core-restriction-</owl:priorVersion>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_reuse#hasReason -->
+
+    <owl:DatatypeProperty rdf:about="http://hari-meta.org/ontology/hari_reuse#hasReason">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari_reuse#DirectReuseDecision"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_reuse#core"/>
+        <skos:prefLabel xml:lang="en">has Reason</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_reuse#ClassReuse -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_reuse#ClassReuse">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_reuse#DirectReuseDecision"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_reuse#core"/>
+        <skos:prefLabel xml:lang="en">Class Reuse</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_reuse#DirectReuseDecision -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_reuse#DirectReuseDecision">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_reuse#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_reuse#hasReason"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_reuse#core"/>
+        <skos:prefLabel xml:lang="en">Direct Reuse Decision</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_reuse#PropertyReuse -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_reuse#PropertyReuse">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_reuse#DirectReuseDecision"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_reuse#core"/>
+        <skos:prefLabel xml:lang="en">Property Reuse</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_reuse#Thing -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_reuse#Thing">
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_reuse#core"/>
+        <skos:definition xml:lang="en">Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</skos:definition>
+        <skos:prefLabel xml:lang="en">Thing</skos:prefLabel>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://hari-meta.org/ontology/hari_level#core-restriction#"
+     xml:base="http://hari-meta.org/ontology/hari_level#core-restriction"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://hari-meta.org/ontology/hari_level#core-restriction">
+        <owl:versionIRI rdf:resource="http://hari-meta.org/ontology/hari_level#core-restriction-1.0.0"/>
+        <owl:imports rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:created>
+        <dcterms:description xml:lang="en">Ontología principal del proyecto Hari.</dcterms:description>
+        <dcterms:description xml:lang="en">Restricciones de la ontología Hari.</dcterms:description>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-15</dcterms:issued>
+        <dcterms:license>CC BY 4.0</dcterms:license>
+        <dcterms:publisher>http://hari-meta.org</dcterms:publisher>
+        <dcterms:title xml:lang="en">Ontología Hari Core</dcterms:title>
+        <dcterms:title xml:lang="en">Ontología Hari Restricciones</dcterms:title>
+        <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://hari-meta.org/ontology/hari#</vann:preferredNamespaceUri>
+        <rdfs:comment>This version is automatically generated from hari_level.xml on 
+                2026-04-15</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from hari_level.xml on 2026-04-15</rdfs:comment>
+        <rdfs:label xml:lang="en">Ontología principal del proyecto Hari.</rdfs:label>
+        <rdfs:label xml:lang="en">Restricciones de la ontología Hari.</rdfs:label>
+        <owl:incompatibleWith></owl:incompatibleWith>
+        <owl:priorVersion>http://hari-meta.org/ontology/hari_level#core-</owl:priorVersion>
+        <owl:priorVersion>http://hari-meta.org/ontology/hari_level#core-restriction-</owl:priorVersion>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_level#hasInScheme -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari_level#hasInScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_level#Application"/>
+                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_level#Core"/>
+                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_level#Domain"/>
+                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_level#Foundational"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari_level#Level"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <skos:prefLabel xml:lang="en">has In Scheme</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_level#Application -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_level#Application">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_level#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_level#hasInScheme"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari_level#Level"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <skos:prefLabel xml:lang="en">Application</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_level#Core -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_level#Core">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_level#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_level#hasInScheme"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari_level#Level"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <skos:prefLabel xml:lang="en">Core</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_level#Domain -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_level#Domain">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_level#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_level#hasInScheme"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari_level#Level"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <skos:prefLabel xml:lang="en">Domain</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_level#Foundational -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_level#Foundational">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_level#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_level#hasInScheme"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari_level#Level"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <skos:prefLabel xml:lang="en">Foundational</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_level#Level -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_level#Level">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari_level#Thing"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <skos:prefLabel xml:lang="en">Level</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari_level#Thing -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari_level#Thing">
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari_level#core"/>
+        <skos:definition xml:lang="en">Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</skos:definition>
+        <skos:prefLabel xml:lang="en">Thing</skos:prefLabel>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

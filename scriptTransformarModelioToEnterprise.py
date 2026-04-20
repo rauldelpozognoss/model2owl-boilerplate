@@ -257,17 +257,49 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 
     tree_ea = ET.ElementTree(root_ea)
     tree_ea.write(output_file, encoding="UTF-8", xml_declaration=True)
-    print(f"¡Éxito! XML generado con prefijo '{prefijo}' y anclaje GNOSS (skos/dc -> hari:Thing).")
+    print(f"  [OK] Generado: {os.path.basename(output_file)}")
 
 if __name__ == "__main__":
+    # Verificamos si nos han pasado los 2 parámetros que necesitamos (script + origen + destino)
     if len(sys.argv) < 3:
-        print("Uso: python modelio_to_ea.py <entrada.xmi> <salida.xml>")
-        print("Ejemplo: python modelio_to_ea.py prueba.xmi prueba_ea.xml")
-    else:
-        input_file = sys.argv[1]
-        output_file = sys.argv[2]
+        print("\n❌ Error: Faltan parámetros.")
+        print("Uso: python scriptTransformarModelioToEnterprise.py <carpeta_origen> <carpeta_destino>")
+        print("Ejemplo: python scriptTransformarModelioToEnterprise.py ./XMI_Modelio ./XMI_Enterprise\n")
+        sys.exit(1)
+
+    input_dir = sys.argv[1]
+    output_dir = sys.argv[2]
+    
+    # Si la carpeta de destino no existe, la creamos
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        print(f"📁 Carpeta creada: {output_dir}")
+
+    print(f"🚀 Iniciando transformación masiva de Modelio a Enterprise Architect...\n")
+    
+    archivos_procesados = 0
+
+    # Recorremos todos los archivos de la carpeta origen
+    for filename in os.listdir(input_dir):
+        # 1. Ignoramos el perfil de Modelio
+        if filename == "LocalProfile.profile.xmi":
+            print(f"  [IGNORADO] Saltando archivo de configuración: {filename}")
+            continue
+
+        # 2. Filtramos solo los archivos XMI o XML
+        if not (filename.endswith(".xmi") or filename.endswith(".xml")):
+            continue
+
+        input_file = os.path.join(input_dir, filename)
         
-        base_name = os.path.basename(input_file)
-        prefijo_detectado, _ = os.path.splitext(base_name)
+        # Generamos la ruta de salida (usaremos la extensión .xml por defecto para el conversor model2owl)
+        prefijo_detectado, _ = os.path.splitext(filename)
+        output_file = os.path.join(output_dir, f"{prefijo_detectado}.xml")
         
-        adaptar_modelio_a_ea(input_file, output_file, prefijo_detectado)
+        try:
+            adaptar_modelio_a_ea(input_file, output_file, prefijo_detectado)
+            archivos_procesados += 1
+        except Exception as e:
+            print(f"  [ERROR] Fallo al procesar '{filename}': {e}")
+            
+    print(f"\n✅ Proceso completado. Se han transformado {archivos_procesados} archivos.")
