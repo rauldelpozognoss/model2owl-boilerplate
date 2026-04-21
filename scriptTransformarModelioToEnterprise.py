@@ -60,7 +60,7 @@ def extraer_documentacion_y_tags(elemento, ns):
 def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     prefijo = prefijo_input if prefijo_input.endswith(':') else f"{prefijo_input}:"
     
-    # Limpiamos el prefijo para usarlo en los IDs únicos
+    # Limpiamos el prefijo para crear IDs únicos a prueba de fallos
     clean_prefix = prefijo_input.replace(':', '').replace('-', '_')
 
     ET.register_namespace("xmi", NAMESPACE_XMI_OUTPUT)
@@ -94,7 +94,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             }
 
     # ==============================================================================
-    # 2. CREACIÓN DE LAS RAÍCES PARA GNOSS (CON IDs ÚNICOS POR ARCHIVO)
+    # 2. CREACIÓN DE LAS RAÍCES PARA GNOSS (Thing y skos:Concept) CON IDs ÚNICOS
     # ==============================================================================
     root_class_id = f"ID_AUTO_THING_{clean_prefix}"
     ea_root = ET.SubElement(elements, "element", {
@@ -104,8 +104,8 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     })
     ET.SubElement(ea_root, "properties", {"documentation": "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."})
 
-    # Solo inyectamos skos:Concept si este archivo en concreto tiene algún concepto
-    skos_concept_id = f"ID_AUTO_SKOS_{clean_prefix}"
+    # El ID es único por archivo, así cuando se junten en Actions no petará model2owl
+    skos_concept_id = f"ID_AUTO_SKOS_CONCEPT_{clean_prefix}"
     if concept_ids:
         ea_skos = ET.SubElement(elements, "element", {
             f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
@@ -187,7 +187,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             ET.SubElement(ea_attr, "bounds", {"lower": str(l_val), "upper": str(u_val)})
 
         # ======================================================================
-        # 3. RUTEO DE HERENCIA CON IDs ÚNICOS
+        # 3. RUTEO DE HERENCIA (A Thing o a skos:Concept)
         # ======================================================================
         if not info['has_parent'] and info['type'] in ['Class', 'Enumeration']:
             gen_id = f"auto_gen_thing_{eid}"
@@ -197,7 +197,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             src = ET.SubElement(ea_gen, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": eid})
             ET.SubElement(src, "model", {"name": f"{prefijo}{info['name']}", "type": "Class"})
             
-            # Enlaza al Concept o a Thing dependiendo del estereotipo
+            # Si es un Concepto SKOS, apuntamos al ID único generado arriba
             if eid in concept_ids:
                 tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": skos_concept_id})
                 ET.SubElement(tgt, "model", {"name": "skos:Concept", "type": "Class"})
@@ -292,7 +292,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("\n❌ Error: Faltan parámetros.")
         print("Uso: python scriptTransformarModelioToEnterprise.py <carpeta_origen> <carpeta_destino>")
-        print("Ejemplo: python scriptTransformarModelioToEnterprise.py ./XMI_Modelio ./Source\n")
         sys.exit(1)
 
     input_dir = sys.argv[1]
@@ -300,10 +299,8 @@ if __name__ == "__main__":
     
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        print(f"📁 Carpeta creada: {output_dir}")
 
     print(f"🚀 Iniciando transformación masiva de Modelio a Enterprise Architect...\n")
-    
     archivos_procesados = 0
 
     for filename in os.listdir(input_dir):
