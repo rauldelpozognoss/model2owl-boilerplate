@@ -59,6 +59,9 @@ def extraer_documentacion_y_tags(elemento, ns):
 
 def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     prefijo = prefijo_input if prefijo_input.endswith(':') else f"{prefijo_input}:"
+    
+    # Limpiamos el prefijo para usarlo en los IDs únicos
+    clean_prefix = prefijo_input.replace(':', '').replace('-', '_')
 
     ET.register_namespace("xmi", NAMESPACE_XMI_OUTPUT)
     tree = ET.parse(input_file)
@@ -91,9 +94,9 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             }
 
     # ==============================================================================
-    # 2. CREACIÓN DE LAS RAÍCES PARA GNOSS (hari:Thing y skos:Concept)
+    # 2. CREACIÓN DE LAS RAÍCES PARA GNOSS (CON IDs ÚNICOS POR ARCHIVO)
     # ==============================================================================
-    root_class_id = "ID_AUTO_GENERATED_THING_ROOT"
+    root_class_id = f"ID_AUTO_THING_{clean_prefix}"
     ea_root = ET.SubElement(elements, "element", {
         f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
         f"{{{NAMESPACE_XMI_OUTPUT}}}idref": root_class_id,
@@ -101,13 +104,15 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
     })
     ET.SubElement(ea_root, "properties", {"documentation": "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."})
 
-    skos_concept_id = "ID_AUTO_GENERATED_SKOS_CONCEPT"
-    ea_skos = ET.SubElement(elements, "element", {
-        f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
-        f"{{{NAMESPACE_XMI_OUTPUT}}}idref": skos_concept_id,
-        "name": "skos:Concept"
-    })
-    ET.SubElement(ea_skos, "properties", {"documentation": "SKOS Concept para Tesauros", "stereotype": "Concept"})
+    # Solo inyectamos skos:Concept si este archivo en concreto tiene algún concepto
+    skos_concept_id = f"ID_AUTO_SKOS_{clean_prefix}"
+    if concept_ids:
+        ea_skos = ET.SubElement(elements, "element", {
+            f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
+            f"{{{NAMESPACE_XMI_OUTPUT}}}idref": skos_concept_id,
+            "name": "skos:Concept"
+        })
+        ET.SubElement(ea_skos, "properties", {"documentation": "SKOS Concept para Tesauros", "stereotype": "Concept"})
 
     for eid, info in catalog.items():
         if info['name'] == "Thing": continue
@@ -132,7 +137,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
         if original_el.get("isAbstract") == "true": 
             props.set("stereotype", "Abstract")
         elif eid in concept_ids:
-            props.set("stereotype", "Concept") # Le decimos a EA/model2owl que es un concepto
+            props.set("stereotype", "Concept")
             
         if tags_list:
             tags_container = ET.SubElement(ea_element, "tags")
@@ -182,7 +187,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             ET.SubElement(ea_attr, "bounds", {"lower": str(l_val), "upper": str(u_val)})
 
         # ======================================================================
-        # 3. RUTEO DE HERENCIA (A Thing o a skos:Concept)
+        # 3. RUTEO DE HERENCIA CON IDs ÚNICOS
         # ======================================================================
         if not info['has_parent'] and info['type'] in ['Class', 'Enumeration']:
             gen_id = f"auto_gen_thing_{eid}"
@@ -192,7 +197,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             src = ET.SubElement(ea_gen, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": eid})
             ET.SubElement(src, "model", {"name": f"{prefijo}{info['name']}", "type": "Class"})
             
-            # MAGIA: Si está en la lista de Conceptos, hereda de skos:Concept. Si no, de Thing.
+            # Enlaza al Concept o a Thing dependiendo del estereotipo
             if eid in concept_ids:
                 tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": skos_concept_id})
                 ET.SubElement(tgt, "model", {"name": "skos:Concept", "type": "Class"})
