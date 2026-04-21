@@ -25,9 +25,6 @@
     owl:versionIRI :core-restriction-1.0.0 ;
     owl:versionInfo "1.0.0" .
 
-:hasKnowledgeDomain rdfs:domain :OntologyVersion ;
-    rdfs:range xsd:string .
-
 :hasPriorVersionIRI rdfs:domain :OntologyVersion ;
     rdfs:range xsd:string .
 
@@ -40,15 +37,15 @@
     rdfs:range xsd:string .
 
 :OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :hasVersionInfo ;
-            owl:qualifiedCardinality 1 ],
+            owl:onProperty :hasPriorVersionIRI ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
             owl:onProperty :hasVersionIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :hasPriorVersionIRI ] .
+            owl:onProperty :hasVersionInfo ;
+            owl:qualifiedCardinality 1 ] .
 

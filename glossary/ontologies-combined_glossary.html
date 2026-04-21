@@ -104,7 +104,7 @@
                         <td>Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí.</td>
                      </tr>
                      <tr>
-                        <td>hari_scope:Scope</td>
+                        <td>hari_scope:KnowledgeDomain</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -288,6 +288,10 @@
                         <td></td>
                      </tr>
                      <tr>
+                        <td>hari:KnowledgeDomain</td>
+                        <td></td>
+                     </tr>
+                     <tr>
                         <td>hari:Level</td>
                         <td></td>
                      </tr>
@@ -333,10 +337,6 @@
                      </tr>
                      <tr>
                         <td>hari:Restriction</td>
-                        <td></td>
-                     </tr>
-                     <tr>
-                        <td>hari:Scope</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -484,12 +484,6 @@
                      </tr>
                      <tr>
                         <td>hari_version:OntologyVersion</td>
-                        <td>hari_version:hasKnowledgeDomain</td>
-                        <td></td>
-                        <td>xsd:string [0..*]</td>
-                     </tr>
-                     <tr>
-                        <td>hari_version:OntologyVersion</td>
                         <td>hari_version:hasPriorVersionIRI</td>
                         <td></td>
                         <td>xsd:string [0..1]</td>
@@ -529,12 +523,6 @@
                         <td>hari:hasJustificacion</td>
                         <td></td>
                         <td>xsd:string [0..1]</td>
-                     </tr>
-                     <tr>
-                        <td>hari:OntologyVersion</td>
-                        <td>hari:hasKnowledgeDomain</td>
-                        <td></td>
-                        <td>xsd:string [0..*]</td>
                      </tr>
                      <tr>
                         <td>hari:OntologyProject</td>
@@ -832,7 +820,7 @@
                      <tr>
                         <td>hari:hasScope</td>
                         <td></td>
-                        <td>hari:OntologyProject -&gt; hari:Scope [0..*]</td>
+                        <td>hari:OntologyVersion -&gt; hari:KnowledgeDomain [0..*]</td>
                      </tr>
                      <tr>
                         <td>hari:hasStatus</td>

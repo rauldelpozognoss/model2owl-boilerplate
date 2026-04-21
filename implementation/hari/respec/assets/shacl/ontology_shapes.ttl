@@ -126,6 +126,11 @@ core-shape:hari-HasValueShape a sh:NodeShape ;
     sh:property core-shape:hari-HasValue-hari-hasTargetValue ;
     sh:targetClass hari:HasValue .
 
+core-shape:hari-KnowledgeDomainShape a sh:NodeShape ;
+    rdfs:label "Knowledge Domain" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:KnowledgeDomain .
+
 core-shape:hari-LevelShape a sh:NodeShape ;
     rdfs:label "Level" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -177,7 +182,6 @@ core-shape:hari-OntologyProjectShape a sh:NodeShape ;
         core-shape:hari-OntologyProject-hari-hasLevel,
         core-shape:hari-OntologyProject-hari-hasOntologyIRI,
         core-shape:hari-OntologyProject-hari-hasOrganization,
-        core-shape:hari-OntologyProject-hari-hasScope,
         core-shape:hari-OntologyProject-hari-hasTitle ;
     sh:targetClass hari:OntologyProject .
 
@@ -185,9 +189,9 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
     rdfs:label "Ontology Version" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologyVersion-hari-hasExtension,
-        core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasReuse,
+        core-shape:hari-OntologyVersion-hari-hasScope,
         core-shape:hari-OntologyVersion-hari-hasStatus,
         core-shape:hari-OntologyVersion-hari-hasVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasVersionInfo,
@@ -224,11 +228,6 @@ core-shape:hari-RestrictionShape a sh:NodeShape ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#Restriction> .
                 }""" ] ;
     sh:targetClass hari:Restriction .
-
-core-shape:hari-ScopeShape a sh:NodeShape ;
-    rdfs:label "Scope" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:Scope .
 
 core-shape:hari-SemanticExtensionShape a sh:NodeShape ;
     rdfs:label "Semantic Extension" ;
@@ -573,13 +572,6 @@ core-shape:hari-OntologyProject-hari-hasOrganization a sh:PropertyShape ;
     sh:name "Has organization" ;
     sh:path hari:hasOrganization .
 
-core-shape:hari-OntologyProject-hari-hasScope a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Scope ;
-    sh:name "Has scope" ;
-    sh:path hari:hasScope ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasScope> ?that . ?that <http://hari-meta.org/ontology/hari#hasScope> ?this .}" ] .
-
 core-shape:hari-OntologyProject-hari-hasTitle a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -595,12 +587,6 @@ core-shape:hari-OntologyVersion-hari-hasExtension a sh:PropertyShape ;
     sh:path hari:hasExtension ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasExtension> ?this .}" ] .
 
-core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:name "Has knowledge domain" ;
-    sh:path hari:hasKnowledgeDomain .
-
 core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -614,6 +600,13 @@ core-shape:hari-OntologyVersion-hari-hasReuse a sh:PropertyShape ;
     sh:name "Has reuse" ;
     sh:path hari:hasReuse ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasReuse> ?this .}" ] .
+
+core-shape:hari-OntologyVersion-hari-hasScope a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:KnowledgeDomain ;
+    sh:name "Has scope" ;
+    sh:path hari:hasScope ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasScope> ?that . ?that <http://hari-meta.org/ontology/hari#hasScope> ?this .}" ] .
 
 core-shape:hari-OntologyVersion-hari-hasStatus a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;

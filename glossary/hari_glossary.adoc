@@ -83,6 +83,10 @@
       
     
       
+| hari:KnowledgeDomain | 
+      
+    
+      
 | hari:Level | 
       
     
@@ -128,10 +132,6 @@
     
       
 | hari:Restriction | 
-      
-    
-      
-| hari:Scope | 
       
     
       
@@ -289,8 +289,6 @@
   
   
   
-  
-  
 | hari:OntologyProject
 | hari:hasTitle| 
   |xsd:string [1..1]
@@ -300,14 +298,10 @@
   
   
 | hari:OntologyVersion
-| hari:hasKnowledgeDomain| 
-  |xsd:string [0..&#42;]
-  
-  
-  
-| hari:OntologyVersion
 | hari:hasPriorVersionIRI| 
   |xsd:string [0..1]
+  
+  
   
   
   
@@ -550,13 +544,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-| hari:hasScope| 
-  |hari:OntologyProject → hari:Scope [0..&#42;]
-
-  
-
-  
-  
   
 
   
@@ -572,12 +559,15 @@ hari:Stable → hari:Status [1..1]
 
   
   
+| hari:hasReuse| 
+  |hari:OntologyVersion → hari:DirectReuseDecision [0..&#42;]
+
   
 
   
   
-| hari:hasReuse| 
-  |hari:OntologyVersion → hari:DirectReuseDecision [0..&#42;]
+| hari:hasScope| 
+  |hari:OntologyVersion → hari:KnowledgeDomain [0..&#42;]
 
   
 
