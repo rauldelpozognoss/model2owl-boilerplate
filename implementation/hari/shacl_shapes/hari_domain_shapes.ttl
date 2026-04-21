@@ -1,5 +1,6 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hari_domain: <http://hari-meta.org/ontology/hari_domain#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -7,16 +8,16 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:hari_scope-KnowledgeDomainShape a sh:NodeShape ;
+core-shape:hari_domain-KnowledgeDomainShape a sh:NodeShape ;
     rdfs:label "Knowledge Domain" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass <http://hari-meta.org/ontology/hari_scope#KnowledgeDomain> .
+    sh:targetClass hari_domain:KnowledgeDomain .
 
-core-shape:hari_scope-ThingShape a sh:NodeShape ;
+core-shape:hari_domain-ThingShape a sh:NodeShape ;
     rdfs:label "Thing" ;
     rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass <http://hari-meta.org/ontology/hari_scope#Thing> .
+    sh:targetClass hari_domain:Thing .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -28,9 +29,9 @@ core-shape:core-shape a owl:Ontology ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari_scope.xml on 2026-04-21" ;
-    owl:imports <http://hari-meta.org/ontology/hari_scope#core>,
-        <http://hari-meta.org/ontology/hari_scope#core-restriction>,
+    rdfs:comment "This version is automatically generated from hari_domain.xml on 2026-04-21" ;
+    owl:imports hari_domain:core,
+        hari_domain:core-restriction,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

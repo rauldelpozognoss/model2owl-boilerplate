@@ -189,9 +189,9 @@ core-shape:hari-OntologyVersionShape a sh:NodeShape ;
     rdfs:label "Ontology Version" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-OntologyVersion-hari-hasExtension,
+        core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain,
         core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasReuse,
-        core-shape:hari-OntologyVersion-hari-hasScope,
         core-shape:hari-OntologyVersion-hari-hasStatus,
         core-shape:hari-OntologyVersion-hari-hasVersionIRI,
         core-shape:hari-OntologyVersion-hari-hasVersionInfo,
@@ -587,6 +587,13 @@ core-shape:hari-OntologyVersion-hari-hasExtension a sh:PropertyShape ;
     sh:path hari:hasExtension ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasExtension> ?this .}" ] .
 
+core-shape:hari-OntologyVersion-hari-hasKnowledgeDomain a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:KnowledgeDomain ;
+    sh:name "Has knowledge domain" ;
+    sh:path hari:hasKnowledgeDomain ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasKnowledgeDomain> ?that . ?that <http://hari-meta.org/ontology/hari#hasKnowledgeDomain> ?this .}" ] .
+
 core-shape:hari-OntologyVersion-hari-hasPriorVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
@@ -600,13 +607,6 @@ core-shape:hari-OntologyVersion-hari-hasReuse a sh:PropertyShape ;
     sh:name "Has reuse" ;
     sh:path hari:hasReuse ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasReuse> ?this .}" ] .
-
-core-shape:hari-OntologyVersion-hari-hasScope a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:KnowledgeDomain ;
-    sh:name "Has scope" ;
-    sh:path hari:hasScope ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasScope> ?that . ?that <http://hari-meta.org/ontology/hari#hasScope> ?this .}" ] .
 
 core-shape:hari-OntologyVersion-hari-hasStatus a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
