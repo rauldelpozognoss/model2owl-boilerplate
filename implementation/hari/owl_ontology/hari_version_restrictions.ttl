@@ -10,23 +10,20 @@
     rdfs:label "Restricciones de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Restricciones de la ontología Hari."@en ;
-    dcterms:issued "2026-04-21"^^xsd:date ;
+    dcterms:issued "2026-04-22"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Restricciones"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment """This version is automatically generated from hari_version.xml on 
-                2026-04-21""" ;
+                2026-04-22""" ;
     owl:imports :core,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari_version#core-restriction-" ;
     owl:versionIRI :core-restriction-1.0.0 ;
     owl:versionInfo "1.0.0" .
-
-:hasPriorVersionIRI rdfs:domain :OntologyVersion ;
-    rdfs:range xsd:string .
 
 :hasVersionIRI a owl:FunctionalProperty ;
     rdfs:domain :OntologyVersion ;
@@ -38,14 +35,10 @@
 
 :OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :hasVersionIRI ;
+            owl:onProperty :hasVersionInfo ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :hasPriorVersionIRI ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty :hasVersionInfo ;
+            owl:onProperty :hasVersionIRI ;
             owl:qualifiedCardinality 1 ] .
 

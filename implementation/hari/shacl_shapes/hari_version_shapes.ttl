@@ -11,8 +11,7 @@
 core-shape:hari_version-OntologyVersionShape a sh:NodeShape ;
     rdfs:label "Ontology Version" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari_version-OntologyVersion-hari_version-hasPriorVersionIRI,
-        core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI,
+    sh:property core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI,
         core-shape:hari_version-OntologyVersion-hari_version-hasVersionInfo ;
     sh:targetClass :OntologyVersion .
 
@@ -21,13 +20,6 @@ core-shape:hari_version-ThingShape a sh:NodeShape ;
     rdfs:comment "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí." ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass :Thing .
-
-core-shape:hari_version-OntologyVersion-hari_version-hasPriorVersionIRI a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:name "Has prior version IRI" ;
-    sh:path :hasPriorVersionIRI .
 
 core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -49,13 +41,13 @@ core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-04-21"^^xsd:date ;
+    dcterms:issued "2026-04-22"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari_version.xml on 2026-04-21" ;
+    rdfs:comment "This version is automatically generated from hari_version.xml on 2026-04-22" ;
     owl:imports :core,
         :core-restriction,
         skos: ;
