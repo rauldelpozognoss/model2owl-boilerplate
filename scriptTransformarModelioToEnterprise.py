@@ -84,19 +84,11 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 'has_parent': has_parent
             }
 
-    # ==============================================================================
-    # 1. CREACIÓN DE LA RAÍZ ÚNICA PARA GNOSS (hari:Thing)
-    # ==============================================================================
-    root_class_id = "ID_AUTO_GENERATED_THING_ROOT"
-    ea_root = ET.SubElement(elements, "element", {
-        f"{{{NAMESPACE_XMI_OUTPUT}}}type": "uml:Class",
-        f"{{{NAMESPACE_XMI_OUTPUT}}}idref": root_class_id,
-        "name": f"{prefijo}Thing"
-    })
-    ET.SubElement(ea_root, "properties", {"documentation": "Clase raíz del metamodelo. Todas las clases diseñadas cuelgan de aquí."})
+    # SE HA ELIMINADO LA CREACIÓN DE LA CLASE "THING" LOCAL
 
     for eid, info in catalog.items():
-        if info['name'] == "Thing": continue
+        # Ignoramos si el usuario dibujó manualmente un "Thing" en Modelio para evitar duplicados
+        if info['name'].lower() == "thing": continue
 
         m2o_type = 'uml:Class'
         if info['type'] == 'Enumeration': m2o_type = 'uml:Enumeration'
@@ -165,6 +157,7 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
                 
             ET.SubElement(ea_attr, "bounds", {"lower": str(l_val), "upper": str(u_val)})
 
+        # HERENCIA DIRECTA DE OWL:THING PARA LAS CLASES HUÉRFANAS
         if not info['has_parent'] and info['type'] in ['Class', 'Enumeration']:
             gen_id = f"auto_gen_thing_{eid}"
             ea_gen = ET.SubElement(connectors, "connector", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": gen_id})
@@ -173,8 +166,9 @@ def adaptar_modelio_a_ea(input_file, output_file, prefijo_input):
             src = ET.SubElement(ea_gen, "source", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": eid})
             ET.SubElement(src, "model", {"name": f"{prefijo}{info['name']}", "type": "Class"})
             
-            tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": root_class_id})
-            ET.SubElement(tgt, "model", {"name": f"{prefijo}Thing", "type": "Class"})
+            # El idref de destino pasa a ser directamente la URI del Thing de OWL
+            tgt = ET.SubElement(ea_gen, "target", {f"{{{NAMESPACE_XMI_OUTPUT}}}idref": "http://www.w3.org/2002/07/owl#Thing"})
+            ET.SubElement(tgt, "model", {"name": "owl:Thing", "type": "Class"})
 
     for eid, info in catalog.items():
         if info['type'] != 'Class': continue
