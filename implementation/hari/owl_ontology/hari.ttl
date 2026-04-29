@@ -51,6 +51,11 @@ hari:DatatypeProperty a owl:Class ;
     rdfs:subClassOf hari:Property ;
     skos:prefLabel "Datatype Property"@en .
 
+hari:DatatypeReuse a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:DirectReuseDecision ;
+    skos:prefLabel "Datatype Reuse"@en .
+
 hari:Domain a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf owl:Thing ;
@@ -166,6 +171,10 @@ hari:hasClassReuse a owl:ObjectProperty ;
 hari:hasConstraintExtension a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "has Constraint Extension"@en .
+
+hari:hasDatatypeReuse a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Datatype Reuse"@en .
 
 hari:hasDescription a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari:core ;
@@ -339,11 +348,6 @@ hari:isVersionOf a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "is Version Of"@en .
 
-hari:DirectReuseDecision a owl:Class ;
-    rdfs:isDefinedBy hari:core ;
-    rdfs:subClassOf owl:Thing ;
-    skos:prefLabel "Direct Reuse Decision"@en .
-
 hari:Types a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:OntologicalTerm ;
@@ -358,6 +362,11 @@ hari:CardinalityRestriction a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:Restriction ;
     skos:prefLabel "Cardinality Restriction"@en .
+
+hari:DirectReuseDecision a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Direct Reuse Decision"@en .
 
 hari:ExtensionDecision a owl:Class ;
     rdfs:isDefinedBy hari:core ;
@@ -383,13 +392,13 @@ hari:core a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Ontología principal del proyecto Hari."@en ;
-    dcterms:issued "2026-04-27"^^xsd:date ;
+    dcterms:issued "2026-04-29"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Core"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari.xml on 2026-04-27" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-04-29" ;
     owl:imports skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari#core-" ;
