@@ -16,7 +16,7 @@
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:created>
         <dcterms:description xml:lang="en">Ontología principal del proyecto Hari.</dcterms:description>
         <dcterms:description xml:lang="en">Restricciones de la ontología Hari.</dcterms:description>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-27</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-29</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>http://hari-meta.org</dcterms:publisher>
         <dcterms:title xml:lang="en">Ontología Hari Core</dcterms:title>
@@ -24,8 +24,8 @@
         <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://hari-meta.org/ontology/hari#</vann:preferredNamespaceUri>
         <rdfs:comment>This version is automatically generated from hari.xml on 
-                2026-04-27</rdfs:comment>
-        <rdfs:comment>This version is automatically generated from hari.xml on 2026-04-27</rdfs:comment>
+                2026-04-29</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from hari.xml on 2026-04-29</rdfs:comment>
         <rdfs:label xml:lang="en">Ontología principal del proyecto Hari.</rdfs:label>
         <rdfs:label xml:lang="en">Restricciones de la ontología Hari.</rdfs:label>
         <owl:incompatibleWith></owl:incompatibleWith>
@@ -67,6 +67,18 @@
         <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Restriction"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Constraint Extension</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasDatatypeReuse -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDatatypeReuse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#DatatypeReuse"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Datatype Reuse</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -805,6 +817,23 @@
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Datatype Property</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#DatatypeReuse -->
+
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#DatatypeReuse">
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#DirectReuseDecision"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDatatypeReuse"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">Datatype Reuse</skos:prefLabel>
     </owl:Class>
     
 
