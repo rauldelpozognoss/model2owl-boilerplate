@@ -218,11 +218,6 @@ hari_term:isTransitive a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "is Transitive"@en .
 
-hari_term:Class a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Types ;
-    skos:prefLabel "Class"@en .
-
 hari_term:Datatype a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:Types ;
@@ -237,6 +232,11 @@ hari_term:MonoValuedLogicalDatatypeExpression a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:LogicalDatatypeExpression ;
     skos:prefLabel "Mono Valued Logical Datatype Expression"@en .
+
+hari_term:Class a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:Types ;
+    skos:prefLabel "Class"@en .
 
 hari_term:LogicalClassExpression a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
@@ -258,6 +258,11 @@ hari_term:MultiValuedLogicalDatatypeExpression a owl:Class ;
     rdfs:subClassOf hari_term:LogicalDatatypeExpression ;
     skos:prefLabel "Multi Valued Logical Datatype Expression"@en .
 
+hari_term:OntologicalTerm a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontological Term"@en .
+
 hari_term:Types a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:OntologicalTerm ;
@@ -273,11 +278,6 @@ hari_term:CardinalityRestriction a owl:Class ;
     rdfs:subClassOf hari_term:Restriction ;
     skos:prefLabel "Cardinality Restriction"@en .
 
-hari_term:OntologicalTerm a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf owl:Thing ;
-    skos:prefLabel "Ontological Term"@en .
-
 hari_term:Property a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:OntologicalTerm ;
@@ -285,7 +285,7 @@ hari_term:Property a owl:Class ;
 
 hari_term:Restriction a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:OntologicalTerm ;
+    rdfs:subClassOf hari_term:Class ;
     skos:prefLabel "Restriction"@en .
 
 hari_term:core a owl:Ontology ;

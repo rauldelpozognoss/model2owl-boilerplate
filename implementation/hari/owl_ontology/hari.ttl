@@ -404,11 +404,6 @@ hari:isVersionOf a owl:ObjectProperty ;
     rdfs:isDefinedBy hari:core ;
     skos:prefLabel "is Version Of"@en .
 
-hari:Class a owl:Class ;
-    rdfs:isDefinedBy hari:core ;
-    rdfs:subClassOf hari:Types ;
-    skos:prefLabel "Class"@en .
-
 hari:Datatype a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:Types ;
@@ -423,6 +418,11 @@ hari:MonoValuedLogicalDatatypeExpression a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:LogicalDatatypeExpression ;
     skos:prefLabel "Mono Valued Logical Datatype Expression"@en .
+
+hari:Class a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Types ;
+    skos:prefLabel "Class"@en .
 
 hari:LogicalClassExpression a owl:Class ;
     rdfs:isDefinedBy hari:core ;
@@ -443,6 +443,11 @@ hari:MultiValuedLogicalDatatypeExpression a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:LogicalDatatypeExpression ;
     skos:prefLabel "Multi Valued Logical Datatype Expression"@en .
+
+hari:OntologicalTerm a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontological Term"@en .
 
 hari:Types a owl:Class ;
     rdfs:isDefinedBy hari:core ;
@@ -469,11 +474,6 @@ hari:ExtensionDecision a owl:Class ;
     rdfs:subClassOf owl:Thing ;
     skos:prefLabel "Extension Decision"@en .
 
-hari:OntologicalTerm a owl:Class ;
-    rdfs:isDefinedBy hari:core ;
-    rdfs:subClassOf owl:Thing ;
-    skos:prefLabel "Ontological Term"@en .
-
 hari:Property a owl:Class ;
     rdfs:isDefinedBy hari:core ;
     rdfs:subClassOf hari:OntologicalTerm ;
@@ -481,7 +481,7 @@ hari:Property a owl:Class ;
 
 hari:Restriction a owl:Class ;
     rdfs:isDefinedBy hari:core ;
-    rdfs:subClassOf hari:OntologicalTerm ;
+    rdfs:subClassOf hari:Class ;
     skos:prefLabel "Restriction"@en .
 
 hari:core a owl:Ontology ;
