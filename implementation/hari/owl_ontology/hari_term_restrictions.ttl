@@ -10,20 +10,26 @@ hari_term:core-restriction a owl:Ontology ;
     rdfs:label "Restricciones de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Restricciones de la ontología Hari."@en ;
-    dcterms:issued "2026-04-29"^^xsd:date ;
+    dcterms:issued "2026-05-05"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Restricciones"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment """This version is automatically generated from hari_term.xml on 
-                2026-04-29""" ;
+                2026-05-05""" ;
     owl:imports hari_term:core,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari_term#core-restriction-" ;
     owl:versionIRI hari_term:core-restriction-1.0.0 ;
     owl:versionInfo "1.0.0" .
+
+hari_term:hasClassOperands rdfs:domain hari_term:MultiValuedLogicalClassExpression ;
+    rdfs:range hari_term:Class .
+
+hari_term:hasDatatypeOperands rdfs:domain hari_term:MultiValuedLogicalDatatypeExpression ;
+    rdfs:range hari_term:Datatype .
 
 hari_term:hasDisjointWith a owl:AsymmetricProperty ;
     rdfs:domain hari_term:Class ;
@@ -32,6 +38,10 @@ hari_term:hasDisjointWith a owl:AsymmetricProperty ;
 hari_term:hasEquivalentTo a owl:AsymmetricProperty ;
     rdfs:domain hari_term:Class ;
     rdfs:range hari_term:Class .
+
+hari_term:hasPropertyChain a owl:AsymmetricProperty ;
+    rdfs:domain hari_term:ObjectProperty ;
+    rdfs:range hari_term:ObjectProperty .
 
 hari_term:hasRestriction rdfs:domain hari_term:Class ;
     rdfs:range hari_term:Restriction .
@@ -62,6 +72,16 @@ hari_term:HasValue rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty hari_term:hasTargetValue ;
             owl:qualifiedCardinality 1 ] .
 
+hari_term:MonoValuedLogicalClassExpression rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass hari_term:Class ;
+            owl:onProperty hari_term:hasClassOperand ;
+            owl:qualifiedCardinality 1 ] .
+
+hari_term:MonoValuedLogicalDatatypeExpression rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass hari_term:Datatype ;
+            owl:onProperty hari_term:hasDatatypeOperand ;
+            owl:qualifiedCardinality 1 ] .
+
 hari_term:ValuesFrom rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass hari_term:Types ;
             owl:onProperty hari_term:hasValuesFrom ;
@@ -70,6 +90,14 @@ hari_term:ValuesFrom rdfs:subClassOf [ a owl:Restriction ;
 hari_term:hasCardinalityValue a owl:FunctionalProperty ;
     rdfs:domain hari_term:CardinalityRestriction ;
     rdfs:range xsd:integer .
+
+hari_term:hasClassOperand a owl:FunctionalProperty ;
+    rdfs:domain hari_term:MonoValuedLogicalClassExpression ;
+    rdfs:range hari_term:Class .
+
+hari_term:hasDatatypeOperand a owl:FunctionalProperty ;
+    rdfs:domain hari_term:MonoValuedLogicalDatatypeExpression ;
+    rdfs:range hari_term:Datatype .
 
 hari_term:hasDomainAnotation a owl:FunctionalProperty ;
     rdfs:domain hari_term:AnotationProperty ;
@@ -123,7 +151,23 @@ hari_term:hasValuesFrom a owl:FunctionalProperty ;
     rdfs:domain hari_term:ValuesFrom ;
     rdfs:range hari_term:Types .
 
+hari_term:isAssymetric a owl:FunctionalProperty ;
+    rdfs:domain hari_term:Property ;
+    rdfs:range xsd:boolean .
+
 hari_term:isFunctional a owl:FunctionalProperty ;
+    rdfs:domain hari_term:Property ;
+    rdfs:range xsd:boolean .
+
+hari_term:isInverseFunctional a owl:FunctionalProperty ;
+    rdfs:domain hari_term:Property ;
+    rdfs:range xsd:boolean .
+
+hari_term:isIrreflexive a owl:FunctionalProperty ;
+    rdfs:domain hari_term:Property ;
+    rdfs:range xsd:boolean .
+
+hari_term:isReflexive a owl:FunctionalProperty ;
     rdfs:domain hari_term:Property ;
     rdfs:range xsd:boolean .
 
@@ -140,40 +184,27 @@ hari_term:isTransitive a owl:FunctionalProperty ;
     rdfs:range xsd:boolean .
 
 hari_term:CardinalityRestriction rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass hari_term:Types ;
-            owl:onProperty hari_term:hasQualifiedTarget ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:integer ;
             owl:onProperty hari_term:hasCardinalityValue ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass hari_term:Types ;
+            owl:onProperty hari_term:hasQualifiedTarget ;
             owl:qualifiedCardinality 1 ] .
 
 hari_term:DatatypeProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass hari_term:Class ;
-            owl:onProperty hari_term:hasDomainDatatype ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass hari_term:Datatype ;
             owl:onProperty hari_term:hasRangeDatatype ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass hari_term:Class ;
+            owl:onProperty hari_term:hasDomainDatatype ;
             owl:qualifiedCardinality 1 ] .
 
 hari_term:Restriction rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass hari_term:Property ;
             owl:onProperty hari_term:hasOnProperty ;
             owl:qualifiedCardinality 1 ] .
-
-hari_term:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass hari_term:Class ;
-            owl:onProperty hari_term:hasDomainClass ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass hari_term:Class ;
-            owl:onProperty hari_term:hasRangeClass ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass hari_term:ObjectProperty ;
-            owl:onProperty hari_term:hasInverseOf ] .
 
 hari_term:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
@@ -188,16 +219,45 @@ hari_term:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty hari_term:hasTermLabel ;
             owl:qualifiedCardinality 1 ] .
 
+hari_term:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass hari_term:ObjectProperty ;
+            owl:onProperty hari_term:hasInverseOf ],
+        [ a owl:Restriction ;
+            owl:onClass hari_term:Class ;
+            owl:onProperty hari_term:hasRangeClass ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass hari_term:Class ;
+            owl:onProperty hari_term:hasDomainClass ;
+            owl:qualifiedCardinality 1 ] .
+
 hari_term:Property rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty hari_term:isAssymetric ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
             owl:onProperty hari_term:isTransitive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isFunctional ;
+            owl:onProperty hari_term:isSymmetric ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isSymmetric ;
+            owl:onProperty hari_term:isIrreflexive ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty hari_term:isInverseFunctional ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty hari_term:isReflexive ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty hari_term:isFunctional ;
             owl:qualifiedCardinality 1 ] .
 

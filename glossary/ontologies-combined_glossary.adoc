@@ -51,11 +51,35 @@
       
     
       
+| hari_term:ClassComplement | 
+      
+    
+      
+| hari:ClassComplement | 
+      
+    
+      
+| hari_term:ClassIntersection | 
+      
+    
+      
+| hari:ClassIntersection | 
+      
+    
+      
 | hari_reuse:ClassReuse | 
       
     
       
 | hari:ClassReuse | 
+      
+    
+      
+| hari_term:ClassUnion | 
+      
+    
+      
+| hari:ClassUnion | 
       
     
       
@@ -83,6 +107,22 @@
       
     
       
+| hari_term:DatatypeComplement | 
+      
+    
+      
+| hari:DatatypeComplement | 
+      
+    
+      
+| hari_term:DatatypeIntersection | 
+      
+    
+      
+| hari:DatatypeIntersection | 
+      
+    
+      
 | hari_term:DatatypeProperty | 
       
     
@@ -96,6 +136,14 @@
     
       
 | hari:DatatypeReuse | 
+      
+    
+      
+| hari_term:DatatypeUnion | 
+      
+    
+      
+| hari:DatatypeUnion | 
       
     
       
@@ -179,6 +227,22 @@
       
     
       
+| hari_term:LogicalClassExpression | 
+      
+    
+      
+| hari:LogicalClassExpression | 
+      
+    
+      
+| hari_term:LogicalDatatypeExpression | 
+      
+    
+      
+| hari:LogicalDatatypeExpression | 
+      
+    
+      
 | hari_term:MaxCardinality | 
       
     
@@ -192,6 +256,38 @@
     
       
 | hari:MinCardinality | 
+      
+    
+      
+| hari_term:MonoValuedLogicalClassExpression | 
+      
+    
+      
+| hari:MonoValuedLogicalClassExpression | 
+      
+    
+      
+| hari_term:MonoValuedLogicalDatatypeExpression | 
+      
+    
+      
+| hari:MonoValuedLogicalDatatypeExpression | 
+      
+    
+      
+| hari_term:MultiValuedLogicalClassExpression | 
+      
+    
+      
+| hari:MultiValuedLogicalClassExpression | 
+      
+    
+      
+| hari_term:MultiValuedLogicalDatatypeExpression | 
+      
+    
+      
+| hari:MultiValuedLogicalDatatypeExpression | 
       
     
       
@@ -447,6 +543,26 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 | hari_term:OntologicalTerm
 | hari_term:hasTermIRI| 
   |xsd:string [1..1]
@@ -596,7 +712,31 @@
   
   
 | hari_term:Property
+| hari_term:isAssymetric| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari_term:Property
 | hari_term:isFunctional| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari_term:Property
+| hari_term:isInverseFunctional| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari_term:Property
+| hari_term:isIrreflexive| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari_term:Property
+| hari_term:isReflexive| 
   |xsd:boolean [1..1]
   
   
@@ -616,7 +756,31 @@
   
   
 | hari:Property
+| hari:isAssymetric| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
 | hari:isFunctional| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isInverseFunctional| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isIrreflexive| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isReflexive| 
   |xsd:boolean [1..1]
   
   
@@ -873,6 +1037,62 @@ hari_status:Stable → hari_status:Status [1..1]
 
   
   
+| hari_term:hasClassOperand| 
+  |hari_term:MonoValuedLogicalClassExpression → hari_term:Class [1..1]
+
+  
+
+  
+  
+| hari:hasClassOperand| 
+  |hari:MonoValuedLogicalClassExpression → hari:Class [1..1]
+
+  
+
+  
+  
+| hari_term:hasDatatypeOperand| 
+  |hari_term:MonoValuedLogicalDatatypeExpression → hari_term:Datatype [1..1]
+
+  
+
+  
+  
+| hari:hasDatatypeOperand| 
+  |hari:MonoValuedLogicalDatatypeExpression → hari:Datatype [1..1]
+
+  
+
+  
+  
+| hari_term:hasClassOperands| 
+  |hari_term:MultiValuedLogicalClassExpression → hari_term:Class [0..&#42;]
+
+  
+
+  
+  
+| hari:hasClassOperands| 
+  |hari:MultiValuedLogicalClassExpression → hari:Class [0..&#42;]
+
+  
+
+  
+  
+| hari_term:hasDatatypeOperands| 
+  |hari_term:MultiValuedLogicalDatatypeExpression → hari_term:Datatype [0..&#42;]
+
+  
+
+  
+  
+| hari:hasDatatypeOperands| 
+  |hari:MultiValuedLogicalDatatypeExpression → hari:Datatype [0..&#42;]
+
+  
+
+  
+  
 | hari_term:hasDomainClass| 
   |hari_term:ObjectProperty → hari_term:Class [1..1]
 
@@ -882,6 +1102,13 @@ hari_status:Stable → hari_status:Status [1..1]
   
 | hari_term:hasInverseOf| 
   |hari_term:ObjectProperty → hari_term:ObjectProperty [0..1]
+
+  
+
+  
+  
+| hari_term:hasPropertyChain| 
+  |hari_term:ObjectProperty → hari_term:ObjectProperty [0..&#42;]
 
   
 
@@ -903,6 +1130,13 @@ hari_status:Stable → hari_status:Status [1..1]
   
 | hari:hasInverseOf| 
   |hari:ObjectProperty → hari:ObjectProperty [0..1]
+
+  
+
+  
+  
+| hari:hasPropertyChain| 
+  |hari:ObjectProperty → hari:ObjectProperty [0..&#42;]
 
   
 
@@ -1071,9 +1305,41 @@ hari_status:Stable → hari_status:Status [1..1]
 
   
   
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
 | hari:hasSubPropertyOf| 
   |hari:Property → hari:Property [0..&#42;]
 
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
   
 
   

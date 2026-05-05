@@ -16,20 +16,40 @@ hari_term:AnotationProperty a owl:Class ;
     rdfs:subClassOf hari_term:Property ;
     skos:prefLabel "Anotation Property"@en .
 
-hari_term:Class a owl:Class ;
+hari_term:ClassComplement a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Types ;
-    skos:prefLabel "Class"@en .
+    rdfs:subClassOf hari_term:MonoValuedLogicalClassExpression ;
+    skos:prefLabel "Class Complement"@en .
 
-hari_term:Datatype a owl:Class ;
+hari_term:ClassIntersection a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Types ;
-    skos:prefLabel "Datatype"@en .
+    rdfs:subClassOf hari_term:MultiValuedLogicalClassExpression ;
+    skos:prefLabel "Class Intersection"@en .
+
+hari_term:ClassUnion a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:MultiValuedLogicalClassExpression ;
+    skos:prefLabel "Class Union"@en .
+
+hari_term:DatatypeComplement a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:MonoValuedLogicalDatatypeExpression ;
+    skos:prefLabel "Datatype Complement"@en .
+
+hari_term:DatatypeIntersection a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:MultiValuedLogicalDatatypeExpression ;
+    skos:prefLabel "Datatype Intersection"@en .
 
 hari_term:DatatypeProperty a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:Property ;
     skos:prefLabel "Datatype Property"@en .
+
+hari_term:DatatypeUnion a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:MultiValuedLogicalDatatypeExpression ;
+    skos:prefLabel "Datatype Union"@en .
 
 hari_term:ExactCardinality a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
@@ -70,6 +90,22 @@ hari_term:hasCardinalityValue a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Cardinality Value"@en .
 
+hari_term:hasClassOperand a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "has Class Operand"@en .
+
+hari_term:hasClassOperands a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "has Class Operands"@en .
+
+hari_term:hasDatatypeOperand a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "has Datatype Operand"@en .
+
+hari_term:hasDatatypeOperands a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "has Datatype Operands"@en .
+
 hari_term:hasDisjointWith a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Disjoint With"@en .
@@ -97,6 +133,10 @@ hari_term:hasInverseOf a owl:ObjectProperty ;
 hari_term:hasOnProperty a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has On Property"@en .
+
+hari_term:hasPropertyChain a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "has Property Chain"@en .
 
 hari_term:hasQualifiedTarget a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
@@ -146,9 +186,25 @@ hari_term:hasValuesFrom a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Values From"@en .
 
+hari_term:isAssymetric a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "is Assymetric"@en .
+
 hari_term:isFunctional a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "is Functional"@en .
+
+hari_term:isInverseFunctional a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "is Inverse Functional"@en .
+
+hari_term:isIrreflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "is Irreflexive"@en .
+
+hari_term:isReflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari_term:core ;
+    skos:prefLabel "is Reflexive"@en .
 
 hari_term:isSelf a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
@@ -161,6 +217,46 @@ hari_term:isSymmetric a owl:DatatypeProperty ;
 hari_term:isTransitive a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "is Transitive"@en .
+
+hari_term:Class a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:Types ;
+    skos:prefLabel "Class"@en .
+
+hari_term:Datatype a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:Types ;
+    skos:prefLabel "Datatype"@en .
+
+hari_term:MonoValuedLogicalClassExpression a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:LogicalClassExpression ;
+    skos:prefLabel "Mono Valued Logical Class Expression"@en .
+
+hari_term:MonoValuedLogicalDatatypeExpression a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:LogicalDatatypeExpression ;
+    skos:prefLabel "Mono Valued Logical Datatype Expression"@en .
+
+hari_term:LogicalClassExpression a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:Class ;
+    skos:prefLabel "Logical Class Expression"@en .
+
+hari_term:LogicalDatatypeExpression a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:Datatype ;
+    skos:prefLabel "Logical Datatype Expression"@en .
+
+hari_term:MultiValuedLogicalClassExpression a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:LogicalClassExpression ;
+    skos:prefLabel "Multi Valued Logical Class Expression"@en .
+
+hari_term:MultiValuedLogicalDatatypeExpression a owl:Class ;
+    rdfs:isDefinedBy hari_term:core ;
+    rdfs:subClassOf hari_term:LogicalDatatypeExpression ;
+    skos:prefLabel "Multi Valued Logical Datatype Expression"@en .
 
 hari_term:Types a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
@@ -196,13 +292,13 @@ hari_term:core a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Ontología principal del proyecto Hari."@en ;
-    dcterms:issued "2026-04-29"^^xsd:date ;
+    dcterms:issued "2026-05-05"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Core"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari_term.xml on 2026-04-29" ;
+    rdfs:comment "This version is automatically generated from hari_term.xml on 2026-05-05" ;
     owl:imports skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari_term#core-" ;

@@ -28,6 +28,16 @@ core-shape:hari_term-CardinalityRestrictionShape a sh:NodeShape ;
                 }""" ] ;
     sh:targetClass hari_term:CardinalityRestriction .
 
+core-shape:hari_term-ClassComplementShape a sh:NodeShape ;
+    rdfs:label "Class Complement" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_term:ClassComplement .
+
+core-shape:hari_term-ClassIntersectionShape a sh:NodeShape ;
+    rdfs:label "Class Intersection" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_term:ClassIntersection .
+
 core-shape:hari_term-ClassShape a sh:NodeShape ;
     rdfs:label "Class" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -36,6 +46,21 @@ core-shape:hari_term-ClassShape a sh:NodeShape ;
         core-shape:hari_term-Class-hari_term-hasRestriction,
         core-shape:hari_term-Class-hari_term-hasSubClassOf ;
     sh:targetClass hari_term:Class .
+
+core-shape:hari_term-ClassUnionShape a sh:NodeShape ;
+    rdfs:label "Class Union" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_term:ClassUnion .
+
+core-shape:hari_term-DatatypeComplementShape a sh:NodeShape ;
+    rdfs:label "Datatype Complement" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_term:DatatypeComplement .
+
+core-shape:hari_term-DatatypeIntersectionShape a sh:NodeShape ;
+    rdfs:label "Datatype Intersection" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_term:DatatypeIntersection .
 
 core-shape:hari_term-DatatypePropertyShape a sh:NodeShape ;
     rdfs:label "Datatype Property" ;
@@ -48,6 +73,11 @@ core-shape:hari_term-DatatypeShape a sh:NodeShape ;
     rdfs:label "Datatype" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari_term:Datatype .
+
+core-shape:hari_term-DatatypeUnionShape a sh:NodeShape ;
+    rdfs:label "Datatype Union" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_term:DatatypeUnion .
 
 core-shape:hari_term-ExactCardinalityShape a sh:NodeShape ;
     rdfs:label "Exact Cardinality" ;
@@ -66,6 +96,20 @@ core-shape:hari_term-HasValueShape a sh:NodeShape ;
     sh:property core-shape:hari_term-HasValue-hari_term-hasTargetValue ;
     sh:targetClass hari_term:HasValue .
 
+core-shape:hari_term-LogicalClassExpressionShape a sh:NodeShape ;
+    rdfs:label "Logical Class Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_term#LogicalClassExpression> .
+                }""" ] ;
+    sh:targetClass hari_term:LogicalClassExpression .
+
+core-shape:hari_term-LogicalDatatypeExpressionShape a sh:NodeShape ;
+    rdfs:label "Logical Datatype Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_term#LogicalDatatypeExpression> .
+                }""" ] ;
+    sh:targetClass hari_term:LogicalDatatypeExpression .
+
 core-shape:hari_term-MaxCardinalityShape a sh:NodeShape ;
     rdfs:label "Max Cardinality" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -76,11 +120,44 @@ core-shape:hari_term-MinCardinalityShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari_term:MinCardinality .
 
+core-shape:hari_term-MonoValuedLogicalClassExpressionShape a sh:NodeShape ;
+    rdfs:label "Mono Valued Logical Class Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_term-MonoValuedLogicalClassExpression-hari_term-hasClassOperand ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_term#MonoValuedLogicalClassExpression> .
+                }""" ] ;
+    sh:targetClass hari_term:MonoValuedLogicalClassExpression .
+
+core-shape:hari_term-MonoValuedLogicalDatatypeExpressionShape a sh:NodeShape ;
+    rdfs:label "Mono Valued Logical Datatype Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_term-MonoValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperand ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_term#MonoValuedLogicalDatatypeExpression> .
+                }""" ] ;
+    sh:targetClass hari_term:MonoValuedLogicalDatatypeExpression .
+
+core-shape:hari_term-MultiValuedLogicalClassExpressionShape a sh:NodeShape ;
+    rdfs:label "Multi Valued Logical Class Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_term-MultiValuedLogicalClassExpression-hari_term-hasClassOperands ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_term#MultiValuedLogicalClassExpression> .
+                }""" ] ;
+    sh:targetClass hari_term:MultiValuedLogicalClassExpression .
+
+core-shape:hari_term-MultiValuedLogicalDatatypeExpressionShape a sh:NodeShape ;
+    rdfs:label "Multi Valued Logical Datatype Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_term-MultiValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperands ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_term#MultiValuedLogicalDatatypeExpression> .
+                }""" ] ;
+    sh:targetClass hari_term:MultiValuedLogicalDatatypeExpression .
+
 core-shape:hari_term-ObjectPropertyShape a sh:NodeShape ;
     rdfs:label "Object Property" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_term-ObjectProperty-hari_term-hasDomainClass,
         core-shape:hari_term-ObjectProperty-hari_term-hasInverseOf,
+        core-shape:hari_term-ObjectProperty-hari_term-hasPropertyChain,
         core-shape:hari_term-ObjectProperty-hari_term-hasRangeClass ;
     sh:targetClass hari_term:ObjectProperty .
 
@@ -99,7 +176,11 @@ core-shape:hari_term-PropertyShape a sh:NodeShape ;
     rdfs:label "Property" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_term-Property-hari_term-hasSubPropertyOf,
+        core-shape:hari_term-Property-hari_term-isAssymetric,
         core-shape:hari_term-Property-hari_term-isFunctional,
+        core-shape:hari_term-Property-hari_term-isInverseFunctional,
+        core-shape:hari_term-Property-hari_term-isIrreflexive,
+        core-shape:hari_term-Property-hari_term-isReflexive,
         core-shape:hari_term-Property-hari_term-isSymmetric,
         core-shape:hari_term-Property-hari_term-isTransitive ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_term#Property> .
@@ -222,6 +303,38 @@ core-shape:hari_term-HasValue-hari_term-hasTargetValue a sh:PropertyShape ;
     sh:name "Has target value" ;
     sh:path hari_term:hasTargetValue .
 
+core-shape:hari_term-MonoValuedLogicalClassExpression-hari_term-hasClassOperand a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari_term:Class ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has class operand" ;
+    sh:path hari_term:hasClassOperand ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_term#hasClassOperand> ?that . ?that <http://hari-meta.org/ontology/hari_term#hasClassOperand> ?this .}" ] .
+
+core-shape:hari_term-MonoValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperand a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari_term:Datatype ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has datatype operand" ;
+    sh:path hari_term:hasDatatypeOperand ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_term#hasDatatypeOperand> ?that . ?that <http://hari-meta.org/ontology/hari_term#hasDatatypeOperand> ?this .}" ] .
+
+core-shape:hari_term-MultiValuedLogicalClassExpression-hari_term-hasClassOperands a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari_term:Class ;
+    sh:name "Has class operands" ;
+    sh:path hari_term:hasClassOperands ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_term#hasClassOperands> ?that . ?that <http://hari-meta.org/ontology/hari_term#hasClassOperands> ?this .}" ] .
+
+core-shape:hari_term-MultiValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperands a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari_term:Datatype ;
+    sh:name "Has datatype operands" ;
+    sh:path hari_term:hasDatatypeOperands ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_term#hasDatatypeOperands> ?that . ?that <http://hari-meta.org/ontology/hari_term#hasDatatypeOperands> ?this .}" ] .
+
 core-shape:hari_term-ObjectProperty-hari_term-hasDomainClass a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari_term:Class ;
@@ -238,6 +351,13 @@ core-shape:hari_term-ObjectProperty-hari_term-hasInverseOf a sh:PropertyShape ;
     sh:name "Has inverse of" ;
     sh:path hari_term:hasInverseOf ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_term#hasInverseOf> ?that . ?that <http://hari-meta.org/ontology/hari_term#hasInverseOf> ?this .}" ] .
+
+core-shape:hari_term-ObjectProperty-hari_term-hasPropertyChain a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari_term:ObjectProperty ;
+    sh:name "Has property chain" ;
+    sh:path hari_term:hasPropertyChain ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_term#hasPropertyChain> ?that . ?that <http://hari-meta.org/ontology/hari_term#hasPropertyChain> ?this .}" ] .
 
 core-shape:hari_term-ObjectProperty-hari_term-hasRangeClass a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -285,6 +405,14 @@ core-shape:hari_term-Property-hari_term-hasSubPropertyOf a sh:PropertyShape ;
     sh:path hari_term:hasSubPropertyOf ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_term#hasSubPropertyOf> ?that . ?that <http://hari-meta.org/ontology/hari_term#hasSubPropertyOf> ?this .}" ] .
 
+core-shape:hari_term-Property-hari_term-isAssymetric a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is assymetric" ;
+    sh:path hari_term:isAssymetric .
+
 core-shape:hari_term-Property-hari_term-isFunctional a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:boolean ;
@@ -292,6 +420,30 @@ core-shape:hari_term-Property-hari_term-isFunctional a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Is functional" ;
     sh:path hari_term:isFunctional .
+
+core-shape:hari_term-Property-hari_term-isInverseFunctional a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is inverse functional" ;
+    sh:path hari_term:isInverseFunctional .
+
+core-shape:hari_term-Property-hari_term-isIrreflexive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is irreflexive" ;
+    sh:path hari_term:isIrreflexive .
+
+core-shape:hari_term-Property-hari_term-isReflexive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is reflexive" ;
+    sh:path hari_term:isReflexive .
 
 core-shape:hari_term-Property-hari_term-isSymmetric a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -331,13 +483,13 @@ core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-04-29"^^xsd:date ;
+    dcterms:issued "2026-05-05"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari_term.xml on 2026-04-29" ;
+    rdfs:comment "This version is automatically generated from hari_term.xml on 2026-05-05" ;
     owl:imports hari_term:core,
         hari_term:core-restriction,
         skos: ;

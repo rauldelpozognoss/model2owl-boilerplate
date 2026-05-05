@@ -31,7 +31,19 @@
       
     
       
+| hari:ClassComplement | 
+      
+    
+      
+| hari:ClassIntersection | 
+      
+    
+      
 | hari:ClassReuse | 
+      
+    
+      
+| hari:ClassUnion | 
       
     
       
@@ -47,11 +59,23 @@
       
     
       
+| hari:DatatypeComplement | 
+      
+    
+      
+| hari:DatatypeIntersection | 
+      
+    
+      
 | hari:DatatypeProperty | 
       
     
       
 | hari:DatatypeReuse | 
+      
+    
+      
+| hari:DatatypeUnion | 
       
     
       
@@ -95,11 +119,35 @@
       
     
       
+| hari:LogicalClassExpression | 
+      
+    
+      
+| hari:LogicalDatatypeExpression | 
+      
+    
+      
 | hari:MaxCardinality | 
       
     
       
 | hari:MinCardinality | 
+      
+    
+      
+| hari:MonoValuedLogicalClassExpression | 
+      
+    
+      
+| hari:MonoValuedLogicalDatatypeExpression | 
+      
+    
+      
+| hari:MultiValuedLogicalClassExpression | 
+      
+    
+      
+| hari:MultiValuedLogicalDatatypeExpression | 
       
     
       
@@ -239,6 +287,16 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 | hari:OntologicalTerm
 | hari:hasTermIRI| 
   |xsd:string [1..1]
@@ -322,7 +380,31 @@
   
   
 | hari:Property
+| hari:isAssymetric| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
 | hari:isFunctional| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isInverseFunctional| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isIrreflexive| 
+  |xsd:boolean [1..1]
+  
+  
+  
+| hari:Property
+| hari:isReflexive| 
   |xsd:boolean [1..1]
   
   
@@ -480,6 +562,34 @@ hari:Stable → hari:Status [1..1]
 
   
   
+| hari:hasClassOperand| 
+  |hari:MonoValuedLogicalClassExpression → hari:Class [1..1]
+
+  
+
+  
+  
+| hari:hasDatatypeOperand| 
+  |hari:MonoValuedLogicalDatatypeExpression → hari:Datatype [1..1]
+
+  
+
+  
+  
+| hari:hasClassOperands| 
+  |hari:MultiValuedLogicalClassExpression → hari:Class [0..&#42;]
+
+  
+
+  
+  
+| hari:hasDatatypeOperands| 
+  |hari:MultiValuedLogicalDatatypeExpression → hari:Datatype [0..&#42;]
+
+  
+
+  
+  
 | hari:hasDomainClass| 
   |hari:ObjectProperty → hari:Class [1..1]
 
@@ -489,6 +599,13 @@ hari:Stable → hari:Status [1..1]
   
 | hari:hasInverseOf| 
   |hari:ObjectProperty → hari:ObjectProperty [0..1]
+
+  
+
+  
+  
+| hari:hasPropertyChain| 
+  |hari:ObjectProperty → hari:ObjectProperty [0..&#42;]
 
   
 
@@ -597,6 +714,22 @@ hari:Stable → hari:Status [1..1]
 | hari:hasSubPropertyOf| 
   |hari:Property → hari:Property [0..&#42;]
 
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
   
 
   
