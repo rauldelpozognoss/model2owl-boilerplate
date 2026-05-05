@@ -16,7 +16,7 @@ core-shape:hari_extension-ConstraintExtensionShape a sh:NodeShape ;
 core-shape:hari_extension-ExtensionDecisionShape a sh:NodeShape ;
     rdfs:label "Extension Decision" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari_extension-ExtensionDecision-hari_extension-hasJustificacion ;
+    sh:property core-shape:hari_extension-ExtensionDecision-hari_extension-hasExtensionReason ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_extension#ExtensionDecision> .
                 }""" ] ;
     sh:targetClass hari_extension:ExtensionDecision .
@@ -31,12 +31,12 @@ core-shape:hari_extension-SemanticExtensionShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari_extension:SemanticExtension .
 
-core-shape:hari_extension-ExtensionDecision-hari_extension-hasJustificacion a sh:PropertyShape ;
+core-shape:hari_extension-ExtensionDecision-hari_extension-hasExtensionReason a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
-    sh:name "Has justificacion" ;
-    sh:path hari_extension:hasJustificacion .
+    sh:name "Has extension reason" ;
+    sh:path hari_extension:hasExtensionReason .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;

@@ -7,31 +7,179 @@
    xmlns:sh="http://www.w3.org/ns/shacl#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isIrreflexive">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermLabel">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isIrreflexive"/>
-    <sh:name>Is irreflexive</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermLabel"/>
+    <sh:name>Has term label</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasCardinalityValue">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasCardinalityValue"/>
+    <sh:name>Has cardinality value</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isFunctional">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isFunctional"/>
+    <sh:name>Is functional</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
     <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestrictionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#CardinalityRestriction"/>
+    <sh:sparql rdf:nodeID="Na5a4460eef0942899a70e1981d1238d6"/>
+    <rdfs:label>Cardinality Restriction</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasCardinalityValue"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasQualifiedTarget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTermShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#OntologicalTerm"/>
+    <sh:sparql rdf:nodeID="Nbe2299af5e184484a22ecd4fc101097d"/>
+    <rdfs:label>Ontological Term</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermIRI"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermLabel"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermDefinition"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermExample"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MaxCardinalityShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MaxCardinality"/>
+    <rdfs:label>Max Cardinality</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalClassExpression-hari_term-hasClassOperands">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+    <sh:sparql rdf:nodeID="N141cd3a8b4644d85b2f6272a5566229b"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasClassOperands"/>
+    <sh:name>Has class operands</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isAssymetric">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isAssymetric"/>
+    <sh:name>Is assymetric</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalDatatypeExpressionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MonoValuedLogicalDatatypeExpression"/>
+    <sh:sparql rdf:nodeID="N4b5971c153f44d3e86144bfbb27928a9"/>
+    <rdfs:label>Mono Valued Logical Datatype Expression</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperand"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isReflexive">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isReflexive"/>
+    <sh:name>Is reflexive</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalClassExpressionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MonoValuedLogicalClassExpression"/>
+    <sh:sparql rdf:nodeID="Nb973bde3464541398c3550ab6045f4cf"/>
+    <rdfs:label>Mono Valued Logical Class Expression</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalClassExpression-hari_term-hasClassOperand"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasDomainClass">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N307391a4ad5f4aeb97e4a0b90abfd6f5"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDomainClass"/>
+    <sh:name>Has domain class</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperand">
     <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Datatype"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N3d6d91ae535c42269627708099724a42"/>
+    <sh:sparql rdf:nodeID="N096cb97d80514ae9a76ca795f933093e"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDatatypeOperand"/>
     <sh:name>Has datatype operand</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperands">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Datatype"/>
-    <sh:sparql rdf:nodeID="N4532b57eaeb94457abddb5cd4e3a5e0c"/>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeIntersectionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeIntersection"/>
+    <rdfs:label>Datatype Intersection</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Restriction-hari_term-hasOnProperty">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Property"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N246f1fbfa4014db599d283492594633d"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDatatypeOperands"/>
-    <sh:name>Has datatype operands</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasOnProperty"/>
+    <sh:name>Has on property</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-SomeValuesFromShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#SomeValuesFrom"/>
+    <rdfs:label>Some Values From</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasSubClassOf">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+    <sh:sparql rdf:nodeID="Nb5a31238920f4172938ee33dfe216a81"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasSubClassOf"/>
+    <sh:name>Has sub class of</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-hasSubPropertyOf">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Property"/>
+    <sh:sparql rdf:nodeID="N336254f8961e4b79b0b37102400602c8"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasSubPropertyOf"/>
+    <sh:name>Has sub property of</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb5a31238920f4172938ee33dfe216a81">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasSubClassOf&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasSubClassOf&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasDomainDatatype">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N61a821897c8d49e5bb2d375746426256"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDomainDatatype"/>
+    <sh:name>Has domain datatype</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasInverseOf">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#ObjectProperty"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N95806726a0ea414ba4ddc0d961912540"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasInverseOf"/>
+    <sh:name>Has inverse of</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ClassShape">
@@ -44,38 +192,44 @@
     <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasDisjointWith"/>
     <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasEquivalentTo"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasPropertyChain">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#ObjectProperty"/>
-    <sh:sparql rdf:nodeID="N14330c2267374e9f9de1e8a81d4d0447"/>
+  <rdf:Description rdf:nodeID="Nd696b69270b444c29ee7355ee3c06889">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasEquivalentTo&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasEquivalentTo&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ClassUnionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ClassUnion"/>
+    <rdfs:label>Class Union</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasQualifiedTarget">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Types"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N4427c425dd7642f3bd2d55b50bf7d31c"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasPropertyChain"/>
-    <sh:name>Has property chain</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasQualifiedTarget"/>
+    <sh:name>Has qualified target</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalDatatypeExpressionShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermIRI">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermIRI"/>
+    <sh:name>Has term IRI</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ClassComplementShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MultiValuedLogicalDatatypeExpression"/>
-    <sh:sparql rdf:nodeID="Na03a01800eb2409b8cebe228e82cd1e8"/>
-    <rdfs:label>Multi Valued Logical Datatype Expression</rdfs:label>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ClassComplement"/>
+    <rdfs:label>Class Complement</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperands"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-RestrictionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#Restriction"/>
-    <sh:sparql rdf:nodeID="Ncf775ec552d543d4bdc262885b51c09d"/>
-    <rdfs:label>Restriction</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-Restriction-hari_term-hasOnProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9cd4da02e52e4101801af09db5ec3fb1">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#MonoValuedLogicalDatatypeExpression&gt; .
-                }</sh:select>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-PropertyShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
     <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#Property"/>
-    <sh:sparql rdf:nodeID="N717f527419fe46588e0d7a4ca5ec4d68"/>
+    <sh:sparql rdf:nodeID="N939c29a637ff40e792f07a838e185f3c"/>
     <rdfs:label>Property</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
     <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isTransitive"/>
@@ -87,8 +241,68 @@
     <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isIrreflexive"/>
     <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-hasSubPropertyOf"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N56d24fb71eca484997d32035edc6a6f1">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasClassOperands&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasClassOperands&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ExactCardinalityShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ExactCardinality"/>
+    <rdfs:label>Exact Cardinality</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-TypesShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#Types"/>
+    <sh:sparql rdf:nodeID="N2617d28daccc45c09b51f0cc1a884a8b"/>
+    <rdfs:label>Types</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-LogicalDatatypeExpressionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#LogicalDatatypeExpression"/>
+    <sh:sparql rdf:nodeID="Ncfa4e623efae449bacbee0a8dd69c9e8"/>
+    <rdfs:label>Logical Datatype Expression</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-LogicalClassExpressionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#LogicalClassExpression"/>
+    <sh:sparql rdf:nodeID="N0ab8fe30a710483aad86bb783bb4789c"/>
+    <rdfs:label>Logical Class Expression</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N096cb97d80514ae9a76ca795f933093e">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperand&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperand&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne79bb5f46aa9422cb61f647bfaf09fa7">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#MultiValuedLogicalClassExpression&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N61a821897c8d49e5bb2d375746426256">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDomainDatatype&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDomainDatatype&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-AnotationPropertyShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#AnotationProperty"/>
+    <rdfs:label>Anotation Property</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-AnotationProperty-hari_term-hasDomainAnotation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermDefinition">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermDefinition"/>
+    <sh:name>Has term definition</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalClassExpression-hari_term-hasClassOperand">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Nc145076456ab4169a3d34bd0b9f1f6e9"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasClassOperand"/>
+    <sh:name>Has class operand</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#core-shape">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -110,124 +324,12 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasRangeClass">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N75b3fe35d3c04d13a0379458a1744c2c"/>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isIrreflexive">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasRangeClass"/>
-    <sh:name>Has range class</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#Datatype"/>
-    <rdfs:label>Datatype</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasDomainClass">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N549cde16d2d34c9097c574b74217f2ba"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDomainClass"/>
-    <sh:name>Has domain class</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasRestriction">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Restriction"/>
-    <sh:sparql rdf:nodeID="Ncf9fe0ab15b5423e9f7f3161e8c7a0a8"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasRestriction"/>
-    <sh:name>Has restriction</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isReflexive">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isReflexive"/>
-    <sh:name>Is reflexive</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isIrreflexive"/>
+    <sh:name>Is irreflexive</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
     <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermLabel">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermLabel"/>
-    <sh:name>Has term label</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3e3295616852472e8f0a200f418160da">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasValuesFrom&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasValuesFrom&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isInverseFunctional">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isInverseFunctional"/>
-    <sh:name>Is inverse functional</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalClassExpressionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MonoValuedLogicalClassExpression"/>
-    <sh:sparql rdf:nodeID="N9db7898e96704f77bf6167734116c24f"/>
-    <rdfs:label>Mono Valued Logical Class Expression</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalClassExpression-hari_term-hasClassOperand"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasDisjointWith">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
-    <sh:sparql rdf:nodeID="N54db6d55c7d246fb83f2d3086dcbe1e8"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDisjointWith"/>
-    <sh:name>Has disjoint with</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermExample">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermExample"/>
-    <sh:name>Has term example</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ExactCardinalityShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ExactCardinality"/>
-    <rdfs:label>Exact Cardinality</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N204fe76f446141a4bcbb454d464a1a72">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasSubPropertyOf&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasSubPropertyOf&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasEquivalentTo">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
-    <sh:sparql rdf:nodeID="Na08b9f74d4c24c15bbdcb3501715aff4"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasEquivalentTo"/>
-    <sh:name>Has equivalent to</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypePropertyShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeProperty"/>
-    <rdfs:label>Datatype Property</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasDomainDatatype"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasRangeDatatype"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermIRI">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermIRI"/>
-    <sh:name>Has term IRI</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
@@ -240,69 +342,81 @@
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasRangeDatatype">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Datatype"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Ne0edc7d88a5641f58c84e91c6dfdc2cb"/>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasPropertyChain">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#ObjectProperty"/>
+    <sh:sparql rdf:nodeID="N3bbeb6a9559b4f23b333b39e8fbb4626"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasRangeDatatype"/>
-    <sh:name>Has range datatype</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasPropertyChain"/>
+    <sh:name>Has property chain</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-hasSubPropertyOf">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Property"/>
-    <sh:sparql rdf:nodeID="N204fe76f446141a4bcbb454d464a1a72"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasSubPropertyOf"/>
-    <sh:name>Has sub property of</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTermShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ValuesFromShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#OntologicalTerm"/>
-    <sh:sparql rdf:nodeID="Ncf297232befd4ece844dd277fedb104c"/>
-    <rdfs:label>Ontological Term</rdfs:label>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ValuesFrom"/>
+    <sh:sparql rdf:nodeID="Nd11cb63991f14b25ae8995bfc70ab8f3"/>
+    <rdfs:label>Values From</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermIRI"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermLabel"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermDefinition"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermExample"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-ValuesFrom-hari_term-hasValuesFrom"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isSymmetric">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isSymmetric"/>
-    <sh:name>Is symmetric</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalClassExpression-hari_term-hasClassOperand">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasRangeClass">
     <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Na2f1774ae7f14b80bae5242d713635e0"/>
+    <sh:sparql rdf:nodeID="Nc1fbcf890d4745448b63827e469bca9d"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasClassOperand"/>
-    <sh:name>Has class operand</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasRangeClass"/>
+    <sh:name>Has range class</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeUnionShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-RestrictionShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeUnion"/>
-    <rdfs:label>Datatype Union</rdfs:label>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#Restriction"/>
+    <sh:sparql rdf:nodeID="N26e5471b4d5a4c9486305ebe646b1791"/>
+    <rdfs:label>Restriction</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-Restriction-hari_term-hasOnProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasDisjointWith">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+    <sh:sparql rdf:nodeID="Ne455b090cb7d48a5bf0ec55533f36e70"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDisjointWith"/>
+    <sh:name>Has disjoint with</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ValuesFrom-hari_term-hasValuesFrom">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Types"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N3e3295616852472e8f0a200f418160da"/>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperands">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Datatype"/>
+    <sh:sparql rdf:nodeID="N6a7a4e0e64c3489787265e0b00a74ee6"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasValuesFrom"/>
-    <sh:name>Has values from</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDatatypeOperands"/>
+    <sh:name>Has datatype operands</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypePropertyShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeProperty"/>
+    <rdfs:label>Datatype Property</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasDomainDatatype"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasRangeDatatype"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasRestriction">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Restriction"/>
+    <sh:sparql rdf:nodeID="N73022b0d1ad14ab39bf298cc16f7796f"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasRestriction"/>
+    <sh:name>Has restriction</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N95b9c70e99e2431cb6c2fc7624b2a0eb">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDomainAnotation&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDomainAnotation&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-HasSelfShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#HasSelf"/>
+    <rdfs:label>Has Self</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-HasSelf-hari_term-isSelf"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectPropertyShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
@@ -314,233 +428,30 @@
     <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasInverseOf"/>
     <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasPropertyChain"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-TypesShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#Types"/>
-    <sh:sparql rdf:nodeID="N2d72e6288d4840e48197e058df4526e7"/>
-    <rdfs:label>Types</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalDatatypeExpressionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MonoValuedLogicalDatatypeExpression"/>
-    <sh:sparql rdf:nodeID="N9cd4da02e52e4101801af09db5ec3fb1"/>
-    <rdfs:label>Mono Valued Logical Datatype Expression</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MonoValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperand"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasDomainDatatype">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ValuesFrom-hari_term-hasValuesFrom">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Types"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N9c5e2440ebeb4e31b28cc7a1f29a9f4d"/>
+    <sh:sparql rdf:nodeID="Nc8ac95489c28429cb26f5d055a2b5f11"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDomainDatatype"/>
-    <sh:name>Has domain datatype</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasValuesFrom"/>
+    <sh:name>Has values from</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ValuesFromShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ValuesFrom"/>
-    <sh:sparql rdf:nodeID="N0a83ceedc8d5442f8d3f84238368691f"/>
-    <rdfs:label>Values From</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-ValuesFrom-hari_term-hasValuesFrom"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalClassExpressionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MultiValuedLogicalClassExpression"/>
-    <sh:sparql rdf:nodeID="N729eb5b8f87748d0a4c0a9eb15ad8e28"/>
-    <rdfs:label>Multi Valued Logical Class Expression</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalClassExpression-hari_term-hasClassOperands"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ClassUnionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ClassUnion"/>
-    <rdfs:label>Class Union</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-SomeValuesFromShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#SomeValuesFrom"/>
-    <rdfs:label>Some Values From</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isFunctional">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isFunctional"/>
-    <sh:name>Is functional</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-AnotationProperty-hari_term-hasDomainAnotation">
     <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#OntologicalTerm"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N23bb1f2e19a4442a9c7269593f60a52e"/>
+    <sh:sparql rdf:nodeID="N95b9c70e99e2431cb6c2fc7624b2a0eb"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasDomainAnotation"/>
     <sh:name>Has domain anotation</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ObjectProperty-hari_term-hasInverseOf">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#ObjectProperty"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N30d047e765b64e309c8599c0db2bd5e2"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasInverseOf"/>
-    <sh:name>Has inverse of</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasQualifiedTarget">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Types"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Nb887e23dedda42debebc220b67072eaf"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasQualifiedTarget"/>
-    <sh:name>Has qualified target</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermDefinition">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermDefinition"/>
-    <sh:name>Has term definition</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isTransitive">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isTransitive"/>
-    <sh:name>Is transitive</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeIntersectionShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-AllValuesFromShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeIntersection"/>
-    <rdfs:label>Datatype Intersection</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Restriction-hari_term-hasOnProperty">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Property"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Nd50e95a305994f2590907d36b32c32e7"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasOnProperty"/>
-    <sh:name>Has on property</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N729eb5b8f87748d0a4c0a9eb15ad8e28">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#MultiValuedLogicalClassExpression&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncf775ec552d543d4bdc262885b51c09d">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#Restriction&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-LogicalClassExpressionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#LogicalClassExpression"/>
-    <sh:sparql rdf:nodeID="N1003efb31aab419088e95bcd6a6de217"/>
-    <rdfs:label>Logical Class Expression</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasCardinalityValue">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasCardinalityValue"/>
-    <sh:name>Has cardinality value</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasSubClassOf">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
-    <sh:sparql rdf:nodeID="Ncc37f5a5de5e4c83a5f2319ae031d920"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasSubClassOf"/>
-    <sh:name>Has sub class of</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-AnotationPropertyShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#AnotationProperty"/>
-    <rdfs:label>Anotation Property</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-AnotationProperty-hari_term-hasDomainAnotation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestrictionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#CardinalityRestriction"/>
-    <sh:sparql rdf:nodeID="N0ef78e4901e246bc9d54160c6d9ef7e1"/>
-    <rdfs:label>Cardinality Restriction</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasCardinalityValue"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-CardinalityRestriction-hari_term-hasQualifiedTarget"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalClassExpression-hari_term-hasClassOperands">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
-    <sh:sparql rdf:nodeID="N56d24fb71eca484997d32035edc6a6f1"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasClassOperands"/>
-    <sh:name>Has class operands</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isAssymetric">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isAssymetric"/>
-    <sh:name>Is assymetric</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na03a01800eb2409b8cebe228e82cd1e8">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#MultiValuedLogicalDatatypeExpression&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N75b3fe35d3c04d13a0379458a1744c2c">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasRangeClass&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasRangeClass&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-HasValueShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#HasValue"/>
-    <rdfs:label>Has Value</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-HasValue-hari_term-hasTargetValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeComplementShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeComplement"/>
-    <rdfs:label>Datatype Complement</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MinCardinalityShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MinCardinality"/>
-    <rdfs:label>Min Cardinality</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne0edc7d88a5641f58c84e91c6dfdc2cb">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasRangeDatatype&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasRangeDatatype&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0ef78e4901e246bc9d54160c6d9ef7e1">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#CardinalityRestriction&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ClassIntersectionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ClassIntersection"/>
-    <rdfs:label>Class Intersection</rdfs:label>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#AllValuesFrom"/>
+    <rdfs:label>All Values From</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-HasValue-hari_term-hasTargetValue">
@@ -552,106 +463,195 @@
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-AllValuesFromShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#AllValuesFrom"/>
-    <rdfs:label>All Values From</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-LogicalDatatypeExpressionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#LogicalDatatypeExpression"/>
-    <sh:sparql rdf:nodeID="N1d695168acc04a539f8e227a0507734d"/>
-    <rdfs:label>Logical Datatype Expression</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na2f1774ae7f14b80bae5242d713635e0">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasClassOperand&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasClassOperand&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-HasSelfShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#HasSelf"/>
-    <rdfs:label>Has Self</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-HasSelf-hari_term-isSelf"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ClassComplementShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ClassComplement"/>
-    <rdfs:label>Class Complement</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9c5e2440ebeb4e31b28cc7a1f29a9f4d">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDomainDatatype&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDomainDatatype&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N30d047e765b64e309c8599c0db2bd5e2">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasInverseOf&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasInverseOf&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N23bb1f2e19a4442a9c7269593f60a52e">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDomainAnotation&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDomainAnotation&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1d695168acc04a539f8e227a0507734d">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#LogicalDatatypeExpression&gt; .
+  <rdf:Description rdf:nodeID="N26e5471b4d5a4c9486305ebe646b1791">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#Restriction&gt; .
                 }</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncf9fe0ab15b5423e9f7f3161e8c7a0a8">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasRestriction&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasRestriction&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0a83ceedc8d5442f8d3f84238368691f">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#ValuesFrom&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N2d72e6288d4840e48197e058df4526e7">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#Types&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N717f527419fe46588e0d7a4ca5ec4d68">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#Property&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MaxCardinalityShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MaxCardinality"/>
-    <rdfs:label>Max Cardinality</rdfs:label>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Class-hari_term-hasEquivalentTo">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Class"/>
+    <sh:sparql rdf:nodeID="Nd696b69270b444c29ee7355ee3c06889"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasEquivalentTo"/>
+    <sh:name>Has equivalent to</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb887e23dedda42debebc220b67072eaf">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasQualifiedTarget&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasQualifiedTarget&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalDatatypeExpressionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MultiValuedLogicalDatatypeExpression"/>
+    <sh:sparql rdf:nodeID="Nd863021e809f4c05975de2f05100b04d"/>
+    <rdfs:label>Multi Valued Logical Datatype Expression</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalDatatypeExpression-hari_term-hasDatatypeOperands"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd50e95a305994f2590907d36b32c32e7">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasOnProperty&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasOnProperty&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isTransitive">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isTransitive"/>
+    <sh:name>Is transitive</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncc37f5a5de5e4c83a5f2319ae031d920">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasSubClassOf&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasSubClassOf&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-OntologicalTerm-hari_term-hasTermExample">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasTermExample"/>
+    <sh:name>Has term example</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N1003efb31aab419088e95bcd6a6de217">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#LogicalClassExpression&gt; .
-                }</sh:select>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeProperty-hari_term-hasRangeDatatype">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/hari_term#Datatype"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N2ee49112d0a84640be32381d7a28f495"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#hasRangeDatatype"/>
+    <sh:name>Has range datatype</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N54db6d55c7d246fb83f2d3086dcbe1e8">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDisjointWith&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDisjointWith&gt; ?this .}</sh:select>
+  <rdf:Description rdf:nodeID="N141cd3a8b4644d85b2f6272a5566229b">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasClassOperands&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasClassOperands&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N549cde16d2d34c9097c574b74217f2ba">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDomainClass&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDomainClass&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isInverseFunctional">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isInverseFunctional"/>
+    <sh:name>Is inverse functional</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N4532b57eaeb94457abddb5cd4e3a5e0c">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperands&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperands&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na08b9f74d4c24c15bbdcb3501715aff4">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasEquivalentTo&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasEquivalentTo&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9db7898e96704f77bf6167734116c24f">
+  <rdf:Description rdf:nodeID="Nb973bde3464541398c3550ab6045f4cf">
     <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#MonoValuedLogicalClassExpression&gt; .
                 }</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncf297232befd4ece844dd277fedb104c">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-HasValueShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#HasValue"/>
+    <rdfs:label>Has Value</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-HasValue-hari_term-hasTargetValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0ab8fe30a710483aad86bb783bb4789c">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#LogicalClassExpression&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalClassExpressionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MultiValuedLogicalClassExpression"/>
+    <sh:sparql rdf:nodeID="Ne79bb5f46aa9422cb61f647bfaf09fa7"/>
+    <rdfs:label>Multi Valued Logical Class Expression</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hari_term-MultiValuedLogicalClassExpression-hari_term-hasClassOperands"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc1fbcf890d4745448b63827e469bca9d">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasRangeClass&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasRangeClass&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#Datatype"/>
+    <rdfs:label>Datatype</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na5a4460eef0942899a70e1981d1238d6">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#CardinalityRestriction&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-ClassIntersectionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#ClassIntersection"/>
+    <rdfs:label>Class Intersection</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc8ac95489c28429cb26f5d055a2b5f11">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasValuesFrom&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasValuesFrom&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd863021e809f4c05975de2f05100b04d">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#MultiValuedLogicalDatatypeExpression&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbe2299af5e184484a22ecd4fc101097d">
     <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#OntologicalTerm&gt; .
                 }</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N14330c2267374e9f9de1e8a81d4d0447">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasPropertyChain&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasPropertyChain&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeComplementShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeComplement"/>
+    <rdfs:label>Datatype Complement</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N3d6d91ae535c42269627708099724a42">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperand&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperand&gt; ?this .}</sh:select>
+  <rdf:Description rdf:nodeID="N4427c425dd7642f3bd2d55b50bf7d31c">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasQualifiedTarget&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasQualifiedTarget&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N336254f8961e4b79b0b37102400602c8">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasSubPropertyOf&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasSubPropertyOf&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2ee49112d0a84640be32381d7a28f495">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasRangeDatatype&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasRangeDatatype&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-MinCardinalityShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#MinCardinality"/>
+    <rdfs:label>Min Cardinality</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N246f1fbfa4014db599d283492594633d">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasOnProperty&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasOnProperty&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-Property-hari_term-isSymmetric">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hari_term#isSymmetric"/>
+    <sh:name>Is symmetric</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N95806726a0ea414ba4ddc0d961912540">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasInverseOf&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasInverseOf&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne455b090cb7d48a5bf0ec55533f36e70">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDisjointWith&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDisjointWith&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N307391a4ad5f4aeb97e4a0b90abfd6f5">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDomainClass&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDomainClass&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2617d28daccc45c09b51f0cc1a884a8b">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#Types&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hari_term-DatatypeUnionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hari_term#DatatypeUnion"/>
+    <rdfs:label>Datatype Union</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc145076456ab4169a3d34bd0b9f1f6e9">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasClassOperand&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasClassOperand&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd11cb63991f14b25ae8995bfc70ab8f3">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#ValuesFrom&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N939c29a637ff40e792f07a838e185f3c">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#Property&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4b5971c153f44d3e86144bfbb27928a9">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#MonoValuedLogicalDatatypeExpression&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6a7a4e0e64c3489787265e0b00a74ee6">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperands&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasDatatypeOperands&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncfa4e623efae449bacbee0a8dd69c9e8">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hari_term#LogicalDatatypeExpression&gt; .
+                }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N73022b0d1ad14ab39bf298cc16f7796f">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasRestriction&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasRestriction&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3bbeb6a9559b4f23b333b39e8fbb4626">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/hari_term#hasPropertyChain&gt; ?that . ?that &lt;http://hari-meta.org/ontology/hari_term#hasPropertyChain&gt; ?this .}</sh:select>
   </rdf:Description>
 </rdf:RDF>

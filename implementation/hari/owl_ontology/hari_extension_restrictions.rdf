@@ -6,6 +6,12 @@
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+  <rdf:Description rdf:nodeID="N5d740ed8373b48f4957374aa933e70bd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_extension#hasExtensionReason"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#core-restriction">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -26,17 +32,11 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc6607fe6bd314d4bb94286914d1ac6ae">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari_extension#hasJustificacion"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#hasJustificacion">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#hasExtensionReason">
     <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari_extension#ExtensionDecision"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hari_extension#ExtensionDecision">
-    <rdfs:subClassOf rdf:nodeID="Nc6607fe6bd314d4bb94286914d1ac6ae"/>
+    <rdfs:subClassOf rdf:nodeID="N5d740ed8373b48f4957374aa933e70bd"/>
   </rdf:Description>
 </rdf:RDF>

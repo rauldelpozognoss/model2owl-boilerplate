@@ -21,7 +21,7 @@ core-shape:hari_reuse-DatatypeReuseShape a sh:NodeShape ;
 core-shape:hari_reuse-DirectReuseDecisionShape a sh:NodeShape ;
     rdfs:label "Direct Reuse Decision" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari_reuse-DirectReuseDecision-hari_reuse-hasReason ;
+    sh:property core-shape:hari_reuse-DirectReuseDecision-hari_reuse-hasReuseReason ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_reuse#DirectReuseDecision> .
                 }""" ] ;
     sh:targetClass hari_reuse:DirectReuseDecision .
@@ -31,13 +31,12 @@ core-shape:hari_reuse-PropertyReuseShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari_reuse:PropertyReuse .
 
-core-shape:hari_reuse-DirectReuseDecision-hari_reuse-hasReason a sh:PropertyShape ;
+core-shape:hari_reuse-DirectReuseDecision-hari_reuse-hasReuseReason a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has reason" ;
-    sh:path hari_reuse:hasReason .
+    sh:name "Has reuse reason" ;
+    sh:path hari_reuse:hasReuseReason .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;

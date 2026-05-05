@@ -26,11 +26,10 @@ hari_reuse:core-restriction a owl:Ontology ;
     owl:versionInfo "1.0.0" .
 
 hari_reuse:DirectReuseDecision rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari_reuse:hasReason ;
-            owl:qualifiedCardinality 1 ] .
+            owl:onProperty hari_reuse:hasReuseReason ] .
 
-hari_reuse:hasReason a owl:FunctionalProperty ;
-    rdfs:domain hari_reuse:DirectReuseDecision ;
+hari_reuse:hasReuseReason rdfs:domain hari_reuse:DirectReuseDecision ;
     rdfs:range xsd:string .
 

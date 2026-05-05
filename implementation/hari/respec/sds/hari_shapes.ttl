@@ -112,7 +112,7 @@ core-shape:hari-DatatypeUnionShape a sh:NodeShape ;
 core-shape:hari-DirectReuseDecisionShape a sh:NodeShape ;
     rdfs:label "Direct Reuse Decision" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-DirectReuseDecision-hari-hasReason ;
+    sh:property core-shape:hari-DirectReuseDecision-hari-hasReuseReason ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#DirectReuseDecision> .
                 }""" ] ;
     sh:targetClass hari:DirectReuseDecision .
@@ -139,7 +139,7 @@ core-shape:hari-ExtensionDecisionShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-ExtensionDecision-hari-hasExtensionBaseClass,
         core-shape:hari-ExtensionDecision-hari-hasExtensionExtendedClass,
-        core-shape:hari-ExtensionDecision-hari-hasJustificacion ;
+        core-shape:hari-ExtensionDecision-hari-hasExtensionReason ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#ExtensionDecision> .
                 }""" ] ;
     sh:targetClass hari:ExtensionDecision .
@@ -470,13 +470,12 @@ core-shape:hari-DatatypeReuse-hari-hasDatatypeReuse a sh:PropertyShape ;
     sh:path hari:hasDatatypeReuse ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDatatypeReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasDatatypeReuse> ?this .}" ] .
 
-core-shape:hari-DirectReuseDecision-hari-hasReason a sh:PropertyShape ;
+core-shape:hari-DirectReuseDecision-hari-hasReuseReason a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has reason" ;
-    sh:path hari:hasReason .
+    sh:name "Has reuse reason" ;
+    sh:path hari:hasReuseReason .
 
 core-shape:hari-Domain-hari-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -514,12 +513,12 @@ core-shape:hari-ExtensionDecision-hari-hasExtensionExtendedClass a sh:PropertySh
     sh:path hari:hasExtensionExtendedClass ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExtensionExtendedClass> ?that . ?that <http://hari-meta.org/ontology/hari#hasExtensionExtendedClass> ?this .}" ] .
 
-core-shape:hari-ExtensionDecision-hari-hasJustificacion a sh:PropertyShape ;
+core-shape:hari-ExtensionDecision-hari-hasExtensionReason a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
-    sh:name "Has justificacion" ;
-    sh:path hari:hasJustificacion .
+    sh:name "Has extension reason" ;
+    sh:path hari:hasExtensionReason .
 
 core-shape:hari-Foundational-hari-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
