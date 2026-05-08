@@ -6,105 +6,30 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hari_term:AllValuesFrom a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:ValuesFrom ;
-    skos:prefLabel "All Values From"@en .
-
 hari_term:AnotationProperty a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:Property ;
     skos:prefLabel "Anotation Property"@en .
 
-hari_term:ClassComplement a owl:Class ;
+hari_term:Class a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:MonoValuedLogicalClassExpression ;
-    skos:prefLabel "Class Complement"@en .
+    rdfs:subClassOf hari_term:Types ;
+    skos:prefLabel "Class"@en .
 
-hari_term:ClassIntersection a owl:Class ;
+hari_term:Datatype a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:MultiValuedLogicalClassExpression ;
-    skos:prefLabel "Class Intersection"@en .
-
-hari_term:ClassUnion a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:MultiValuedLogicalClassExpression ;
-    skos:prefLabel "Class Union"@en .
-
-hari_term:DatatypeComplement a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:MonoValuedLogicalDatatypeExpression ;
-    skos:prefLabel "Datatype Complement"@en .
-
-hari_term:DatatypeIntersection a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:MultiValuedLogicalDatatypeExpression ;
-    skos:prefLabel "Datatype Intersection"@en .
+    rdfs:subClassOf hari_term:Types ;
+    skos:prefLabel "Datatype"@en .
 
 hari_term:DatatypeProperty a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:Property ;
     skos:prefLabel "Datatype Property"@en .
 
-hari_term:DatatypeUnion a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:MultiValuedLogicalDatatypeExpression ;
-    skos:prefLabel "Datatype Union"@en .
-
-hari_term:ExactCardinality a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:CardinalityRestriction ;
-    skos:prefLabel "Exact Cardinality"@en .
-
-hari_term:HasSelf a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Restriction ;
-    skos:prefLabel "Has Self"@en .
-
-hari_term:HasValue a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Restriction ;
-    skos:prefLabel "Has Value"@en .
-
-hari_term:MaxCardinality a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:CardinalityRestriction ;
-    skos:prefLabel "Max Cardinality"@en .
-
-hari_term:MinCardinality a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:CardinalityRestriction ;
-    skos:prefLabel "Min Cardinality"@en .
-
 hari_term:ObjectProperty a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:Property ;
     skos:prefLabel "Object Property"@en .
-
-hari_term:SomeValuesFrom a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:ValuesFrom ;
-    skos:prefLabel "Some Values From"@en .
-
-hari_term:hasCardinalityValue a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Cardinality Value"@en .
-
-hari_term:hasClassOperand a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Class Operand"@en .
-
-hari_term:hasClassOperands a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Class Operands"@en .
-
-hari_term:hasDatatypeOperand a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Datatype Operand"@en .
-
-hari_term:hasDatatypeOperands a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Datatype Operands"@en .
 
 hari_term:hasDisjointWith a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
@@ -130,17 +55,9 @@ hari_term:hasInverseOf a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Inverse Of"@en .
 
-hari_term:hasOnProperty a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has On Property"@en .
-
 hari_term:hasPropertyChain a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Property Chain"@en .
-
-hari_term:hasQualifiedTarget a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Qualified Target"@en .
 
 hari_term:hasRangeClass a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
@@ -150,10 +67,6 @@ hari_term:hasRangeDatatype a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Range Datatype"@en .
 
-hari_term:hasRestriction a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Restriction"@en .
-
 hari_term:hasSubClassOf a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Sub Class Of"@en .
@@ -161,10 +74,6 @@ hari_term:hasSubClassOf a owl:ObjectProperty ;
 hari_term:hasSubPropertyOf a owl:ObjectProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Sub Property Of"@en .
-
-hari_term:hasTargetValue a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Target Value"@en .
 
 hari_term:hasTermDefinition a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
@@ -181,10 +90,6 @@ hari_term:hasTermIRI a owl:DatatypeProperty ;
 hari_term:hasTermLabel a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "has Term Label"@en .
-
-hari_term:hasValuesFrom a owl:ObjectProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "has Values From"@en .
 
 hari_term:isAssymetric a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
@@ -206,10 +111,6 @@ hari_term:isReflexive a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "is Reflexive"@en .
 
-hari_term:isSelf a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hari_term:core ;
-    skos:prefLabel "is Self"@en .
-
 hari_term:isSymmetric a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "is Symmetric"@en .
@@ -217,46 +118,6 @@ hari_term:isSymmetric a owl:DatatypeProperty ;
 hari_term:isTransitive a owl:DatatypeProperty ;
     rdfs:isDefinedBy hari_term:core ;
     skos:prefLabel "is Transitive"@en .
-
-hari_term:Datatype a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Types ;
-    skos:prefLabel "Datatype"@en .
-
-hari_term:MonoValuedLogicalClassExpression a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:LogicalClassExpression ;
-    skos:prefLabel "Mono Valued Logical Class Expression"@en .
-
-hari_term:MonoValuedLogicalDatatypeExpression a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:LogicalDatatypeExpression ;
-    skos:prefLabel "Mono Valued Logical Datatype Expression"@en .
-
-hari_term:Class a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Types ;
-    skos:prefLabel "Class"@en .
-
-hari_term:LogicalClassExpression a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Class ;
-    skos:prefLabel "Logical Class Expression"@en .
-
-hari_term:LogicalDatatypeExpression a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Datatype ;
-    skos:prefLabel "Logical Datatype Expression"@en .
-
-hari_term:MultiValuedLogicalClassExpression a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:LogicalClassExpression ;
-    skos:prefLabel "Multi Valued Logical Class Expression"@en .
-
-hari_term:MultiValuedLogicalDatatypeExpression a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:LogicalDatatypeExpression ;
-    skos:prefLabel "Multi Valued Logical Datatype Expression"@en .
 
 hari_term:OntologicalTerm a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
@@ -268,37 +129,22 @@ hari_term:Types a owl:Class ;
     rdfs:subClassOf hari_term:OntologicalTerm ;
     skos:prefLabel "Types"@en .
 
-hari_term:ValuesFrom a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Restriction ;
-    skos:prefLabel "Values From"@en .
-
-hari_term:CardinalityRestriction a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Restriction ;
-    skos:prefLabel "Cardinality Restriction"@en .
-
 hari_term:Property a owl:Class ;
     rdfs:isDefinedBy hari_term:core ;
     rdfs:subClassOf hari_term:OntologicalTerm ;
     skos:prefLabel "Property"@en .
 
-hari_term:Restriction a owl:Class ;
-    rdfs:isDefinedBy hari_term:core ;
-    rdfs:subClassOf hari_term:Class ;
-    skos:prefLabel "Restriction"@en .
-
 hari_term:core a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Ontología principal del proyecto Hari."@en ;
-    dcterms:issued "2026-05-05"^^xsd:date ;
+    dcterms:issued "2026-05-08"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Core"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari_term.xml on 2026-05-05" ;
+    rdfs:comment "This version is automatically generated from hari_term.xml on 2026-05-08" ;
     owl:imports skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hari_term#core-" ;

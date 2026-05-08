@@ -28,21 +28,10 @@ core-shape:hari-ApplicationShape a sh:NodeShape ;
 core-shape:hari-CardinalityRestrictionShape a sh:NodeShape ;
     rdfs:label "Cardinality Restriction" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-CardinalityRestriction-hari-hasCardinalityValue,
-        core-shape:hari-CardinalityRestriction-hari-hasQualifiedTarget ;
+    sh:property core-shape:hari-CardinalityRestriction-hari-hasCardinalityValue ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#CardinalityRestriction> .
                 }""" ] ;
     sh:targetClass hari:CardinalityRestriction .
-
-core-shape:hari-ClassComplementShape a sh:NodeShape ;
-    rdfs:label "Class Complement" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:ClassComplement .
-
-core-shape:hari-ClassIntersectionShape a sh:NodeShape ;
-    rdfs:label "Class Intersection" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:ClassIntersection .
 
 core-shape:hari-ClassReuseShape a sh:NodeShape ;
     rdfs:label "Class Reuse" ;
@@ -55,36 +44,19 @@ core-shape:hari-ClassShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-Class-hari-hasDisjointWith,
         core-shape:hari-Class-hari-hasEquivalentTo,
-        core-shape:hari-Class-hari-hasRestriction,
         core-shape:hari-Class-hari-hasSubClassOf ;
     sh:targetClass hari:Class .
 
-core-shape:hari-ClassUnionShape a sh:NodeShape ;
-    rdfs:label "Class Union" ;
+core-shape:hari-ComplementShape a sh:NodeShape ;
+    rdfs:label "Complement" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:ClassUnion .
-
-core-shape:hari-ConstraintExtensionShape a sh:NodeShape ;
-    rdfs:label "Constraint Extension" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-ConstraintExtension-hari-hasConstraintExtension ;
-    sh:targetClass hari:ConstraintExtension .
+    sh:targetClass hari:Complement .
 
 core-shape:hari-CoreShape a sh:NodeShape ;
     rdfs:label "Core" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-Core-hari-hasInScheme ;
     sh:targetClass hari:Core .
-
-core-shape:hari-DatatypeComplementShape a sh:NodeShape ;
-    rdfs:label "Datatype Complement" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:DatatypeComplement .
-
-core-shape:hari-DatatypeIntersectionShape a sh:NodeShape ;
-    rdfs:label "Datatype Intersection" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:DatatypeIntersection .
 
 core-shape:hari-DatatypePropertyShape a sh:NodeShape ;
     rdfs:label "Datatype Property" ;
@@ -103,11 +75,6 @@ core-shape:hari-DatatypeShape a sh:NodeShape ;
     rdfs:label "Datatype" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari:Datatype .
-
-core-shape:hari-DatatypeUnionShape a sh:NodeShape ;
-    rdfs:label "Datatype Union" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari:DatatypeUnion .
 
 core-shape:hari-DirectReuseDecisionShape a sh:NodeShape ;
     rdfs:label "Direct Reuse Decision" ;
@@ -133,6 +100,21 @@ core-shape:hari-ExactCardinalityShape a sh:NodeShape ;
     rdfs:label "Exact Cardinality" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari:ExactCardinality .
+
+core-shape:hari-ExpressionExtensionShape a sh:NodeShape ;
+    rdfs:label "Expression Extension" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-ExpressionExtension-hari-hasExpressionForExtension ;
+    sh:targetClass hari:ExpressionExtension .
+
+core-shape:hari-ExpressionShape a sh:NodeShape ;
+    rdfs:label "Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-Expression-hari-hasCompositeExpression,
+        core-shape:hari-Expression-hari-hasExpressionTarget ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#Expression> .
+                }""" ] ;
+    sh:targetClass hari:Expression .
 
 core-shape:hari-ExtensionDecisionShape a sh:NodeShape ;
     rdfs:label "Extension Decision" ;
@@ -162,6 +144,11 @@ core-shape:hari-HasValueShape a sh:NodeShape ;
     sh:property core-shape:hari-HasValue-hari-hasTargetValue ;
     sh:targetClass hari:HasValue .
 
+core-shape:hari-IntersectionShape a sh:NodeShape ;
+    rdfs:label "Intersection" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:Intersection .
+
 core-shape:hari-KnowledgeDomainShape a sh:NodeShape ;
     rdfs:label "Knowledge Domain" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -174,19 +161,12 @@ core-shape:hari-LevelShape a sh:NodeShape ;
                 }""" ] ;
     sh:targetClass hari:Level .
 
-core-shape:hari-LogicalClassExpressionShape a sh:NodeShape ;
-    rdfs:label "Logical Class Expression" ;
+core-shape:hari-LogicalOperationShape a sh:NodeShape ;
+    rdfs:label "Logical Operation" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#LogicalClassExpression> .
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#LogicalOperation> .
                 }""" ] ;
-    sh:targetClass hari:LogicalClassExpression .
-
-core-shape:hari-LogicalDatatypeExpressionShape a sh:NodeShape ;
-    rdfs:label "Logical Datatype Expression" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#LogicalDatatypeExpression> .
-                }""" ] ;
-    sh:targetClass hari:LogicalDatatypeExpression .
+    sh:targetClass hari:LogicalOperation .
 
 core-shape:hari-MaxCardinalityShape a sh:NodeShape ;
     rdfs:label "Max Cardinality" ;
@@ -197,38 +177,6 @@ core-shape:hari-MinCardinalityShape a sh:NodeShape ;
     rdfs:label "Min Cardinality" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass hari:MinCardinality .
-
-core-shape:hari-MonoValuedLogicalClassExpressionShape a sh:NodeShape ;
-    rdfs:label "Mono Valued Logical Class Expression" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-MonoValuedLogicalClassExpression-hari-hasClassOperand ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#MonoValuedLogicalClassExpression> .
-                }""" ] ;
-    sh:targetClass hari:MonoValuedLogicalClassExpression .
-
-core-shape:hari-MonoValuedLogicalDatatypeExpressionShape a sh:NodeShape ;
-    rdfs:label "Mono Valued Logical Datatype Expression" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-MonoValuedLogicalDatatypeExpression-hari-hasDatatypeOperand ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#MonoValuedLogicalDatatypeExpression> .
-                }""" ] ;
-    sh:targetClass hari:MonoValuedLogicalDatatypeExpression .
-
-core-shape:hari-MultiValuedLogicalClassExpressionShape a sh:NodeShape ;
-    rdfs:label "Multi Valued Logical Class Expression" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-MultiValuedLogicalClassExpression-hari-hasClassOperands ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression> .
-                }""" ] ;
-    sh:targetClass hari:MultiValuedLogicalClassExpression .
-
-core-shape:hari-MultiValuedLogicalDatatypeExpressionShape a sh:NodeShape ;
-    rdfs:label "Multi Valued Logical Datatype Expression" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-MultiValuedLogicalDatatypeExpression-hari-hasDatatypeOperands ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression> .
-                }""" ] ;
-    sh:targetClass hari:MultiValuedLogicalDatatypeExpression .
 
 core-shape:hari-ObjectPropertyShape a sh:NodeShape ;
     rdfs:label "Object Property" ;
@@ -341,14 +289,19 @@ core-shape:hari-StatusShape a sh:NodeShape ;
 core-shape:hari-TypesShape a sh:NodeShape ;
     rdfs:label "Types" ;
     rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari-Types-hari-hasExpression ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#Types> .
                 }""" ] ;
     sh:targetClass hari:Types .
 
+core-shape:hari-UnionShape a sh:NodeShape ;
+    rdfs:label "Union" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari:Union .
+
 core-shape:hari-ValuesFromShape a sh:NodeShape ;
     rdfs:label "Values From" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-ValuesFrom-hari-hasValuesFrom ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#ValuesFrom> .
                 }""" ] ;
     sh:targetClass hari:ValuesFrom .
@@ -379,15 +332,6 @@ core-shape:hari-CardinalityRestriction-hari-hasCardinalityValue a sh:PropertySha
     sh:name "Has cardinality value" ;
     sh:path hari:hasCardinalityValue .
 
-core-shape:hari-CardinalityRestriction-hari-hasQualifiedTarget a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Types ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has qualified target" ;
-    sh:path hari:hasQualifiedTarget ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasQualifiedTarget> ?that . ?that <http://hari-meta.org/ontology/hari#hasQualifiedTarget> ?this .}" ] .
-
 core-shape:hari-Class-hari-hasDisjointWith a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:Class ;
@@ -401,13 +345,6 @@ core-shape:hari-Class-hari-hasEquivalentTo a sh:PropertyShape ;
     sh:name "Has equivalent to" ;
     sh:path hari:hasEquivalentTo ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasEquivalentTo> ?that . ?that <http://hari-meta.org/ontology/hari#hasEquivalentTo> ?this .}" ] .
-
-core-shape:hari-Class-hari-hasRestriction a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Restriction ;
-    sh:name "Has restriction" ;
-    sh:path hari:hasRestriction ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasRestriction> ?that . ?that <http://hari-meta.org/ontology/hari#hasRestriction> ?this .}" ] .
 
 core-shape:hari-Class-hari-hasSubClassOf a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -424,15 +361,6 @@ core-shape:hari-ClassReuse-hari-hasClassReuse a sh:PropertyShape ;
     sh:name "Has class reuse" ;
     sh:path hari:hasClassReuse ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasClassReuse> ?that . ?that <http://hari-meta.org/ontology/hari#hasClassReuse> ?this .}" ] .
-
-core-shape:hari-ConstraintExtension-hari-hasConstraintExtension a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Restriction ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has constraint extension" ;
-    sh:path hari:hasConstraintExtension ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasConstraintExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasConstraintExtension> ?this .}" ] .
 
 core-shape:hari-Core-hari-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -495,6 +423,29 @@ core-shape:hari-Draft-hari-hasInScheme a sh:PropertyShape ;
     sh:path hari:hasInScheme ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari#hasInScheme> ?this .}" ] .
 
+core-shape:hari-Expression-hari-hasCompositeExpression a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:Expression ;
+    sh:name "Has composite expression" ;
+    sh:path hari:hasCompositeExpression ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasCompositeExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasCompositeExpression> ?this .}" ] .
+
+core-shape:hari-Expression-hari-hasExpressionTarget a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:Types ;
+    sh:name "Has expression target" ;
+    sh:path hari:hasExpressionTarget ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExpressionTarget> ?that . ?that <http://hari-meta.org/ontology/hari#hasExpressionTarget> ?this .}" ] .
+
+core-shape:hari-ExpressionExtension-hari-hasExpressionForExtension a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:Expression ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has expression for extension" ;
+    sh:path hari:hasExpressionForExtension ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExpressionForExtension> ?that . ?that <http://hari-meta.org/ontology/hari#hasExpressionForExtension> ?this .}" ] .
+
 core-shape:hari-ExtensionDecision-hari-hasExtensionBaseClass a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:Class ;
@@ -544,38 +495,6 @@ core-shape:hari-HasValue-hari-hasTargetValue a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has target value" ;
     sh:path hari:hasTargetValue .
-
-core-shape:hari-MonoValuedLogicalClassExpression-hari-hasClassOperand a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Class ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has class operand" ;
-    sh:path hari:hasClassOperand ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasClassOperand> ?that . ?that <http://hari-meta.org/ontology/hari#hasClassOperand> ?this .}" ] .
-
-core-shape:hari-MonoValuedLogicalDatatypeExpression-hari-hasDatatypeOperand a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Datatype ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has datatype operand" ;
-    sh:path hari:hasDatatypeOperand ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDatatypeOperand> ?that . ?that <http://hari-meta.org/ontology/hari#hasDatatypeOperand> ?this .}" ] .
-
-core-shape:hari-MultiValuedLogicalClassExpression-hari-hasClassOperands a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Class ;
-    sh:name "Has class operands" ;
-    sh:path hari:hasClassOperands ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasClassOperands> ?that . ?that <http://hari-meta.org/ontology/hari#hasClassOperands> ?this .}" ] .
-
-core-shape:hari-MultiValuedLogicalDatatypeExpression-hari-hasDatatypeOperands a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Datatype ;
-    sh:name "Has datatype operands" ;
-    sh:path hari:hasDatatypeOperands ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDatatypeOperands> ?that . ?that <http://hari-meta.org/ontology/hari#hasDatatypeOperands> ?this .}" ] .
 
 core-shape:hari-ObjectProperty-hari-hasDomainClass a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -861,26 +780,25 @@ core-shape:hari-Stable-hari-hasInScheme a sh:PropertyShape ;
     sh:path hari:hasInScheme ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari#hasInScheme> ?this .}" ] .
 
-core-shape:hari-ValuesFrom-hari-hasValuesFrom a sh:PropertyShape ;
+core-shape:hari-Types-hari-hasExpression a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Types ;
+    sh:class hari:Expression ;
     sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has values from" ;
-    sh:path hari:hasValuesFrom ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasValuesFrom> ?that . ?that <http://hari-meta.org/ontology/hari#hasValuesFrom> ?this .}" ] .
+    sh:name "Has expression" ;
+    sh:path hari:hasExpression ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasExpression> ?this .}" ] .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-05-05"^^xsd:date ;
+    dcterms:issued "2026-05-08"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari.xml on 2026-05-05" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-05-08" ;
     owl:imports hari:core,
         hari:core-restriction,
         skos: ;

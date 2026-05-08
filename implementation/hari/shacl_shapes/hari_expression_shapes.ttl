@@ -1,0 +1,149 @@
+@prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hari_expression: <http://hari-meta.org/ontology/hari_expression#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+core-shape:hari_expression-AllValuesFromShape a sh:NodeShape ;
+    rdfs:label "All Values From" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:AllValuesFrom .
+
+core-shape:hari_expression-CardinalityRestrictionShape a sh:NodeShape ;
+    rdfs:label "Cardinality Restriction" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_expression-CardinalityRestriction-hari_expression-hasCardinalityValue ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_expression#CardinalityRestriction> .
+                }""" ] ;
+    sh:targetClass hari_expression:CardinalityRestriction .
+
+core-shape:hari_expression-ComplementShape a sh:NodeShape ;
+    rdfs:label "Complement" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:Complement .
+
+core-shape:hari_expression-ExactCardinalityShape a sh:NodeShape ;
+    rdfs:label "Exact Cardinality" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:ExactCardinality .
+
+core-shape:hari_expression-ExpressionShape a sh:NodeShape ;
+    rdfs:label "Expression" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_expression-Expression-hari_expression-hasCompositeExpression ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_expression#Expression> .
+                }""" ] ;
+    sh:targetClass hari_expression:Expression .
+
+core-shape:hari_expression-HasSelfShape a sh:NodeShape ;
+    rdfs:label "Has Self" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_expression-HasSelf-hari_expression-isSelf ;
+    sh:targetClass hari_expression:HasSelf .
+
+core-shape:hari_expression-HasValueShape a sh:NodeShape ;
+    rdfs:label "Has Value" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hari_expression-HasValue-hari_expression-hasTargetValue ;
+    sh:targetClass hari_expression:HasValue .
+
+core-shape:hari_expression-IntersectionShape a sh:NodeShape ;
+    rdfs:label "Intersection" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:Intersection .
+
+core-shape:hari_expression-LogicalOperationShape a sh:NodeShape ;
+    rdfs:label "Logical Operation" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_expression#LogicalOperation> .
+                }""" ] ;
+    sh:targetClass hari_expression:LogicalOperation .
+
+core-shape:hari_expression-MaxCardinalityShape a sh:NodeShape ;
+    rdfs:label "Max Cardinality" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:MaxCardinality .
+
+core-shape:hari_expression-MinCardinalityShape a sh:NodeShape ;
+    rdfs:label "Min Cardinality" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:MinCardinality .
+
+core-shape:hari_expression-RestrictionShape a sh:NodeShape ;
+    rdfs:label "Restriction" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_expression#Restriction> .
+                }""" ] ;
+    sh:targetClass hari_expression:Restriction .
+
+core-shape:hari_expression-SomeValuesFromShape a sh:NodeShape ;
+    rdfs:label "Some Values From" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:SomeValuesFrom .
+
+core-shape:hari_expression-UnionShape a sh:NodeShape ;
+    rdfs:label "Union" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hari_expression:Union .
+
+core-shape:hari_expression-ValuesFromShape a sh:NodeShape ;
+    rdfs:label "Values From" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_expression#ValuesFrom> .
+                }""" ] ;
+    sh:targetClass hari_expression:ValuesFrom .
+
+core-shape:hari_expression-CardinalityRestriction-hari_expression-hasCardinalityValue a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has cardinality value" ;
+    sh:path hari_expression:hasCardinalityValue .
+
+core-shape:hari_expression-Expression-hari_expression-hasCompositeExpression a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari_expression:Expression ;
+    sh:name "Has composite expression" ;
+    sh:path hari_expression:hasCompositeExpression ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_expression#hasCompositeExpression> ?that . ?that <http://hari-meta.org/ontology/hari_expression#hasCompositeExpression> ?this .}" ] .
+
+core-shape:hari_expression-HasSelf-hari_expression-isSelf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is self" ;
+    sh:path hari_expression:isSelf .
+
+core-shape:hari_expression-HasValue-hari_expression-hasTargetValue a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has target value" ;
+    sh:path hari_expression:hasTargetValue .
+
+core-shape:core-shape a owl:Ontology ;
+    rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:issued "2026-05-08"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Shapes"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from hari_expression.xml on 2026-05-08" ;
+    owl:imports hari_expression:core,
+        hari_expression:core-restriction,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;
+    owl:versionIRI core-shape:core-shape-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

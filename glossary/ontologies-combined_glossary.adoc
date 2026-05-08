@@ -11,11 +11,11 @@
 | Class name | Definition
 
       
-| hari_term:AllValuesFrom | 
+| hari:AllValuesFrom | 
       
     
       
-| hari:AllValuesFrom | 
+| hari_expression:AllValuesFrom | 
       
     
       
@@ -35,11 +35,11 @@
       
     
       
-| hari_term:CardinalityRestriction | 
+| hari:CardinalityRestriction | 
       
     
       
-| hari:CardinalityRestriction | 
+| hari_expression:CardinalityRestriction | 
       
     
       
@@ -51,22 +51,6 @@
       
     
       
-| hari_term:ClassComplement | 
-      
-    
-      
-| hari:ClassComplement | 
-      
-    
-      
-| hari_term:ClassIntersection | 
-      
-    
-      
-| hari:ClassIntersection | 
-      
-    
-      
 | hari_reuse:ClassReuse | 
       
     
@@ -75,19 +59,11 @@
       
     
       
-| hari_term:ClassUnion | 
+| hari:Complement | 
       
     
       
-| hari:ClassUnion | 
-      
-    
-      
-| hari:ConstraintExtension | 
-      
-    
-      
-| hari_extension:ConstraintExtension | 
+| hari_expression:Complement | 
       
     
       
@@ -107,22 +83,6 @@
       
     
       
-| hari_term:DatatypeComplement | 
-      
-    
-      
-| hari:DatatypeComplement | 
-      
-    
-      
-| hari_term:DatatypeIntersection | 
-      
-    
-      
-| hari:DatatypeIntersection | 
-      
-    
-      
 | hari_term:DatatypeProperty | 
       
     
@@ -136,14 +96,6 @@
     
       
 | hari:DatatypeReuse | 
-      
-    
-      
-| hari_term:DatatypeUnion | 
-      
-    
-      
-| hari:DatatypeUnion | 
       
     
       
@@ -171,11 +123,27 @@
       
     
       
-| hari_term:ExactCardinality | 
+| hari:ExactCardinality | 
       
     
       
-| hari:ExactCardinality | 
+| hari_expression:ExactCardinality | 
+      
+    
+      
+| hari:Expression | 
+      
+    
+      
+| hari_expression:Expression | 
+      
+    
+      
+| hari:ExpressionExtension | 
+      
+    
+      
+| hari_extension:ExpressionExtension | 
       
     
       
@@ -195,19 +163,27 @@
       
     
       
-| hari_term:HasSelf | 
-      
-    
-      
 | hari:HasSelf | 
       
     
       
-| hari_term:HasValue | 
+| hari_expression:HasSelf | 
       
     
       
 | hari:HasValue | 
+      
+    
+      
+| hari_expression:HasValue | 
+      
+    
+      
+| hari:Intersection | 
+      
+    
+      
+| hari_expression:Intersection | 
       
     
       
@@ -227,23 +203,11 @@
       
     
       
-| hari_term:LogicalClassExpression | 
+| hari:LogicalOperation | 
       
     
       
-| hari:LogicalClassExpression | 
-      
-    
-      
-| hari_term:LogicalDatatypeExpression | 
-      
-    
-      
-| hari:LogicalDatatypeExpression | 
-      
-    
-      
-| hari_term:MaxCardinality | 
+| hari_expression:LogicalOperation | 
       
     
       
@@ -251,7 +215,7 @@
       
     
       
-| hari_term:MinCardinality | 
+| hari_expression:MaxCardinality | 
       
     
       
@@ -259,35 +223,7 @@
       
     
       
-| hari_term:MonoValuedLogicalClassExpression | 
-      
-    
-      
-| hari:MonoValuedLogicalClassExpression | 
-      
-    
-      
-| hari_term:MonoValuedLogicalDatatypeExpression | 
-      
-    
-      
-| hari:MonoValuedLogicalDatatypeExpression | 
-      
-    
-      
-| hari_term:MultiValuedLogicalClassExpression | 
-      
-    
-      
-| hari:MultiValuedLogicalClassExpression | 
-      
-    
-      
-| hari_term:MultiValuedLogicalDatatypeExpression | 
-      
-    
-      
-| hari:MultiValuedLogicalDatatypeExpression | 
+| hari_expression:MinCardinality | 
       
     
       
@@ -355,11 +291,11 @@
       
     
       
-| hari_term:Restriction | 
+| hari:Restriction | 
       
     
       
-| hari:Restriction | 
+| hari_expression:Restriction | 
       
     
       
@@ -371,11 +307,11 @@
       
     
       
-| hari_term:SomeValuesFrom | 
+| hari:SomeValuesFrom | 
       
     
       
-| hari:SomeValuesFrom | 
+| hari_expression:SomeValuesFrom | 
       
     
       
@@ -403,11 +339,19 @@
       
     
       
-| hari_term:ValuesFrom | 
+| hari:Union | 
+      
+    
+      
+| hari_expression:Union | 
       
     
       
 | hari:ValuesFrom | 
+      
+    
+      
+| hari_expression:ValuesFrom | 
       
     
 |===
@@ -431,25 +375,15 @@
   
   
   
-| hari_term:CardinalityRestriction
-| hari_term:hasCardinalityValue| 
-  |xsd:integer [1..1]
-  
-  
-  
-  
-  
 | hari:CardinalityRestriction
 | hari:hasCardinalityValue| 
   |xsd:integer [1..1]
   
   
   
-  
-  
-  
-  
-  
+| hari_expression:CardinalityRestriction
+| hari_expression:hasCardinalityValue| 
+  |xsd:integer [1..1]
   
   
   
@@ -495,6 +429,14 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
 | hari:ExtensionDecision
 | hari:hasExtensionReason| 
   |xsd:string [0..1]
@@ -507,21 +449,15 @@
   
   
   
-| hari_term:HasSelf
-| hari_term:isSelf| 
-  |xsd:boolean [1..1]
-  
-  
-  
 | hari:HasSelf
 | hari:isSelf| 
   |xsd:boolean [1..1]
   
   
   
-| hari_term:HasValue
-| hari_term:hasTargetValue| 
-  |xsd:string [1..1]
+| hari_expression:HasSelf
+| hari_expression:isSelf| 
+  |xsd:boolean [1..1]
   
   
   
@@ -531,19 +467,9 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+| hari_expression:HasValue
+| hari_expression:hasTargetValue| 
+  |xsd:string [1..1]
   
   
   
@@ -803,10 +729,6 @@
   
   
   
-  
-  
-  
-  
 |===
 
 == Predicates (object properties) and definitions
@@ -859,20 +781,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-| hari_term:hasQualifiedTarget| 
-  |hari_term:CardinalityRestriction → hari_term:Types [1..1]
-
-  
-
-  
-  
-  
-
-  
-  
-| hari:hasQualifiedTarget| 
-  |hari:CardinalityRestriction → hari:Types [1..1]
-
   
 
   
@@ -886,13 +794,6 @@ hari:Stable → hari:Status [1..1]
   
 | hari_term:hasEquivalentTo| 
   |hari_term:Class → hari_term:Class [0..&#42;]
-
-  
-
-  
-  
-| hari_term:hasRestriction| 
-  |hari_term:Class → hari_term:Restriction [0..&#42;]
 
   
 
@@ -919,13 +820,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-| hari:hasRestriction| 
-  |hari:Class → hari:Restriction [0..&#42;]
-
-  
-
-  
-  
 | hari:hasSubClassOf| 
   |hari:Class → hari:Class [0..&#42;]
 
@@ -935,13 +829,6 @@ hari:Stable → hari:Status [1..1]
   
 | hari:hasClassReuse| 
   |hari:ClassReuse → hari:Class [1..1]
-
-  
-
-  
-  
-| hari:hasConstraintExtension| 
-  |hari:ConstraintExtension → hari:Restriction [1..1]
 
   
 
@@ -999,6 +886,34 @@ hari_status:Stable → hari_status:Status [1..1]
 
   
   
+| hari:hasCompositeExpression| 
+  |hari:Expression → hari:Expression [0..&#42;]
+
+  
+
+  
+  
+| hari:hasExpressionTarget| 
+  |hari:Expression → hari:Types [0..&#42;]
+
+  
+
+  
+  
+| hari_expression:hasCompositeExpression| 
+  |hari_expression:Expression → hari_expression:Expression [0..&#42;]
+
+  
+
+  
+  
+| hari:hasExpressionForExtension| 
+  |hari:ExpressionExtension → hari:Expression [1..1]
+
+  
+
+  
+  
 | hari:hasExtensionBaseClass| 
   |hari:ExtensionDecision → hari:Class [1..1]
 
@@ -1033,62 +948,6 @@ hari_status:Stable → hari_status:Status [1..1]
 
   
   
-  
-
-  
-  
-| hari_term:hasClassOperand| 
-  |hari_term:MonoValuedLogicalClassExpression → hari_term:Class [1..1]
-
-  
-
-  
-  
-| hari:hasClassOperand| 
-  |hari:MonoValuedLogicalClassExpression → hari:Class [1..1]
-
-  
-
-  
-  
-| hari_term:hasDatatypeOperand| 
-  |hari_term:MonoValuedLogicalDatatypeExpression → hari_term:Datatype [1..1]
-
-  
-
-  
-  
-| hari:hasDatatypeOperand| 
-  |hari:MonoValuedLogicalDatatypeExpression → hari:Datatype [1..1]
-
-  
-
-  
-  
-| hari_term:hasClassOperands| 
-  |hari_term:MultiValuedLogicalClassExpression → hari_term:Class [0..&#42;]
-
-  
-
-  
-  
-| hari:hasClassOperands| 
-  |hari:MultiValuedLogicalClassExpression → hari:Class [0..&#42;]
-
-  
-
-  
-  
-| hari_term:hasDatatypeOperands| 
-  |hari_term:MultiValuedLogicalDatatypeExpression → hari_term:Datatype [0..&#42;]
-
-  
-
-  
-  
-| hari:hasDatatypeOperands| 
-  |hari:MultiValuedLogicalDatatypeExpression → hari:Datatype [0..&#42;]
-
   
 
   
@@ -1370,13 +1229,6 @@ hari_status:Stable → hari_status:Status [1..1]
 
   
   
-| hari_term:hasOnProperty| 
-  |hari_term:Restriction → hari_term:Property [1..1]
-
-  
-
-  
-  
 | hari:hasOnProperty| 
   |hari:Restriction → hari:Property [1..1]
 
@@ -1384,15 +1236,8 @@ hari_status:Stable → hari_status:Status [1..1]
 
   
   
-| hari_term:hasValuesFrom| 
-  |hari_term:ValuesFrom → hari_term:Types [1..1]
-
-  
-
-  
-  
-| hari:hasValuesFrom| 
-  |hari:ValuesFrom → hari:Types [1..1]
+| hari:hasExpression| 
+  |hari:Types → hari:Expression [0..1]
 
   
 

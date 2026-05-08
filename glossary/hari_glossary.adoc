@@ -31,23 +31,11 @@
       
     
       
-| hari:ClassComplement | 
-      
-    
-      
-| hari:ClassIntersection | 
-      
-    
-      
 | hari:ClassReuse | 
       
     
       
-| hari:ClassUnion | 
-      
-    
-      
-| hari:ConstraintExtension | 
+| hari:Complement | 
       
     
       
@@ -59,23 +47,11 @@
       
     
       
-| hari:DatatypeComplement | 
-      
-    
-      
-| hari:DatatypeIntersection | 
-      
-    
-      
 | hari:DatatypeProperty | 
       
     
       
 | hari:DatatypeReuse | 
-      
-    
-      
-| hari:DatatypeUnion | 
       
     
       
@@ -95,6 +71,14 @@
       
     
       
+| hari:Expression | 
+      
+    
+      
+| hari:ExpressionExtension | 
+      
+    
+      
 | hari:ExtensionDecision | 
       
     
@@ -111,6 +95,10 @@
       
     
       
+| hari:Intersection | 
+      
+    
+      
 | hari:KnowledgeDomain | 
       
     
@@ -119,11 +107,7 @@
       
     
       
-| hari:LogicalClassExpression | 
-      
-    
-      
-| hari:LogicalDatatypeExpression | 
+| hari:LogicalOperation | 
       
     
       
@@ -132,22 +116,6 @@
     
       
 | hari:MinCardinality | 
-      
-    
-      
-| hari:MonoValuedLogicalClassExpression | 
-      
-    
-      
-| hari:MonoValuedLogicalDatatypeExpression | 
-      
-    
-      
-| hari:MultiValuedLogicalClassExpression | 
-      
-    
-      
-| hari:MultiValuedLogicalDatatypeExpression | 
       
     
       
@@ -207,6 +175,10 @@
       
     
       
+| hari:Union | 
+      
+    
+      
 | hari:ValuesFrom | 
       
     
@@ -247,15 +219,15 @@
   
   
   
-  
-  
-  
-  
-  
-  
 | hari:DirectReuseDecision
 | hari:hasReuseReason| 
   |xsd:string [0..1]
+  
+  
+  
+  
+  
+  
   
   
   
@@ -278,14 +250,6 @@
 | hari:HasValue
 | hari:hasTargetValue| 
   |xsd:string [1..1]
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -462,13 +426,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-| hari:hasQualifiedTarget| 
-  |hari:CardinalityRestriction → hari:Types [1..1]
-
-  
-
-  
-  
 | hari:hasDisjointWith| 
   |hari:Class → hari:Class [0..&#42;]
 
@@ -483,13 +440,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-| hari:hasRestriction| 
-  |hari:Class → hari:Restriction [0..&#42;]
-
-  
-
-  
-  
 | hari:hasSubClassOf| 
   |hari:Class → hari:Class [0..&#42;]
 
@@ -499,13 +449,6 @@ hari:Stable → hari:Status [1..1]
   
 | hari:hasClassReuse| 
   |hari:ClassReuse → hari:Class [1..1]
-
-  
-
-  
-  
-| hari:hasConstraintExtension| 
-  |hari:ConstraintExtension → hari:Restriction [1..1]
 
   
 
@@ -536,6 +479,27 @@ hari:Stable → hari:Status [1..1]
 
   
   
+| hari:hasCompositeExpression| 
+  |hari:Expression → hari:Expression [0..&#42;]
+
+  
+
+  
+  
+| hari:hasExpressionTarget| 
+  |hari:Expression → hari:Types [0..&#42;]
+
+  
+
+  
+  
+| hari:hasExpressionForExtension| 
+  |hari:ExpressionExtension → hari:Expression [1..1]
+
+  
+
+  
+  
 | hari:hasExtensionBaseClass| 
   |hari:ExtensionDecision → hari:Class [1..1]
 
@@ -558,34 +522,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-  
-
-  
-  
-| hari:hasClassOperand| 
-  |hari:MonoValuedLogicalClassExpression → hari:Class [1..1]
-
-  
-
-  
-  
-| hari:hasDatatypeOperand| 
-  |hari:MonoValuedLogicalDatatypeExpression → hari:Datatype [1..1]
-
-  
-
-  
-  
-| hari:hasClassOperands| 
-  |hari:MultiValuedLogicalClassExpression → hari:Class [0..&#42;]
-
-  
-
-  
-  
-| hari:hasDatatypeOperands| 
-  |hari:MultiValuedLogicalDatatypeExpression → hari:Datatype [0..&#42;]
-
   
 
   
@@ -767,8 +703,8 @@ hari:Stable → hari:Status [1..1]
 
   
   
-| hari:hasValuesFrom| 
-  |hari:ValuesFrom → hari:Types [1..1]
+| hari:hasExpression| 
+  |hari:Types → hari:Expression [0..1]
 
   
 

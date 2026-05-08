@@ -1,0 +1,58 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hari_expression: <http://hari-meta.org/ontology/hari_expression#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hari_expression:core-restriction a owl:Ontology ;
+    rdfs:label "Restricciones de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Restricciones de la ontología Hari."@en ;
+    dcterms:issued "2026-05-08"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Restricciones"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment """This version is automatically generated from hari_expression.xml on 
+                2026-05-08""" ;
+    owl:imports hari_expression:core,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/hari_expression#core-restriction-" ;
+    owl:versionIRI hari_expression:core-restriction-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
+hari_expression:hasCompositeExpression a owl:AsymmetricProperty ;
+    rdfs:domain hari_expression:Expression ;
+    rdfs:range hari_expression:Expression .
+
+hari_expression:CardinalityRestriction rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty hari_expression:hasCardinalityValue ;
+            owl:qualifiedCardinality 1 ] .
+
+hari_expression:HasSelf rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty hari_expression:isSelf ;
+            owl:qualifiedCardinality 1 ] .
+
+hari_expression:HasValue rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari_expression:hasTargetValue ;
+            owl:qualifiedCardinality 1 ] .
+
+hari_expression:hasCardinalityValue a owl:FunctionalProperty ;
+    rdfs:domain hari_expression:CardinalityRestriction ;
+    rdfs:range xsd:integer .
+
+hari_expression:hasTargetValue a owl:FunctionalProperty ;
+    rdfs:domain hari_expression:HasValue ;
+    rdfs:range xsd:string .
+
+hari_expression:isSelf a owl:FunctionalProperty ;
+    rdfs:domain hari_expression:HasSelf ;
+    rdfs:range xsd:boolean .
+
