@@ -1,6 +1,109 @@
 {
-  "added_instance_class.rq": "No changes found.",
-  "added_instance_datatype_property.rq": {
+  "added_instance_class.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Complement"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ExpressionExtension"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Intersection"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Operation",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalOperation"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Union"
+          }
+        }
+      ]
+    }
+  },
+  "added_instance_datatype_property.rq": "No changes found.",
+  "added_instance_object_property.rq": {
     "head": {
       "vars": [
         "resource",
@@ -17,39 +120,34 @@
         {
           "domain": {
             "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#ExtensionDecision"
+            "value": "http://hari-meta.org/ontology/hari#Expression"
           },
           "label": {
             "type": "literal",
-            "value": "has Extension Reason",
+            "value": "has Composite Expression",
             "xml:lang": "en"
           },
           "labelLang": {
             "type": "literal",
             "value": "en"
           },
-          "maxCardinality": {
-            "datatype": "http://www.w3.org/2001/XMLSchema#integer",
-            "type": "literal",
-            "value": "1"
-          },
           "range": {
             "type": "uri",
-            "value": "http://www.w3.org/2001/XMLSchema#string"
+            "value": "http://hari-meta.org/ontology/hari#Expression"
           },
           "resource": {
             "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasExtensionReason"
+            "value": "http://hari-meta.org/ontology/hari#hasCompositeExpression"
           }
         },
         {
           "domain": {
             "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#DirectReuseDecision"
+            "value": "http://hari-meta.org/ontology/hari#Types"
           },
           "label": {
             "type": "literal",
-            "value": "has Reuse Reason",
+            "value": "has Expression",
             "xml:lang": "en"
           },
           "labelLang": {
@@ -63,17 +161,72 @@
           },
           "range": {
             "type": "uri",
-            "value": "http://www.w3.org/2001/XMLSchema#string"
+            "value": "http://hari-meta.org/ontology/hari#Expression"
           },
           "resource": {
             "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasReuseReason"
+            "value": "http://hari-meta.org/ontology/hari#hasExpression"
+          }
+        },
+        {
+          "domain": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ExpressionExtension"
+          },
+          "label": {
+            "type": "literal",
+            "value": "has Expression For Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "maxCardinality": {
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+            "type": "literal",
+            "value": "1"
+          },
+          "minCardinality": {
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+            "type": "literal",
+            "value": "1"
+          },
+          "range": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpressionForExtension"
+          }
+        },
+        {
+          "domain": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          },
+          "label": {
+            "type": "literal",
+            "value": "has Expression Target",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "range": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Types"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpressionTarget"
           }
         }
       ]
     }
   },
-  "added_instance_object_property.rq": "No changes found.",
   "added_instance_ontology.rq": "No changes found.",
   "added_property_class_alt_label.rq": "No changes found.",
   "added_property_class_change_note.rq": "No changes found.",
@@ -84,12 +237,501 @@
   "added_property_class_example.rq": "No changes found.",
   "added_property_class_hidden_label.rq": "No changes found.",
   "added_property_class_history_note.rq": "No changes found.",
-  "added_property_class_is_defined_by.rq": "No changes found.",
+  "added_property_class_is_defined_by.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Complement"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ExpressionExtension"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Intersection"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Operation",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalOperation"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Union"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        }
+      ]
+    }
+  },
   "added_property_class_label.rq": "No changes found.",
   "added_property_class_note.rq": "No changes found.",
-  "added_property_class_pref_label.rq": "No changes found.",
+  "added_property_class_pref_label.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Complement"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Complement",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ExpressionExtension"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Expression Extension",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Intersection"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Intersection",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Operation",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalOperation"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Logical Operation",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Union"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Union",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        }
+      ]
+    }
+  },
   "added_property_class_scope_note.rq": "No changes found.",
-  "added_property_class_sub_class_of.rq": "No changes found.",
+  "added_property_class_sub_class_of.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Complement"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalOperation"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://www.w3.org/2002/07/owl#Thing"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Expression Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ExpressionExtension"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ExtensionDecision"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Intersection"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalOperation"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Operation",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalOperation"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Union"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalOperation"
+          }
+        }
+      ]
+    }
+  },
   "added_property_datatype_property_alt_label.rq": "No changes found.",
   "added_property_datatype_property_change_note.rq": "No changes found.",
   "added_property_datatype_property_comment.rq": "No changes found.",
@@ -100,142 +742,10 @@
   "added_property_datatype_property_example.rq": "No changes found.",
   "added_property_datatype_property_hidden_label.rq": "No changes found.",
   "added_property_datatype_property_history_note.rq": "No changes found.",
-  "added_property_datatype_property_is_defined_by.rq": {
-    "head": {
-      "vars": [
-        "resource",
-        "label",
-        "labelLang",
-        "property",
-        "value",
-        "valueLang"
-      ]
-    },
-    "results": {
-      "bindings": [
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Extension Reason",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasExtensionReason"
-          },
-          "value": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#core"
-          }
-        },
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Reuse Reason",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasReuseReason"
-          },
-          "value": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#core"
-          }
-        }
-      ]
-    }
-  },
+  "added_property_datatype_property_is_defined_by.rq": "No changes found.",
   "added_property_datatype_property_label.rq": "No changes found.",
   "added_property_datatype_property_note.rq": "No changes found.",
-  "added_property_datatype_property_pref_label.rq": {
-    "head": {
-      "vars": [
-        "resource",
-        "label",
-        "labelLang",
-        "property",
-        "value",
-        "valueLang"
-      ]
-    },
-    "results": {
-      "bindings": [
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Extension Reason",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasExtensionReason"
-          },
-          "value": {
-            "type": "literal",
-            "value": "has Extension Reason",
-            "xml:lang": "en"
-          },
-          "valueLang": {
-            "type": "literal",
-            "value": "en"
-          }
-        },
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Reuse Reason",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasReuseReason"
-          },
-          "value": {
-            "type": "literal",
-            "value": "has Reuse Reason",
-            "xml:lang": "en"
-          },
-          "valueLang": {
-            "type": "literal",
-            "value": "en"
-          }
-        }
-      ]
-    }
-  },
+  "added_property_datatype_property_pref_label.rq": "No changes found.",
   "added_property_datatype_property_range.rq": "No changes found.",
   "added_property_datatype_property_scope_note.rq": "No changes found.",
   "added_property_datatype_property_sub_property_of.rq": "No changes found.",
@@ -249,10 +759,244 @@
   "added_property_object_property_example.rq": "No changes found.",
   "added_property_object_property_hidden_label.rq": "No changes found.",
   "added_property_object_property_history_note.rq": "No changes found.",
-  "added_property_object_property_is_defined_by.rq": "No changes found.",
+  "added_property_object_property_is_defined_by.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Composite Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasCompositeExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Expression For Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpressionForExtension"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Expression Target",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpressionTarget"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        }
+      ]
+    }
+  },
   "added_property_object_property_label.rq": "No changes found.",
   "added_property_object_property_note.rq": "No changes found.",
-  "added_property_object_property_pref_label.rq": "No changes found.",
+  "added_property_object_property_pref_label.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Composite Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasCompositeExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Composite Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Expression For Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpressionForExtension"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Expression For Extension",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Expression Target",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasExpressionTarget"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Expression Target",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        }
+      ]
+    }
+  },
   "added_property_object_property_range.rq": "No changes found.",
   "added_property_object_property_scope_note.rq": "No changes found.",
   "added_property_object_property_sub_property_of.rq": "No changes found.",
@@ -350,7 +1094,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "6"
           }
         }
       ]
@@ -368,7 +1112,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "2"
+            "value": "0"
           }
         }
       ]
@@ -386,7 +1130,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "4"
           }
         }
       ]
@@ -584,7 +1328,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "6"
           }
         }
       ]
@@ -638,7 +1382,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "6"
           }
         }
       ]
@@ -674,7 +1418,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "6"
           }
         }
       ]
@@ -872,7 +1616,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "2"
+            "value": "0"
           }
         }
       ]
@@ -926,7 +1670,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "2"
+            "value": "0"
           }
         }
       ]
@@ -1178,7 +1922,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "4"
           }
         }
       ]
@@ -1232,7 +1976,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "4"
           }
         }
       ]
@@ -2762,7 +3506,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "13"
           }
         }
       ]
@@ -2780,7 +3524,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "2"
+            "value": "0"
           }
         }
       ]
@@ -2798,7 +3542,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "8"
           }
         }
       ]
@@ -2996,7 +3740,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "13"
           }
         }
       ]
@@ -3050,7 +3794,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "13"
           }
         }
       ]
@@ -3086,7 +3830,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "14"
           }
         }
       ]
@@ -3284,7 +4028,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "2"
+            "value": "0"
           }
         }
       ]
@@ -3338,7 +4082,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "2"
+            "value": "0"
           }
         }
       ]
@@ -3590,7 +4334,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "8"
           }
         }
       ]
@@ -3644,7 +4388,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "8"
           }
         }
       ]
@@ -3716,7 +4460,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "1"
           }
         }
       ]
@@ -3806,7 +4550,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "1"
           }
         }
       ]
@@ -4166,7 +4910,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "78"
           }
         }
       ]
@@ -4256,7 +5000,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "1"
           }
         }
       ]
@@ -4454,7 +5198,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "4"
+            "value": "0"
           }
         }
       ]
@@ -4760,7 +5504,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "32"
           }
         }
       ]
@@ -5426,7 +6170,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "1"
           }
         }
       ]
@@ -6056,7 +6800,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "1"
           }
         }
       ]
@@ -6146,7 +6890,7 @@
           "entries": {
             "datatype": "http://www.w3.org/2001/XMLSchema#integer",
             "type": "literal",
-            "value": "0"
+            "value": "1"
           }
         }
       ]
@@ -6332,9 +7076,8 @@
       ]
     }
   },
-  "dataset_name": "diffusAYUJNtQP",
-  "deleted_instance_class.rq": "No changes found.",
-  "deleted_instance_datatype_property.rq": {
+  "dataset_name": "diffusTeK3z3nZ",
+  "deleted_instance_class.rq": {
     "head": {
       "vars": [
         "resource",
@@ -6347,7 +7090,7 @@
         {
           "label": {
             "type": "literal",
-            "value": "has Justificacion",
+            "value": "Class Complement",
             "xml:lang": "en"
           },
           "labelLang": {
@@ -6356,13 +7099,13 @@
           },
           "resource": {
             "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasJustificacion"
+            "value": "http://hari-meta.org/ontology/hari#ClassComplement"
           }
         },
         {
           "label": {
             "type": "literal",
-            "value": "has Reason",
+            "value": "Class Intersection",
             "xml:lang": "en"
           },
           "labelLang": {
@@ -6371,13 +7114,311 @@
           },
           "resource": {
             "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasReason"
+            "value": "http://hari-meta.org/ontology/hari#ClassIntersection"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassUnion"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Constraint Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ConstraintExtension"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeComplement"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeIntersection"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeUnion"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalDatatypeExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalDatatypeExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression"
           }
         }
       ]
     }
   },
-  "deleted_instance_object_property.rq": "No changes found.",
+  "deleted_instance_datatype_property.rq": "No changes found.",
+  "deleted_instance_object_property.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Class Operand",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasClassOperand"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Class Operands",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasClassOperands"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Constraint Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasConstraintExtension"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Datatype Operand",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasDatatypeOperand"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Datatype Operands",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasDatatypeOperands"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Qualified Target",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasQualifiedTarget"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Restriction",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasRestriction"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Values From",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasValuesFrom"
+          }
+        }
+      ]
+    }
+  },
   "deleted_instance_ontology.rq": "No changes found.",
   "deleted_property_class_alt_label.rq": "No changes found.",
   "deleted_property_class_change_note.rq": "No changes found.",
@@ -6388,12 +7429,1042 @@
   "deleted_property_class_example.rq": "No changes found.",
   "deleted_property_class_hidden_label.rq": "No changes found.",
   "deleted_property_class_history_note.rq": "No changes found.",
-  "deleted_property_class_is_defined_by.rq": "No changes found.",
+  "deleted_property_class_is_defined_by.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassComplement"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassIntersection"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassUnion"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Constraint Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ConstraintExtension"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeComplement"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeIntersection"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeUnion"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalClassExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalClassExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        }
+      ]
+    }
+  },
   "deleted_property_class_label.rq": "No changes found.",
   "deleted_property_class_note.rq": "No changes found.",
-  "deleted_property_class_pref_label.rq": "No changes found.",
+  "deleted_property_class_pref_label.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassComplement"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Class Complement",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassIntersection"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Class Intersection",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassUnion"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Class Union",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Constraint Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ConstraintExtension"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Constraint Extension",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeComplement"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Datatype Complement",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeIntersection"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Datatype Intersection",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeUnion"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Datatype Union",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalClassExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalClassExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Mono Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Mono Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Multi Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "literal",
+            "value": "Multi Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        }
+      ]
+    }
+  },
   "deleted_property_class_scope_note.rq": "No changes found.",
-  "deleted_property_class_sub_class_of.rq": "No changes found.",
+  "deleted_property_class_sub_class_of.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassComplement"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassIntersection"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Class Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ClassUnion"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Constraint Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ConstraintExtension"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#ExtensionDecision"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Complement",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeComplement"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalDatatypeExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Intersection",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeIntersection"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Datatype Union",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#DatatypeUnion"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalClassExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Class"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Datatype"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalClassExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Mono Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MonoValuedLogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalDatatypeExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Class Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalClassExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Multi Valued Logical Datatype Expression",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#LogicalDatatypeExpression"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "Restriction",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Restriction"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Class"
+          }
+        }
+      ]
+    }
+  },
   "deleted_property_datatype_property_alt_label.rq": "No changes found.",
   "deleted_property_datatype_property_change_note.rq": "No changes found.",
   "deleted_property_datatype_property_comment.rq": "No changes found.",
@@ -6404,142 +8475,10 @@
   "deleted_property_datatype_property_example.rq": "No changes found.",
   "deleted_property_datatype_property_hidden_label.rq": "No changes found.",
   "deleted_property_datatype_property_history_note.rq": "No changes found.",
-  "deleted_property_datatype_property_is_defined_by.rq": {
-    "head": {
-      "vars": [
-        "resource",
-        "label",
-        "labelLang",
-        "property",
-        "value",
-        "valueLang"
-      ]
-    },
-    "results": {
-      "bindings": [
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Justificacion",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasJustificacion"
-          },
-          "value": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#core"
-          }
-        },
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Reason",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasReason"
-          },
-          "value": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#core"
-          }
-        }
-      ]
-    }
-  },
+  "deleted_property_datatype_property_is_defined_by.rq": "No changes found.",
   "deleted_property_datatype_property_label.rq": "No changes found.",
   "deleted_property_datatype_property_note.rq": "No changes found.",
-  "deleted_property_datatype_property_pref_label.rq": {
-    "head": {
-      "vars": [
-        "resource",
-        "label",
-        "labelLang",
-        "property",
-        "value",
-        "valueLang"
-      ]
-    },
-    "results": {
-      "bindings": [
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Justificacion",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasJustificacion"
-          },
-          "value": {
-            "type": "literal",
-            "value": "has Justificacion",
-            "xml:lang": "en"
-          },
-          "valueLang": {
-            "type": "literal",
-            "value": "en"
-          }
-        },
-        {
-          "label": {
-            "type": "literal",
-            "value": "has Reason",
-            "xml:lang": "en"
-          },
-          "labelLang": {
-            "type": "literal",
-            "value": "en"
-          },
-          "property": {
-            "type": "uri",
-            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
-          },
-          "resource": {
-            "type": "uri",
-            "value": "http://hari-meta.org/ontology/hari#hasReason"
-          },
-          "value": {
-            "type": "literal",
-            "value": "has Reason",
-            "xml:lang": "en"
-          },
-          "valueLang": {
-            "type": "literal",
-            "value": "en"
-          }
-        }
-      ]
-    }
-  },
+  "deleted_property_datatype_property_pref_label.rq": "No changes found.",
   "deleted_property_datatype_property_range.rq": "No changes found.",
   "deleted_property_datatype_property_scope_note.rq": "No changes found.",
   "deleted_property_datatype_property_sub_property_of.rq": "No changes found.",
@@ -6553,19 +8492,542 @@
   "deleted_property_object_property_example.rq": "No changes found.",
   "deleted_property_object_property_hidden_label.rq": "No changes found.",
   "deleted_property_object_property_history_note.rq": "No changes found.",
-  "deleted_property_object_property_is_defined_by.rq": "No changes found.",
+  "deleted_property_object_property_is_defined_by.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Class Operand",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasClassOperand"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Class Operands",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasClassOperands"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Constraint Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasConstraintExtension"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Datatype Operand",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasDatatypeOperand"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Datatype Operands",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasDatatypeOperands"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Qualified Target",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasQualifiedTarget"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Restriction",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasRestriction"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Values From",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasValuesFrom"
+          },
+          "value": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        }
+      ]
+    }
+  },
   "deleted_property_object_property_label.rq": "No changes found.",
   "deleted_property_object_property_note.rq": "No changes found.",
-  "deleted_property_object_property_pref_label.rq": "No changes found.",
+  "deleted_property_object_property_pref_label.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Class Operand",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasClassOperand"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Class Operand",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Class Operands",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasClassOperands"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Class Operands",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Constraint Extension",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasConstraintExtension"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Constraint Extension",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Datatype Operand",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasDatatypeOperand"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Datatype Operand",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Datatype Operands",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasDatatypeOperands"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Datatype Operands",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Qualified Target",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasQualifiedTarget"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Qualified Target",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Restriction",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasRestriction"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Restriction",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        },
+        {
+          "label": {
+            "type": "literal",
+            "value": "has Values From",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2004/02/skos/core#prefLabel"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#hasValuesFrom"
+          },
+          "value": {
+            "type": "literal",
+            "value": "has Values From",
+            "xml:lang": "en"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": "en"
+          }
+        }
+      ]
+    }
+  },
   "deleted_property_object_property_range.rq": "No changes found.",
   "deleted_property_object_property_scope_note.rq": "No changes found.",
   "deleted_property_object_property_sub_property_of.rq": "No changes found.",
-  "deleted_property_ontology_comment.rq": "No changes found.",
+  "deleted_property_ontology_comment.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Ontología principal del proyecto Hari.",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#comment"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          },
+          "value": {
+            "type": "literal",
+            "value": "This version is automatically generated from hari.xml on 2026-05-05"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": ""
+          }
+        }
+      ]
+    }
+  },
   "deleted_property_ontology_created.rq": "No changes found.",
   "deleted_property_ontology_description.rq": "No changes found.",
   "deleted_property_ontology_imports.rq": "No changes found.",
   "deleted_property_ontology_incompatible_with.rq": "No changes found.",
-  "deleted_property_ontology_issued.rq": "No changes found.",
+  "deleted_property_ontology_issued.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "value",
+        "valueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Ontología principal del proyecto Hari.",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://purl.org/dc/terms/issued"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          },
+          "value": {
+            "datatype": "http://www.w3.org/2001/XMLSchema#date",
+            "type": "literal",
+            "value": "2026-05-05"
+          },
+          "valueLang": {
+            "type": "literal",
+            "value": ""
+          }
+        }
+      ]
+    }
+  },
   "deleted_property_ontology_label.rq": "No changes found.",
   "deleted_property_ontology_license.rq": "No changes found.",
   "deleted_property_ontology_preferred_namespace_prefix.rq": "No changes found.",
@@ -6641,7 +9103,7 @@
   "moved_property_ontology_title.rq": "No changes found.",
   "moved_property_ontology_version_info.rq": "No changes found.",
   "moved_property_ontology_version_iri.rq": "No changes found.",
-  "timestamp": "05-May-2026T12:11:42",
+  "timestamp": "08-May-2026T10:04:48",
   "updated_property_class_alt_label.rq": "No changes found.",
   "updated_property_class_change_note.rq": "No changes found.",
   "updated_property_class_comment.rq": "No changes found.",
@@ -6656,7 +9118,51 @@
   "updated_property_class_note.rq": "No changes found.",
   "updated_property_class_pref_label.rq": "No changes found.",
   "updated_property_class_scope_note.rq": "No changes found.",
-  "updated_property_class_sub_class_of.rq": "No changes found.",
+  "updated_property_class_sub_class_of.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "oldValue",
+        "oldValueLang",
+        "newValue",
+        "newValueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Restriction",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "newValue": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Expression"
+          },
+          "oldValue": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Class"
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#Restriction"
+          }
+        }
+      ]
+    }
+  },
   "updated_property_datatype_property_alt_label.rq": "No changes found.",
   "updated_property_datatype_property_change_note.rq": "No changes found.",
   "updated_property_datatype_property_comment.rq": "No changes found.",
@@ -6691,12 +9197,118 @@
   "updated_property_object_property_range.rq": "No changes found.",
   "updated_property_object_property_scope_note.rq": "No changes found.",
   "updated_property_object_property_sub_property_of.rq": "No changes found.",
-  "updated_property_ontology_comment.rq": "No changes found.",
+  "updated_property_ontology_comment.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "oldValue",
+        "oldValueLang",
+        "newValue",
+        "newValueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Ontología principal del proyecto Hari.",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "newValue": {
+            "type": "literal",
+            "value": "This version is automatically generated from hari.xml on 2026-05-08"
+          },
+          "newValueLang": {
+            "type": "literal",
+            "value": ""
+          },
+          "oldValue": {
+            "type": "literal",
+            "value": "This version is automatically generated from hari.xml on 2026-05-05"
+          },
+          "oldValueLang": {
+            "type": "literal",
+            "value": ""
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://www.w3.org/2000/01/rdf-schema#comment"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        }
+      ]
+    }
+  },
   "updated_property_ontology_created.rq": "No changes found.",
   "updated_property_ontology_description.rq": "No changes found.",
   "updated_property_ontology_imports.rq": "No changes found.",
   "updated_property_ontology_incompatible_with.rq": "No changes found.",
-  "updated_property_ontology_issued.rq": "No changes found.",
+  "updated_property_ontology_issued.rq": {
+    "head": {
+      "vars": [
+        "resource",
+        "label",
+        "labelLang",
+        "property",
+        "oldValue",
+        "oldValueLang",
+        "newValue",
+        "newValueLang"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "label": {
+            "type": "literal",
+            "value": "Ontología principal del proyecto Hari.",
+            "xml:lang": "en"
+          },
+          "labelLang": {
+            "type": "literal",
+            "value": "en"
+          },
+          "newValue": {
+            "datatype": "http://www.w3.org/2001/XMLSchema#date",
+            "type": "literal",
+            "value": "2026-05-08"
+          },
+          "newValueLang": {
+            "type": "literal",
+            "value": ""
+          },
+          "oldValue": {
+            "datatype": "http://www.w3.org/2001/XMLSchema#date",
+            "type": "literal",
+            "value": "2026-05-05"
+          },
+          "oldValueLang": {
+            "type": "literal",
+            "value": ""
+          },
+          "property": {
+            "type": "uri",
+            "value": "http://purl.org/dc/terms/issued"
+          },
+          "resource": {
+            "type": "uri",
+            "value": "http://hari-meta.org/ontology/hari#core"
+          }
+        }
+      ]
+    }
+  },
   "updated_property_ontology_label.rq": "No changes found.",
   "updated_property_ontology_license.rq": "No changes found.",
   "updated_property_ontology_preferred_namespace_prefix.rq": "No changes found.",
