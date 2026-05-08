@@ -244,7 +244,9 @@ core-shape:hari-PropertyReuseShape a sh:NodeShape ;
 core-shape:hari-PropertyShape a sh:NodeShape ;
     rdfs:label "Property" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-Property-hari-hasSubPropertyOf,
+    sh:property core-shape:hari-Property-hari-hasDomainExpression,
+        core-shape:hari-Property-hari-hasRangeExpression,
+        core-shape:hari-Property-hari-hasSubPropertyOf,
         core-shape:hari-Property-hari-isAssymetric,
         core-shape:hari-Property-hari-isFunctional,
         core-shape:hari-Property-hari-isInverseFunctional,
@@ -690,6 +692,22 @@ core-shape:hari-OntologyVersion-hari-isVersionOf a sh:PropertyShape ;
     sh:path hari:isVersionOf ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#isVersionOf> ?that . ?that <http://hari-meta.org/ontology/hari#isVersionOf> ?this .}" ] .
 
+core-shape:hari-Property-hari-hasDomainExpression a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:Expression ;
+    sh:maxCount 1 ;
+    sh:name "Has domain expression" ;
+    sh:path hari:hasDomainExpression ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDomainExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasDomainExpression> ?this .}" ] .
+
+core-shape:hari-Property-hari-hasRangeExpression a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class hari:Expression ;
+    sh:maxCount 1 ;
+    sh:name "Has range expression" ;
+    sh:path hari:hasRangeExpression ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasRangeExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasRangeExpression> ?this .}" ] .
+
 core-shape:hari-Property-hari-hasSubPropertyOf a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:Property ;
@@ -793,6 +811,7 @@ core-shape:hari-Types-hari-hasExpression a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:Expression ;
     sh:maxCount 1 ;
+    sh:minCount 1 ;
     sh:name "Has expression" ;
     sh:path hari:hasExpression ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasExpression> ?this .}" ] .

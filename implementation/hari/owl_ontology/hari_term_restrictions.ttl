@@ -128,11 +128,11 @@ hari_term:DatatypeProperty rdfs:subClassOf [ a owl:Restriction ;
 
 hari_term:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari_term:hasTermLabel ;
+            owl:onProperty hari_term:hasTermDefinition ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hari_term:hasTermDefinition ;
+            owl:onProperty hari_term:hasTermLabel ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
@@ -154,15 +154,15 @@ hari_term:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
 
 hari_term:Property rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isFunctional ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isReflexive ;
+            owl:onProperty hari_term:isSymmetric ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
             owl:onProperty hari_term:isIrreflexive ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty hari_term:isReflexive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
@@ -174,10 +174,10 @@ hari_term:Property rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isTransitive ;
+            owl:onProperty hari_term:isFunctional ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hari_term:isSymmetric ;
+            owl:onProperty hari_term:isTransitive ;
             owl:qualifiedCardinality 1 ] .
 
