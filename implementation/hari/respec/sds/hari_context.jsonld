@@ -27,10 +27,6 @@
         "hasCardinalityValue": {
           "@id": "http://hari-meta.org/ontology/hari#hasCardinalityValue",
           "@type": "http://www.w3.org/2001/XMLSchema#integer"
-        },
-        "hasQualifiedTarget": {
-          "@id": "http://hari-meta.org/ontology/hari#hasQualifiedTarget",
-          "@type": "@id"
         }
       },
       "@id": "http://hari-meta.org/ontology/hari#CardinalityRestriction"
@@ -47,11 +43,6 @@
           "@id": "http://hari-meta.org/ontology/hari#hasEquivalentTo",
           "@type": "@id"
         },
-        "hasRestriction": {
-          "@container": "@set",
-          "@id": "http://hari-meta.org/ontology/hari#hasRestriction",
-          "@type": "@id"
-        },
         "hasSubClassOf": {
           "@container": "@set",
           "@id": "http://hari-meta.org/ontology/hari#hasSubClassOf",
@@ -59,14 +50,6 @@
         }
       },
       "@id": "http://hari-meta.org/ontology/hari#Class"
-    },
-    "ClassComplement": {
-      "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#ClassComplement"
-    },
-    "ClassIntersection": {
-      "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#ClassIntersection"
     },
     "ClassReuse": {
       "@context": {
@@ -77,18 +60,9 @@
       },
       "@id": "http://hari-meta.org/ontology/hari#ClassReuse"
     },
-    "ClassUnion": {
+    "Complement": {
       "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#ClassUnion"
-    },
-    "ConstraintExtension": {
-      "@context": {
-        "hasConstraintExtension": {
-          "@id": "http://hari-meta.org/ontology/hari#hasConstraintExtension",
-          "@type": "@id"
-        }
-      },
-      "@id": "http://hari-meta.org/ontology/hari#ConstraintExtension"
+      "@id": "http://hari-meta.org/ontology/hari#Complement"
     },
     "Core": {
       "@context": {
@@ -102,14 +76,6 @@
     "Datatype": {
       "@context": {},
       "@id": "http://hari-meta.org/ontology/hari#Datatype"
-    },
-    "DatatypeComplement": {
-      "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#DatatypeComplement"
-    },
-    "DatatypeIntersection": {
-      "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#DatatypeIntersection"
     },
     "DatatypeProperty": {
       "@context": {
@@ -132,10 +98,6 @@
         }
       },
       "@id": "http://hari-meta.org/ontology/hari#DatatypeReuse"
-    },
-    "DatatypeUnion": {
-      "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#DatatypeUnion"
     },
     "DirectReuseDecision": {
       "@context": {
@@ -167,6 +129,30 @@
     "ExactCardinality": {
       "@context": {},
       "@id": "http://hari-meta.org/ontology/hari#ExactCardinality"
+    },
+    "Expression": {
+      "@context": {
+        "hasCompositeExpression": {
+          "@container": "@set",
+          "@id": "http://hari-meta.org/ontology/hari#hasCompositeExpression",
+          "@type": "@id"
+        },
+        "hasExpressionTarget": {
+          "@container": "@set",
+          "@id": "http://hari-meta.org/ontology/hari#hasExpressionTarget",
+          "@type": "@id"
+        }
+      },
+      "@id": "http://hari-meta.org/ontology/hari#Expression"
+    },
+    "ExpressionExtension": {
+      "@context": {
+        "hasExpressionForExtension": {
+          "@id": "http://hari-meta.org/ontology/hari#hasExpressionForExtension",
+          "@type": "@id"
+        }
+      },
+      "@id": "http://hari-meta.org/ontology/hari#ExpressionExtension"
     },
     "ExtensionDecision": {
       "@context": {
@@ -212,6 +198,10 @@
       },
       "@id": "http://hari-meta.org/ontology/hari#HasValue"
     },
+    "Intersection": {
+      "@context": {},
+      "@id": "http://hari-meta.org/ontology/hari#Intersection"
+    },
     "KnowledgeDomain": {
       "@context": {},
       "@id": "http://hari-meta.org/ontology/hari#KnowledgeDomain"
@@ -220,13 +210,9 @@
       "@context": {},
       "@id": "http://hari-meta.org/ontology/hari#Level"
     },
-    "LogicalClassExpression": {
+    "LogicalOperation": {
       "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#LogicalClassExpression"
-    },
-    "LogicalDatatypeExpression": {
-      "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#LogicalDatatypeExpression"
+      "@id": "http://hari-meta.org/ontology/hari#LogicalOperation"
     },
     "MaxCardinality": {
       "@context": {},
@@ -235,44 +221,6 @@
     "MinCardinality": {
       "@context": {},
       "@id": "http://hari-meta.org/ontology/hari#MinCardinality"
-    },
-    "MonoValuedLogicalClassExpression": {
-      "@context": {
-        "hasClassOperand": {
-          "@id": "http://hari-meta.org/ontology/hari#hasClassOperand",
-          "@type": "@id"
-        }
-      },
-      "@id": "http://hari-meta.org/ontology/hari#MonoValuedLogicalClassExpression"
-    },
-    "MonoValuedLogicalDatatypeExpression": {
-      "@context": {
-        "hasDatatypeOperand": {
-          "@id": "http://hari-meta.org/ontology/hari#hasDatatypeOperand",
-          "@type": "@id"
-        }
-      },
-      "@id": "http://hari-meta.org/ontology/hari#MonoValuedLogicalDatatypeExpression"
-    },
-    "MultiValuedLogicalClassExpression": {
-      "@context": {
-        "hasClassOperands": {
-          "@container": "@set",
-          "@id": "http://hari-meta.org/ontology/hari#hasClassOperands",
-          "@type": "@id"
-        }
-      },
-      "@id": "http://hari-meta.org/ontology/hari#MultiValuedLogicalClassExpression"
-    },
-    "MultiValuedLogicalDatatypeExpression": {
-      "@context": {
-        "hasDatatypeOperands": {
-          "@container": "@set",
-          "@id": "http://hari-meta.org/ontology/hari#hasDatatypeOperands",
-          "@type": "@id"
-        }
-      },
-      "@id": "http://hari-meta.org/ontology/hari#MultiValuedLogicalDatatypeExpression"
     },
     "ObjectProperty": {
       "@context": {
@@ -483,16 +431,20 @@
       "@id": "http://hari-meta.org/ontology/hari#Status"
     },
     "Types": {
-      "@context": {},
-      "@id": "http://hari-meta.org/ontology/hari#Types"
-    },
-    "ValuesFrom": {
       "@context": {
-        "hasValuesFrom": {
-          "@id": "http://hari-meta.org/ontology/hari#hasValuesFrom",
+        "hasExpression": {
+          "@id": "http://hari-meta.org/ontology/hari#hasExpression",
           "@type": "@id"
         }
       },
+      "@id": "http://hari-meta.org/ontology/hari#Types"
+    },
+    "Union": {
+      "@context": {},
+      "@id": "http://hari-meta.org/ontology/hari#Union"
+    },
+    "ValuesFrom": {
+      "@context": {},
       "@id": "http://hari-meta.org/ontology/hari#ValuesFrom"
     },
     "core-res": "http://hari-meta.org/ontology/hari#",
@@ -501,6 +453,7 @@
     "dcterms": "http://purl.org/dc/terms/",
     "hari": "http://hari-meta.org/ontology/hari#",
     "hari_domain": "http://hari-meta.org/ontology/hari_domain#",
+    "hari_expression": "http://hari-meta.org/ontology/hari_expression#",
     "hari_extension": "http://hari-meta.org/ontology/hari_extension#",
     "hari_level": "http://hari-meta.org/ontology/hari_level#",
     "hari_project": "http://hari-meta.org/ontology/hari_project#",

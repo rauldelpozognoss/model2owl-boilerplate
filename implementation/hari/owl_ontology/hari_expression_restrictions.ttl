@@ -48,6 +48,10 @@ hari_expression:hasCardinalityValue a owl:FunctionalProperty ;
     rdfs:domain hari_expression:CardinalityRestriction ;
     rdfs:range xsd:integer .
 
+hari_expression:hasDescription a owl:FunctionalProperty ;
+    rdfs:domain hari_expression:Expression ;
+    rdfs:range xsd:string .
+
 hari_expression:hasTargetValue a owl:FunctionalProperty ;
     rdfs:domain hari_expression:HasValue ;
     rdfs:range xsd:string .
@@ -55,4 +59,9 @@ hari_expression:hasTargetValue a owl:FunctionalProperty ;
 hari_expression:isSelf a owl:FunctionalProperty ;
     rdfs:domain hari_expression:HasSelf ;
     rdfs:range xsd:boolean .
+
+hari_expression:Expression rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hari_expression:hasDescription ;
+            owl:qualifiedCardinality 1 ] .
 

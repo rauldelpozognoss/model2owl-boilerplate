@@ -427,7 +427,21 @@
   
   
   
+| hari:Expression + 
+hari:OntologyProject
+| hari:hasDescription| 
+  |xsd:string [1..1] +
+  xsd:string [1..1]
   
+  
+  
+  
+  
+  
+  
+| hari_expression:Expression
+| hari_expression:hasDescription| 
+  |xsd:string [1..1]
   
   
   
@@ -571,12 +585,6 @@
   
 | hari:OntologyProject
 | hari:hasAcronym| 
-  |xsd:string [1..1]
-  
-  
-  
-| hari:OntologyProject
-| hari:hasDescription| 
   |xsd:string [1..1]
   
   
@@ -893,6 +901,10 @@ hari_status:Stable → hari_status:Status [1..1]
 
   
   
+  
+
+  
+  
 | hari:hasExpressionTarget| 
   |hari:Expression → hari:Types [0..&#42;]
 
@@ -903,6 +915,10 @@ hari_status:Stable → hari_status:Status [1..1]
 | hari_expression:hasCompositeExpression| 
   |hari_expression:Expression → hari_expression:Expression [0..&#42;]
 
+  
+
+  
+  
   
 
   
@@ -1043,10 +1059,6 @@ hari_status:Stable → hari_status:Status [1..1]
 | hari:isDefinedIn| 
   |hari:OntologicalTerm → hari:OntologyVersion [1..1]
 
-  
-
-  
-  
   
 
   

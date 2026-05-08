@@ -34,7 +34,8 @@ core-shape:hari_expression-ExactCardinalityShape a sh:NodeShape ;
 core-shape:hari_expression-ExpressionShape a sh:NodeShape ;
     rdfs:label "Expression" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari_expression-Expression-hari_expression-hasCompositeExpression ;
+    sh:property core-shape:hari_expression-Expression-hari_expression-hasCompositeExpression,
+        core-shape:hari_expression-Expression-hari_expression-hasDescription ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_expression#Expression> .
                 }""" ] ;
     sh:targetClass hari_expression:Expression .
@@ -111,6 +112,14 @@ core-shape:hari_expression-Expression-hari_expression-hasCompositeExpression a s
     sh:name "Has composite expression" ;
     sh:path hari_expression:hasCompositeExpression ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_expression#hasCompositeExpression> ?that . ?that <http://hari-meta.org/ontology/hari_expression#hasCompositeExpression> ?this .}" ] .
+
+core-shape:hari_expression-Expression-hari_expression-hasDescription a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has description" ;
+    sh:path hari_expression:hasDescription .
 
 core-shape:hari_expression-HasSelf-hari_expression-isSelf a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
