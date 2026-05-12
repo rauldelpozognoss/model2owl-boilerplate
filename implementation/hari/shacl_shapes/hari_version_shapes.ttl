@@ -1,4 +1,3 @@
-@prefix : <http://hari-meta.org/ontology/hari_version#> .
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -13,7 +12,7 @@ core-shape:hari_version-OntologyVersionShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI,
         core-shape:hari_version-OntologyVersion-hari_version-hasVersionInfo ;
-    sh:targetClass :OntologyVersion .
+    sh:targetClass <http://hari-meta.org/ontology/hari_version#OntologyVersion> .
 
 core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -21,7 +20,7 @@ core-shape:hari_version-OntologyVersion-hari_version-hasVersionIRI a sh:Property
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version IRI" ;
-    sh:path :hasVersionIRI .
+    sh:path <http://hari-meta.org/ontology/hari_version#hasVersionIRI> .
 
 core-shape:hari_version-OntologyVersion-hari_version-hasVersionInfo a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -29,7 +28,7 @@ core-shape:hari_version-OntologyVersion-hari_version-hasVersionInfo a sh:Propert
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version info" ;
-    sh:path :hasVersionInfo .
+    sh:path <http://hari-meta.org/ontology/hari_version#hasVersionInfo> .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -42,8 +41,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hari_version.xml on 2026-05-08" ;
-    owl:imports :core,
-        :core-restriction,
+    owl:imports <http://hari-meta.org/ontology/hari_version#core>,
+        <http://hari-meta.org/ontology/hari_version#core-restriction>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

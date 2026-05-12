@@ -1,0 +1,59 @@
+@prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hariExtension: <http://hari-meta.org/ontology/hariExtension#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+core-shape:hariExtension-ExpressionExtensionShape a sh:NodeShape ;
+    rdfs:label "Expression Extension" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hariExtension:ExpressionExtension .
+
+core-shape:hariExtension-ExtensionDecisionShape a sh:NodeShape ;
+    rdfs:label "Extension Decision" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:hariExtension-ExtensionDecision-hariExtension-hasExtensionReason ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hariExtension#ExtensionDecision> .
+                }""" ] ;
+    sh:targetClass hariExtension:ExtensionDecision .
+
+core-shape:hariExtension-PropertyExtensionShape a sh:NodeShape ;
+    rdfs:label "Property Extension" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hariExtension:PropertyExtension .
+
+core-shape:hariExtension-SemanticExtensionShape a sh:NodeShape ;
+    rdfs:label "Semantic Extension" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass hariExtension:SemanticExtension .
+
+core-shape:hariExtension-ExtensionDecision-hariExtension-hasExtensionReason a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:name "Has extension reason" ;
+    sh:path hariExtension:hasExtensionReason .
+
+core-shape:core-shape a owl:Ontology ;
+    rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:issued "2026-05-12"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Shapes"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from hariExtension.xml on 2026-05-12" ;
+    owl:imports hariExtension:core,
+        hariExtension:core-restriction,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;
+    owl:versionIRI core-shape:core-shape-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

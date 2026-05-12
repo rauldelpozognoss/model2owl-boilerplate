@@ -1,6 +1,5 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hari_extension: <http://hari-meta.org/ontology/hari_extension#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -11,7 +10,7 @@
 core-shape:hari_extension-ExpressionExtensionShape a sh:NodeShape ;
     rdfs:label "Expression Extension" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari_extension:ExpressionExtension .
+    sh:targetClass <http://hari-meta.org/ontology/hari_extension#ExpressionExtension> .
 
 core-shape:hari_extension-ExtensionDecisionShape a sh:NodeShape ;
     rdfs:label "Extension Decision" ;
@@ -19,24 +18,24 @@ core-shape:hari_extension-ExtensionDecisionShape a sh:NodeShape ;
     sh:property core-shape:hari_extension-ExtensionDecision-hari_extension-hasExtensionReason ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_extension#ExtensionDecision> .
                 }""" ] ;
-    sh:targetClass hari_extension:ExtensionDecision .
+    sh:targetClass <http://hari-meta.org/ontology/hari_extension#ExtensionDecision> .
 
 core-shape:hari_extension-PropertyExtensionShape a sh:NodeShape ;
     rdfs:label "Property Extension" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari_extension:PropertyExtension .
+    sh:targetClass <http://hari-meta.org/ontology/hari_extension#PropertyExtension> .
 
 core-shape:hari_extension-SemanticExtensionShape a sh:NodeShape ;
     rdfs:label "Semantic Extension" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hari_extension:SemanticExtension .
+    sh:targetClass <http://hari-meta.org/ontology/hari_extension#SemanticExtension> .
 
 core-shape:hari_extension-ExtensionDecision-hari_extension-hasExtensionReason a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:name "Has extension reason" ;
-    sh:path hari_extension:hasExtensionReason .
+    sh:path <http://hari-meta.org/ontology/hari_extension#hasExtensionReason> .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -49,8 +48,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hari_extension.xml on 2026-05-08" ;
-    owl:imports hari_extension:core,
-        hari_extension:core-restriction,
+    owl:imports <http://hari-meta.org/ontology/hari_extension#core>,
+        <http://hari-meta.org/ontology/hari_extension#core-restriction>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

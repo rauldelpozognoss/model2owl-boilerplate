@@ -1,6 +1,5 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hari_level: <http://hari-meta.org/ontology/hari_level#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -12,67 +11,67 @@ core-shape:hari_level-ApplicationShape a sh:NodeShape ;
     rdfs:label "Application" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_level-Application-hari_level-hasInScheme ;
-    sh:targetClass hari_level:Application .
+    sh:targetClass <http://hari-meta.org/ontology/hari_level#Application> .
 
 core-shape:hari_level-CoreShape a sh:NodeShape ;
     rdfs:label "Core" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_level-Core-hari_level-hasInScheme ;
-    sh:targetClass hari_level:Core .
+    sh:targetClass <http://hari-meta.org/ontology/hari_level#Core> .
 
 core-shape:hari_level-DomainShape a sh:NodeShape ;
     rdfs:label "Domain" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_level-Domain-hari_level-hasInScheme ;
-    sh:targetClass hari_level:Domain .
+    sh:targetClass <http://hari-meta.org/ontology/hari_level#Domain> .
 
 core-shape:hari_level-FoundationalShape a sh:NodeShape ;
     rdfs:label "Foundational" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_level-Foundational-hari_level-hasInScheme ;
-    sh:targetClass hari_level:Foundational .
+    sh:targetClass <http://hari-meta.org/ontology/hari_level#Foundational> .
 
 core-shape:hari_level-LevelShape a sh:NodeShape ;
     rdfs:label "Level" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_level#Level> .
                 }""" ] ;
-    sh:targetClass hari_level:Level .
+    sh:targetClass <http://hari-meta.org/ontology/hari_level#Level> .
 
 core-shape:hari_level-Application-hari_level-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari_level:Level ;
+    sh:class <http://hari-meta.org/ontology/hari_level#Level> ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hari_level:hasInScheme ;
+    sh:path <http://hari-meta.org/ontology/hari_level#hasInScheme> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_level#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari_level#hasInScheme> ?this .}" ] .
 
 core-shape:hari_level-Core-hari_level-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari_level:Level ;
+    sh:class <http://hari-meta.org/ontology/hari_level#Level> ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hari_level:hasInScheme ;
+    sh:path <http://hari-meta.org/ontology/hari_level#hasInScheme> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_level#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari_level#hasInScheme> ?this .}" ] .
 
 core-shape:hari_level-Domain-hari_level-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari_level:Level ;
+    sh:class <http://hari-meta.org/ontology/hari_level#Level> ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hari_level:hasInScheme ;
+    sh:path <http://hari-meta.org/ontology/hari_level#hasInScheme> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_level#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari_level#hasInScheme> ?this .}" ] .
 
 core-shape:hari_level-Foundational-hari_level-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari_level:Level ;
+    sh:class <http://hari-meta.org/ontology/hari_level#Level> ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hari_level:hasInScheme ;
+    sh:path <http://hari-meta.org/ontology/hari_level#hasInScheme> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_level#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari_level#hasInScheme> ?this .}" ] .
 
 core-shape:core-shape a owl:Ontology ;
@@ -86,8 +85,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hari_level.xml on 2026-05-08" ;
-    owl:imports hari_level:core,
-        hari_level:core-restriction,
+    owl:imports <http://hari-meta.org/ontology/hari_level#core>,
+        <http://hari-meta.org/ontology/hari_level#core-restriction>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

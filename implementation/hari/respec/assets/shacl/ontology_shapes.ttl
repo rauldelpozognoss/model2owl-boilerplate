@@ -111,7 +111,7 @@ core-shape:hari-ExpressionShape a sh:NodeShape ;
     rdfs:label "Expression" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari-Expression-hari-hasCompositeExpression,
-        core-shape:hari-Expression-hari-hasDescription,
+        core-shape:hari-Expression-hari-hasDescripcion,
         core-shape:hari-Expression-hari-hasExpressionTarget ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari#Expression> .
                 }""" ] ;
@@ -244,9 +244,7 @@ core-shape:hari-PropertyReuseShape a sh:NodeShape ;
 core-shape:hari-PropertyShape a sh:NodeShape ;
     rdfs:label "Property" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hari-Property-hari-hasDomainExpression,
-        core-shape:hari-Property-hari-hasRangeExpression,
-        core-shape:hari-Property-hari-hasSubPropertyOf,
+    sh:property core-shape:hari-Property-hari-hasSubPropertyOf,
         core-shape:hari-Property-hari-isAssymetric,
         core-shape:hari-Property-hari-isFunctional,
         core-shape:hari-Property-hari-isInverseFunctional,
@@ -433,13 +431,13 @@ core-shape:hari-Expression-hari-hasCompositeExpression a sh:PropertyShape ;
     sh:path hari:hasCompositeExpression ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasCompositeExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasCompositeExpression> ?this .}" ] .
 
-core-shape:hari-Expression-hari-hasDescription a sh:PropertyShape ;
+core-shape:hari-Expression-hari-hasDescripcion a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:name "Has description" ;
-    sh:path hari:hasDescription .
+    sh:name "Has descripcion" ;
+    sh:path hari:hasDescripcion .
 
 core-shape:hari-Expression-hari-hasExpressionTarget a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -692,22 +690,6 @@ core-shape:hari-OntologyVersion-hari-isVersionOf a sh:PropertyShape ;
     sh:path hari:isVersionOf ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#isVersionOf> ?that . ?that <http://hari-meta.org/ontology/hari#isVersionOf> ?this .}" ] .
 
-core-shape:hari-Property-hari-hasDomainExpression a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Expression ;
-    sh:maxCount 1 ;
-    sh:name "Has domain expression" ;
-    sh:path hari:hasDomainExpression ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasDomainExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasDomainExpression> ?this .}" ] .
-
-core-shape:hari-Property-hari-hasRangeExpression a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari:Expression ;
-    sh:maxCount 1 ;
-    sh:name "Has range expression" ;
-    sh:path hari:hasRangeExpression ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasRangeExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasRangeExpression> ?this .}" ] .
-
 core-shape:hari-Property-hari-hasSubPropertyOf a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:Property ;
@@ -811,7 +793,6 @@ core-shape:hari-Types-hari-hasExpression a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class hari:Expression ;
     sh:maxCount 1 ;
-    sh:minCount 1 ;
     sh:name "Has expression" ;
     sh:path hari:hasExpression ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari#hasExpression> ?that . ?that <http://hari-meta.org/ontology/hari#hasExpression> ?this .}" ] .
@@ -820,13 +801,13 @@ core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-05-08"^^xsd:date ;
+    dcterms:issued "2026-05-12"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hari.xml on 2026-05-08" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-05-12" ;
     owl:imports hari:core,
         hari:core-restriction,
         skos: ;

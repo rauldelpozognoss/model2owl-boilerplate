@@ -1,0 +1,153 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hariTerm: <http://hari-meta.org/ontology/hariTerm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hariTerm:AnotationProperty a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf hariTerm:Property ;
+    skos:prefLabel "Anotation Property"@en .
+
+hariTerm:Class a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf hariTerm:Types ;
+    skos:prefLabel "Class"@en .
+
+hariTerm:Datatype a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf hariTerm:Types ;
+    skos:prefLabel "Datatype"@en .
+
+hariTerm:DatatypeProperty a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf hariTerm:Property ;
+    skos:prefLabel "Datatype Property"@en .
+
+hariTerm:ObjectProperty a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf hariTerm:Property ;
+    skos:prefLabel "Object Property"@en .
+
+hariTerm:hasDisjointWith a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Disjoint With"@en .
+
+hariTerm:hasDomainAnotation a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Domain Anotation"@en .
+
+hariTerm:hasDomainClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Domain Class"@en .
+
+hariTerm:hasDomainDatatype a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Domain Datatype"@en .
+
+hariTerm:hasEquivalentTo a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Equivalent To"@en .
+
+hariTerm:hasInverseOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Inverse Of"@en .
+
+hariTerm:hasPropertyChain a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Property Chain"@en .
+
+hariTerm:hasRangeClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Range Class"@en .
+
+hariTerm:hasRangeDatatype a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Range Datatype"@en .
+
+hariTerm:hasSubClassOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Sub Class Of"@en .
+
+hariTerm:hasSubPropertyOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Sub Property Of"@en .
+
+hariTerm:hasTermDefinition a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Term Definition"@en .
+
+hariTerm:hasTermExample a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Term Example"@en .
+
+hariTerm:hasTermIRI a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Term IRI"@en .
+
+hariTerm:hasTermLabel a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "has Term Label"@en .
+
+hariTerm:isAssymetric a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "is Assymetric"@en .
+
+hariTerm:isFunctional a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "is Functional"@en .
+
+hariTerm:isInverseFunctional a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "is Inverse Functional"@en .
+
+hariTerm:isIrreflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "is Irreflexive"@en .
+
+hariTerm:isReflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "is Reflexive"@en .
+
+hariTerm:isSymmetric a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "is Symmetric"@en .
+
+hariTerm:isTransitive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariTerm:core ;
+    skos:prefLabel "is Transitive"@en .
+
+hariTerm:OntologicalTerm a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontological Term"@en .
+
+hariTerm:Types a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf hariTerm:OntologicalTerm ;
+    skos:prefLabel "Types"@en .
+
+hariTerm:Property a owl:Class ;
+    rdfs:isDefinedBy hariTerm:core ;
+    rdfs:subClassOf hariTerm:OntologicalTerm ;
+    skos:prefLabel "Property"@en .
+
+hariTerm:core a owl:Ontology ;
+    rdfs:label "Ontología principal del proyecto Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Ontología principal del proyecto Hari."@en ;
+    dcterms:issued "2026-05-12"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Core"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from hariTerm.xml on 2026-05-12" ;
+    owl:imports skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/hariTerm#core-" ;
+    owl:versionIRI hariTerm:core-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

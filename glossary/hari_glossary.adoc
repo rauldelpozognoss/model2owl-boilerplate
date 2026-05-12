@@ -227,11 +227,9 @@
   
   
   
-| hari:Expression + 
-hari:OntologyProject
-| hari:hasDescription| 
-  |xsd:string [1..1] +
-  xsd:string [1..1]
+| hari:Expression
+| hari:hasDescripcion| 
+  |xsd:string [1..1]
   
   
   
@@ -301,6 +299,12 @@ hari:OntologyProject
   
   
   
+| hari:OntologyProject
+| hari:hasDescription| 
+  |xsd:string [1..1]
+  
+  
+  
   
   
 | hari:OntologyProject
@@ -338,10 +342,6 @@ hari:OntologyProject
 | hari:OntologyVersion
 | hari:hasVersionInfo| 
   |xsd:string [1..1]
-  
-  
-  
-  
   
   
   
@@ -591,6 +591,10 @@ hari:Stable → hari:Status [1..1]
 
   
   
+  
+
+  
+  
 | hari:hasLevel| 
   |hari:OntologyProject → hari:Level [1..1]
 
@@ -653,20 +657,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-| hari:hasDomainExpression| 
-  |hari:Property → hari:Expression [0..1]
-
-  
-
-  
-  
-| hari:hasRangeExpression| 
-  |hari:Property → hari:Expression [0..1]
-
-  
-
-  
-  
 | hari:hasSubPropertyOf| 
   |hari:Property → hari:Property [0..&#42;]
 
@@ -724,7 +714,7 @@ hari:Stable → hari:Status [1..1]
   
   
 | hari:hasExpression| 
-  |hari:Types → hari:Expression [1..1]
+  |hari:Types → hari:Expression [0..1]
 
   
 

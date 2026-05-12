@@ -1,0 +1,67 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hariExpression: <http://hari-meta.org/ontology/hariExpression#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hariExpression:core-restriction a owl:Ontology ;
+    rdfs:label "Restricciones de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Restricciones de la ontología Hari."@en ;
+    dcterms:issued "2026-05-12"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Restricciones"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment """This version is automatically generated from hariExpression.xml on 
+                2026-05-12""" ;
+    owl:imports hariExpression:core,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/hariExpression#core-restriction-" ;
+    owl:versionIRI hariExpression:core-restriction-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
+hariExpression:hasCompositeExpression a owl:AsymmetricProperty ;
+    rdfs:domain hariExpression:Expression ;
+    rdfs:range hariExpression:Expression .
+
+hariExpression:CardinalityRestriction rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty hariExpression:hasCardinalityValue ;
+            owl:qualifiedCardinality 1 ] .
+
+hariExpression:HasSelf rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty hariExpression:isSelf ;
+            owl:qualifiedCardinality 1 ] .
+
+hariExpression:HasValue rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hariExpression:hasTargetValue ;
+            owl:qualifiedCardinality 1 ] .
+
+hariExpression:hasCardinalityValue a owl:FunctionalProperty ;
+    rdfs:domain hariExpression:CardinalityRestriction ;
+    rdfs:range xsd:integer .
+
+hariExpression:hasDescripcion a owl:FunctionalProperty ;
+    rdfs:domain hariExpression:Expression ;
+    rdfs:range xsd:string .
+
+hariExpression:hasTargetValue a owl:FunctionalProperty ;
+    rdfs:domain hariExpression:HasValue ;
+    rdfs:range xsd:string .
+
+hariExpression:isSelf a owl:FunctionalProperty ;
+    rdfs:domain hariExpression:HasSelf ;
+    rdfs:range xsd:boolean .
+
+hariExpression:Expression rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hariExpression:hasDescripcion ;
+            owl:qualifiedCardinality 1 ] .
+

@@ -1,6 +1,5 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hari_status: <http://hari-meta.org/ontology/hari_status#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -12,52 +11,52 @@ core-shape:hari_status-DraftShape a sh:NodeShape ;
     rdfs:label "Draft" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_status-Draft-hari_status-hasInScheme ;
-    sh:targetClass hari_status:Draft .
+    sh:targetClass <http://hari-meta.org/ontology/hari_status#Draft> .
 
 core-shape:hari_status-ObsoleteShape a sh:NodeShape ;
     rdfs:label "Obsolete" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_status-Obsolete-hari_status-hasInScheme ;
-    sh:targetClass hari_status:Obsolete .
+    sh:targetClass <http://hari-meta.org/ontology/hari_status#Obsolete> .
 
 core-shape:hari_status-StableShape a sh:NodeShape ;
     rdfs:label "Stable" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hari_status-Stable-hari_status-hasInScheme ;
-    sh:targetClass hari_status:Stable .
+    sh:targetClass <http://hari-meta.org/ontology/hari_status#Stable> .
 
 core-shape:hari_status-StatusShape a sh:NodeShape ;
     rdfs:label "Status" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hari_status#Status> .
                 }""" ] ;
-    sh:targetClass hari_status:Status .
+    sh:targetClass <http://hari-meta.org/ontology/hari_status#Status> .
 
 core-shape:hari_status-Draft-hari_status-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari_status:Status ;
+    sh:class <http://hari-meta.org/ontology/hari_status#Status> ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hari_status:hasInScheme ;
+    sh:path <http://hari-meta.org/ontology/hari_status#hasInScheme> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_status#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari_status#hasInScheme> ?this .}" ] .
 
 core-shape:hari_status-Obsolete-hari_status-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari_status:Status ;
+    sh:class <http://hari-meta.org/ontology/hari_status#Status> ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hari_status:hasInScheme ;
+    sh:path <http://hari-meta.org/ontology/hari_status#hasInScheme> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_status#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari_status#hasInScheme> ?this .}" ] .
 
 core-shape:hari_status-Stable-hari_status-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hari_status:Status ;
+    sh:class <http://hari-meta.org/ontology/hari_status#Status> ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hari_status:hasInScheme ;
+    sh:path <http://hari-meta.org/ontology/hari_status#hasInScheme> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hari_status#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hari_status#hasInScheme> ?this .}" ] .
 
 core-shape:core-shape a owl:Ontology ;
@@ -71,8 +70,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hari_status.xml on 2026-05-08" ;
-    owl:imports hari_status:core,
-        hari_status:core-restriction,
+    owl:imports <http://hari-meta.org/ontology/hari_status#core>,
+        <http://hari-meta.org/ontology/hari_status#core-restriction>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

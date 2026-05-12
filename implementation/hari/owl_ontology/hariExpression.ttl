@@ -1,0 +1,120 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hariExpression: <http://hari-meta.org/ontology/hariExpression#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hariExpression:AllValuesFrom a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:ValuesFrom ;
+    skos:prefLabel "All Values From"@en .
+
+hariExpression:Complement a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:LogicalOperation ;
+    skos:prefLabel "Complement"@en .
+
+hariExpression:ExactCardinality a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:CardinalityRestriction ;
+    skos:prefLabel "Exact Cardinality"@en .
+
+hariExpression:HasSelf a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:Restriction ;
+    skos:prefLabel "Has Self"@en .
+
+hariExpression:HasValue a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:Restriction ;
+    skos:prefLabel "Has Value"@en .
+
+hariExpression:Intersection a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:LogicalOperation ;
+    skos:prefLabel "Intersection"@en .
+
+hariExpression:MaxCardinality a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:CardinalityRestriction ;
+    skos:prefLabel "Max Cardinality"@en .
+
+hariExpression:MinCardinality a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:CardinalityRestriction ;
+    skos:prefLabel "Min Cardinality"@en .
+
+hariExpression:SomeValuesFrom a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:ValuesFrom ;
+    skos:prefLabel "Some Values From"@en .
+
+hariExpression:Union a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:LogicalOperation ;
+    skos:prefLabel "Union"@en .
+
+hariExpression:hasCardinalityValue a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariExpression:core ;
+    skos:prefLabel "has Cardinality Value"@en .
+
+hariExpression:hasCompositeExpression a owl:ObjectProperty ;
+    rdfs:isDefinedBy hariExpression:core ;
+    skos:prefLabel "has Composite Expression"@en .
+
+hariExpression:hasDescripcion a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariExpression:core ;
+    skos:prefLabel "has Descripcion"@en .
+
+hariExpression:hasTargetValue a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariExpression:core ;
+    skos:prefLabel "has Target Value"@en .
+
+hariExpression:isSelf a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hariExpression:core ;
+    skos:prefLabel "is Self"@en .
+
+hariExpression:Expression a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Expression"@en .
+
+hariExpression:ValuesFrom a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:Restriction ;
+    skos:prefLabel "Values From"@en .
+
+hariExpression:CardinalityRestriction a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:Restriction ;
+    skos:prefLabel "Cardinality Restriction"@en .
+
+hariExpression:LogicalOperation a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:Expression ;
+    skos:prefLabel "Logical Operation"@en .
+
+hariExpression:Restriction a owl:Class ;
+    rdfs:isDefinedBy hariExpression:core ;
+    rdfs:subClassOf hariExpression:Expression ;
+    skos:prefLabel "Restriction"@en .
+
+hariExpression:core a owl:Ontology ;
+    rdfs:label "Ontología principal del proyecto Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Ontología principal del proyecto Hari."@en ;
+    dcterms:issued "2026-05-12"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Core"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from hariExpression.xml on 2026-05-12" ;
+    owl:imports skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/hariExpression#core-" ;
+    owl:versionIRI hariExpression:core-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
