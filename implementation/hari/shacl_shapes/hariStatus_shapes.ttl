@@ -1,6 +1,6 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariStatus: <http://hari-meta.org/ontology/hariStatus#> .
+@prefix haristatus: <http://hari-meta.org/ontology/haristatus#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -8,57 +8,57 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:hariStatus-DraftShape a sh:NodeShape ;
+core-shape:haristatus-DraftShape a sh:NodeShape ;
     rdfs:label "Draft" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariStatus-Draft-hariStatus-hasInScheme ;
-    sh:targetClass hariStatus:Draft .
+    sh:property core-shape:haristatus-Draft-haristatus-hasInScheme ;
+    sh:targetClass haristatus:Draft .
 
-core-shape:hariStatus-ObsoleteShape a sh:NodeShape ;
+core-shape:haristatus-ObsoleteShape a sh:NodeShape ;
     rdfs:label "Obsolete" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariStatus-Obsolete-hariStatus-hasInScheme ;
-    sh:targetClass hariStatus:Obsolete .
+    sh:property core-shape:haristatus-Obsolete-haristatus-hasInScheme ;
+    sh:targetClass haristatus:Obsolete .
 
-core-shape:hariStatus-StableShape a sh:NodeShape ;
+core-shape:haristatus-StableShape a sh:NodeShape ;
     rdfs:label "Stable" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariStatus-Stable-hariStatus-hasInScheme ;
-    sh:targetClass hariStatus:Stable .
+    sh:property core-shape:haristatus-Stable-haristatus-hasInScheme ;
+    sh:targetClass haristatus:Stable .
 
-core-shape:hariStatus-StatusShape a sh:NodeShape ;
+core-shape:haristatus-StatusShape a sh:NodeShape ;
     rdfs:label "Status" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hariStatus#Status> .
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/haristatus#Status> .
                 }""" ] ;
-    sh:targetClass hariStatus:Status .
+    sh:targetClass haristatus:Status .
 
-core-shape:hariStatus-Draft-hariStatus-hasInScheme a sh:PropertyShape ;
+core-shape:haristatus-Draft-haristatus-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hariStatus:Status ;
+    sh:class haristatus:Status ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hariStatus:hasInScheme ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hariStatus#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hariStatus#hasInScheme> ?this .}" ] .
+    sh:path haristatus:hasInScheme ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/haristatus#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/haristatus#hasInScheme> ?this .}" ] .
 
-core-shape:hariStatus-Obsolete-hariStatus-hasInScheme a sh:PropertyShape ;
+core-shape:haristatus-Obsolete-haristatus-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hariStatus:Status ;
+    sh:class haristatus:Status ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hariStatus:hasInScheme ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hariStatus#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hariStatus#hasInScheme> ?this .}" ] .
+    sh:path haristatus:hasInScheme ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/haristatus#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/haristatus#hasInScheme> ?this .}" ] .
 
-core-shape:hariStatus-Stable-hariStatus-hasInScheme a sh:PropertyShape ;
+core-shape:haristatus-Stable-haristatus-hasInScheme a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hariStatus:Status ;
+    sh:class haristatus:Status ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has in scheme" ;
-    sh:path hariStatus:hasInScheme ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hariStatus#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/hariStatus#hasInScheme> ?this .}" ] .
+    sh:path haristatus:hasInScheme ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/haristatus#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/haristatus#hasInScheme> ?this .}" ] .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -71,8 +71,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hariStatus.xml on 2026-05-12" ;
-    owl:imports hariStatus:core,
-        hariStatus:core-restriction,
+    owl:imports <http://hari-meta.org/ontology/hariStatus#core>,
+        <http://hari-meta.org/ontology/hariStatus#core-restriction>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

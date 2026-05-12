@@ -1,12 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariTerm: <http://hari-meta.org/ontology/hariTerm#> .
+@prefix hariterm: <http://hari-meta.org/ontology/hariterm#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hariTerm:core-restriction a owl:Ontology ;
+<http://hari-meta.org/ontology/hariTerm#core-restriction> a owl:Ontology ;
     rdfs:label "Restricciones de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Restricciones de la ontología Hari."@en ;
@@ -18,166 +18,166 @@ hariTerm:core-restriction a owl:Ontology ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment """This version is automatically generated from hariTerm.xml on 
                 2026-05-12""" ;
-    owl:imports hariTerm:core,
+    owl:imports <http://hari-meta.org/ontology/hariTerm#core>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hariTerm#core-restriction-" ;
-    owl:versionIRI hariTerm:core-restriction-1.0.0 ;
+    owl:versionIRI <http://hari-meta.org/ontology/hariTerm#core-restriction-1.0.0> ;
     owl:versionInfo "1.0.0" .
 
-hariTerm:hasDisjointWith a owl:AsymmetricProperty ;
-    rdfs:domain hariTerm:Class ;
-    rdfs:range hariTerm:Class .
+hariterm:hasDisjointWith a owl:AsymmetricProperty ;
+    rdfs:domain hariterm:Class ;
+    rdfs:range hariterm:Class .
 
-hariTerm:hasEquivalentTo a owl:AsymmetricProperty ;
-    rdfs:domain hariTerm:Class ;
-    rdfs:range hariTerm:Class .
+hariterm:hasEquivalentTo a owl:AsymmetricProperty ;
+    rdfs:domain hariterm:Class ;
+    rdfs:range hariterm:Class .
 
-hariTerm:hasPropertyChain a owl:AsymmetricProperty ;
-    rdfs:domain hariTerm:ObjectProperty ;
-    rdfs:range hariTerm:ObjectProperty .
+hariterm:hasPropertyChain a owl:AsymmetricProperty ;
+    rdfs:domain hariterm:ObjectProperty ;
+    rdfs:range hariterm:ObjectProperty .
 
-hariTerm:hasSubClassOf a owl:AsymmetricProperty ;
-    rdfs:domain hariTerm:Class ;
-    rdfs:range hariTerm:Class .
+hariterm:hasSubClassOf a owl:AsymmetricProperty ;
+    rdfs:domain hariterm:Class ;
+    rdfs:range hariterm:Class .
 
-hariTerm:hasSubPropertyOf a owl:AsymmetricProperty ;
-    rdfs:domain hariTerm:Property ;
-    rdfs:range hariTerm:Property .
+hariterm:hasSubPropertyOf a owl:AsymmetricProperty ;
+    rdfs:domain hariterm:Property ;
+    rdfs:range hariterm:Property .
 
-hariTerm:hasTermExample rdfs:domain hariTerm:OntologicalTerm ;
+hariterm:hasTermExample rdfs:domain hariterm:OntologicalTerm ;
     rdfs:range xsd:string .
 
-hariTerm:AnotationProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass hariTerm:OntologicalTerm ;
-            owl:onProperty hariTerm:hasDomainAnotation ;
+hariterm:AnotationProperty rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass hariterm:OntologicalTerm ;
+            owl:onProperty hariterm:hasDomainAnotation ;
             owl:qualifiedCardinality 1 ] .
 
-hariTerm:hasDomainAnotation a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:AnotationProperty ;
-    rdfs:range hariTerm:OntologicalTerm .
+hariterm:hasDomainAnotation a owl:FunctionalProperty ;
+    rdfs:domain hariterm:AnotationProperty ;
+    rdfs:range hariterm:OntologicalTerm .
 
-hariTerm:hasDomainClass a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:ObjectProperty ;
-    rdfs:range hariTerm:Class .
+hariterm:hasDomainClass a owl:FunctionalProperty ;
+    rdfs:domain hariterm:ObjectProperty ;
+    rdfs:range hariterm:Class .
 
-hariTerm:hasDomainDatatype a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:DatatypeProperty ;
-    rdfs:range hariTerm:Class .
+hariterm:hasDomainDatatype a owl:FunctionalProperty ;
+    rdfs:domain hariterm:DatatypeProperty ;
+    rdfs:range hariterm:Class .
 
-hariTerm:hasInverseOf a owl:AsymmetricProperty ;
-    rdfs:domain hariTerm:ObjectProperty ;
-    rdfs:range hariTerm:ObjectProperty .
+hariterm:hasInverseOf a owl:AsymmetricProperty ;
+    rdfs:domain hariterm:ObjectProperty ;
+    rdfs:range hariterm:ObjectProperty .
 
-hariTerm:hasRangeClass a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:ObjectProperty ;
-    rdfs:range hariTerm:Class .
+hariterm:hasRangeClass a owl:FunctionalProperty ;
+    rdfs:domain hariterm:ObjectProperty ;
+    rdfs:range hariterm:Class .
 
-hariTerm:hasRangeDatatype a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:DatatypeProperty ;
-    rdfs:range hariTerm:Datatype .
+hariterm:hasRangeDatatype a owl:FunctionalProperty ;
+    rdfs:domain hariterm:DatatypeProperty ;
+    rdfs:range hariterm:Datatype .
 
-hariTerm:hasTermDefinition a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:OntologicalTerm ;
+hariterm:hasTermDefinition a owl:FunctionalProperty ;
+    rdfs:domain hariterm:OntologicalTerm ;
     rdfs:range xsd:string .
 
-hariTerm:hasTermIRI a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:OntologicalTerm ;
+hariterm:hasTermIRI a owl:FunctionalProperty ;
+    rdfs:domain hariterm:OntologicalTerm ;
     rdfs:range xsd:string .
 
-hariTerm:hasTermLabel a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:OntologicalTerm ;
+hariterm:hasTermLabel a owl:FunctionalProperty ;
+    rdfs:domain hariterm:OntologicalTerm ;
     rdfs:range xsd:string .
 
-hariTerm:isAssymetric a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:Property ;
+hariterm:isAssymetric a owl:FunctionalProperty ;
+    rdfs:domain hariterm:Property ;
     rdfs:range xsd:boolean .
 
-hariTerm:isFunctional a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:Property ;
+hariterm:isFunctional a owl:FunctionalProperty ;
+    rdfs:domain hariterm:Property ;
     rdfs:range xsd:boolean .
 
-hariTerm:isInverseFunctional a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:Property ;
+hariterm:isInverseFunctional a owl:FunctionalProperty ;
+    rdfs:domain hariterm:Property ;
     rdfs:range xsd:boolean .
 
-hariTerm:isIrreflexive a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:Property ;
+hariterm:isIrreflexive a owl:FunctionalProperty ;
+    rdfs:domain hariterm:Property ;
     rdfs:range xsd:boolean .
 
-hariTerm:isReflexive a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:Property ;
+hariterm:isReflexive a owl:FunctionalProperty ;
+    rdfs:domain hariterm:Property ;
     rdfs:range xsd:boolean .
 
-hariTerm:isSymmetric a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:Property ;
+hariterm:isSymmetric a owl:FunctionalProperty ;
+    rdfs:domain hariterm:Property ;
     rdfs:range xsd:boolean .
 
-hariTerm:isTransitive a owl:FunctionalProperty ;
-    rdfs:domain hariTerm:Property ;
+hariterm:isTransitive a owl:FunctionalProperty ;
+    rdfs:domain hariterm:Property ;
     rdfs:range xsd:boolean .
 
-hariTerm:DatatypeProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass hariTerm:Datatype ;
-            owl:onProperty hariTerm:hasRangeDatatype ;
+hariterm:DatatypeProperty rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass hariterm:Class ;
+            owl:onProperty hariterm:hasDomainDatatype ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass hariTerm:Class ;
-            owl:onProperty hariTerm:hasDomainDatatype ;
+            owl:onClass hariterm:Datatype ;
+            owl:onProperty hariterm:hasRangeDatatype ;
             owl:qualifiedCardinality 1 ] .
 
-hariTerm:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
+hariterm:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hariTerm:hasTermLabel ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty hariTerm:hasTermDefinition ;
+            owl:onProperty hariterm:hasTermIRI ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hariTerm:hasTermIRI ;
-            owl:qualifiedCardinality 1 ] .
-
-hariTerm:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass hariTerm:Class ;
-            owl:onProperty hariTerm:hasDomainClass ;
+            owl:onProperty hariterm:hasTermDefinition ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty hariterm:hasTermLabel ;
+            owl:qualifiedCardinality 1 ] .
+
+hariterm:ObjectProperty rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass hariTerm:ObjectProperty ;
-            owl:onProperty hariTerm:hasInverseOf ],
+            owl:onClass hariterm:ObjectProperty ;
+            owl:onProperty hariterm:hasInverseOf ],
         [ a owl:Restriction ;
-            owl:onClass hariTerm:Class ;
-            owl:onProperty hariTerm:hasRangeClass ;
+            owl:onClass hariterm:Class ;
+            owl:onProperty hariterm:hasRangeClass ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass hariterm:Class ;
+            owl:onProperty hariterm:hasDomainClass ;
             owl:qualifiedCardinality 1 ] .
 
-hariTerm:Property rdfs:subClassOf [ a owl:Restriction ;
+hariterm:Property rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariTerm:isReflexive ;
+            owl:onProperty hariterm:isFunctional ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariTerm:isTransitive ;
+            owl:onProperty hariterm:isReflexive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariTerm:isAssymetric ;
+            owl:onProperty hariterm:isInverseFunctional ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariTerm:isIrreflexive ;
+            owl:onProperty hariterm:isAssymetric ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariTerm:isFunctional ;
+            owl:onProperty hariterm:isTransitive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariTerm:isInverseFunctional ;
+            owl:onProperty hariterm:isIrreflexive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariTerm:isSymmetric ;
+            owl:onProperty hariterm:isSymmetric ;
             owl:qualifiedCardinality 1 ] .
 

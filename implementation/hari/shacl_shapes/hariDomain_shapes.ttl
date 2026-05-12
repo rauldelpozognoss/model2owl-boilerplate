@@ -1,6 +1,6 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariDomain: <http://hari-meta.org/ontology/hariDomain#> .
+@prefix haridomain: <http://hari-meta.org/ontology/haridomain#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -8,10 +8,10 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:hariDomain-KnowledgeDomainShape a sh:NodeShape ;
+core-shape:haridomain-KnowledgeDomainShape a sh:NodeShape ;
     rdfs:label "Knowledge Domain" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariDomain:KnowledgeDomain .
+    sh:targetClass haridomain:KnowledgeDomain .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -24,8 +24,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hariDomain.xml on 2026-05-12" ;
-    owl:imports hariDomain:core,
-        hariDomain:core-restriction,
+    owl:imports <http://hari-meta.org/ontology/hariDomain#core>,
+        <http://hari-meta.org/ontology/hariDomain#core-restriction>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

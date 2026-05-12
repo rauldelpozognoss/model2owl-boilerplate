@@ -1,36 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariExtension: <http://hari-meta.org/ontology/hariExtension#> .
+@prefix hariextension: <http://hari-meta.org/ontology/hariextension#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hariExtension:ExpressionExtension a owl:Class ;
-    rdfs:isDefinedBy hariExtension:core ;
-    rdfs:subClassOf hariExtension:ExtensionDecision ;
-    skos:prefLabel "Expression Extension"@en .
-
-hariExtension:PropertyExtension a owl:Class ;
-    rdfs:isDefinedBy hariExtension:core ;
-    rdfs:subClassOf hariExtension:ExtensionDecision ;
-    skos:prefLabel "Property Extension"@en .
-
-hariExtension:SemanticExtension a owl:Class ;
-    rdfs:isDefinedBy hariExtension:core ;
-    rdfs:subClassOf hariExtension:ExtensionDecision ;
-    skos:prefLabel "Semantic Extension"@en .
-
-hariExtension:hasExtensionReason a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hariExtension:core ;
-    skos:prefLabel "has Extension Reason"@en .
-
-hariExtension:ExtensionDecision a owl:Class ;
-    rdfs:isDefinedBy hariExtension:core ;
-    rdfs:subClassOf owl:Thing ;
-    skos:prefLabel "Extension Decision"@en .
-
-hariExtension:core a owl:Ontology ;
+<http://hari-meta.org/ontology/hariExtension#core> a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Ontología principal del proyecto Hari."@en ;
@@ -44,6 +20,25 @@ hariExtension:core a owl:Ontology ;
     owl:imports skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hariExtension#core-" ;
-    owl:versionIRI hariExtension:core-1.0.0 ;
+    owl:versionIRI <http://hari-meta.org/ontology/hariExtension#core-1.0.0> ;
     owl:versionInfo "1.0.0" .
+
+hariextension:ExpressionExtension a owl:Class ;
+    rdfs:subClassOf hariextension:ExtensionDecision ;
+    skos:prefLabel "Expression Extension"@en .
+
+hariextension:PropertyExtension a owl:Class ;
+    rdfs:subClassOf hariextension:ExtensionDecision ;
+    skos:prefLabel "Property Extension"@en .
+
+hariextension:SemanticExtension a owl:Class ;
+    rdfs:subClassOf hariextension:ExtensionDecision ;
+    skos:prefLabel "Semantic Extension"@en .
+
+hariextension:hasExtensionReason a owl:DatatypeProperty ;
+    skos:prefLabel "has Extension Reason"@en .
+
+hariextension:ExtensionDecision a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Extension Decision"@en .
 

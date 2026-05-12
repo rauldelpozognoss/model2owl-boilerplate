@@ -1,6 +1,7 @@
 @prefix : <http://hari-meta.org/ontology/hariVersion#> .
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hariversion: <http://hari-meta.org/ontology/hariversion#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -8,28 +9,28 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:hariVersion-OntologyVersionShape a sh:NodeShape ;
+core-shape:hariversion-OntologyVersionShape a sh:NodeShape ;
     rdfs:label "Ontology Version" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariVersion-OntologyVersion-hariVersion-hasVersionIRI,
-        core-shape:hariVersion-OntologyVersion-hariVersion-hasVersionInfo ;
-    sh:targetClass :OntologyVersion .
+    sh:property core-shape:hariversion-OntologyVersion-hariversion-hasVersionIRI,
+        core-shape:hariversion-OntologyVersion-hariversion-hasVersionInfo ;
+    sh:targetClass hariversion:OntologyVersion .
 
-core-shape:hariVersion-OntologyVersion-hariVersion-hasVersionIRI a sh:PropertyShape ;
+core-shape:hariversion-OntologyVersion-hariversion-hasVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version IRI" ;
-    sh:path :hasVersionIRI .
+    sh:path hariversion:hasVersionIRI .
 
-core-shape:hariVersion-OntologyVersion-hariVersion-hasVersionInfo a sh:PropertyShape ;
+core-shape:hariversion-OntologyVersion-hariversion-hasVersionInfo a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version info" ;
-    sh:path :hasVersionInfo .
+    sh:path hariversion:hasVersionInfo .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;

@@ -7,6 +7,11 @@
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/harireuse#PropertyReuse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Property Reuse</skos:prefLabel>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/harireuse#DirectReuseDecision"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/hariReuse#core">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -25,33 +30,23 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hariReuse#PropertyReuse">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Property Reuse</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariReuse#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hariReuse#DirectReuseDecision"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hariReuse#DirectReuseDecision">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/harireuse#DirectReuseDecision">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <skos:prefLabel xml:lang="en">Direct Reuse Decision</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariReuse#core"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hariReuse#hasReuseReason">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <skos:prefLabel xml:lang="en">has Reuse Reason</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariReuse#core"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hariReuse#ClassReuse">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/harireuse#ClassReuse">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <skos:prefLabel xml:lang="en">Class Reuse</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariReuse#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hariReuse#DirectReuseDecision"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/harireuse#DirectReuseDecision"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/hariReuse#DatatypeReuse">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/harireuse#DatatypeReuse">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <skos:prefLabel xml:lang="en">Datatype Reuse</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariReuse#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hariReuse#DirectReuseDecision"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/harireuse#DirectReuseDecision"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/harireuse#hasReuseReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Reuse Reason</skos:prefLabel>
   </rdf:Description>
 </rdf:RDF>

@@ -7,22 +7,6 @@
    xmlns:sh="http://www.w3.org/ns/shacl#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariReuse-DirectReuseDecision-hariReuse-hasReuseReason">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hariReuse#hasReuseReason"/>
-    <sh:name>Has reuse reason</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariReuse-DirectReuseDecisionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariReuse#DirectReuseDecision"/>
-    <sh:sparql rdf:nodeID="Na2ef2d2a16734121a58b908353dd8507"/>
-    <rdfs:label>Direct Reuse Decision</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hariReuse-DirectReuseDecision-hariReuse-hasReuseReason"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#core-shape">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -43,26 +27,42 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariReuse-ClassReuseShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#harireuse-PropertyReuseShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariReuse#ClassReuse"/>
-    <rdfs:label>Class Reuse</rdfs:label>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/harireuse#PropertyReuse"/>
+    <rdfs:label>Property Reuse</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariReuse-DatatypeReuseShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#harireuse-DatatypeReuseShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariReuse#DatatypeReuse"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/harireuse#DatatypeReuse"/>
     <rdfs:label>Datatype Reuse</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Na2ef2d2a16734121a58b908353dd8507">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hariReuse#DirectReuseDecision&gt; .
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#harireuse-DirectReuseDecision-harireuse-hasReuseReason">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/harireuse#hasReuseReason"/>
+    <sh:name>Has reuse reason</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8dc1095dd43d4fa09feb79c990fd3077">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/harireuse#DirectReuseDecision&gt; .
                 }</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariReuse-PropertyReuseShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#harireuse-DirectReuseDecisionShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariReuse#PropertyReuse"/>
-    <rdfs:label>Property Reuse</rdfs:label>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/harireuse#DirectReuseDecision"/>
+    <sh:sparql rdf:nodeID="N8dc1095dd43d4fa09feb79c990fd3077"/>
+    <rdfs:label>Direct Reuse Decision</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#harireuse-DirectReuseDecision-harireuse-hasReuseReason"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#harireuse-ClassReuseShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/harireuse#ClassReuse"/>
+    <rdfs:label>Class Reuse</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
 </rdf:RDF>

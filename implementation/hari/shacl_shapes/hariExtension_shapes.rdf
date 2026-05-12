@@ -7,6 +7,14 @@
    xmlns:sh="http://www.w3.org/ns/shacl#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariextension-ExtensionDecision-hariextension-hasExtensionReason">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/hariextension#hasExtensionReason"/>
+    <sh:name>Has extension reason</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#core-shape">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -27,42 +35,34 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariExtension-ExtensionDecision-hariExtension-hasExtensionReason">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/hariExtension#hasExtensionReason"/>
-    <sh:name>Has extension reason</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariExtension-SemanticExtensionShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariextension-ExtensionDecisionShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariExtension#SemanticExtension"/>
-    <rdfs:label>Semantic Extension</rdfs:label>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariextension#ExtensionDecision"/>
+    <sh:sparql rdf:nodeID="Nd0b9e143a6d64b17bb922934f3f822ce"/>
+    <rdfs:label>Extension Decision</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hariextension-ExtensionDecision-hariextension-hasExtensionReason"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariExtension-ExpressionExtensionShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariextension-ExpressionExtensionShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariExtension#ExpressionExtension"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariextension#ExpressionExtension"/>
     <rdfs:label>Expression Extension</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariExtension-ExtensionDecisionShape">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariextension-PropertyExtensionShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariExtension#ExtensionDecision"/>
-    <sh:sparql rdf:nodeID="N297b65b104004ea8bd76057608812fbe"/>
-    <rdfs:label>Extension Decision</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#hariExtension-ExtensionDecision-hariExtension-hasExtensionReason"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N297b65b104004ea8bd76057608812fbe">
-    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hariExtension#ExtensionDecision&gt; .
-                }</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariExtension-PropertyExtensionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariExtension#PropertyExtension"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariextension#PropertyExtension"/>
     <rdfs:label>Property Extension</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#hariextension-SemanticExtensionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/hariextension#SemanticExtension"/>
+    <rdfs:label>Semantic Extension</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd0b9e143a6d64b17bb922934f3f822ce">
+    <sh:select>SELECT ?this WHERE { ?this a &lt;http://hari-meta.org/ontology/hariextension#ExtensionDecision&gt; .
+                }</sh:select>
   </rdf:Description>
 </rdf:RDF>

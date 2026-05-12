@@ -1,23 +1,11 @@
 @prefix : <http://hari-meta.org/ontology/hariVersion#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hariversion: <http://hari-meta.org/ontology/hariversion#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-:OntologyVersion a owl:Class ;
-    rdfs:isDefinedBy :core ;
-    rdfs:subClassOf owl:Thing ;
-    skos:prefLabel "Ontology Version"@en .
-
-:hasVersionIRI a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :core ;
-    skos:prefLabel "has Version IRI"@en .
-
-:hasVersionInfo a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :core ;
-    skos:prefLabel "has Version Info"@en .
 
 :core a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
@@ -35,4 +23,14 @@
     owl:priorVersion "http://hari-meta.org/ontology/hariVersion#core-" ;
     owl:versionIRI :core-1.0.0 ;
     owl:versionInfo "1.0.0" .
+
+hariversion:OntologyVersion a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontology Version"@en .
+
+hariversion:hasVersionIRI a owl:DatatypeProperty ;
+    skos:prefLabel "has Version IRI"@en .
+
+hariversion:hasVersionInfo a owl:DatatypeProperty ;
+    skos:prefLabel "has Version Info"@en .
 

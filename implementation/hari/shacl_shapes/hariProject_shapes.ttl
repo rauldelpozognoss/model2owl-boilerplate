@@ -1,6 +1,6 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariProject: <http://hari-meta.org/ontology/hariProject#> .
+@prefix hariproject: <http://hari-meta.org/ontology/hariproject#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -8,55 +8,55 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:hariProject-OntologyProjectShape a sh:NodeShape ;
+core-shape:hariproject-OntologyProjectShape a sh:NodeShape ;
     rdfs:label "Ontology Project" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariProject-OntologyProject-hariProject-hasAcronym,
-        core-shape:hariProject-OntologyProject-hariProject-hasDescription,
-        core-shape:hariProject-OntologyProject-hariProject-hasOntologyIRI,
-        core-shape:hariProject-OntologyProject-hariProject-hasOrganization,
-        core-shape:hariProject-OntologyProject-hariProject-hasTitle ;
-    sh:targetClass hariProject:OntologyProject .
+    sh:property core-shape:hariproject-OntologyProject-hariproject-hasAcronym,
+        core-shape:hariproject-OntologyProject-hariproject-hasDescription,
+        core-shape:hariproject-OntologyProject-hariproject-hasOntologyIRI,
+        core-shape:hariproject-OntologyProject-hariproject-hasOrganization,
+        core-shape:hariproject-OntologyProject-hariproject-hasTitle ;
+    sh:targetClass hariproject:OntologyProject .
 
-core-shape:hariProject-OntologyProject-hariProject-hasAcronym a sh:PropertyShape ;
+core-shape:hariproject-OntologyProject-hariproject-hasAcronym a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has acronym" ;
-    sh:path hariProject:hasAcronym .
+    sh:path hariproject:hasAcronym .
 
-core-shape:hariProject-OntologyProject-hariProject-hasDescription a sh:PropertyShape ;
+core-shape:hariproject-OntologyProject-hariproject-hasDescription a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has description" ;
-    sh:path hariProject:hasDescription .
+    sh:path hariproject:hasDescription .
 
-core-shape:hariProject-OntologyProject-hariProject-hasOntologyIRI a sh:PropertyShape ;
+core-shape:hariproject-OntologyProject-hariproject-hasOntologyIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has ontology IRI" ;
-    sh:path hariProject:hasOntologyIRI .
+    sh:path hariproject:hasOntologyIRI .
 
-core-shape:hariProject-OntologyProject-hariProject-hasOrganization a sh:PropertyShape ;
+core-shape:hariproject-OntologyProject-hariproject-hasOrganization a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has organization" ;
-    sh:path hariProject:hasOrganization .
+    sh:path hariproject:hasOrganization .
 
-core-shape:hariProject-OntologyProject-hariProject-hasTitle a sh:PropertyShape ;
+core-shape:hariproject-OntologyProject-hariproject-hasTitle a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has title" ;
-    sh:path hariProject:hasTitle .
+    sh:path hariproject:hasTitle .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
@@ -69,8 +69,8 @@ core-shape:core-shape a owl:Ontology ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment "This version is automatically generated from hariProject.xml on 2026-05-12" ;
-    owl:imports hariProject:core,
-        hariProject:core-restriction,
+    owl:imports <http://hari-meta.org/ontology/hariProject#core>,
+        <http://hari-meta.org/ontology/hariProject#core-restriction>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;

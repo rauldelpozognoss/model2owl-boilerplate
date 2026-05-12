@@ -1,5 +1,6 @@
 @prefix : <http://hari-meta.org/ontology/hariVersion#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hariversion: <http://hari-meta.org/ontology/hariversion#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -25,20 +26,20 @@
     owl:versionIRI :core-restriction-1.0.0 ;
     owl:versionInfo "1.0.0" .
 
-:hasVersionIRI a owl:FunctionalProperty ;
-    rdfs:domain :OntologyVersion ;
+hariversion:hasVersionIRI a owl:FunctionalProperty ;
+    rdfs:domain hariversion:OntologyVersion ;
     rdfs:range xsd:string .
 
-:hasVersionInfo a owl:FunctionalProperty ;
-    rdfs:domain :OntologyVersion ;
+hariversion:hasVersionInfo a owl:FunctionalProperty ;
+    rdfs:domain hariversion:OntologyVersion ;
     rdfs:range xsd:string .
 
-:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
+hariversion:OntologyVersion rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :hasVersionIRI ;
+            owl:onProperty hariversion:hasVersionInfo ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :hasVersionInfo ;
+            owl:onProperty hariversion:hasVersionIRI ;
             owl:qualifiedCardinality 1 ] .
 

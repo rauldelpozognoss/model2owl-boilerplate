@@ -1,12 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariExpression: <http://hari-meta.org/ontology/hariExpression#> .
+@prefix hariexpression: <http://hari-meta.org/ontology/hariexpression#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hariExpression:core-restriction a owl:Ontology ;
+<http://hari-meta.org/ontology/hariExpression#core-restriction> a owl:Ontology ;
     rdfs:label "Restricciones de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Restricciones de la ontología Hari."@en ;
@@ -18,50 +18,50 @@ hariExpression:core-restriction a owl:Ontology ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
     rdfs:comment """This version is automatically generated from hariExpression.xml on 
                 2026-05-12""" ;
-    owl:imports hariExpression:core,
+    owl:imports <http://hari-meta.org/ontology/hariExpression#core>,
         skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hariExpression#core-restriction-" ;
-    owl:versionIRI hariExpression:core-restriction-1.0.0 ;
+    owl:versionIRI <http://hari-meta.org/ontology/hariExpression#core-restriction-1.0.0> ;
     owl:versionInfo "1.0.0" .
 
-hariExpression:hasCompositeExpression a owl:AsymmetricProperty ;
-    rdfs:domain hariExpression:Expression ;
-    rdfs:range hariExpression:Expression .
+hariexpression:hasCompositeExpression a owl:AsymmetricProperty ;
+    rdfs:domain hariexpression:Expression ;
+    rdfs:range hariexpression:Expression .
 
-hariExpression:CardinalityRestriction rdfs:subClassOf [ a owl:Restriction ;
+hariexpression:CardinalityRestriction rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:integer ;
-            owl:onProperty hariExpression:hasCardinalityValue ;
+            owl:onProperty hariexpression:hasCardinalityValue ;
             owl:qualifiedCardinality 1 ] .
 
-hariExpression:HasSelf rdfs:subClassOf [ a owl:Restriction ;
+hariexpression:HasSelf rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty hariExpression:isSelf ;
+            owl:onProperty hariexpression:isSelf ;
             owl:qualifiedCardinality 1 ] .
 
-hariExpression:HasValue rdfs:subClassOf [ a owl:Restriction ;
+hariexpression:HasValue rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hariExpression:hasTargetValue ;
+            owl:onProperty hariexpression:hasTargetValue ;
             owl:qualifiedCardinality 1 ] .
 
-hariExpression:hasCardinalityValue a owl:FunctionalProperty ;
-    rdfs:domain hariExpression:CardinalityRestriction ;
+hariexpression:hasCardinalityValue a owl:FunctionalProperty ;
+    rdfs:domain hariexpression:CardinalityRestriction ;
     rdfs:range xsd:integer .
 
-hariExpression:hasDescripcion a owl:FunctionalProperty ;
-    rdfs:domain hariExpression:Expression ;
+hariexpression:hasDescripcion a owl:FunctionalProperty ;
+    rdfs:domain hariexpression:Expression ;
     rdfs:range xsd:string .
 
-hariExpression:hasTargetValue a owl:FunctionalProperty ;
-    rdfs:domain hariExpression:HasValue ;
+hariexpression:hasTargetValue a owl:FunctionalProperty ;
+    rdfs:domain hariexpression:HasValue ;
     rdfs:range xsd:string .
 
-hariExpression:isSelf a owl:FunctionalProperty ;
-    rdfs:domain hariExpression:HasSelf ;
+hariexpression:isSelf a owl:FunctionalProperty ;
+    rdfs:domain hariexpression:HasSelf ;
     rdfs:range xsd:boolean .
 
-hariExpression:Expression rdfs:subClassOf [ a owl:Restriction ;
+hariexpression:Expression rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty hariExpression:hasDescripcion ;
+            owl:onProperty hariexpression:hasDescripcion ;
             owl:qualifiedCardinality 1 ] .
 

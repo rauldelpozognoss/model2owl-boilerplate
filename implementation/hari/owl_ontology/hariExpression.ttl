@@ -1,107 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariExpression: <http://hari-meta.org/ontology/hariExpression#> .
+@prefix hariexpression: <http://hari-meta.org/ontology/hariexpression#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hariExpression:AllValuesFrom a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:ValuesFrom ;
-    skos:prefLabel "All Values From"@en .
-
-hariExpression:Complement a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:LogicalOperation ;
-    skos:prefLabel "Complement"@en .
-
-hariExpression:ExactCardinality a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:CardinalityRestriction ;
-    skos:prefLabel "Exact Cardinality"@en .
-
-hariExpression:HasSelf a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:Restriction ;
-    skos:prefLabel "Has Self"@en .
-
-hariExpression:HasValue a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:Restriction ;
-    skos:prefLabel "Has Value"@en .
-
-hariExpression:Intersection a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:LogicalOperation ;
-    skos:prefLabel "Intersection"@en .
-
-hariExpression:MaxCardinality a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:CardinalityRestriction ;
-    skos:prefLabel "Max Cardinality"@en .
-
-hariExpression:MinCardinality a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:CardinalityRestriction ;
-    skos:prefLabel "Min Cardinality"@en .
-
-hariExpression:SomeValuesFrom a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:ValuesFrom ;
-    skos:prefLabel "Some Values From"@en .
-
-hariExpression:Union a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:LogicalOperation ;
-    skos:prefLabel "Union"@en .
-
-hariExpression:hasCardinalityValue a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hariExpression:core ;
-    skos:prefLabel "has Cardinality Value"@en .
-
-hariExpression:hasCompositeExpression a owl:ObjectProperty ;
-    rdfs:isDefinedBy hariExpression:core ;
-    skos:prefLabel "has Composite Expression"@en .
-
-hariExpression:hasDescripcion a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hariExpression:core ;
-    skos:prefLabel "has Descripcion"@en .
-
-hariExpression:hasTargetValue a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hariExpression:core ;
-    skos:prefLabel "has Target Value"@en .
-
-hariExpression:isSelf a owl:DatatypeProperty ;
-    rdfs:isDefinedBy hariExpression:core ;
-    skos:prefLabel "is Self"@en .
-
-hariExpression:Expression a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf owl:Thing ;
-    skos:prefLabel "Expression"@en .
-
-hariExpression:ValuesFrom a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:Restriction ;
-    skos:prefLabel "Values From"@en .
-
-hariExpression:CardinalityRestriction a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:Restriction ;
-    skos:prefLabel "Cardinality Restriction"@en .
-
-hariExpression:LogicalOperation a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:Expression ;
-    skos:prefLabel "Logical Operation"@en .
-
-hariExpression:Restriction a owl:Class ;
-    rdfs:isDefinedBy hariExpression:core ;
-    rdfs:subClassOf hariExpression:Expression ;
-    skos:prefLabel "Restriction"@en .
-
-hariExpression:core a owl:Ontology ;
+<http://hari-meta.org/ontology/hariExpression#core> a owl:Ontology ;
     rdfs:label "Ontología principal del proyecto Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Ontología principal del proyecto Hari."@en ;
@@ -115,6 +20,81 @@ hariExpression:core a owl:Ontology ;
     owl:imports skos: ;
     owl:incompatibleWith "" ;
     owl:priorVersion "http://hari-meta.org/ontology/hariExpression#core-" ;
-    owl:versionIRI hariExpression:core-1.0.0 ;
+    owl:versionIRI <http://hari-meta.org/ontology/hariExpression#core-1.0.0> ;
     owl:versionInfo "1.0.0" .
+
+hariexpression:AllValuesFrom a owl:Class ;
+    rdfs:subClassOf hariexpression:ValuesFrom ;
+    skos:prefLabel "All Values From"@en .
+
+hariexpression:Complement a owl:Class ;
+    rdfs:subClassOf hariexpression:LogicalOperation ;
+    skos:prefLabel "Complement"@en .
+
+hariexpression:ExactCardinality a owl:Class ;
+    rdfs:subClassOf hariexpression:CardinalityRestriction ;
+    skos:prefLabel "Exact Cardinality"@en .
+
+hariexpression:HasSelf a owl:Class ;
+    rdfs:subClassOf hariexpression:Restriction ;
+    skos:prefLabel "Has Self"@en .
+
+hariexpression:HasValue a owl:Class ;
+    rdfs:subClassOf hariexpression:Restriction ;
+    skos:prefLabel "Has Value"@en .
+
+hariexpression:Intersection a owl:Class ;
+    rdfs:subClassOf hariexpression:LogicalOperation ;
+    skos:prefLabel "Intersection"@en .
+
+hariexpression:MaxCardinality a owl:Class ;
+    rdfs:subClassOf hariexpression:CardinalityRestriction ;
+    skos:prefLabel "Max Cardinality"@en .
+
+hariexpression:MinCardinality a owl:Class ;
+    rdfs:subClassOf hariexpression:CardinalityRestriction ;
+    skos:prefLabel "Min Cardinality"@en .
+
+hariexpression:SomeValuesFrom a owl:Class ;
+    rdfs:subClassOf hariexpression:ValuesFrom ;
+    skos:prefLabel "Some Values From"@en .
+
+hariexpression:Union a owl:Class ;
+    rdfs:subClassOf hariexpression:LogicalOperation ;
+    skos:prefLabel "Union"@en .
+
+hariexpression:hasCardinalityValue a owl:DatatypeProperty ;
+    skos:prefLabel "has Cardinality Value"@en .
+
+hariexpression:hasCompositeExpression a owl:ObjectProperty ;
+    skos:prefLabel "has Composite Expression"@en .
+
+hariexpression:hasDescripcion a owl:DatatypeProperty ;
+    skos:prefLabel "has Descripcion"@en .
+
+hariexpression:hasTargetValue a owl:DatatypeProperty ;
+    skos:prefLabel "has Target Value"@en .
+
+hariexpression:isSelf a owl:DatatypeProperty ;
+    skos:prefLabel "is Self"@en .
+
+hariexpression:Expression a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Expression"@en .
+
+hariexpression:ValuesFrom a owl:Class ;
+    rdfs:subClassOf hariexpression:Restriction ;
+    skos:prefLabel "Values From"@en .
+
+hariexpression:CardinalityRestriction a owl:Class ;
+    rdfs:subClassOf hariexpression:Restriction ;
+    skos:prefLabel "Cardinality Restriction"@en .
+
+hariexpression:LogicalOperation a owl:Class ;
+    rdfs:subClassOf hariexpression:Expression ;
+    skos:prefLabel "Logical Operation"@en .
+
+hariexpression:Restriction a owl:Class ;
+    rdfs:subClassOf hariexpression:Expression ;
+    skos:prefLabel "Restriction"@en .
 
