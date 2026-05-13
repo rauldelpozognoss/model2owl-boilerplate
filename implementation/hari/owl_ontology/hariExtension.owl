@@ -16,7 +16,7 @@
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:created>
         <dcterms:description xml:lang="en">Ontología principal del proyecto Hari.</dcterms:description>
         <dcterms:description xml:lang="en">Restricciones de la ontología Hari.</dcterms:description>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-12</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-13</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>http://hari-meta.org</dcterms:publisher>
         <dcterms:title xml:lang="en">Ontología Hari Core</dcterms:title>
@@ -24,8 +24,8 @@
         <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://hari-meta.org/ontology/hari#</vann:preferredNamespaceUri>
         <rdfs:comment>This version is automatically generated from hariExtension.xml on 
-                2026-05-12</rdfs:comment>
-        <rdfs:comment>This version is automatically generated from hariExtension.xml on 2026-05-12</rdfs:comment>
+                2026-05-13</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from hariExtension.xml on 2026-05-13</rdfs:comment>
         <rdfs:label xml:lang="en">Ontología principal del proyecto Hari.</rdfs:label>
         <rdfs:label xml:lang="en">Restricciones de la ontología Hari.</rdfs:label>
         <owl:incompatibleWith></owl:incompatibleWith>
@@ -47,12 +47,11 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hariExtension#hasExtensionReason -->
+    <!-- http://hari-meta.org/ontology/hariextension#hasExtensionReason -->
 
-    <owl:DatatypeProperty rdf:about="http://hari-meta.org/ontology/hariExtension#hasExtensionReason">
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hariExtension#ExtensionDecision"/>
+    <owl:DatatypeProperty rdf:about="http://hari-meta.org/ontology/hariextension#hasExtensionReason">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hariextension#ExtensionDecision"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariExtension#core"/>
         <skos:prefLabel xml:lang="en">has Extension Reason</skos:prefLabel>
     </owl:DatatypeProperty>
     
@@ -69,49 +68,18 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hariExtension#ExpressionExtension -->
+    <!-- http://hari-meta.org/ontology/hariextension#ExtensionDecision -->
 
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hariExtension#ExpressionExtension">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hariExtension#ExtensionDecision"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariExtension#core"/>
-        <skos:prefLabel xml:lang="en">Expression Extension</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hariExtension#ExtensionDecision -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hariExtension#ExtensionDecision">
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hariextension#ExtensionDecision">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hariExtension#hasExtensionReason"/>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hariextension#hasExtensionReason"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariExtension#core"/>
         <skos:prefLabel xml:lang="en">Extension Decision</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hariExtension#PropertyExtension -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hariExtension#PropertyExtension">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hariExtension#ExtensionDecision"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariExtension#core"/>
-        <skos:prefLabel xml:lang="en">Property Extension</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hariExtension#SemanticExtension -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hariExtension#SemanticExtension">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hariExtension#ExtensionDecision"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hariExtension#core"/>
-        <skos:prefLabel xml:lang="en">Semantic Extension</skos:prefLabel>
     </owl:Class>
 </rdf:RDF>
 

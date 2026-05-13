@@ -16,7 +16,7 @@
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-26</dcterms:created>
         <dcterms:description xml:lang="en">Ontología principal del proyecto Hari.</dcterms:description>
         <dcterms:description xml:lang="en">Restricciones de la ontología Hari.</dcterms:description>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-12</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-13</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>http://hari-meta.org</dcterms:publisher>
         <dcterms:title xml:lang="en">Ontología Hari Core</dcterms:title>
@@ -24,8 +24,8 @@
         <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://hari-meta.org/ontology/hari#</vann:preferredNamespaceUri>
         <rdfs:comment>This version is automatically generated from hari.xml on 
-                2026-05-12</rdfs:comment>
-        <rdfs:comment>This version is automatically generated from hari.xml on 2026-05-12</rdfs:comment>
+                2026-05-13</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from hari.xml on 2026-05-13</rdfs:comment>
         <rdfs:label xml:lang="en">Ontología principal del proyecto Hari.</rdfs:label>
         <rdfs:label xml:lang="en">Restricciones de la ontología Hari.</rdfs:label>
         <owl:incompatibleWith></owl:incompatibleWith>
@@ -47,11 +47,66 @@
     
 
 
+    <!-- http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainClassAnotation -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainClassAnotation">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Anotation Property Domain Class Anotation</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainDatatypeAnotation -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainDatatypeAnotation">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Anotation Property Domain Datatype Anotation</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainPropertyAnotation -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainPropertyAnotation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Anotation Property Domain Property Anotation</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasClassExpression -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasClassExpression">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Class Expression</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasClassExpressionTarget -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasClassExpressionTarget">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Class Expression Target</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://hari-meta.org/ontology/hari#hasClassReuse -->
 
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasClassReuse">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ClassReuse"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#DirectReuseDecision"/>
         <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Class Reuse</skos:prefLabel>
@@ -71,11 +126,54 @@
     
 
 
+    <!-- http://hari-meta.org/ontology/hari#hasDatatypeExpression -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDatatypeExpression">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Datatype Expression</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasDatatypeExpressionTarget -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDatatypeExpressionTarget">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Datatype Expression Target</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasDatatypePropertyDomainDatatype -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDatatypePropertyDomainDatatype">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Datatype Property Domain Datatype</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasDatatypePropertyRangeDatatype -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDatatypePropertyRangeDatatype">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Datatype Property Range Datatype</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://hari-meta.org/ontology/hari#hasDatatypeReuse -->
 
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDatatypeReuse">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#DatatypeReuse"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#DirectReuseDecision"/>
         <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Datatype Reuse</skos:prefLabel>
@@ -95,42 +193,6 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasDomainAnotation -->
-
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDomainAnotation">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#AnotationProperty"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#OntologicalTerm"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Domain Anotation</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#hasDomainClass -->
-
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDomainClass">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ObjectProperty"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Domain Class</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#hasDomainDatatype -->
-
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasDomainDatatype">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#DatatypeProperty"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Domain Datatype</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://hari-meta.org/ontology/hari#hasEquivalentTo -->
 
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasEquivalentTo">
@@ -143,22 +205,10 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasExpression -->
-
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasExpression">
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Types"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Expression</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://hari-meta.org/ontology/hari#hasExpressionForExtension -->
 
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasExpressionForExtension">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ExpressionExtension"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ExtensionDecision"/>
         <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Expression For Extension</skos:prefLabel>
@@ -166,13 +216,14 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasExpressionTarget -->
+    <!-- http://hari-meta.org/ontology/hari#hasExpressionType -->
 
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasExpressionTarget">
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasExpressionType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Types"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Expression Target</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">has Expression Type</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -212,54 +263,11 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasInScheme -->
-
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasInScheme">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Application"/>
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Core"/>
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Domain"/>
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Draft"/>
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Foundational"/>
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Obsolete"/>
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Stable"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Level"/>
-                    <rdf:Description rdf:about="http://hari-meta.org/ontology/hari#Status"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has In Scheme</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#hasInverseOf -->
-
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasInverseOf">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ObjectProperty"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#ObjectProperty"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Inverse Of</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://hari-meta.org/ontology/hari#hasKnowledgeDomain -->
 
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasKnowledgeDomain">
         <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#OntologyVersion"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#KnowledgeDomain"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#KnowledgeDomainTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Knowledge Domain</skos:prefLabel>
     </owl:ObjectProperty>
@@ -271,33 +279,55 @@
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasLevel">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#OntologyProject"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#LevelTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Level</skos:prefLabel>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasOnProperty -->
+    <!-- http://hari-meta.org/ontology/hari#hasObjectPropertyChain -->
 
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasOnProperty">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Restriction"/>
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasObjectPropertyChain">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
         <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has On Property</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">has Object Property Chain</skos:prefLabel>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasPropertyChain -->
+    <!-- http://hari-meta.org/ontology/hari#hasObjectPropertyDomainClass -->
 
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasPropertyChain">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ObjectProperty"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#ObjectProperty"/>
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasObjectPropertyDomainClass">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Property Chain</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">has Object Property Domain Class</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasObjectPropertyInverseOf -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasObjectPropertyInverseOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Object Property Inverse Of</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://hari-meta.org/ontology/hari#hasObjectPropertyRangeClass -->
+
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasObjectPropertyRangeClass">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
+        <skos:prefLabel xml:lang="en">has Object Property Range Class</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -305,8 +335,7 @@
     <!-- http://hari-meta.org/ontology/hari#hasPropertyExtension -->
 
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasPropertyExtension">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#PropertyExtension"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ExtensionDecision"/>
         <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Property Extension</skos:prefLabel>
@@ -317,8 +346,7 @@
     <!-- http://hari-meta.org/ontology/hari#hasPropertyReuse -->
 
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasPropertyReuse">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#PropertyReuse"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#DirectReuseDecision"/>
         <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Property Reuse</skos:prefLabel>
@@ -326,26 +354,13 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasRangeClass -->
+    <!-- http://hari-meta.org/ontology/hari#hasRestrictionOnProperty -->
 
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasRangeClass">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#ObjectProperty"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasRestrictionOnProperty">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Range Class</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#hasRangeDatatype -->
-
-    <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasRangeDatatype">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#DatatypeProperty"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Range Datatype</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">has Restriction On Property</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -366,7 +381,7 @@
     <owl:ObjectProperty rdf:about="http://hari-meta.org/ontology/hari#hasStatus">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#OntologyVersion"/>
-        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#Status"/>
+        <rdfs:range rdf:resource="http://hari-meta.org/ontology/hari#StatusTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Status</skos:prefLabel>
     </owl:ObjectProperty>
@@ -444,14 +459,13 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#hasCardinalityValue -->
+    <!-- http://hari-meta.org/ontology/hari#hasCardinalityRestrictionValue -->
 
-    <owl:DatatypeProperty rdf:about="http://hari-meta.org/ontology/hari#hasCardinalityValue">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#CardinalityRestriction"/>
+    <owl:DatatypeProperty rdf:about="http://hari-meta.org/ontology/hari#hasCardinalityRestrictionValue">
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">has Cardinality Value</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">has Cardinality Restriction Value</skos:prefLabel>
     </owl:DatatypeProperty>
     
 
@@ -529,8 +543,7 @@
     <!-- http://hari-meta.org/ontology/hari#hasTargetValue -->
 
     <owl:DatatypeProperty rdf:about="http://hari-meta.org/ontology/hari#hasTargetValue">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#HasValue"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">has Target Value</skos:prefLabel>
@@ -684,8 +697,7 @@
     <!-- http://hari-meta.org/ontology/hari#isSelf -->
 
     <owl:DatatypeProperty rdf:about="http://hari-meta.org/ontology/hari#isSelf">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#HasSelf"/>
+        <rdfs:domain rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">is Self</skos:prefLabel>
@@ -738,34 +750,10 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#AnotationProperty -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#AnotationProperty">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDomainAnotation"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#OntologicalTerm"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Anotation Property</skos:prefLabel>
-    </owl:Class>
-    
-
-
     <!-- http://hari-meta.org/ontology/hari#Application -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Application">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInScheme"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#LevelTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Application</skos:prefLabel>
     </owl:Class>
@@ -776,13 +764,6 @@
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#CardinalityRestriction">
         <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Restriction"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasCardinalityValue"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Cardinality Restriction</skos:prefLabel>
     </owl:Class>
@@ -792,26 +773,16 @@
     <!-- http://hari-meta.org/ontology/hari#Class -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Class">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Types"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Class</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#ClassReuse -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#ClassReuse">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#DirectReuseDecision"/>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#OntologicalTerm"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasClassReuse"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasClassExpression"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Class Reuse</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Class</skos:prefLabel>
     </owl:Class>
     
 
@@ -829,14 +800,7 @@
     <!-- http://hari-meta.org/ontology/hari#Core -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Core">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInScheme"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#LevelTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Core</skos:prefLabel>
     </owl:Class>
@@ -846,50 +810,16 @@
     <!-- http://hari-meta.org/ontology/hari#Datatype -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Datatype">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Types"/>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#OntologicalTerm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDatatypeExpression"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Datatype</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#DatatypeProperty -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#DatatypeProperty">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDomainDatatype"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasRangeDatatype"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Datatype Property</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#DatatypeReuse -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#DatatypeReuse">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#DirectReuseDecision"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDatatypeReuse"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Datatype Reuse</skos:prefLabel>
     </owl:Class>
     
 
@@ -898,6 +828,27 @@
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#DirectReuseDecision">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasClassReuse"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDatatypeReuse"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasPropertyReuse"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasReuseReason"/>
@@ -914,14 +865,7 @@
     <!-- http://hari-meta.org/ontology/hari#Domain -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Domain">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInScheme"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#LevelTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Domain</skos:prefLabel>
     </owl:Class>
@@ -931,14 +875,7 @@
     <!-- http://hari-meta.org/ontology/hari#Draft -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Draft">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInScheme"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Status"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#StatusTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Draft</skos:prefLabel>
     </owl:Class>
@@ -961,9 +898,44 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasExpressionType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasRestrictionOnProperty"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDescripcion"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasCardinalityRestrictionValue"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasTargetValue"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#isSelf"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
@@ -972,19 +944,12 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#ExpressionExtension -->
+    <!-- http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus -->
 
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#ExpressionExtension">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#ExtensionDecision"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasExpressionForExtension"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Expression Extension</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Expression Type Tesaurus</skos:prefLabel>
     </owl:Class>
     
 
@@ -1009,6 +974,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasExpressionForExtension"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasPropertyExtension"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasExtensionReason"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1023,14 +1002,7 @@
     <!-- http://hari-meta.org/ontology/hari#Foundational -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Foundational">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInScheme"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#LevelTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Foundational</skos:prefLabel>
     </owl:Class>
@@ -1041,13 +1013,6 @@
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#HasSelf">
         <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Restriction"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#isSelf"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Has Self</skos:prefLabel>
     </owl:Class>
@@ -1058,13 +1023,6 @@
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#HasValue">
         <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Restriction"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasTargetValue"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Has Value</skos:prefLabel>
     </owl:Class>
@@ -1081,22 +1039,22 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#KnowledgeDomain -->
+    <!-- http://hari-meta.org/ontology/hari#KnowledgeDomainTesaurus -->
 
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#KnowledgeDomain">
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#KnowledgeDomainTesaurus">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Knowledge Domain</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Knowledge Domain Tesaurus</skos:prefLabel>
     </owl:Class>
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#Level -->
+    <!-- http://hari-meta.org/ontology/hari#LevelTesaurus -->
 
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Level">
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#LevelTesaurus">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Level</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Level Tesaurus</skos:prefLabel>
     </owl:Class>
     
 
@@ -1104,7 +1062,7 @@
     <!-- http://hari-meta.org/ontology/hari#LogicalOperation -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#LogicalOperation">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Logical Operation</skos:prefLabel>
     </owl:Class>
@@ -1131,48 +1089,10 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#ObjectProperty -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#ObjectProperty">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDomainClass"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasRangeClass"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInverseOf"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#ObjectProperty"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Object Property</skos:prefLabel>
-    </owl:Class>
-    
-
-
     <!-- http://hari-meta.org/ontology/hari#Obsolete -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Obsolete">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInScheme"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Status"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#StatusTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Obsolete</skos:prefLabel>
     </owl:Class>
@@ -1225,7 +1145,7 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasLevel"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Level"/>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#LevelTesaurus"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1277,7 +1197,7 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasStatus"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Status"/>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#StatusTesaurus"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1311,6 +1231,62 @@
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Property">
         <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#OntologicalTerm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainClassAnotation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainDatatypeAnotation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainPropertyAnotation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDatatypePropertyDomainDatatype"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasDatatypePropertyRangeDatatype"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Datatype"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasObjectPropertyDomainClass"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasObjectPropertyInverseOf"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasObjectPropertyRangeClass"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Class"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#isAssymetric"/>
@@ -1366,63 +1342,12 @@
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#PropertyExtension -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#PropertyExtension">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#ExtensionDecision"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasPropertyExtension"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Property Extension</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#PropertyReuse -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#PropertyReuse">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#DirectReuseDecision"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasPropertyReuse"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Property Reuse</skos:prefLabel>
-    </owl:Class>
-    
-
-
     <!-- http://hari-meta.org/ontology/hari#Restriction -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Restriction">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasOnProperty"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Property"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Restriction</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#SemanticExtension -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#SemanticExtension">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#ExtensionDecision"/>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Semantic Extension</skos:prefLabel>
     </owl:Class>
     
 
@@ -1440,43 +1365,19 @@
     <!-- http://hari-meta.org/ontology/hari#Stable -->
 
     <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Stable">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasInScheme"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Status"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#StatusTesaurus"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
         <skos:prefLabel xml:lang="en">Stable</skos:prefLabel>
     </owl:Class>
     
 
 
-    <!-- http://hari-meta.org/ontology/hari#Status -->
+    <!-- http://hari-meta.org/ontology/hari#StatusTesaurus -->
 
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Status">
+    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#StatusTesaurus">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Status</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://hari-meta.org/ontology/hari#Types -->
-
-    <owl:Class rdf:about="http://hari-meta.org/ontology/hari#Types">
-        <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/hari#OntologicalTerm"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hari-meta.org/ontology/hari#hasExpression"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://hari-meta.org/ontology/hari#Expression"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/hari#core"/>
-        <skos:prefLabel xml:lang="en">Types</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Status Tesaurus</skos:prefLabel>
     </owl:Class>
     
 
