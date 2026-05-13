@@ -8,103 +8,22 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-shape:hariexpression-AllValuesFromShape a sh:NodeShape ;
-    rdfs:label "All Values From" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:AllValuesFrom .
-
-core-shape:hariexpression-CardinalityRestrictionShape a sh:NodeShape ;
-    rdfs:label "Cardinality Restriction" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariexpression-CardinalityRestriction-hariexpression-hasCardinalityValue ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hariexpression#CardinalityRestriction> .
-                }""" ] ;
-    sh:targetClass hariexpression:CardinalityRestriction .
-
-core-shape:hariexpression-ComplementShape a sh:NodeShape ;
-    rdfs:label "Complement" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:Complement .
-
-core-shape:hariexpression-ExactCardinalityShape a sh:NodeShape ;
-    rdfs:label "Exact Cardinality" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:ExactCardinality .
-
 core-shape:hariexpression-ExpressionShape a sh:NodeShape ;
     rdfs:label "Expression" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariexpression-Expression-hariexpression-hasCompositeExpression,
-        core-shape:hariexpression-Expression-hariexpression-hasDescripcion ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hariexpression#Expression> .
-                }""" ] ;
+    sh:property core-shape:hariexpression-Expression-hariexpression-hasCardinalityRestrictionValue,
+        core-shape:hariexpression-Expression-hariexpression-hasCompositeExpression,
+        core-shape:hariexpression-Expression-hariexpression-hasDescripcion,
+        core-shape:hariexpression-Expression-hariexpression-hasTargetValue,
+        core-shape:hariexpression-Expression-hariexpression-isSelf ;
     sh:targetClass hariexpression:Expression .
 
-core-shape:hariexpression-HasSelfShape a sh:NodeShape ;
-    rdfs:label "Has Self" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariexpression-HasSelf-hariexpression-isSelf ;
-    sh:targetClass hariexpression:HasSelf .
-
-core-shape:hariexpression-HasValueShape a sh:NodeShape ;
-    rdfs:label "Has Value" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:hariexpression-HasValue-hariexpression-hasTargetValue ;
-    sh:targetClass hariexpression:HasValue .
-
-core-shape:hariexpression-IntersectionShape a sh:NodeShape ;
-    rdfs:label "Intersection" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:Intersection .
-
-core-shape:hariexpression-LogicalOperationShape a sh:NodeShape ;
-    rdfs:label "Logical Operation" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hariexpression#LogicalOperation> .
-                }""" ] ;
-    sh:targetClass hariexpression:LogicalOperation .
-
-core-shape:hariexpression-MaxCardinalityShape a sh:NodeShape ;
-    rdfs:label "Max Cardinality" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:MaxCardinality .
-
-core-shape:hariexpression-MinCardinalityShape a sh:NodeShape ;
-    rdfs:label "Min Cardinality" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:MinCardinality .
-
-core-shape:hariexpression-RestrictionShape a sh:NodeShape ;
-    rdfs:label "Restriction" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hariexpression#Restriction> .
-                }""" ] ;
-    sh:targetClass hariexpression:Restriction .
-
-core-shape:hariexpression-SomeValuesFromShape a sh:NodeShape ;
-    rdfs:label "Some Values From" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:SomeValuesFrom .
-
-core-shape:hariexpression-UnionShape a sh:NodeShape ;
-    rdfs:label "Union" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:targetClass hariexpression:Union .
-
-core-shape:hariexpression-ValuesFromShape a sh:NodeShape ;
-    rdfs:label "Values From" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/hariexpression#ValuesFrom> .
-                }""" ] ;
-    sh:targetClass hariexpression:ValuesFrom .
-
-core-shape:hariexpression-CardinalityRestriction-hariexpression-hasCardinalityValue a sh:PropertyShape ;
+core-shape:hariexpression-Expression-hariexpression-hasCardinalityRestrictionValue a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:integer ;
     sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has cardinality value" ;
-    sh:path hariexpression:hasCardinalityValue .
+    sh:name "Has cardinality restriction value" ;
+    sh:path hariexpression:hasCardinalityRestrictionValue .
 
 core-shape:hariexpression-Expression-hariexpression-hasCompositeExpression a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -121,33 +40,31 @@ core-shape:hariexpression-Expression-hariexpression-hasDescripcion a sh:Property
     sh:name "Has descripcion" ;
     sh:path hariexpression:hasDescripcion .
 
-core-shape:hariexpression-HasSelf-hariexpression-isSelf a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:datatype xsd:boolean ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Is self" ;
-    sh:path hariexpression:isSelf .
-
-core-shape:hariexpression-HasValue-hariexpression-hasTargetValue a sh:PropertyShape ;
+core-shape:hariexpression-Expression-hariexpression-hasTargetValue a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
-    sh:minCount 1 ;
     sh:name "Has target value" ;
     sh:path hariexpression:hasTargetValue .
+
+core-shape:hariexpression-Expression-hariexpression-isSelf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:name "Is self" ;
+    sh:path hariexpression:isSelf .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-05-12"^^xsd:date ;
+    dcterms:issued "2026-05-13"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hariExpression.xml on 2026-05-12" ;
+    rdfs:comment "This version is automatically generated from hariExpression.xml on 2026-05-13" ;
     owl:imports <http://hari-meta.org/ontology/hariExpression#core>,
         <http://hari-meta.org/ontology/hariExpression#core-restriction>,
         skos: ;

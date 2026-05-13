@@ -15,10 +15,6 @@
       
     
       
-| hari:AnotationProperty | 
-      
-    
-      
 | hari:Application | 
       
     
@@ -31,10 +27,6 @@
       
     
       
-| hari:ClassReuse | 
-      
-    
-      
 | hari:Complement | 
       
     
@@ -44,14 +36,6 @@
     
       
 | hari:Datatype | 
-      
-    
-      
-| hari:DatatypeProperty | 
-      
-    
-      
-| hari:DatatypeReuse | 
       
     
       
@@ -75,7 +59,7 @@
       
     
       
-| hari:ExpressionExtension | 
+| hari:ExpressionTypeTesaurus | 
       
     
       
@@ -99,11 +83,11 @@
       
     
       
-| hari:KnowledgeDomain | 
+| hari:KnowledgeDomainTesaurus | 
       
     
       
-| hari:Level | 
+| hari:LevelTesaurus | 
       
     
       
@@ -116,10 +100,6 @@
     
       
 | hari:MinCardinality | 
-      
-    
-      
-| hari:ObjectProperty | 
       
     
       
@@ -143,19 +123,7 @@
       
     
       
-| hari:PropertyExtension | 
-      
-    
-      
-| hari:PropertyReuse | 
-      
-    
-      
 | hari:Restriction | 
-      
-    
-      
-| hari:SemanticExtension | 
       
     
       
@@ -167,11 +135,7 @@
       
     
       
-| hari:Status | 
-      
-    
-      
-| hari:Types | 
+| hari:StatusTesaurus | 
       
     
       
@@ -199,14 +163,6 @@
   
   
   
-| hari:CardinalityRestriction
-| hari:hasCardinalityValue| 
-  |xsd:integer [1..1]
-  
-  
-  
-  
-  
   
   
   
@@ -225,6 +181,16 @@
   
   
   
+| hari:Expression
+| hari:hasCardinalityRestrictionValue| 
+  |xsd:integer [0..1]
+  
+  
+  
+  
+  
+  
+  
   
   
 | hari:Expression
@@ -237,6 +203,20 @@
   
   
   
+| hari:Expression
+| hari:hasTargetValue| 
+  |xsd:string [0..1]
+  
+  
+  
+| hari:Expression
+| hari:isSelf| 
+  |xsd:boolean [0..1]
+  
+  
+  
+  
+  
   
   
   
@@ -244,24 +224,6 @@
 | hari:ExtensionDecision
 | hari:hasExtensionReason| 
   |xsd:string [0..1]
-  
-  
-  
-| hari:HasSelf
-| hari:isSelf| 
-  |xsd:boolean [1..1]
-  
-  
-  
-| hari:HasValue
-| hari:hasTargetValue| 
-  |xsd:string [1..1]
-  
-  
-  
-  
-  
-  
   
   
   
@@ -349,6 +311,24 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 | hari:Property
 | hari:isAssymetric| 
   |xsd:boolean [1..1]
@@ -389,14 +369,6 @@
 | hari:isTransitive| 
   |xsd:boolean [1..1]
   
-  
-  
-  
-  
-  
-  
-  
-  
 |===
 
 == Predicates (object properties) and definitions
@@ -408,26 +380,9 @@
 
   
   
-| hari:hasDomainAnotation| 
-  |hari:AnotationProperty → hari:OntologicalTerm [1..1]
+| hari:hasClassExpression| 
+  |hari:Class → hari:Expression [0..1]
 
-  
-
-  
-  
-| hari:hasInScheme| 
-  |hari:Application → hari:Level [1..1] +
-hari:Core → hari:Level [1..1] +
-hari:Domain → hari:Level [1..1] +
-hari:Draft → hari:Status [1..1] +
-hari:Foundational → hari:Level [1..1] +
-hari:Obsolete → hari:Status [1..1] +
-hari:Stable → hari:Status [1..1]
-
-  
-
-  
-  
   
 
   
@@ -453,34 +408,45 @@ hari:Stable → hari:Status [1..1]
 
   
   
+| hari:hasDatatypeExpression| 
+  |hari:Datatype → hari:Expression [0..1]
+
+  
+
+  
+  
 | hari:hasClassReuse| 
-  |hari:ClassReuse → hari:Class [1..1]
-
-  
-
-  
-  
-| hari:hasDomainDatatype| 
-  |hari:DatatypeProperty → hari:Class [1..1]
-
-  
-
-  
-  
-| hari:hasRangeDatatype| 
-  |hari:DatatypeProperty → hari:Datatype [1..1]
+  |hari:DirectReuseDecision → hari:Class [0..1]
 
   
 
   
   
 | hari:hasDatatypeReuse| 
-  |hari:DatatypeReuse → hari:Datatype [1..1]
+  |hari:DirectReuseDecision → hari:Datatype [0..1]
 
   
 
   
   
+| hari:hasPropertyReuse| 
+  |hari:DirectReuseDecision → hari:Property [0..1]
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| hari:hasClassExpressionTarget| 
+  |hari:Expression → hari:Class [0..&#42;]
+
   
 
   
@@ -492,19 +458,41 @@ hari:Stable → hari:Status [1..1]
 
   
   
+| hari:hasDatatypeExpressionTarget| 
+  |hari:Expression → hari:Datatype [0..&#42;]
+
   
 
   
   
-| hari:hasExpressionTarget| 
-  |hari:Expression → hari:Types [0..&#42;]
+  
 
+  
+  
+| hari:hasExpressionType| 
+  |hari:Expression → hari:ExpressionTypeTesaurus [1..1]
+
+  
+
+  
+  
+| hari:hasRestrictionOnProperty| 
+  |hari:Expression → hari:Property [0..1]
+
+  
+
+  
+  
+  
+
+  
+  
   
 
   
   
 | hari:hasExpressionForExtension| 
-  |hari:ExpressionExtension → hari:Expression [1..1]
+  |hari:ExtensionDecision → hari:Expression [0..1]
 
   
 
@@ -528,37 +516,8 @@ hari:Stable → hari:Status [1..1]
 
   
   
-  
-
-  
-  
-  
-
-  
-  
-| hari:hasDomainClass| 
-  |hari:ObjectProperty → hari:Class [1..1]
-
-  
-
-  
-  
-| hari:hasInverseOf| 
-  |hari:ObjectProperty → hari:ObjectProperty [0..1]
-
-  
-
-  
-  
-| hari:hasPropertyChain| 
-  |hari:ObjectProperty → hari:ObjectProperty [0..&#42;]
-
-  
-
-  
-  
-| hari:hasRangeClass| 
-  |hari:ObjectProperty → hari:Class [1..1]
+| hari:hasPropertyExtension| 
+  |hari:ExtensionDecision → hari:Property [0..1]
 
   
 
@@ -596,7 +555,7 @@ hari:Stable → hari:Status [1..1]
   
   
 | hari:hasLevel| 
-  |hari:OntologyProject → hari:Level [1..1]
+  |hari:OntologyProject → hari:LevelTesaurus [1..1]
 
   
 
@@ -622,7 +581,7 @@ hari:Stable → hari:Status [1..1]
   
   
 | hari:hasKnowledgeDomain| 
-  |hari:OntologyVersion → hari:KnowledgeDomain [0..&#42;]
+  |hari:OntologyVersion → hari:KnowledgeDomainTesaurus [0..&#42;]
 
   
 
@@ -636,7 +595,7 @@ hari:Stable → hari:Status [1..1]
   
   
 | hari:hasStatus| 
-  |hari:OntologyVersion → hari:Status [1..1]
+  |hari:OntologyVersion → hari:StatusTesaurus [1..1]
 
   
 
@@ -652,6 +611,69 @@ hari:Stable → hari:Status [1..1]
   
 | hari:isVersionOf| 
   |hari:OntologyVersion → hari:OntologyProject [1..1]
+
+  
+
+  
+  
+| hari:hasAnotationPropertyDomainClassAnotation| 
+  |hari:Property → hari:Class [0..1]
+
+  
+
+  
+  
+| hari:hasAnotationPropertyDomainDatatypeAnotation| 
+  |hari:Property → hari:Datatype [0..1]
+
+  
+
+  
+  
+| hari:hasAnotationPropertyDomainPropertyAnotation| 
+  |hari:Property → hari:Property [0..1]
+
+  
+
+  
+  
+| hari:hasDatatypePropertyDomainDatatype| 
+  |hari:Property → hari:Class [0..1]
+
+  
+
+  
+  
+| hari:hasDatatypePropertyRangeDatatype| 
+  |hari:Property → hari:Datatype [0..1]
+
+  
+
+  
+  
+| hari:hasObjectPropertyChain| 
+  |hari:Property → hari:Property [0..&#42;]
+
+  
+
+  
+  
+| hari:hasObjectPropertyDomainClass| 
+  |hari:Property → hari:Class [0..1]
+
+  
+
+  
+  
+| hari:hasObjectPropertyInverseOf| 
+  |hari:Property → hari:Property [0..1]
+
+  
+
+  
+  
+| hari:hasObjectPropertyRangeClass| 
+  |hari:Property → hari:Class [0..1]
 
   
 
@@ -688,34 +710,6 @@ hari:Stable → hari:Status [1..1]
 
   
   
-  
-
-  
-  
-| hari:hasPropertyExtension| 
-  |hari:PropertyExtension → hari:Property [1..1]
-
-  
-
-  
-  
-| hari:hasPropertyReuse| 
-  |hari:PropertyReuse → hari:Property [1..1]
-
-  
-
-  
-  
-| hari:hasOnProperty| 
-  |hari:Restriction → hari:Property [1..1]
-
-  
-
-  
-  
-| hari:hasExpression| 
-  |hari:Types → hari:Expression [0..1]
-
   
 
 

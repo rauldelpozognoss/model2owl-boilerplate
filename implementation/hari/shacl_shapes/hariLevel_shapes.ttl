@@ -11,81 +11,39 @@
 core-shape:harilevel-ApplicationShape a sh:NodeShape ;
     rdfs:label "Application" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:harilevel-Application-harilevel-hasInScheme ;
     sh:targetClass harilevel:Application .
 
 core-shape:harilevel-CoreShape a sh:NodeShape ;
     rdfs:label "Core" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:harilevel-Core-harilevel-hasInScheme ;
     sh:targetClass harilevel:Core .
 
 core-shape:harilevel-DomainShape a sh:NodeShape ;
     rdfs:label "Domain" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:harilevel-Domain-harilevel-hasInScheme ;
     sh:targetClass harilevel:Domain .
 
 core-shape:harilevel-FoundationalShape a sh:NodeShape ;
     rdfs:label "Foundational" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:harilevel-Foundational-harilevel-hasInScheme ;
     sh:targetClass harilevel:Foundational .
 
-core-shape:harilevel-LevelShape a sh:NodeShape ;
-    rdfs:label "Level" ;
+core-shape:harilevel-LevelTesaurusShape a sh:NodeShape ;
+    rdfs:label "Level Tesaurus" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/harilevel#Level> .
-                }""" ] ;
-    sh:targetClass harilevel:Level .
-
-core-shape:harilevel-Application-harilevel-hasInScheme a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class harilevel:Level ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has in scheme" ;
-    sh:path harilevel:hasInScheme ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/harilevel#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/harilevel#hasInScheme> ?this .}" ] .
-
-core-shape:harilevel-Core-harilevel-hasInScheme a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class harilevel:Level ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has in scheme" ;
-    sh:path harilevel:hasInScheme ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/harilevel#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/harilevel#hasInScheme> ?this .}" ] .
-
-core-shape:harilevel-Domain-harilevel-hasInScheme a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class harilevel:Level ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has in scheme" ;
-    sh:path harilevel:hasInScheme ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/harilevel#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/harilevel#hasInScheme> ?this .}" ] .
-
-core-shape:harilevel-Foundational-harilevel-hasInScheme a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class harilevel:Level ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has in scheme" ;
-    sh:path harilevel:hasInScheme ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/harilevel#hasInScheme> ?that . ?that <http://hari-meta.org/ontology/harilevel#hasInScheme> ?this .}" ] .
+    sh:targetClass harilevel:LevelTesaurus .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
     dcterms:created "2026-03-26"^^xsd:date ;
     dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
-    dcterms:issued "2026-05-12"^^xsd:date ;
+    dcterms:issued "2026-05-13"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "http://hari-meta.org" ;
     dcterms:title "Ontología Hari Shapes"@en ;
     vann:preferredNamespacePrefix "hari" ;
     vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
-    rdfs:comment "This version is automatically generated from hariLevel.xml on 2026-05-12" ;
+    rdfs:comment "This version is automatically generated from hariLevel.xml on 2026-05-13" ;
     owl:imports <http://hari-meta.org/ontology/hariLevel#core>,
         <http://hari-meta.org/ontology/hariLevel#core-restriction>,
         skos: ;

@@ -34,111 +34,19 @@
         "en": ""
       },
       "label": {
-        "en": "Anotation property"
-      },
-      "name": "hari:AnotationProperty",
-      "parents": [
-        {
-          "label": {
-            "en": "Property"
-          },
-          "name": "hari:Property",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#Property"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:AnotationProperty",
-              "uri": "http://hari-meta.org/ontology/hari#AnotationProperty"
-            }
-          ],
-          "label": {
-            "en": "Has domain anotation"
-          },
-          "name": "hari:hasDomainAnotation",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:OntologicalTerm",
-              "range_label": {
-                "en": "Ontological term"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#OntologicalTerm",
-              "range_uri": "http://hari-meta.org/ontology/hari#OntologicalTerm"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasDomainAnotation",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#AnotationProperty",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
         "en": "Application"
       },
       "name": "hari:Application",
       "parents": [
         {
           "label": {
-            "en": "Thing"
+            "en": "Level tesaurus"
           },
-          "name": "owl:Thing",
-          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
+          "name": "hari:LevelTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#LevelTesaurus"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Application",
-              "uri": "http://hari-meta.org/ontology/hari#Application"
-            }
-          ],
-          "label": {
-            "en": "Has in scheme"
-          },
-          "name": "hari:hasInScheme",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Level",
-              "range_label": {
-                "en": "Level"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Level",
-              "range_uri": "http://hari-meta.org/ontology/hari#Level"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInScheme",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -166,39 +74,7 @@
           "scoped_uri": "http://hari-meta.org/ontology/hari#Restriction"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:CardinalityRestriction",
-              "uri": "http://hari-meta.org/ontology/hari#CardinalityRestriction"
-            }
-          ],
-          "label": {
-            "en": "Has cardinality value"
-          },
-          "name": "hari:hasCardinalityValue",
-          "propertyOrigin": "internal",
-          "propertyType": "datatype property",
-          "range": [
-            {
-              "range_curie": "xsd:integer",
-              "range_label": {
-                "en": "Integer"
-              },
-              "range_puri": "http://www.w3.org/2001/XMLSchema#integer",
-              "range_uri": "http://www.w3.org/2001/XMLSchema#integer"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasCardinalityValue",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -220,13 +96,44 @@
       "parents": [
         {
           "label": {
-            "en": "Types"
+            "en": "Ontological term"
           },
-          "name": "hari:Types",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#Types"
+          "name": "hari:OntologicalTerm",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#OntologicalTerm"
         }
       ],
       "properties": [
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Class",
+              "uri": "http://hari-meta.org/ontology/hari#Class"
+            }
+          ],
+          "label": {
+            "en": "Has class expression"
+          },
+          "name": "hari:hasClassExpression",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Expression",
+              "range_label": {
+                "en": "Expression"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Expression",
+              "range_uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasClassExpression",
+          "usage": {}
+        },
         {
           "cardinality": "0..*",
           "description": {
@@ -336,66 +243,6 @@
         "en": ""
       },
       "label": {
-        "en": "Class reuse"
-      },
-      "name": "hari:ClassReuse",
-      "parents": [
-        {
-          "label": {
-            "en": "Direct reuse decision"
-          },
-          "name": "hari:DirectReuseDecision",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#DirectReuseDecision"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:ClassReuse",
-              "uri": "http://hari-meta.org/ontology/hari#ClassReuse"
-            }
-          ],
-          "label": {
-            "en": "Has class reuse"
-          },
-          "name": "hari:hasClassReuse",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Class",
-              "range_label": {
-                "en": "Class"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Class",
-              "range_uri": "http://hari-meta.org/ontology/hari#Class"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasClassReuse",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#ClassReuse",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
         "en": "Complement"
       },
       "name": "hari:Complement",
@@ -430,45 +277,13 @@
       "parents": [
         {
           "label": {
-            "en": "Thing"
+            "en": "Level tesaurus"
           },
-          "name": "owl:Thing",
-          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
+          "name": "hari:LevelTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#LevelTesaurus"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Core",
-              "uri": "http://hari-meta.org/ontology/hari#Core"
-            }
-          ],
-          "label": {
-            "en": "Has in scheme"
-          },
-          "name": "hari:hasInScheme",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Level",
-              "range_label": {
-                "en": "Level"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Level",
-              "range_uri": "http://hari-meta.org/ontology/hari#Level"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInScheme",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -490,169 +305,50 @@
       "parents": [
         {
           "label": {
-            "en": "Types"
+            "en": "Ontological term"
           },
-          "name": "hari:Types",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#Types"
+          "name": "hari:OntologicalTerm",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#OntologicalTerm"
         }
       ],
-      "properties": [],
+      "properties": [
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Datatype",
+              "uri": "http://hari-meta.org/ontology/hari#Datatype"
+            }
+          ],
+          "label": {
+            "en": "Has datatype expression"
+          },
+          "name": "hari:hasDatatypeExpression",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Expression",
+              "range_label": {
+                "en": "Expression"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Expression",
+              "range_uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasDatatypeExpression",
+          "usage": {}
+        }
+      ],
       "rawTags": {
         "class-usage-scope": "main"
       },
       "tags": {},
       "uri": "http://hari-meta.org/ontology/hari#Datatype",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
-        "en": "Datatype property"
-      },
-      "name": "hari:DatatypeProperty",
-      "parents": [
-        {
-          "label": {
-            "en": "Property"
-          },
-          "name": "hari:Property",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#Property"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:DatatypeProperty",
-              "uri": "http://hari-meta.org/ontology/hari#DatatypeProperty"
-            }
-          ],
-          "label": {
-            "en": "Has domain datatype"
-          },
-          "name": "hari:hasDomainDatatype",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Class",
-              "range_label": {
-                "en": "Class"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Class",
-              "range_uri": "http://hari-meta.org/ontology/hari#Class"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasDomainDatatype",
-          "usage": {}
-        },
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:DatatypeProperty",
-              "uri": "http://hari-meta.org/ontology/hari#DatatypeProperty"
-            }
-          ],
-          "label": {
-            "en": "Has range datatype"
-          },
-          "name": "hari:hasRangeDatatype",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Datatype",
-              "range_label": {
-                "en": "Datatype"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Datatype",
-              "range_uri": "http://hari-meta.org/ontology/hari#Datatype"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasRangeDatatype",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#DatatypeProperty",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
-        "en": "Datatype reuse"
-      },
-      "name": "hari:DatatypeReuse",
-      "parents": [
-        {
-          "label": {
-            "en": "Direct reuse decision"
-          },
-          "name": "hari:DirectReuseDecision",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#DirectReuseDecision"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:DatatypeReuse",
-              "uri": "http://hari-meta.org/ontology/hari#DatatypeReuse"
-            }
-          ],
-          "label": {
-            "en": "Has datatype reuse"
-          },
-          "name": "hari:hasDatatypeReuse",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Datatype",
-              "range_label": {
-                "en": "Datatype"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Datatype",
-              "range_uri": "http://hari-meta.org/ontology/hari#Datatype"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasDatatypeReuse",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#DatatypeReuse",
       "usage": {
         "en": ""
       }
@@ -676,6 +372,99 @@
         }
       ],
       "properties": [
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:DirectReuseDecision",
+              "uri": "http://hari-meta.org/ontology/hari#DirectReuseDecision"
+            }
+          ],
+          "label": {
+            "en": "Has class reuse"
+          },
+          "name": "hari:hasClassReuse",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Class",
+              "range_label": {
+                "en": "Class"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Class",
+              "range_uri": "http://hari-meta.org/ontology/hari#Class"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasClassReuse",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:DirectReuseDecision",
+              "uri": "http://hari-meta.org/ontology/hari#DirectReuseDecision"
+            }
+          ],
+          "label": {
+            "en": "Has datatype reuse"
+          },
+          "name": "hari:hasDatatypeReuse",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Datatype",
+              "range_label": {
+                "en": "Datatype"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Datatype",
+              "range_uri": "http://hari-meta.org/ontology/hari#Datatype"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasDatatypeReuse",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:DirectReuseDecision",
+              "uri": "http://hari-meta.org/ontology/hari#DirectReuseDecision"
+            }
+          ],
+          "label": {
+            "en": "Has property reuse"
+          },
+          "name": "hari:hasPropertyReuse",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Property",
+              "range_label": {
+                "en": "Property"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Property",
+              "range_uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasPropertyReuse",
+          "usage": {}
+        },
         {
           "cardinality": "0..1",
           "description": {
@@ -729,45 +518,13 @@
       "parents": [
         {
           "label": {
-            "en": "Thing"
+            "en": "Level tesaurus"
           },
-          "name": "owl:Thing",
-          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
+          "name": "hari:LevelTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#LevelTesaurus"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Domain",
-              "uri": "http://hari-meta.org/ontology/hari#Domain"
-            }
-          ],
-          "label": {
-            "en": "Has in scheme"
-          },
-          "name": "hari:hasInScheme",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Level",
-              "range_label": {
-                "en": "Level"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Level",
-              "range_uri": "http://hari-meta.org/ontology/hari#Level"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInScheme",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -789,45 +546,13 @@
       "parents": [
         {
           "label": {
-            "en": "Thing"
+            "en": "Status tesaurus"
           },
-          "name": "owl:Thing",
-          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
+          "name": "hari:StatusTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#StatusTesaurus"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Draft",
-              "uri": "http://hari-meta.org/ontology/hari#Draft"
-            }
-          ],
-          "label": {
-            "en": "Has in scheme"
-          },
-          "name": "hari:hasInScheme",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Status",
-              "range_label": {
-                "en": "Status"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Status",
-              "range_uri": "http://hari-meta.org/ontology/hari#Status"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInScheme",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -885,6 +610,68 @@
       ],
       "properties": [
         {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Expression",
+              "uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "label": {
+            "en": "Has cardinality restriction value"
+          },
+          "name": "hari:hasCardinalityRestrictionValue",
+          "propertyOrigin": "internal",
+          "propertyType": "datatype property",
+          "range": [
+            {
+              "range_curie": "xsd:integer",
+              "range_label": {
+                "en": "Integer"
+              },
+              "range_puri": "http://www.w3.org/2001/XMLSchema#integer",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#integer"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasCardinalityRestrictionValue",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..*",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Expression",
+              "uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "label": {
+            "en": "Has class expression target"
+          },
+          "name": "hari:hasClassExpressionTarget",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Class",
+              "range_label": {
+                "en": "Class"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Class",
+              "range_uri": "http://hari-meta.org/ontology/hari#Class"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasClassExpressionTarget",
+          "usage": {}
+        },
+        {
           "cardinality": "0..*",
           "description": {
             "en": ""
@@ -913,6 +700,37 @@
           ],
           "tags": {},
           "uri": "http://hari-meta.org/ontology/hari#hasCompositeExpression",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..*",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Expression",
+              "uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "label": {
+            "en": "Has datatype expression target"
+          },
+          "name": "hari:hasDatatypeExpressionTarget",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Datatype",
+              "range_label": {
+                "en": "Datatype"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Datatype",
+              "range_uri": "http://hari-meta.org/ontology/hari#Datatype"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasDatatypeExpressionTarget",
           "usage": {}
         },
         {
@@ -947,7 +765,7 @@
           "usage": {}
         },
         {
-          "cardinality": "0..*",
+          "cardinality": "1..1",
           "description": {
             "en": ""
           },
@@ -958,23 +776,116 @@
             }
           ],
           "label": {
-            "en": "Has expression target"
+            "en": "Has expression type"
           },
-          "name": "hari:hasExpressionTarget",
+          "name": "hari:hasExpressionType",
           "propertyOrigin": "internal",
           "propertyType": "object property",
           "range": [
             {
-              "range_curie": "hari:Types",
+              "range_curie": "hari:ExpressionTypeTesaurus",
               "range_label": {
-                "en": "Types"
+                "en": "Expression type tesaurus"
               },
-              "range_puri": "http://hari-meta.org/ontology/hari#Types",
-              "range_uri": "http://hari-meta.org/ontology/hari#Types"
+              "range_puri": "http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus",
+              "range_uri": "http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus"
             }
           ],
           "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasExpressionTarget",
+          "uri": "http://hari-meta.org/ontology/hari#hasExpressionType",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Expression",
+              "uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "label": {
+            "en": "Has restriction on property"
+          },
+          "name": "hari:hasRestrictionOnProperty",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Property",
+              "range_label": {
+                "en": "Property"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Property",
+              "range_uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasRestrictionOnProperty",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Expression",
+              "uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "label": {
+            "en": "Has target value"
+          },
+          "name": "hari:hasTargetValue",
+          "propertyOrigin": "internal",
+          "propertyType": "datatype property",
+          "range": [
+            {
+              "range_curie": "xsd:string",
+              "range_label": {
+                "en": "String"
+              },
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasTargetValue",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Expression",
+              "uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "label": {
+            "en": "Is self"
+          },
+          "name": "hari:isSelf",
+          "propertyOrigin": "internal",
+          "propertyType": "datatype property",
+          "range": [
+            {
+              "range_curie": "xsd:boolean",
+              "range_label": {
+                "en": "Boolean"
+              },
+              "range_puri": "http://www.w3.org/2001/XMLSchema#boolean",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#boolean"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#isSelf",
           "usage": {}
         }
       ],
@@ -993,56 +904,24 @@
         "en": ""
       },
       "label": {
-        "en": "Expression extension"
+        "en": "Expression type tesaurus"
       },
-      "name": "hari:ExpressionExtension",
+      "name": "hari:ExpressionTypeTesaurus",
       "parents": [
         {
           "label": {
-            "en": "Extension decision"
+            "en": "Thing"
           },
-          "name": "hari:ExtensionDecision",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#ExtensionDecision"
+          "name": "owl:Thing",
+          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:ExpressionExtension",
-              "uri": "http://hari-meta.org/ontology/hari#ExpressionExtension"
-            }
-          ],
-          "label": {
-            "en": "Has expression for extension"
-          },
-          "name": "hari:hasExpressionForExtension",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Expression",
-              "range_label": {
-                "en": "Expression"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Expression",
-              "range_uri": "http://hari-meta.org/ontology/hari#Expression"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasExpressionForExtension",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
       "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#ExpressionExtension",
+      "uri": "http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus",
       "usage": {
         "en": ""
       }
@@ -1066,6 +945,37 @@
         }
       ],
       "properties": [
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:ExtensionDecision",
+              "uri": "http://hari-meta.org/ontology/hari#ExtensionDecision"
+            }
+          ],
+          "label": {
+            "en": "Has expression for extension"
+          },
+          "name": "hari:hasExpressionForExtension",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Expression",
+              "range_label": {
+                "en": "Expression"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Expression",
+              "range_uri": "http://hari-meta.org/ontology/hari#Expression"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasExpressionForExtension",
+          "usage": {}
+        },
         {
           "cardinality": "1..1",
           "description": {
@@ -1158,6 +1068,37 @@
           "tags": {},
           "uri": "http://hari-meta.org/ontology/hari#hasExtensionReason",
           "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:ExtensionDecision",
+              "uri": "http://hari-meta.org/ontology/hari#ExtensionDecision"
+            }
+          ],
+          "label": {
+            "en": "Has property extension"
+          },
+          "name": "hari:hasPropertyExtension",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Property",
+              "range_label": {
+                "en": "Property"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Property",
+              "range_uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasPropertyExtension",
+          "usage": {}
         }
       ],
       "rawTags": {
@@ -1181,45 +1122,13 @@
       "parents": [
         {
           "label": {
-            "en": "Thing"
+            "en": "Level tesaurus"
           },
-          "name": "owl:Thing",
-          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
+          "name": "hari:LevelTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#LevelTesaurus"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Foundational",
-              "uri": "http://hari-meta.org/ontology/hari#Foundational"
-            }
-          ],
-          "label": {
-            "en": "Has in scheme"
-          },
-          "name": "hari:hasInScheme",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Level",
-              "range_label": {
-                "en": "Level"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Level",
-              "range_uri": "http://hari-meta.org/ontology/hari#Level"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInScheme",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -1247,39 +1156,7 @@
           "scoped_uri": "http://hari-meta.org/ontology/hari#Restriction"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:HasSelf",
-              "uri": "http://hari-meta.org/ontology/hari#HasSelf"
-            }
-          ],
-          "label": {
-            "en": "Is self"
-          },
-          "name": "hari:isSelf",
-          "propertyOrigin": "internal",
-          "propertyType": "datatype property",
-          "range": [
-            {
-              "range_curie": "xsd:boolean",
-              "range_label": {
-                "en": "Boolean"
-              },
-              "range_puri": "http://www.w3.org/2001/XMLSchema#boolean",
-              "range_uri": "http://www.w3.org/2001/XMLSchema#boolean"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#isSelf",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -1307,39 +1184,7 @@
           "scoped_uri": "http://hari-meta.org/ontology/hari#Restriction"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:HasValue",
-              "uri": "http://hari-meta.org/ontology/hari#HasValue"
-            }
-          ],
-          "label": {
-            "en": "Has target value"
-          },
-          "name": "hari:hasTargetValue",
-          "propertyOrigin": "internal",
-          "propertyType": "datatype property",
-          "range": [
-            {
-              "range_curie": "xsd:string",
-              "range_label": {
-                "en": "String"
-              },
-              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
-              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasTargetValue",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -1383,9 +1228,9 @@
         "en": ""
       },
       "label": {
-        "en": "Knowledge domain"
+        "en": "Knowledge domain tesaurus"
       },
-      "name": "hari:KnowledgeDomain",
+      "name": "hari:KnowledgeDomainTesaurus",
       "parents": [
         {
           "label": {
@@ -1400,7 +1245,7 @@
         "class-usage-scope": "main"
       },
       "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#KnowledgeDomain",
+      "uri": "http://hari-meta.org/ontology/hari#KnowledgeDomainTesaurus",
       "usage": {
         "en": ""
       }
@@ -1411,9 +1256,9 @@
         "en": ""
       },
       "label": {
-        "en": "Level"
+        "en": "Level tesaurus"
       },
-      "name": "hari:Level",
+      "name": "hari:LevelTesaurus",
       "parents": [
         {
           "label": {
@@ -1428,7 +1273,7 @@
         "class-usage-scope": "main"
       },
       "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#Level",
+      "uri": "http://hari-meta.org/ontology/hari#LevelTesaurus",
       "usage": {
         "en": ""
       }
@@ -1445,10 +1290,10 @@
       "parents": [
         {
           "label": {
-            "en": "Expression"
+            "en": "Expression type tesaurus"
           },
-          "name": "hari:Expression",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#Expression"
+          "name": "hari:ExpressionTypeTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus"
         }
       ],
       "properties": [],
@@ -1523,204 +1368,19 @@
         "en": ""
       },
       "label": {
-        "en": "Object property"
-      },
-      "name": "hari:ObjectProperty",
-      "parents": [
-        {
-          "label": {
-            "en": "Property"
-          },
-          "name": "hari:Property",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#Property"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:ObjectProperty",
-              "uri": "http://hari-meta.org/ontology/hari#ObjectProperty"
-            }
-          ],
-          "label": {
-            "en": "Has domain class"
-          },
-          "name": "hari:hasDomainClass",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Class",
-              "range_label": {
-                "en": "Class"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Class",
-              "range_uri": "http://hari-meta.org/ontology/hari#Class"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasDomainClass",
-          "usage": {}
-        },
-        {
-          "cardinality": "0..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:ObjectProperty",
-              "uri": "http://hari-meta.org/ontology/hari#ObjectProperty"
-            }
-          ],
-          "label": {
-            "en": "Has inverse of"
-          },
-          "name": "hari:hasInverseOf",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:ObjectProperty",
-              "range_label": {
-                "en": "Object property"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#ObjectProperty",
-              "range_uri": "http://hari-meta.org/ontology/hari#ObjectProperty"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInverseOf",
-          "usage": {}
-        },
-        {
-          "cardinality": "0..*",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:ObjectProperty",
-              "uri": "http://hari-meta.org/ontology/hari#ObjectProperty"
-            }
-          ],
-          "label": {
-            "en": "Has property chain"
-          },
-          "name": "hari:hasPropertyChain",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:ObjectProperty",
-              "range_label": {
-                "en": "Object property"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#ObjectProperty",
-              "range_uri": "http://hari-meta.org/ontology/hari#ObjectProperty"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasPropertyChain",
-          "usage": {}
-        },
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:ObjectProperty",
-              "uri": "http://hari-meta.org/ontology/hari#ObjectProperty"
-            }
-          ],
-          "label": {
-            "en": "Has range class"
-          },
-          "name": "hari:hasRangeClass",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Class",
-              "range_label": {
-                "en": "Class"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Class",
-              "range_uri": "http://hari-meta.org/ontology/hari#Class"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasRangeClass",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#ObjectProperty",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
         "en": "Obsolete"
       },
       "name": "hari:Obsolete",
       "parents": [
         {
           "label": {
-            "en": "Thing"
+            "en": "Status tesaurus"
           },
-          "name": "owl:Thing",
-          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
+          "name": "hari:StatusTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#StatusTesaurus"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Obsolete",
-              "uri": "http://hari-meta.org/ontology/hari#Obsolete"
-            }
-          ],
-          "label": {
-            "en": "Has in scheme"
-          },
-          "name": "hari:hasInScheme",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Status",
-              "range_label": {
-                "en": "Status"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Status",
-              "range_uri": "http://hari-meta.org/ontology/hari#Status"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInScheme",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -2014,12 +1674,12 @@
           "propertyType": "object property",
           "range": [
             {
-              "range_curie": "hari:Level",
+              "range_curie": "hari:LevelTesaurus",
               "range_label": {
-                "en": "Level"
+                "en": "Level tesaurus"
               },
-              "range_puri": "http://hari-meta.org/ontology/hari#Level",
-              "range_uri": "http://hari-meta.org/ontology/hari#Level"
+              "range_puri": "http://hari-meta.org/ontology/hari#LevelTesaurus",
+              "range_uri": "http://hari-meta.org/ontology/hari#LevelTesaurus"
             }
           ],
           "tags": {},
@@ -2198,12 +1858,12 @@
           "propertyType": "object property",
           "range": [
             {
-              "range_curie": "hari:KnowledgeDomain",
+              "range_curie": "hari:KnowledgeDomainTesaurus",
               "range_label": {
-                "en": "Knowledge domain"
+                "en": "Knowledge domain tesaurus"
               },
-              "range_puri": "http://hari-meta.org/ontology/hari#KnowledgeDomain",
-              "range_uri": "http://hari-meta.org/ontology/hari#KnowledgeDomain"
+              "range_puri": "http://hari-meta.org/ontology/hari#KnowledgeDomainTesaurus",
+              "range_uri": "http://hari-meta.org/ontology/hari#KnowledgeDomainTesaurus"
             }
           ],
           "tags": {},
@@ -2260,12 +1920,12 @@
           "propertyType": "object property",
           "range": [
             {
-              "range_curie": "hari:Status",
+              "range_curie": "hari:StatusTesaurus",
               "range_label": {
-                "en": "Status"
+                "en": "Status tesaurus"
               },
-              "range_puri": "http://hari-meta.org/ontology/hari#Status",
-              "range_uri": "http://hari-meta.org/ontology/hari#Status"
+              "range_puri": "http://hari-meta.org/ontology/hari#StatusTesaurus",
+              "range_uri": "http://hari-meta.org/ontology/hari#StatusTesaurus"
             }
           ],
           "tags": {},
@@ -2394,6 +2054,285 @@
         }
       ],
       "properties": [
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has anotation property domain class anotation"
+          },
+          "name": "hari:hasAnotationPropertyDomainClassAnotation",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Class",
+              "range_label": {
+                "en": "Class"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Class",
+              "range_uri": "http://hari-meta.org/ontology/hari#Class"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainClassAnotation",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has anotation property domain datatype anotation"
+          },
+          "name": "hari:hasAnotationPropertyDomainDatatypeAnotation",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Datatype",
+              "range_label": {
+                "en": "Datatype"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Datatype",
+              "range_uri": "http://hari-meta.org/ontology/hari#Datatype"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainDatatypeAnotation",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has anotation property domain property anotation"
+          },
+          "name": "hari:hasAnotationPropertyDomainPropertyAnotation",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Property",
+              "range_label": {
+                "en": "Property"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Property",
+              "range_uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasAnotationPropertyDomainPropertyAnotation",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has datatype property domain datatype"
+          },
+          "name": "hari:hasDatatypePropertyDomainDatatype",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Class",
+              "range_label": {
+                "en": "Class"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Class",
+              "range_uri": "http://hari-meta.org/ontology/hari#Class"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasDatatypePropertyDomainDatatype",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has datatype property range datatype"
+          },
+          "name": "hari:hasDatatypePropertyRangeDatatype",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Datatype",
+              "range_label": {
+                "en": "Datatype"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Datatype",
+              "range_uri": "http://hari-meta.org/ontology/hari#Datatype"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasDatatypePropertyRangeDatatype",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..*",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has object property chain"
+          },
+          "name": "hari:hasObjectPropertyChain",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Property",
+              "range_label": {
+                "en": "Property"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Property",
+              "range_uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasObjectPropertyChain",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has object property domain class"
+          },
+          "name": "hari:hasObjectPropertyDomainClass",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Class",
+              "range_label": {
+                "en": "Class"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Class",
+              "range_uri": "http://hari-meta.org/ontology/hari#Class"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasObjectPropertyDomainClass",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has object property inverse of"
+          },
+          "name": "hari:hasObjectPropertyInverseOf",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Property",
+              "range_label": {
+                "en": "Property"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Property",
+              "range_uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasObjectPropertyInverseOf",
+          "usage": {}
+        },
+        {
+          "cardinality": "0..1",
+          "description": {
+            "en": ""
+          },
+          "domain": [
+            {
+              "name": "hari:Property",
+              "uri": "http://hari-meta.org/ontology/hari#Property"
+            }
+          ],
+          "label": {
+            "en": "Has object property range class"
+          },
+          "name": "hari:hasObjectPropertyRangeClass",
+          "propertyOrigin": "internal",
+          "propertyType": "object property",
+          "range": [
+            {
+              "range_curie": "hari:Class",
+              "range_label": {
+                "en": "Class"
+              },
+              "range_puri": "http://hari-meta.org/ontology/hari#Class",
+              "range_uri": "http://hari-meta.org/ontology/hari#Class"
+            }
+          ],
+          "tags": {},
+          "uri": "http://hari-meta.org/ontology/hari#hasObjectPropertyRangeClass",
+          "usage": {}
+        },
         {
           "cardinality": "0..*",
           "description": {
@@ -2658,196 +2597,16 @@
         "en": ""
       },
       "label": {
-        "en": "Property extension"
-      },
-      "name": "hari:PropertyExtension",
-      "parents": [
-        {
-          "label": {
-            "en": "Extension decision"
-          },
-          "name": "hari:ExtensionDecision",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#ExtensionDecision"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:PropertyExtension",
-              "uri": "http://hari-meta.org/ontology/hari#PropertyExtension"
-            }
-          ],
-          "label": {
-            "en": "Has property extension"
-          },
-          "name": "hari:hasPropertyExtension",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Property",
-              "range_label": {
-                "en": "Property"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Property",
-              "range_uri": "http://hari-meta.org/ontology/hari#Property"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasPropertyExtension",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#PropertyExtension",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
-        "en": "Property reuse"
-      },
-      "name": "hari:PropertyReuse",
-      "parents": [
-        {
-          "label": {
-            "en": "Direct reuse decision"
-          },
-          "name": "hari:DirectReuseDecision",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#DirectReuseDecision"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:PropertyReuse",
-              "uri": "http://hari-meta.org/ontology/hari#PropertyReuse"
-            }
-          ],
-          "label": {
-            "en": "Has property reuse"
-          },
-          "name": "hari:hasPropertyReuse",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Property",
-              "range_label": {
-                "en": "Property"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Property",
-              "range_uri": "http://hari-meta.org/ontology/hari#Property"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasPropertyReuse",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#PropertyReuse",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
         "en": "Restriction"
       },
       "name": "hari:Restriction",
       "parents": [
         {
           "label": {
-            "en": "Expression"
+            "en": "Expression type tesaurus"
           },
-          "name": "hari:Expression",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#Expression"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Restriction",
-              "uri": "http://hari-meta.org/ontology/hari#Restriction"
-            }
-          ],
-          "label": {
-            "en": "Has on property"
-          },
-          "name": "hari:hasOnProperty",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Property",
-              "range_label": {
-                "en": "Property"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Property",
-              "range_uri": "http://hari-meta.org/ontology/hari#Property"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasOnProperty",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#Restriction",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
-        "en": "Semantic extension"
-      },
-      "name": "hari:SemanticExtension",
-      "parents": [
-        {
-          "label": {
-            "en": "Extension decision"
-          },
-          "name": "hari:ExtensionDecision",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#ExtensionDecision"
+          "name": "hari:ExpressionTypeTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#ExpressionTypeTesaurus"
         }
       ],
       "properties": [],
@@ -2855,7 +2614,7 @@
         "class-usage-scope": "main"
       },
       "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#SemanticExtension",
+      "uri": "http://hari-meta.org/ontology/hari#Restriction",
       "usage": {
         "en": ""
       }
@@ -2900,45 +2659,13 @@
       "parents": [
         {
           "label": {
-            "en": "Thing"
+            "en": "Status tesaurus"
           },
-          "name": "owl:Thing",
-          "scoped_uri": "http://www.w3.org/2002/07/owl#Thing"
+          "name": "hari:StatusTesaurus",
+          "scoped_uri": "http://hari-meta.org/ontology/hari#StatusTesaurus"
         }
       ],
-      "properties": [
-        {
-          "cardinality": "1..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Stable",
-              "uri": "http://hari-meta.org/ontology/hari#Stable"
-            }
-          ],
-          "label": {
-            "en": "Has in scheme"
-          },
-          "name": "hari:hasInScheme",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Status",
-              "range_label": {
-                "en": "Status"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Status",
-              "range_uri": "http://hari-meta.org/ontology/hari#Status"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasInScheme",
-          "usage": {}
-        }
-      ],
+      "properties": [],
       "rawTags": {
         "class-usage-scope": "main"
       },
@@ -2954,9 +2681,9 @@
         "en": ""
       },
       "label": {
-        "en": "Status"
+        "en": "Status tesaurus"
       },
-      "name": "hari:Status",
+      "name": "hari:StatusTesaurus",
       "parents": [
         {
           "label": {
@@ -2971,67 +2698,7 @@
         "class-usage-scope": "main"
       },
       "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#Status",
-      "usage": {
-        "en": ""
-      }
-    },
-    {
-      "classType": "definition",
-      "description": {
-        "en": ""
-      },
-      "label": {
-        "en": "Types"
-      },
-      "name": "hari:Types",
-      "parents": [
-        {
-          "label": {
-            "en": "Ontological term"
-          },
-          "name": "hari:OntologicalTerm",
-          "scoped_uri": "http://hari-meta.org/ontology/hari#OntologicalTerm"
-        }
-      ],
-      "properties": [
-        {
-          "cardinality": "0..1",
-          "description": {
-            "en": ""
-          },
-          "domain": [
-            {
-              "name": "hari:Types",
-              "uri": "http://hari-meta.org/ontology/hari#Types"
-            }
-          ],
-          "label": {
-            "en": "Has expression"
-          },
-          "name": "hari:hasExpression",
-          "propertyOrigin": "internal",
-          "propertyType": "object property",
-          "range": [
-            {
-              "range_curie": "hari:Expression",
-              "range_label": {
-                "en": "Expression"
-              },
-              "range_puri": "http://hari-meta.org/ontology/hari#Expression",
-              "range_uri": "http://hari-meta.org/ontology/hari#Expression"
-            }
-          ],
-          "tags": {},
-          "uri": "http://hari-meta.org/ontology/hari#hasExpression",
-          "usage": {}
-        }
-      ],
-      "rawTags": {
-        "class-usage-scope": "main"
-      },
-      "tags": {},
-      "uri": "http://hari-meta.org/ontology/hari#Types",
+      "uri": "http://hari-meta.org/ontology/hari#StatusTesaurus",
       "usage": {
         "en": ""
       }
