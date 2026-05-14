@@ -1,0 +1,427 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hari: <http://hari-meta.org/ontology/hari#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hari:AllValuesFrom a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:ValuesFrom ;
+    skos:prefLabel "All Values From"@en .
+
+hari:Application a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:LevelTesaurus ;
+    skos:prefLabel "Application"@en .
+
+hari:Class a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:OntologicalTerm ;
+    skos:prefLabel "Class"@en .
+
+hari:Complement a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:LogicalOperation ;
+    skos:prefLabel "Complement"@en .
+
+hari:Core a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:LevelTesaurus ;
+    skos:prefLabel "Core"@en .
+
+hari:Datatype a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:OntologicalTerm ;
+    skos:prefLabel "Datatype"@en .
+
+hari:DirectReuseDecision a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Direct Reuse Decision"@en .
+
+hari:Domain a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:LevelTesaurus ;
+    skos:prefLabel "Domain"@en .
+
+hari:Draft a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:StatusTesaurus ;
+    skos:prefLabel "Draft"@en .
+
+hari:ExactCardinality a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:CardinalityRestriction ;
+    skos:prefLabel "Exact Cardinality"@en .
+
+hari:Expression a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Expression"@en .
+
+hari:ExtensionDecision a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Extension Decision"@en .
+
+hari:Foundational a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:LevelTesaurus ;
+    skos:prefLabel "Foundational"@en .
+
+hari:HasSelf a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Restriction ;
+    skos:prefLabel "Has Self"@en .
+
+hari:HasValue a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Restriction ;
+    skos:prefLabel "Has Value"@en .
+
+hari:Intersection a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:LogicalOperation ;
+    skos:prefLabel "Intersection"@en .
+
+hari:KnowledgeDomainTesaurus a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Knowledge Domain Tesaurus"@en .
+
+hari:MaxCardinality a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:CardinalityRestriction ;
+    skos:prefLabel "Max Cardinality"@en .
+
+hari:MinCardinality a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:CardinalityRestriction ;
+    skos:prefLabel "Min Cardinality"@en .
+
+hari:Obsolete a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:StatusTesaurus ;
+    skos:prefLabel "Obsolete"@en .
+
+hari:OntologyProject a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontology Project"@en .
+
+hari:OntologyVersion a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontology Version"@en .
+
+hari:Property a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:OntologicalTerm ;
+    skos:prefLabel "Property"@en .
+
+hari:SomeValuesFrom a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:ValuesFrom ;
+    skos:prefLabel "Some Values From"@en .
+
+hari:Stable a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:StatusTesaurus ;
+    skos:prefLabel "Stable"@en .
+
+hari:Union a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:LogicalOperation ;
+    skos:prefLabel "Union"@en .
+
+hari:hasAcronym a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Acronym"@en .
+
+hari:hasAnotationPropertyDomainClassAnotation a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Anotation Property Domain Class Anotation"@en .
+
+hari:hasAnotationPropertyDomainDatatypeAnotation a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Anotation Property Domain Datatype Anotation"@en .
+
+hari:hasAnotationPropertyDomainPropertyAnotation a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Anotation Property Domain Property Anotation"@en .
+
+hari:hasCardinalityRestrictionValue a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Cardinality Restriction Value"@en .
+
+hari:hasClassExpression a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Class Expression"@en .
+
+hari:hasClassExpressionTarget a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Class Expression Target"@en .
+
+hari:hasClassReuse a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Class Reuse"@en .
+
+hari:hasCompositeExpression a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Composite Expression"@en .
+
+hari:hasDatatypeExpression a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Datatype Expression"@en .
+
+hari:hasDatatypeExpressionTarget a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Datatype Expression Target"@en .
+
+hari:hasDatatypePropertyDomainDatatype a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Datatype Property Domain Datatype"@en .
+
+hari:hasDatatypePropertyRangeDatatype a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Datatype Property Range Datatype"@en .
+
+hari:hasDatatypeReuse a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Datatype Reuse"@en .
+
+hari:hasDescripcion a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Descripcion"@en .
+
+hari:hasDescription a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Description"@en .
+
+hari:hasDisjointWith a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Disjoint With"@en .
+
+hari:hasEquivalentTo a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Equivalent To"@en .
+
+hari:hasExpressionForExtension a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Expression For Extension"@en .
+
+hari:hasExpressionType a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Expression Type"@en .
+
+hari:hasExtension a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Extension"@en .
+
+hari:hasExtensionBaseClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Extension Base Class"@en .
+
+hari:hasExtensionExtendedClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Extension Extended Class"@en .
+
+hari:hasExtensionReason a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Extension Reason"@en .
+
+hari:hasKnowledgeDomain a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Knowledge Domain"@en .
+
+hari:hasLevel a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Level"@en .
+
+hari:hasObjectPropertyChain a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Object Property Chain"@en .
+
+hari:hasObjectPropertyDomainClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Object Property Domain Class"@en .
+
+hari:hasObjectPropertyInverseOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Object Property Inverse Of"@en .
+
+hari:hasObjectPropertyRangeClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Object Property Range Class"@en .
+
+hari:hasOntologyIRI a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Ontology IRI"@en .
+
+hari:hasOrganization a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Organization"@en .
+
+hari:hasPropertyExtension a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Property Extension"@en .
+
+hari:hasPropertyReuse a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Property Reuse"@en .
+
+hari:hasRestrictionOnProperty a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Restriction On Property"@en .
+
+hari:hasReuse a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Reuse"@en .
+
+hari:hasReuseReason a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Reuse Reason"@en .
+
+hari:hasStatus a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Status"@en .
+
+hari:hasSubClassOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Sub Class Of"@en .
+
+hari:hasSubPropertyOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Sub Property Of"@en .
+
+hari:hasTargetValue a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Target Value"@en .
+
+hari:hasTermDefinition a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Term Definition"@en .
+
+hari:hasTermExample a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Term Example"@en .
+
+hari:hasTermIRI a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Term IRI"@en .
+
+hari:hasTermLabel a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Term Label"@en .
+
+hari:hasTitle a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Title"@en .
+
+hari:hasVersionIRI a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Version IRI"@en .
+
+hari:hasVersionInfo a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "has Version Info"@en .
+
+hari:isAssymetric a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Assymetric"@en .
+
+hari:isDefinedIn a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Defined In"@en .
+
+hari:isFunctional a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Functional"@en .
+
+hari:isInverseFunctional a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Inverse Functional"@en .
+
+hari:isIrreflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Irreflexive"@en .
+
+hari:isReflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Reflexive"@en .
+
+hari:isSelf a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Self"@en .
+
+hari:isSymmetric a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Symmetric"@en .
+
+hari:isTransitive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Transitive"@en .
+
+hari:isVersionOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy hari:core ;
+    skos:prefLabel "is Version Of"@en .
+
+hari:ExpressionTypeTesaurus a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Expression Type Tesaurus"@en .
+
+hari:ValuesFrom a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Restriction ;
+    skos:prefLabel "Values From"@en .
+
+hari:CardinalityRestriction a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:Restriction ;
+    skos:prefLabel "Cardinality Restriction"@en .
+
+hari:LogicalOperation a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:ExpressionTypeTesaurus ;
+    skos:prefLabel "Logical Operation"@en .
+
+hari:OntologicalTerm a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontological Term"@en .
+
+hari:StatusTesaurus a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Status Tesaurus"@en .
+
+hari:LevelTesaurus a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Level Tesaurus"@en .
+
+hari:Restriction a owl:Class ;
+    rdfs:isDefinedBy hari:core ;
+    rdfs:subClassOf hari:ExpressionTypeTesaurus ;
+    skos:prefLabel "Restriction"@en .
+
+hari:core a owl:Ontology ;
+    rdfs:label "Ontología principal del proyecto Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Ontología principal del proyecto Hari."@en ;
+    dcterms:issued "2026-05-14"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Core"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from hari.xml on 2026-05-14" ;
+    owl:imports skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/hari#core-" ;
+    owl:versionIRI hari:core-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

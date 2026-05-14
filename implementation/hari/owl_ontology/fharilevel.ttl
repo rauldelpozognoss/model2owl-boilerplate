@@ -1,0 +1,50 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fharilevel: <http://hari-meta.org/ontology/fharilevel#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fharilevel:Application a owl:Class ;
+    rdfs:isDefinedBy fharilevel:core ;
+    rdfs:subClassOf fharilevel:LevelTesaurus ;
+    skos:prefLabel "Application"@en .
+
+fharilevel:Core a owl:Class ;
+    rdfs:isDefinedBy fharilevel:core ;
+    rdfs:subClassOf fharilevel:LevelTesaurus ;
+    skos:prefLabel "Core"@en .
+
+fharilevel:Domain a owl:Class ;
+    rdfs:isDefinedBy fharilevel:core ;
+    rdfs:subClassOf fharilevel:LevelTesaurus ;
+    skos:prefLabel "Domain"@en .
+
+fharilevel:Foundational a owl:Class ;
+    rdfs:isDefinedBy fharilevel:core ;
+    rdfs:subClassOf fharilevel:LevelTesaurus ;
+    skos:prefLabel "Foundational"@en .
+
+fharilevel:LevelTesaurus a owl:Class ;
+    rdfs:isDefinedBy fharilevel:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Level Tesaurus"@en .
+
+fharilevel:core a owl:Ontology ;
+    rdfs:label "Ontología principal del proyecto Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Ontología principal del proyecto Hari."@en ;
+    dcterms:issued "2026-05-14"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Core"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from fharilevel.xml on 2026-05-14" ;
+    owl:imports skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/fharilevel#core-" ;
+    owl:versionIRI fharilevel:core-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

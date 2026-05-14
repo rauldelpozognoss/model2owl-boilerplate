@@ -1,6 +1,5 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariexpression: <http://hari-meta.org/ontology/hariexpression#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -16,20 +15,20 @@ core-shape:hariexpression-ExpressionShape a sh:NodeShape ;
         core-shape:hariexpression-Expression-hariexpression-hasDescripcion,
         core-shape:hariexpression-Expression-hariexpression-hasTargetValue,
         core-shape:hariexpression-Expression-hariexpression-isSelf ;
-    sh:targetClass hariexpression:Expression .
+    sh:targetClass <http://hari-meta.org/ontology/hariexpression#Expression> .
 
 core-shape:hariexpression-Expression-hariexpression-hasCardinalityRestrictionValue a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:integer ;
     sh:maxCount 1 ;
     sh:name "Has cardinality restriction value" ;
-    sh:path hariexpression:hasCardinalityRestrictionValue .
+    sh:path <http://hari-meta.org/ontology/hariexpression#hasCardinalityRestrictionValue> .
 
 core-shape:hariexpression-Expression-hariexpression-hasCompositeExpression a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class hariexpression:Expression ;
+    sh:class <http://hari-meta.org/ontology/hariexpression#Expression> ;
     sh:name "Has composite expression" ;
-    sh:path hariexpression:hasCompositeExpression ;
+    sh:path <http://hari-meta.org/ontology/hariexpression#hasCompositeExpression> ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/hariexpression#hasCompositeExpression> ?that . ?that <http://hari-meta.org/ontology/hariexpression#hasCompositeExpression> ?this .}" ] .
 
 core-shape:hariexpression-Expression-hariexpression-hasDescripcion a sh:PropertyShape ;
@@ -38,21 +37,21 @@ core-shape:hariexpression-Expression-hariexpression-hasDescripcion a sh:Property
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has descripcion" ;
-    sh:path hariexpression:hasDescripcion .
+    sh:path <http://hari-meta.org/ontology/hariexpression#hasDescripcion> .
 
 core-shape:hariexpression-Expression-hariexpression-hasTargetValue a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:name "Has target value" ;
-    sh:path hariexpression:hasTargetValue .
+    sh:path <http://hari-meta.org/ontology/hariexpression#hasTargetValue> .
 
 core-shape:hariexpression-Expression-hariexpression-isSelf a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:boolean ;
     sh:maxCount 1 ;
     sh:name "Is self" ;
-    sh:path hariexpression:isSelf .
+    sh:path <http://hari-meta.org/ontology/hariexpression#isSelf> .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;

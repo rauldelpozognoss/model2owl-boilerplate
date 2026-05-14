@@ -1,6 +1,5 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix harireuse: <http://hari-meta.org/ontology/harireuse#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -12,14 +11,14 @@ core-shape:harireuse-DirectReuseDecisionShape a sh:NodeShape ;
     rdfs:label "Direct Reuse Decision" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:harireuse-DirectReuseDecision-harireuse-hasReuseReason ;
-    sh:targetClass harireuse:DirectReuseDecision .
+    sh:targetClass <http://hari-meta.org/ontology/harireuse#DirectReuseDecision> .
 
 core-shape:harireuse-DirectReuseDecision-harireuse-hasReuseReason a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:name "Has reuse reason" ;
-    sh:path harireuse:hasReuseReason .
+    sh:path <http://hari-meta.org/ontology/harireuse#hasReuseReason> .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
