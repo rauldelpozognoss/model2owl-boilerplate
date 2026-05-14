@@ -1,0 +1,260 @@
+@prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fhariterm: <http://hari-meta.org/ontology/fhariterm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+core-shape:fhariterm-ClassShape a sh:NodeShape ;
+    rdfs:label "Class" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:fhariterm-Class-fhariterm-hasDisjointWith,
+        core-shape:fhariterm-Class-fhariterm-hasEquivalentTo,
+        core-shape:fhariterm-Class-fhariterm-hasSubClassOf ;
+    sh:targetClass fhariterm:Class .
+
+core-shape:fhariterm-DatatypeShape a sh:NodeShape ;
+    rdfs:label "Datatype" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass fhariterm:Datatype .
+
+core-shape:fhariterm-OntologicalTermShape a sh:NodeShape ;
+    rdfs:label "Ontological Term" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermDefinition,
+        core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermExample,
+        core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermIRI,
+        core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermLabel ;
+    sh:sparql [ sh:select """SELECT ?this WHERE { ?this a <http://hari-meta.org/ontology/fhariterm#OntologicalTerm> .
+                }""" ] ;
+    sh:targetClass fhariterm:OntologicalTerm .
+
+core-shape:fhariterm-PropertyShape a sh:NodeShape ;
+    rdfs:label "Property" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:fhariterm-Property-fhariterm-hasAnotationPropertyDomainClassAnotation,
+        core-shape:fhariterm-Property-fhariterm-hasAnotationPropertyDomainDatatypeAnotation,
+        core-shape:fhariterm-Property-fhariterm-hasAnotationPropertyDomainPropertyAnotation,
+        core-shape:fhariterm-Property-fhariterm-hasDatatypePropertyDomainDatatype,
+        core-shape:fhariterm-Property-fhariterm-hasDatatypePropertyRangeDatatype,
+        core-shape:fhariterm-Property-fhariterm-hasObjectPropertyChain,
+        core-shape:fhariterm-Property-fhariterm-hasObjectPropertyDomainClass,
+        core-shape:fhariterm-Property-fhariterm-hasObjectPropertyInverseOf,
+        core-shape:fhariterm-Property-fhariterm-hasObjectPropertyRangeClass,
+        core-shape:fhariterm-Property-fhariterm-hasSubPropertyOf,
+        core-shape:fhariterm-Property-fhariterm-isAssymetric,
+        core-shape:fhariterm-Property-fhariterm-isFunctional,
+        core-shape:fhariterm-Property-fhariterm-isInverseFunctional,
+        core-shape:fhariterm-Property-fhariterm-isIrreflexive,
+        core-shape:fhariterm-Property-fhariterm-isReflexive,
+        core-shape:fhariterm-Property-fhariterm-isSymmetric,
+        core-shape:fhariterm-Property-fhariterm-isTransitive ;
+    sh:targetClass fhariterm:Property .
+
+core-shape:fhariterm-Class-fhariterm-hasDisjointWith a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Class ;
+    sh:name "Has disjoint with" ;
+    sh:path fhariterm:hasDisjointWith ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasDisjointWith> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasDisjointWith> ?this .}" ] .
+
+core-shape:fhariterm-Class-fhariterm-hasEquivalentTo a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Class ;
+    sh:name "Has equivalent to" ;
+    sh:path fhariterm:hasEquivalentTo ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasEquivalentTo> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasEquivalentTo> ?this .}" ] .
+
+core-shape:fhariterm-Class-fhariterm-hasSubClassOf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Class ;
+    sh:name "Has sub class of" ;
+    sh:path fhariterm:hasSubClassOf ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasSubClassOf> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasSubClassOf> ?this .}" ] .
+
+core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermDefinition a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has term definition" ;
+    sh:path fhariterm:hasTermDefinition .
+
+core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermExample a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:name "Has term example" ;
+    sh:path fhariterm:hasTermExample .
+
+core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermIRI a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has term IRI" ;
+    sh:path fhariterm:hasTermIRI .
+
+core-shape:fhariterm-OntologicalTerm-fhariterm-hasTermLabel a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has term label" ;
+    sh:path fhariterm:hasTermLabel .
+
+core-shape:fhariterm-Property-fhariterm-hasAnotationPropertyDomainClassAnotation a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Class ;
+    sh:maxCount 1 ;
+    sh:name "Has anotation property domain class anotation" ;
+    sh:path fhariterm:hasAnotationPropertyDomainClassAnotation ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasAnotationPropertyDomainClassAnotation> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasAnotationPropertyDomainClassAnotation> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasAnotationPropertyDomainDatatypeAnotation a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Datatype ;
+    sh:maxCount 1 ;
+    sh:name "Has anotation property domain datatype anotation" ;
+    sh:path fhariterm:hasAnotationPropertyDomainDatatypeAnotation ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasAnotationPropertyDomainDatatypeAnotation> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasAnotationPropertyDomainDatatypeAnotation> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasAnotationPropertyDomainPropertyAnotation a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Property ;
+    sh:maxCount 1 ;
+    sh:name "Has anotation property domain property anotation" ;
+    sh:path fhariterm:hasAnotationPropertyDomainPropertyAnotation ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasAnotationPropertyDomainPropertyAnotation> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasAnotationPropertyDomainPropertyAnotation> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasDatatypePropertyDomainDatatype a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Class ;
+    sh:maxCount 1 ;
+    sh:name "Has datatype property domain datatype" ;
+    sh:path fhariterm:hasDatatypePropertyDomainDatatype ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasDatatypePropertyDomainDatatype> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasDatatypePropertyDomainDatatype> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasDatatypePropertyRangeDatatype a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Datatype ;
+    sh:maxCount 1 ;
+    sh:name "Has datatype property range datatype" ;
+    sh:path fhariterm:hasDatatypePropertyRangeDatatype ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasDatatypePropertyRangeDatatype> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasDatatypePropertyRangeDatatype> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasObjectPropertyChain a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Property ;
+    sh:name "Has object property chain" ;
+    sh:path fhariterm:hasObjectPropertyChain ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyChain> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyChain> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasObjectPropertyDomainClass a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Class ;
+    sh:maxCount 1 ;
+    sh:name "Has object property domain class" ;
+    sh:path fhariterm:hasObjectPropertyDomainClass ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyDomainClass> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyDomainClass> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasObjectPropertyInverseOf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Property ;
+    sh:maxCount 1 ;
+    sh:name "Has object property inverse of" ;
+    sh:path fhariterm:hasObjectPropertyInverseOf ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyInverseOf> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyInverseOf> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasObjectPropertyRangeClass a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Class ;
+    sh:maxCount 1 ;
+    sh:name "Has object property range class" ;
+    sh:path fhariterm:hasObjectPropertyRangeClass ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyRangeClass> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasObjectPropertyRangeClass> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-hasSubPropertyOf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class fhariterm:Property ;
+    sh:name "Has sub property of" ;
+    sh:path fhariterm:hasSubPropertyOf ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://hari-meta.org/ontology/fhariterm#hasSubPropertyOf> ?that . ?that <http://hari-meta.org/ontology/fhariterm#hasSubPropertyOf> ?this .}" ] .
+
+core-shape:fhariterm-Property-fhariterm-isAssymetric a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is assymetric" ;
+    sh:path fhariterm:isAssymetric .
+
+core-shape:fhariterm-Property-fhariterm-isFunctional a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is functional" ;
+    sh:path fhariterm:isFunctional .
+
+core-shape:fhariterm-Property-fhariterm-isInverseFunctional a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is inverse functional" ;
+    sh:path fhariterm:isInverseFunctional .
+
+core-shape:fhariterm-Property-fhariterm-isIrreflexive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is irreflexive" ;
+    sh:path fhariterm:isIrreflexive .
+
+core-shape:fhariterm-Property-fhariterm-isReflexive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is reflexive" ;
+    sh:path fhariterm:isReflexive .
+
+core-shape:fhariterm-Property-fhariterm-isSymmetric a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is symmetric" ;
+    sh:path fhariterm:isSymmetric .
+
+core-shape:fhariterm-Property-fhariterm-isTransitive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is transitive" ;
+    sh:path fhariterm:isTransitive .
+
+core-shape:core-shape a owl:Ontology ;
+    rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Shapes SHACL para validación de la ontología Hari."@en ;
+    dcterms:issued "2026-05-14"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Shapes"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from fhariterm.xml on 2026-05-14" ;
+    owl:imports fhariterm:core,
+        fhariterm:core-restriction,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/data-shape/hari#core-shape-" ;
+    owl:versionIRI core-shape:core-shape-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

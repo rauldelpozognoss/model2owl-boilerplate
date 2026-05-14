@@ -1,0 +1,141 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fhariterm: <http://hari-meta.org/ontology/fhariterm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fhariterm:Class a owl:Class ;
+    rdfs:isDefinedBy fhariterm:core ;
+    rdfs:subClassOf fhariterm:OntologicalTerm ;
+    skos:prefLabel "Class"@en .
+
+fhariterm:Datatype a owl:Class ;
+    rdfs:isDefinedBy fhariterm:core ;
+    rdfs:subClassOf fhariterm:OntologicalTerm ;
+    skos:prefLabel "Datatype"@en .
+
+fhariterm:Property a owl:Class ;
+    rdfs:isDefinedBy fhariterm:core ;
+    rdfs:subClassOf fhariterm:OntologicalTerm ;
+    skos:prefLabel "Property"@en .
+
+fhariterm:hasAnotationPropertyDomainClassAnotation a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Anotation Property Domain Class Anotation"@en .
+
+fhariterm:hasAnotationPropertyDomainDatatypeAnotation a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Anotation Property Domain Datatype Anotation"@en .
+
+fhariterm:hasAnotationPropertyDomainPropertyAnotation a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Anotation Property Domain Property Anotation"@en .
+
+fhariterm:hasDatatypePropertyDomainDatatype a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Datatype Property Domain Datatype"@en .
+
+fhariterm:hasDatatypePropertyRangeDatatype a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Datatype Property Range Datatype"@en .
+
+fhariterm:hasDisjointWith a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Disjoint With"@en .
+
+fhariterm:hasEquivalentTo a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Equivalent To"@en .
+
+fhariterm:hasObjectPropertyChain a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Object Property Chain"@en .
+
+fhariterm:hasObjectPropertyDomainClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Object Property Domain Class"@en .
+
+fhariterm:hasObjectPropertyInverseOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Object Property Inverse Of"@en .
+
+fhariterm:hasObjectPropertyRangeClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Object Property Range Class"@en .
+
+fhariterm:hasSubClassOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Sub Class Of"@en .
+
+fhariterm:hasSubPropertyOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Sub Property Of"@en .
+
+fhariterm:hasTermDefinition a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Term Definition"@en .
+
+fhariterm:hasTermExample a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Term Example"@en .
+
+fhariterm:hasTermIRI a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Term IRI"@en .
+
+fhariterm:hasTermLabel a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "has Term Label"@en .
+
+fhariterm:isAssymetric a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "is Assymetric"@en .
+
+fhariterm:isFunctional a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "is Functional"@en .
+
+fhariterm:isInverseFunctional a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "is Inverse Functional"@en .
+
+fhariterm:isIrreflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "is Irreflexive"@en .
+
+fhariterm:isReflexive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "is Reflexive"@en .
+
+fhariterm:isSymmetric a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "is Symmetric"@en .
+
+fhariterm:isTransitive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy fhariterm:core ;
+    skos:prefLabel "is Transitive"@en .
+
+fhariterm:OntologicalTerm a owl:Class ;
+    rdfs:isDefinedBy fhariterm:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Ontological Term"@en .
+
+fhariterm:core a owl:Ontology ;
+    rdfs:label "Ontología principal del proyecto Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Ontología principal del proyecto Hari."@en ;
+    dcterms:issued "2026-05-14"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Core"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from fhariterm.xml on 2026-05-14" ;
+    owl:imports skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/fhariterm#core-" ;
+    owl:versionIRI fhariterm:core-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+

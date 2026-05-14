@@ -1,0 +1,61 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fhariexpression: <http://hari-meta.org/ontology/fhariexpression#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fhariexpression:core-restriction a owl:Ontology ;
+    rdfs:label "Restricciones de la ontología Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Restricciones de la ontología Hari."@en ;
+    dcterms:issued "2026-05-14"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Restricciones"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment """This version is automatically generated from fhariexpression.xml on 
+                2026-05-14""" ;
+    owl:imports fhariexpression:core,
+        skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/fhariexpression#core-restriction-" ;
+    owl:versionIRI fhariexpression:core-restriction-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
+fhariexpression:hasCompositeExpression a owl:AsymmetricProperty ;
+    rdfs:domain fhariexpression:Expression ;
+    rdfs:range fhariexpression:Expression .
+
+fhariexpression:hasCardinalityRestrictionValue rdfs:domain fhariexpression:Expression ;
+    rdfs:range xsd:integer .
+
+fhariexpression:hasDescripcion a owl:FunctionalProperty ;
+    rdfs:domain fhariexpression:Expression ;
+    rdfs:range xsd:string .
+
+fhariexpression:hasTargetValue rdfs:domain fhariexpression:Expression ;
+    rdfs:range xsd:string .
+
+fhariexpression:isSelf rdfs:domain fhariexpression:Expression ;
+    rdfs:range xsd:boolean .
+
+fhariexpression:Expression rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty fhariexpression:hasTargetValue ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty fhariexpression:hasCardinalityRestrictionValue ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty fhariexpression:hasDescripcion ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty fhariexpression:isSelf ] .
+

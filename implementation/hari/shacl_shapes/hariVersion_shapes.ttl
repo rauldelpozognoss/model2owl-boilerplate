@@ -1,6 +1,5 @@
 @prefix core-shape: <http://hari-meta.org/data-shape/hari#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hariversion: <http://hari-meta.org/ontology/hariversion#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -13,7 +12,7 @@ core-shape:hariversion-OntologyVersionShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:hariversion-OntologyVersion-hariversion-hasVersionIRI,
         core-shape:hariversion-OntologyVersion-hariversion-hasVersionInfo ;
-    sh:targetClass hariversion:OntologyVersion .
+    sh:targetClass <http://hari-meta.org/ontology/hariversion#OntologyVersion> .
 
 core-shape:hariversion-OntologyVersion-hariversion-hasVersionIRI a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -21,7 +20,7 @@ core-shape:hariversion-OntologyVersion-hariversion-hasVersionIRI a sh:PropertySh
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version IRI" ;
-    sh:path hariversion:hasVersionIRI .
+    sh:path <http://hari-meta.org/ontology/hariversion#hasVersionIRI> .
 
 core-shape:hariversion-OntologyVersion-hariversion-hasVersionInfo a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -29,7 +28,7 @@ core-shape:hariversion-OntologyVersion-hariversion-hasVersionInfo a sh:PropertyS
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Has version info" ;
-    sh:path hariversion:hasVersionInfo .
+    sh:path <http://hari-meta.org/ontology/hariversion#hasVersionInfo> .
 
 core-shape:core-shape a owl:Ontology ;
     rdfs:label "Shapes SHACL para validación de la ontología Hari."@en ;

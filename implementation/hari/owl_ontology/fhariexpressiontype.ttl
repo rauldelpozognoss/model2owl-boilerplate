@@ -1,0 +1,100 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fhariexpressiontype: <http://hari-meta.org/ontology/fhariexpressiontype#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fhariexpressiontype:AllValuesFrom a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:ValuesFrom ;
+    skos:prefLabel "All Values From"@en .
+
+fhariexpressiontype:Complement a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:LogicalOperation ;
+    skos:prefLabel "Complement"@en .
+
+fhariexpressiontype:ExactCardinality a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:CardinalityRestriction ;
+    skos:prefLabel "Exact Cardinality"@en .
+
+fhariexpressiontype:HasSelf a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:Restriction ;
+    skos:prefLabel "Has Self"@en .
+
+fhariexpressiontype:HasValue a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:Restriction ;
+    skos:prefLabel "Has Value"@en .
+
+fhariexpressiontype:Intersection a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:LogicalOperation ;
+    skos:prefLabel "Intersection"@en .
+
+fhariexpressiontype:MaxCardinality a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:CardinalityRestriction ;
+    skos:prefLabel "Max Cardinality"@en .
+
+fhariexpressiontype:MinCardinality a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:CardinalityRestriction ;
+    skos:prefLabel "Min Cardinality"@en .
+
+fhariexpressiontype:SomeValuesFrom a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:ValuesFrom ;
+    skos:prefLabel "Some Values From"@en .
+
+fhariexpressiontype:Union a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:LogicalOperation ;
+    skos:prefLabel "Union"@en .
+
+fhariexpressiontype:ExpressionTypeTesaurus a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf owl:Thing ;
+    skos:prefLabel "Expression Type Tesaurus"@en .
+
+fhariexpressiontype:ValuesFrom a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:Restriction ;
+    skos:prefLabel "Values From"@en .
+
+fhariexpressiontype:CardinalityRestriction a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:Restriction ;
+    skos:prefLabel "Cardinality Restriction"@en .
+
+fhariexpressiontype:LogicalOperation a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:ExpressionTypeTesaurus ;
+    skos:prefLabel "Logical Operation"@en .
+
+fhariexpressiontype:Restriction a owl:Class ;
+    rdfs:isDefinedBy fhariexpressiontype:core ;
+    rdfs:subClassOf fhariexpressiontype:ExpressionTypeTesaurus ;
+    skos:prefLabel "Restriction"@en .
+
+fhariexpressiontype:core a owl:Ontology ;
+    rdfs:label "Ontología principal del proyecto Hari."@en ;
+    dcterms:created "2026-03-26"^^xsd:date ;
+    dcterms:description "Ontología principal del proyecto Hari."@en ;
+    dcterms:issued "2026-05-14"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "http://hari-meta.org" ;
+    dcterms:title "Ontología Hari Core"@en ;
+    vann:preferredNamespacePrefix "hari" ;
+    vann:preferredNamespaceUri "http://hari-meta.org/ontology/hari#" ;
+    rdfs:comment "This version is automatically generated from fhariexpressiontype.xml on 2026-05-14" ;
+    owl:imports skos: ;
+    owl:incompatibleWith "" ;
+    owl:priorVersion "http://hari-meta.org/ontology/fhariexpressiontype#core-" ;
+    owl:versionIRI fhariexpressiontype:core-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
