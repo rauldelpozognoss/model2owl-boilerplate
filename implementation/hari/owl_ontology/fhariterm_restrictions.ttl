@@ -120,60 +120,24 @@ fhariterm:OntologicalTerm rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty fhariterm:hasTermIRI ;
+            owl:onProperty fhariterm:hasTermLabel ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty fhariterm:hasTermLabel ;
+            owl:onProperty fhariterm:hasTermIRI ;
             owl:qualifiedCardinality 1 ] .
 
 fhariterm:Property rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass fhariterm:Class ;
-            owl:onProperty fhariterm:hasObjectPropertyDomainClass ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass fhariterm:Class ;
-            owl:onProperty fhariterm:hasObjectPropertyRangeClass ],
+            owl:onClass fhariterm:Datatype ;
+            owl:onProperty fhariterm:hasDatatypePropertyRangeDatatype ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass fhariterm:Datatype ;
             owl:onProperty fhariterm:hasAnotationPropertyDomainDatatypeAnotation ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass fhariterm:Datatype ;
-            owl:onProperty fhariterm:hasDatatypePropertyRangeDatatype ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty fhariterm:isIrreflexive ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass fhariterm:Class ;
-            owl:onProperty fhariterm:hasAnotationPropertyDomainClassAnotation ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty fhariterm:isAssymetric ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass fhariterm:Class ;
-            owl:onProperty fhariterm:hasDatatypePropertyDomainDatatype ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass fhariterm:Property ;
-            owl:onProperty fhariterm:hasAnotationPropertyDomainPropertyAnotation ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty fhariterm:isFunctional ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty fhariterm:isSymmetric ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty fhariterm:isTransitive ;
+            owl:onProperty fhariterm:isReflexive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
@@ -181,10 +145,46 @@ fhariterm:Property rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty fhariterm:isReflexive ;
+            owl:onProperty fhariterm:isAssymetric ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass fhariterm:Property ;
-            owl:onProperty fhariterm:hasObjectPropertyInverseOf ] .
+            owl:onProperty fhariterm:hasObjectPropertyInverseOf ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass fhariterm:Class ;
+            owl:onProperty fhariterm:hasObjectPropertyRangeClass ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty fhariterm:isSymmetric ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty fhariterm:isFunctional ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass fhariterm:Class ;
+            owl:onProperty fhariterm:hasDatatypePropertyDomainDatatype ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass fhariterm:Class ;
+            owl:onProperty fhariterm:hasAnotationPropertyDomainClassAnotation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass fhariterm:Property ;
+            owl:onProperty fhariterm:hasAnotationPropertyDomainPropertyAnotation ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty fhariterm:isTransitive ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass fhariterm:Class ;
+            owl:onProperty fhariterm:hasObjectPropertyDomainClass ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty fhariterm:isIrreflexive ;
+            owl:qualifiedCardinality 1 ] .
 

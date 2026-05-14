@@ -7,6 +7,30 @@
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#MinCardinality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Min Cardinality</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#CardinalityRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#Restriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Restriction</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ExpressionTypeTesaurus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#CardinalityRestriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Cardinality Restriction</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#LogicalOperation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Logical Operation</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ExpressionTypeTesaurus"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#core">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -25,6 +49,36 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#AllValuesFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">All Values From</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ValuesFrom"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#HasValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Has Value</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#SomeValuesFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Some Values From</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ValuesFrom"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#ExactCardinality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Exact Cardinality</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#CardinalityRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#Complement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Complement</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#LogicalOperation"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#Intersection">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <skos:prefLabel xml:lang="en">Intersection</skos:prefLabel>
@@ -37,71 +91,11 @@
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#LogicalOperation"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#CardinalityRestriction">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Cardinality Restriction</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#Restriction"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#HasSelf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <skos:prefLabel xml:lang="en">Has Self</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#ExpressionTypeTesaurus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Expression Type Tesaurus</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#HasValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Has Value</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#Restriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#AllValuesFrom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">All Values From</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ValuesFrom"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#LogicalOperation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Logical Operation</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ExpressionTypeTesaurus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#Complement">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Complement</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#LogicalOperation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#SomeValuesFrom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Some Values From</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ValuesFrom"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#MaxCardinality">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Max Cardinality</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#CardinalityRestriction"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#Restriction">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Restriction</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#ExpressionTypeTesaurus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#MinCardinality">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Min Cardinality</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
-    <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#CardinalityRestriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#ValuesFrom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -109,10 +103,16 @@
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#Restriction"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#ExactCardinality">
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#MaxCardinality">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <skos:prefLabel xml:lang="en">Exact Cardinality</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Max Cardinality</skos:prefLabel>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
     <rdfs:subClassOf rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#CardinalityRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/ontology/fhariexpressiontype#ExpressionTypeTesaurus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Expression Type Tesaurus</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/ontology/fhariexpressiontype#core"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </rdf:Description>
 </rdf:RDF>

@@ -7,6 +7,17 @@
    xmlns:sh="http://www.w3.org/ns/shacl#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-ExpressionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/fhariexpression#Expression"/>
+    <rdfs:label>Expression</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasDescription"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCardinalityRestrictionValue"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-isSelf"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasTargetValue"/>
+    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCompositeExpression"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#core-shape">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -27,23 +38,29 @@
     <vann:preferredNamespacePrefix>hari</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-ExpressionShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://hari-meta.org/ontology/fhariexpression#Expression"/>
-    <rdfs:label>Expression</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasDescripcion"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCardinalityRestrictionValue"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-isSelf"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasTargetValue"/>
-    <sh:property rdf:resource="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCompositeExpression"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-isSelf">
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasDescription">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#isSelf"/>
-    <sh:name>Is self</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#hasDescription"/>
+    <sh:name>Has description</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCompositeExpression">
+    <sh:class rdf:resource="http://hari-meta.org/ontology/fhariexpression#Expression"/>
+    <sh:sparql rdf:nodeID="N1b2e3c9967f044849d2eda9de28f04f6"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#hasCompositeExpression"/>
+    <sh:name>Has composite expression</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCardinalityRestrictionValue">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#hasCardinalityRestrictionValue"/>
+    <sh:name>Has cardinality restriction value</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
   <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasTargetValue">
@@ -54,32 +71,15 @@
     <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCompositeExpression">
-    <sh:class rdf:resource="http://hari-meta.org/ontology/fhariexpression#Expression"/>
-    <sh:sparql rdf:nodeID="N64ba4529d6374f5997fd0711fd252ef9"/>
+  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-isSelf">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#hasCompositeExpression"/>
-    <sh:name>Has composite expression</sh:name>
+    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#isSelf"/>
+    <sh:name>Is self</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasDescripcion">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#hasDescripcion"/>
-    <sh:name>Has descripcion</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N64ba4529d6374f5997fd0711fd252ef9">
+  <rdf:Description rdf:nodeID="N1b2e3c9967f044849d2eda9de28f04f6">
     <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://hari-meta.org/ontology/fhariexpression#hasCompositeExpression&gt; ?that . ?that &lt;http://hari-meta.org/ontology/fhariexpression#hasCompositeExpression&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://hari-meta.org/data-shape/hari#fhariexpression-Expression-fhariexpression-hasCardinalityRestrictionValue">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://hari-meta.org/ontology/fhariexpression#hasCardinalityRestrictionValue"/>
-    <sh:name>Has cardinality restriction value</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://hari-meta.org/data-shape/hari#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
 </rdf:RDF>

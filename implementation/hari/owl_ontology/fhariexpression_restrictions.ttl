@@ -32,7 +32,7 @@ fhariexpression:hasCompositeExpression a owl:AsymmetricProperty ;
 fhariexpression:hasCardinalityRestrictionValue rdfs:domain fhariexpression:Expression ;
     rdfs:range xsd:integer .
 
-fhariexpression:hasDescripcion a owl:FunctionalProperty ;
+fhariexpression:hasDescription a owl:FunctionalProperty ;
     rdfs:domain fhariexpression:Expression ;
     rdfs:range xsd:string .
 
@@ -44,18 +44,18 @@ fhariexpression:isSelf rdfs:domain fhariexpression:Expression ;
 
 fhariexpression:Expression rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty fhariexpression:hasTargetValue ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:integer ;
             owl:onProperty fhariexpression:hasCardinalityRestrictionValue ],
         [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty fhariexpression:hasDescripcion ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange xsd:boolean ;
-            owl:onProperty fhariexpression:isSelf ] .
+            owl:onProperty fhariexpression:isSelf ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty fhariexpression:hasTargetValue ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty fhariexpression:hasDescription ;
+            owl:qualifiedCardinality 1 ] .
 
